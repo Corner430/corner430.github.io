@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
   <title>RAID10 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="RAID 0 acceleration without backup RAID 1 backups are not accelerated RAID 5 parity, accelerated backup for low cost RAID 10 RAID 0 + RAID 1 RAID1 is formed first, backup is not accelerated, and then">
+  <meta name="description" content="1. RAID RAID 0 acceleration without backup RAID 1 backups are not accelerated RAID 5 parity, accelerated backup for low cost RAID 10 RAID 0 + RAID 1 RAID1 is formed first, backup is not accelerated, a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="RAID10">
 <meta property="og:url" content="http://corner647.gitee.io/2023/04/03/RAID10/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="RAID 0 acceleration without backup RAID 1 backups are not accelerated RAID 5 parity, accelerated backup for low cost RAID 10 RAID 0 + RAID 1 RAID1 is formed first, backup is not accelerated, and then">
+<meta property="og:description" content="1. RAID RAID 0 acceleration without backup RAID 1 backups are not accelerated RAID 5 parity, accelerated backup for low cost RAID 10 RAID 0 + RAID 1 RAID1 is formed first, backup is not accelerated, a">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T10:28:37.000Z">
-<meta property="article:modified_time" content="2023-04-03T10:35:04.921Z">
+<meta property="article:modified_time" content="2023-04-03T14:16:57.202Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：489字 | 预计阅读时长：3分钟
+    		字数：496字 | 预计阅读时长：3分钟
 	</div>
         
   
@@ -190,17 +190,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li><p>RAID 0 acceleration without backup<br> RAID 1 backups are not accelerated<br> RAID 5 parity, accelerated backup for low cost<br> RAID 10 RAID 0 + RAID 1 RAID1 is formed first, backup is not accelerated, and then RAID0 is formed, acceleration is not backed up. Unless all hard disks in one group fail. The utilization rate is 50%. high cost</p>
-<span id="more"></span></li>
-<li><p>virtual four parallel disks</p>
-</li>
-<li><p><code>/dev</code>check disk</p>
-</li>
-<li><p>make an array card</p>
-</li>
-</ol>
-<p><code>sudo mdadm -Cv /dev/md0 -a yes -n 4 -l 10 /dev/sdb /dev/sdc /dev/sdd /dev/sde</code></p>
+        <h5 id="1-RAID"><a href="#1-RAID" class="headerlink" title="1. RAID"></a>1. RAID</h5><ul>
+<li>RAID 0 acceleration without backup</li>
+<li>RAID 1 backups are not accelerated</li>
+<li>RAID 5 parity, accelerated backup for low cost</li>
+<li>RAID 10 RAID 0 + RAID 1 RAID1 is formed first, backup is not accelerated, and then RAID0 is formed, acceleration is not backed up. Unless all hard disks in one group fail. The utilization rate is 50%. high cost<span id="more"></span></li>
+</ul>
+<h5 id="2-virtual-four-parallel-disks"><a href="#2-virtual-four-parallel-disks" class="headerlink" title="2. virtual four parallel disks"></a>2. virtual four parallel disks</h5><h5 id="3-devcheck-disk"><a href="#3-devcheck-disk" class="headerlink" title="3. /devcheck disk"></a>3. <code>/dev</code>check disk</h5><h5 id="4-make-an-array-card"><a href="#4-make-an-array-card" class="headerlink" title="4. make an array card"></a>4. make an array card</h5><p><code>sudo mdadm -Cv /dev/md0 -a yes -n 4 -l 10 /dev/sdb /dev/sdc /dev/sdd /dev/sde</code></p>
 <ul>
 <li>The mdadm command is used to manage the software RAID hard disk array in the Linux system</li>
 <li>The -C parameter represents creating a RAID array card</li>
@@ -210,27 +206,19 @@
 <li>-l 10 specifies the RAID level as RAID 10 scheme</li>
 <li>The last is the name of the 4 hard disk devices</li>
 </ul>
-<ol start="5">
-<li><p>format<br><code>mkfs.ext4 /dev/md0</code></p>
-</li>
-<li><p>mount</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /RAID</span><br><span class="line">mount /dev/md0  /RAID</span><br><span class="line">df -h</span><br></pre></td></tr></table></figure></li>
-</ol>
+<h5 id="5-format"><a href="#5-format" class="headerlink" title="5. format"></a>5. format</h5><p><code>mkfs.ext4 /dev/md0</code></p>
+<h5 id="6-mount"><a href="#6-mount" class="headerlink" title="6. mount"></a>6. mount</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir /RAID</span><br><span class="line">mount /dev/md0  /RAID</span><br><span class="line">df -h</span><br></pre></td></tr></table></figure>
+
 <p>回显</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Filesystem                        Size  Used Avail Use% Mounted on</span><br><span class="line">/dev/mapper/rhel_linuxprobe-root   18G  2.9G   15G  17% /</span><br><span class="line">devtmpfs                          905M     0  905M   0% /dev</span><br><span class="line">tmpfs                             914M   92K  914M   1% /dev/shm</span><br><span class="line">tmpfs                             914M  8.8M  905M   1% /run</span><br><span class="line">tmpfs                             914M     0  914M   0% /sys/fs/cgroup</span><br><span class="line">/dev/sda1                         497M  119M  379M  24% /boot</span><br><span class="line">/dev/md0                           40G   49M   38G   1% /RAID</span><br></pre></td></tr></table></figure>
 
-<ol start="7">
-<li><p>Persistence<br><code>/etc/fstab写入&#39;/dev/md0                     /RAID                       ext4    defaults        0 0&#39;</code></p>
-</li>
-<li><p>check status<br><code> mdadm -D /dev/md0</code><br>回显<br>mdadm: must be super-user to perform this action</p>
+<h5 id="7-Persistence"><a href="#7-Persistence" class="headerlink" title="7. Persistence"></a>7. Persistence</h5><p><code>/etc/fstab写入&#39;/dev/md0                     /RAID                       ext4    defaults        0 0&#39;</code></p>
+<h5 id="8-check-status"><a href="#8-check-status" class="headerlink" title="8. check status"></a>8. check status</h5><p><code> mdadm -D /dev/md0</code><br>回显<br>mdadm: must be super-user to perform this action</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">[corner@linuxprobe ~]$ sudo mdadm -D /dev/md0</span><br><span class="line">/dev/md0:</span><br><span class="line">        Version : 1.2</span><br><span class="line">  Creation Time : Thu Mar  9 14:46:13 2023</span><br><span class="line">     Raid Level : raid10</span><br><span class="line">     Array Size : 41909248 (39.97 GiB 42.92 GB)</span><br><span class="line">  Used Dev Size : 20954624 (19.98 GiB 21.46 GB)</span><br><span class="line">   Raid Devices : 4</span><br><span class="line">  Total Devices : 4</span><br><span class="line">    Persistence : Superblock is persistent</span><br><span class="line"></span><br><span class="line">    Update Time : Thu Mar  9 14:49:17 2023</span><br><span class="line">          State : active, resyncing</span><br><span class="line"> Active Devices : 4</span><br><span class="line">Working Devices : 4</span><br><span class="line"> Failed Devices : 0</span><br><span class="line">  Spare Devices : 0</span><br><span class="line"></span><br><span class="line">         Layout : near=2</span><br><span class="line">     Chunk Size : 512K</span><br><span class="line"></span><br><span class="line">  Resync Status : 90% complete</span><br><span class="line"></span><br><span class="line">           Name : linuxprobe.com:0  (local to host linuxprobe.com)</span><br><span class="line">           UUID : 677b3bb3:5ab19c7d:9b2b8460:3dbacc6c</span><br><span class="line">         Events : 15</span><br><span class="line"></span><br><span class="line">    Number   Major   Minor   RaidDevice State</span><br><span class="line">       0       8       16        0      active sync   /dev/sdb</span><br><span class="line">       1       8       32        1      active sync   /dev/sdc</span><br><span class="line">       2       8       48        2      active sync   /dev/sdd</span><br><span class="line">       3       8       64        3      active sync   /dev/sde</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-</li>
-<li><p>Set the default data storage location: You can set the default data storage location by changing the user’s home directory, for example:<br><code>sudo usermod -d /mnt/raid10/username username</code><br>This will change <strong>username</strong>‘s home directory to <strong>&#x2F;mnt&#x2F;raid10&#x2F;username</strong> and the default data storage location to the RAID10 disk.</p>
-</li>
-<li><p>重启<br>All operations and resulting files should now be stored on the RAID10 disk.</p>
-</li>
-</ol>
+
+<h5 id="9-Set-the-default-data-storage-location-You-can-set-the-default-data-storage-location-by-changing-the-user’s-home-directory-for-example"><a href="#9-Set-the-default-data-storage-location-You-can-set-the-default-data-storage-location-by-changing-the-user’s-home-directory-for-example" class="headerlink" title="9. Set the default data storage location: You can set the default data storage location by changing the user’s home directory, for example:"></a>9. Set the default data storage location: You can set the default data storage location by changing the user’s home directory, for example:</h5><p><code>sudo usermod -d /mnt/raid10/username username</code><br>This will change <strong>username</strong>‘s home directory to <strong>&#x2F;mnt&#x2F;raid10&#x2F;username</strong> and the default data storage location to the RAID10 disk.</p>
+<h5 id="10-重启"><a href="#10-重启" class="headerlink" title="10. 重启"></a>10. 重启</h5><p>All operations and resulting files should now be stored on the RAID10 disk.</p>
 <p>attached<br><code>fdisk /dev/sdb</code> manages disk partitions</p>
 
       
