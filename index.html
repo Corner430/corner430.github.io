@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:79.6k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:81.6k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -152,6 +152,697 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-Steps-to-connect-to-cluster-nodes" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：751字 | 预计阅读时长：4分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Steps-to-connect-to-cluster-nodes/">Steps to connect to cluster nodes</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Steps-to-connect-to-cluster-nodes/" class="archive-article-date">
+  	<time datetime="2023-04-03T11:18:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>If you want to access the web interface of some 172.* network segments locally, you need to use method two to connect.</p>
+</blockquote>
+<h3 id="Method-1-Connect-directly-via-ssh"><a href="#Method-1-Connect-directly-via-ssh" class="headerlink" title="Method 1: Connect directly via ssh"></a>Method 1: Connect directly via ssh</h3><table>
+<thead>
+<tr>
+<th align="center">Intranet ip</th>
+<th align="center">Mapped port</th>
+<th align="center">Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">172.17.0.153</td>
+<td align="center">8002</td>
+<td align="center">ssh <a href="mailto:&#112;&#97;&#110;&#x40;&#x31;&#x35;&#48;&#46;&#x31;&#x35;&#56;&#46;&#x31;&#55;&#46;&#x32;&#51;&#57;">&#112;&#97;&#110;&#x40;&#x31;&#x35;&#48;&#46;&#x31;&#x35;&#56;&#46;&#x31;&#55;&#46;&#x32;&#51;&#57;</a> -p 8002</td>
+</tr>
+<tr>
+<td align="center">172.17.0.154</td>
+<td align="center">8003</td>
+<td align="center">ssh <a href="mailto:&#112;&#97;&#110;&#64;&#49;&#x35;&#48;&#46;&#x31;&#53;&#x38;&#46;&#x31;&#55;&#x2e;&#50;&#x33;&#57;">&#112;&#97;&#110;&#64;&#49;&#x35;&#48;&#46;&#x31;&#53;&#x38;&#46;&#x31;&#55;&#x2e;&#50;&#x33;&#57;</a> -p 8003</td>
+</tr>
+<tr>
+<td align="center">172.17.0.155</td>
+<td align="center">8004</td>
+<td align="center">ssh <a href="mailto:&#x70;&#x61;&#x6e;&#x40;&#x31;&#53;&#x30;&#46;&#x31;&#53;&#56;&#46;&#x31;&#x37;&#x2e;&#50;&#51;&#x39;">&#x70;&#x61;&#x6e;&#x40;&#x31;&#53;&#x30;&#46;&#x31;&#53;&#56;&#46;&#x31;&#x37;&#x2e;&#50;&#51;&#x39;</a> -p 8004</td>
+</tr>
+<tr>
+<td align="center">172.17.0.156</td>
+<td align="center">8005</td>
+<td align="center">ssh <a href="mailto:&#x70;&#97;&#x6e;&#x40;&#x31;&#x35;&#x30;&#x2e;&#x31;&#53;&#56;&#x2e;&#x31;&#x37;&#x2e;&#x32;&#51;&#x39;">&#x70;&#97;&#x6e;&#x40;&#x31;&#x35;&#x30;&#x2e;&#x31;&#53;&#56;&#x2e;&#x31;&#x37;&#x2e;&#x32;&#51;&#x39;</a> -p 8005</td>
+</tr>
+<tr>
+<td align="center">172.17.0.157</td>
+<td align="center">8006</td>
+<td align="center">ssh <a href="mailto:&#112;&#97;&#x6e;&#64;&#49;&#53;&#x30;&#46;&#x31;&#x35;&#56;&#x2e;&#x31;&#55;&#x2e;&#50;&#51;&#57;">&#112;&#97;&#x6e;&#64;&#49;&#53;&#x30;&#46;&#x31;&#x35;&#56;&#x2e;&#x31;&#55;&#x2e;&#50;&#51;&#57;</a> -p 8006</td>
+</tr>
+<tr>
+<td align="center">172.17.0.158</td>
+<td align="center">8007</td>
+<td align="center">ssh <a href="mailto:&#112;&#97;&#x6e;&#64;&#x31;&#53;&#x30;&#46;&#x31;&#x35;&#x38;&#46;&#x31;&#55;&#46;&#x32;&#51;&#57;">&#112;&#97;&#x6e;&#64;&#x31;&#53;&#x30;&#46;&#x31;&#x35;&#x38;&#46;&#x31;&#55;&#46;&#x32;&#51;&#57;</a> -p 8007</td>
+</tr>
+<tr>
+<td align="center">172.17.0.159</td>
+<td align="center">8008</td>
+<td align="center">ssh <a href="mailto:&#112;&#x61;&#110;&#64;&#49;&#x35;&#48;&#46;&#49;&#53;&#x38;&#x2e;&#x31;&#x37;&#46;&#x32;&#51;&#57;">&#112;&#x61;&#110;&#64;&#49;&#x35;&#48;&#46;&#49;&#53;&#x38;&#x2e;&#x31;&#x37;&#46;&#x32;&#51;&#57;</a> -p 8008</td>
+</tr>
+</tbody></table>
+        
+          <a class="article-more-a" href="/2023/04/03/Steps-to-connect-to-cluster-nodes/#more">more >></a>
+        
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Steps-to-connect-to-cluster-nodes/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Transfer-data-via-gpg" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：473字 | 预计阅读时长：2分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Transfer-data-via-gpg/">Transfer data via gpg</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Transfer-data-via-gpg/" class="archive-article-date">
+  	<time datetime="2023-04-03T11:14:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Here are the steps to encrypt data with GPG on CentOS 7 and transfer it with friends:</p>
+<ol>
+<li>Install GPG<br>First, GPG needs to be installed on CentOS 7. It can be installed with the following command:<br><code>sudo yum install gnupg2</code></li></ol>
+        
+          <a class="article-more-a" href="/2023/04/03/Transfer-data-via-gpg/#more">more >></a>
+        
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Transfer-data-via-gpg/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Delete-the-host-key-record-for-the-specified-IP-address" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：74字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Delete-the-host-key-record-for-the-specified-IP-address/">Delete the host key record for the specified IP address</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Delete-the-host-key-record-for-the-specified-IP-address/" class="archive-article-date">
+  	<time datetime="2023-04-03T11:11:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li>Deletes the host key record for the specified IP address from the SSH client’s “known_hosts” file.<br><code>ssh-keygen -f &quot;~/.ssh/known_hosts&quot; -R &quot;172.17.0.158&quot;</code></li>
+</ul>
+<p>If you need to specify the IP address of the SSH connection as port 8002 of 172.17.0.158, you can use the following command:<br><code>ssh-keygen -f &quot;/home/pan/.ssh/known_hosts&quot; -R &quot;[172.17.0.158]:8002&quot;</code></p>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Delete-the-host-key-record-for-the-specified-IP-address/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Download-the-software-and-all-its-dependencies-on-Ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：97字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Download-the-software-and-all-its-dependencies-on-Ubuntu/">Download the software and all its dependencies on Ubuntu</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Download-the-software-and-all-its-dependencies-on-Ubuntu/" class="archive-article-date">
+  	<time datetime="2023-04-03T11:06:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-Install-apt-rdepends-first"><a href="#1-Install-apt-rdepends-first" class="headerlink" title="1. Install apt-rdepends first"></a>1. Install apt-rdepends first</h5><p><code>sudo apt install apt-rdepends</code></p>
+<h5 id="2-Download-all-dependencies"><a href="#2-Download-all-dependencies" class="headerlink" title="2. Download all dependencies"></a>2. Download all dependencies</h5><p><code>apt download $(apt-rdepends openssh-server | grep -v &quot;^ &quot;)</code></p>
+<h5 id="3-If-an-error-E-Can-39-t-select-candidate-version-from-package-debconf-2-0-as-it-has-no-candidate-is-reported"><a href="#3-If-an-error-E-Can-39-t-select-candidate-version-from-package-debconf-2-0-as-it-has-no-candidate-is-reported" class="headerlink" title="3. If an error E: Can&#39;t select candidate version from package debconf-2.0 as it has no candidate is reported"></a>3. If an error <code>E: Can&#39;t select candidate version from package debconf-2.0 as it has no candidate</code> is reported</h5><p><code>apt download $(apt-rdepends openssh-server | grep -v &quot;^ &quot; | sed &#39;s/debconf-2.0/debconf/g&#39;)</code><br>This command will successfully download <strong>openssh-server</strong> and all required packages and save them in <strong>&#x2F;var&#x2F;cache&#x2F;apt&#x2F;archives</strong> directory.</p>
+<h5 id="4-Installtion"><a href="#4-Installtion" class="headerlink" title="4. Installtion"></a>4. Installtion</h5><p><code>sudo dpkg -i openssh-server*.deb</code><br>even <code>sudo dpkg -i *</code></p>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Download-the-software-and-all-its-dependencies-on-Ubuntu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Install-Redis-on-Ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：2字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Install-Redis-on-Ubuntu/">Install Redis on Ubuntu</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Install-Redis-on-Ubuntu/" class="archive-article-date">
+  	<time datetime="2023-04-03T11:04:49.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://www.ionos.com/digitalguide/hosting/technical-matters/redis-tutorial/">installing Redis</a></p>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Install-Redis-on-Ubuntu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Install-MongoDB-on-Ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：14字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Install-MongoDB-on-Ubuntu/">Install MongoDB on Ubuntu</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Install-MongoDB-on-Ubuntu/" class="archive-article-date">
+  	<time datetime="2023-04-03T11:01:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/">Install MongoDB Community Edition on Ubuntu</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/languages/python">How to Use Python with MongoDB</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.mongodb.com/developer/languages/python/">MongoDB python</a></li>
+</ul>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Install-MongoDB-on-Ubuntu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Install-MySQL-Server-on-Ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：304字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Install-MySQL-Server-on-Ubuntu/">Install MySQL Server on Ubuntu</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Install-MySQL-Server-on-Ubuntu/" class="archive-article-date">
+  	<time datetime="2023-04-03T10:57:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-Install-MySQL-Server-on-Ubuntu"><a href="#1-Install-MySQL-Server-on-Ubuntu" class="headerlink" title="1. Install MySQL Server on Ubuntu"></a>1. Install MySQL Server on Ubuntu</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install mysql-server</span><br></pre></td></tr></table></figure>
+<p>During the installation, you will be prompted to set a password for the root user. Note that this password is very important, please remember it.</p>
+        
+          <a class="article-more-a" href="/2023/04/03/Install-MySQL-Server-on-Ubuntu/#more">more >></a>
+        
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Install-MySQL-Server-on-Ubuntu/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Configure-jupyter-notebook-in-wsl" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：278字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/03/Configure-jupyter-notebook-in-wsl/">Configure jupyter notebook in wsl</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/03/Configure-jupyter-notebook-in-wsl/" class="archive-article-date">
+  	<time datetime="2023-04-03T10:53:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h5 id="1-conda-install-jupyter-notebook"><a href="#1-conda-install-jupyter-notebook" class="headerlink" title="1. conda install jupyter notebook"></a>1. <code>conda install jupyter notebook</code></h5>
+        
+          <a class="article-more-a" href="/2023/04/03/Configure-jupyter-notebook-in-wsl/#more">more >></a>
+        
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/03/Configure-jupyter-notebook-in-wsl/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
     <article id="post-RAID10" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -314,665 +1005,9 @@
 
 
   
-    <article id="post-Ubuntu-NAT" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：374字 | 预计阅读时长：2分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/Ubuntu-NAT/">Ubuntu NAT</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/Ubuntu-NAT/" class="archive-article-date">
-  	<time datetime="2023-04-03T10:17:31.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="NAT"><a href="#NAT" class="headerlink" title="NAT"></a>NAT</h3><p>To allow Ubuntu in the LAN to access the Internet, you need to set Ubuntu as a gateway and enable Network Address Translation (NAT).</p>
-        
-          <a class="article-more-a" href="/2023/04/03/Ubuntu-NAT/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/Ubuntu-NAT/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Deploy-Hadoop-on-Ubuntu" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：813字 | 预计阅读时长：5分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/Deploy-Hadoop-on-Ubuntu/">Deploy Hadoop on Ubuntu</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/Deploy-Hadoop-on-Ubuntu/" class="archive-article-date">
-  	<time datetime="2023-04-03T10:04:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><a target="_blank" rel="noopener" href="https://blog.devgenius.io/install-configure-and-setup-hadoop-in-ubuntu-a3cdd6305a0e">Hadoop-3.3.1 Installation guide for Ubuntu</a></li></ul>
-        
-          <a class="article-more-a" href="/2023/04/03/Deploy-Hadoop-on-Ubuntu/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/Deploy-Hadoop-on-Ubuntu/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Configure-oh-my-zsh" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：160字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/Configure-oh-my-zsh/">Configure oh-my-zsh</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/Configure-oh-my-zsh/" class="archive-article-date">
-  	<time datetime="2023-04-03T09:56:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>Install ZSH</p></li></ul>
-        
-          <a class="article-more-a" href="/2023/04/03/Configure-oh-my-zsh/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/Configure-oh-my-zsh/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Solve-Connecting-to-raw-githubusercontent-com-443-failed-Connection-refused" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：41字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/Solve-Connecting-to-raw-githubusercontent-com-443-failed-Connection-refused/">Solve Connecting to raw.githubusercontent.com :443... failed: Connection refused.</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/Solve-Connecting-to-raw-githubusercontent-com-443-failed-Connection-refused/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:55:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>get ip<br>Use the URL: <a target="_blank" rel="noopener" href="https://www.ipaddress.com/">https://www.ipaddress.com/</a> to get the ip address of the raw.githubusercontent.com website: 185.199.108.133.</p>
-</li>
-<li><p>modify the hosts file<br><code>sudo vim /etc/hosts</code><br>Add in the last line: <code>185.199.108.133 raw.githubusercontent.com</code></p>
-</li>
-</ul>
-
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/Solve-Connecting-to-raw-githubusercontent-com-443-failed-Connection-refused/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-terminal-dictionary" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：64字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/terminal-dictionary/">terminal dictionary</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/terminal-dictionary/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:39:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ol>
-<li><p><a target="_blank" rel="noopener" href="https://github.com/ChestnutHeng/Wudao-dict">Wudao-dict</a></p>
-</li>
-<li><p>sdcv</p></li></ol>
-        
-          <a class="article-more-a" href="/2023/04/03/terminal-dictionary/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/terminal-dictionary/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-migration-of-hexo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：49字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/migration-of-hexo/">migration of hexo</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/migration-of-hexo/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:34:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>Just pass the entire directory directly through sftp</p></li></ul>
-        
-          <a class="article-more-a" href="/2023/04/03/migration-of-hexo/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/migration-of-hexo/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-WSL-modify-the-default-installation-directory-to-another-disk" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：120字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/WSL-modify-the-default-installation-directory-to-another-disk/">WSL modify the default installation directory to another disk</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/WSL-modify-the-default-installation-directory-to-another-disk/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:13:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li><p>Check out the WSL distribution<br>Enter the following command in Windows PowerShell:<br><code>wsl -l -v</code></p></li></ul>
-        
-          <a class="article-more-a" href="/2023/04/03/WSL-modify-the-default-installation-directory-to-another-disk/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/WSL-modify-the-default-installation-directory-to-another-disk/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-wsl-supports-systemd" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：46字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/03/wsl-supports-systemd/">wsl supports systemd</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/03/wsl-supports-systemd/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:09:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <ul>
-<li>Add these lines to the <em>&#x2F;etc&#x2F;wsl.conf</em> (note you will need to run your editor with sudo privileges, e.g: sudo vim <em>&#x2F;etc&#x2F;wsl.conf</em>):<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[boot]</span><br><span class="line">systemd=true</span><br></pre></td></tr></table></figure></li>
-</ul>
-<blockquote>
-<p>Pay attention to port conflicts</p>
-</blockquote>
-<ul>
-<li>Reference<br><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/">Systemd support is now available in WSL!</a></li>
-</ul>
-
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/03/wsl-supports-systemd/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
     </nav>
   
 
