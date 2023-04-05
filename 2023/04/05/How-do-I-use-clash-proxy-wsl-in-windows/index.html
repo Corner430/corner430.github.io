@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
-  <title>Windows font | Hexo</title>
+  <title>How do I use clash proxy wsl in windows? | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Original font: msyh.ttc">
+  <meta name="description" content="修改允许应用或功能通过 Windows Defender防火墙Control Panel &gt; System and Security &gt; Windows Defender Firewall &gt; Allow an app or feature through Windows Defender Firewall.">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Windows font">
-<meta property="og:url" content="http://corner647.gitee.io/2023/04/03/Windows-font/index.html">
+<meta property="og:title" content="How do I use clash proxy wsl in windows?">
+<meta property="og:url" content="http://corner647.gitee.io/2023/04/05/How-do-I-use-clash-proxy-wsl-in-windows/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Original font: msyh.ttc">
+<meta property="og:description" content="修改允许应用或功能通过 Windows Defender防火墙Control Panel &gt; System and Security &gt; Windows Defender Firewall &gt; Allow an app or feature through Windows Defender Firewall.">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-03T10:25:28.000Z">
-<meta property="article:modified_time" content="2023-04-03T10:35:23.701Z">
+<meta property="article:published_time" content="2023-04-05T11:42:16.000Z">
+<meta property="article:modified_time" content="2023-04-05T11:44:40.653Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -156,17 +156,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Windows-font" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-How-do-I-use-clash-proxy-wsl-in-windows" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：82字 | 预计阅读时长：1分钟
+    		字数：437字 | 预计阅读时长：2分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      Windows font
+      How do I use clash proxy wsl in windows?
     </h1>
   
 
@@ -182,18 +182,30 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/04/03/Windows-font/" class="archive-article-date">
-  	<time datetime="2023-04-03T10:25:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+        <a href="/2023/04/05/How-do-I-use-clash-proxy-wsl-in-windows/" class="archive-article-date">
+  	<time datetime="2023-04-05T11:42:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Original font: <strong>msyh.ttc</strong><span id="more"></span></p>
-<hr>
-<p><code>regedit</code><br>Run the command prompt <code>regedit</code> as an administrator, open the registry, and navigate to <code>HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\WindowsNT\CurrentVersion\Fonts</code><br>Find the font you are satisfied with and right click - modify - copy value data<br>Find <code>Microsoft YaHei &amp; Microsoft YaHei UI (TrueType)</code> and change the following <code>msyh.ttc</code> to the font you want. Note: only change the value data, the value name should not be changed</p>
-<p>After the modification, exit the registry and restart!<br>Check if the font has changed?</p>
+        <h3 id="修改允许应用或功能通过-Windows-Defender防火墙"><a href="#修改允许应用或功能通过-Windows-Defender防火墙" class="headerlink" title="修改允许应用或功能通过 Windows Defender防火墙"></a>修改允许应用或功能通过 Windows Defender防火墙</h3><p><code>Control Panel &gt; System and Security &gt; Windows Defender Firewall &gt; Allow an app or feature through Windows Defender Firewall. </code></p>
+<span id="more"></span>
+<ol>
+<li>找是否有clash-win64.exe的规则配置，注意不是 Clash For Windows ，CFW本身只是clash的一个前端，在启动CFW的时候有概率防火墙只添加CFW本身，而不添加作为核心的clash的防火墙规则，这个时候则需要我们手动修改。</li>
+<li>如果已经有了clash-win64.exe的规则，则只需要配置专有和公共网络同时允许即可。</li>
+<li>如果没有clash-win64.exe的规则，可以通过下方的允许其他应用手动添加规则，具体clash核心文件的路径可以通过任务管理器后台或 <strong>Clash for Windows\resources\static\files\win\x64\clash-win64.exe</strong> 类似的路径查询到。添加规则的时候同时允许专用和公共即可。</li>
+</ol>
+<h3 id="在wsl中配置代理（方案一）"><a href="#在wsl中配置代理（方案一）" class="headerlink" title="在wsl中配置代理（方案一）"></a>在wsl中配置代理（方案一）</h3><p>将下面几行脚本加入你的bashrc或者zshrc：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># proxy</span></span><br><span class="line"><span class="built_in">export</span> HOSTIP=$(<span class="built_in">cat</span> /etc/resolv.conf | grep <span class="string">&quot;nameserver&quot;</span> | <span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line"><span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br><span class="line"><span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br><span class="line"><span class="built_in">export</span> all_proxy=<span class="string">&quot;socks5://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br><span class="line"><span class="built_in">export</span> ALL_PROXY=<span class="string">&quot;socks5://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="在wsl中配置代理（方案二）"><a href="#在wsl中配置代理（方案二）" class="headerlink" title="在wsl中配置代理（方案二）"></a>在wsl中配置代理（方案二）</h3><p>将下面几行脚本加入你的bashrc或者zshrc：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># proxy</span></span><br><span class="line"><span class="function"><span class="title">proxy</span></span> () &#123;</span><br><span class="line">  <span class="built_in">export</span> HOSTIP=$(<span class="built_in">cat</span> /etc/resolv.conf | grep <span class="string">&quot;nameserver&quot;</span> | <span class="built_in">cut</span> -f 2 -d <span class="string">&quot; &quot;</span>)</span><br><span class="line">  <span class="built_in">export</span> http_proxy=<span class="string">&quot;http://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br><span class="line">  <span class="built_in">export</span> https_proxy=<span class="string">&quot;http://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br><span class="line">  <span class="built_in">export</span> ALL_PROXY=<span class="string">&quot;http://<span class="variable">$HOSTIP</span>:7890&quot;</span></span><br><span class="line">  <span class="comment">#export all_proxy=&quot;socks5://$HOSTIP:7890&quot;</span></span><br><span class="line">  <span class="comment">#export ALL_PROXY=&quot;socks5://$HOSTIP:7890&quot;</span></span><br><span class="line">  <span class="comment">#export ALL_PROXY=&quot;http://$host_ip:7890&quot;</span></span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;HTTP Proxy on&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment"># no proxy</span></span><br><span class="line"><span class="function"><span class="title">unproxy</span></span> () &#123;</span><br><span class="line">  <span class="built_in">unset</span> http_proxy </span><br><span class="line">  <span class="built_in">unset</span> https_proxy</span><br><span class="line">  <span class="comment">#unset all_proxy</span></span><br><span class="line">  <span class="built_in">unset</span> ALL_PROXY</span><br><span class="line">  <span class="built_in">echo</span> <span class="string">&quot;HTTP Proxy off&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h3><p><a target="_blank" rel="noopener" href="https://halc.top/p/6088c65c">WSL配置Proxy代理引导</a></p>
+<p><a target="_blank" rel="noopener" href="https://superuser.com/questions/1742501/whats-the-difference-between-hostip-and-windows-ip-when-set-wsl2-proxy-by-c">What’s the difference between <code>hostip</code> and <code>windows ip</code> when set WSL2 proxy by Clash <code>Allow LAN</code>?</a></p>
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/aucker/d0fce5477e02cdd7fa76c1c81a87a610">Use proxy in WSL2🚀</a></p>
 
       
 	
@@ -226,7 +238,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner647.gitee.io/2023/04/03/Windows-font/">http://corner647.gitee.io/2023/04/03/Windows-font/</a>
+    <a rel="license" href="http://corner647.gitee.io/2023/04/05/How-do-I-use-clash-proxy-wsl-in-windows/">http://corner647.gitee.io/2023/04/05/How-do-I-use-clash-proxy-wsl-in-windows/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -316,7 +328,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/04/03/Windows-font/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/04/05/How-do-I-use-clash-proxy-wsl-in-windows/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -330,18 +342,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/04/03/RAID10/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          RAID10
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/04/03/Ubuntu-NAT/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ubuntu NAT</div>
+    <a href="/2023/04/05/%E5%85%8D%E8%B4%B9%E7%94%B3%E8%AF%B7Microsoft-365-E5%E5%BC%80%E5%8F%91%E8%80%85%E8%B4%A6%E5%8F%B7/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">免费申请Microsoft 365 E5开发者账号</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -360,6 +363,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E5%85%81%E8%AE%B8%E5%BA%94%E7%94%A8%E6%88%96%E5%8A%9F%E8%83%BD%E9%80%9A%E8%BF%87-Windows-Defender%E9%98%B2%E7%81%AB%E5%A2%99"><span class="toc-number">1.</span> <span class="toc-text">修改允许应用或功能通过 Windows Defender防火墙</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8wsl%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%96%B9%E6%A1%88%E4%B8%80%EF%BC%89"><span class="toc-number">2.</span> <span class="toc-text">在wsl中配置代理（方案一）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9C%A8wsl%E4%B8%AD%E9%85%8D%E7%BD%AE%E4%BB%A3%E7%90%86%EF%BC%88%E6%96%B9%E6%A1%88%E4%BA%8C%EF%BC%89"><span class="toc-number">3.</span> <span class="toc-text">在wsl中配置代理（方案二）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Reference"><span class="toc-number">4.</span> <span class="toc-text">Reference</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
