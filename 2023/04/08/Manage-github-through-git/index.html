@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
-  <title>wsl supports systemd | Hexo</title>
+  <title>Manage github through git | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Add these lines to the &#x2F;etc&#x2F;wsl.conf (note you will need to run your editor with sudo privileges, e.g: sudo vim &#x2F;etc&#x2F;wsl.conf):12[boot]systemd&#x3D;true   Pay attention to port conflic">
+  <meta name="description" content="git clone &lt;GitHub仓库的URL&gt;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="wsl supports systemd">
-<meta property="og:url" content="http://corner647.gitee.io/2023/04/03/wsl-supports-systemd/index.html">
+<meta property="og:title" content="Manage github through git">
+<meta property="og:url" content="http://corner647.gitee.io/2023/04/08/Manage-github-through-git/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Add these lines to the &#x2F;etc&#x2F;wsl.conf (note you will need to run your editor with sudo privileges, e.g: sudo vim &#x2F;etc&#x2F;wsl.conf):12[boot]systemd&#x3D;true   Pay attention to port conflic">
+<meta property="og:description" content="git clone &lt;GitHub仓库的URL&gt;">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-03T08:09:51.000Z">
-<meta property="article:modified_time" content="2023-04-03T08:31:02.582Z">
+<meta property="article:published_time" content="2023-04-08T06:51:45.000Z">
+<meta property="article:modified_time" content="2023-04-08T07:09:18.636Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -156,17 +156,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-wsl-supports-systemd" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Manage-github-through-git" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：46字 | 预计阅读时长：1分钟
+    		字数：1.7k字 | 预计阅读时长：7分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      wsl supports systemd
+      Manage github through git
     </h1>
   
 
@@ -182,8 +182,8 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/04/03/wsl-supports-systemd/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:09:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+        <a href="/2023/04/08/Manage-github-through-git/" class="archive-article-date">
+  	<time datetime="2023-04-08T06:51:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-08</time>
 </a>
         
       </header>
@@ -191,14 +191,49 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>Add these lines to the <em>&#x2F;etc&#x2F;wsl.conf</em> (note you will need to run your editor with sudo privileges, e.g: sudo vim <em>&#x2F;etc&#x2F;wsl.conf</em>):<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[boot]</span><br><span class="line">systemd=true</span><br></pre></td></tr></table></figure></li>
+<li><code>git clone &lt;GitHub仓库的URL&gt;</code><span id="more"></span></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m &quot;Commit message&quot;</code></li>
+<li><code>git push origin master</code></li>
+<li>如果在 GitHub 网站上进行了更改，并且您想要在本地存储库中更新更改，则可以使用以下命令<ul>
+<li><code>git pull origin master #这将从 GitHub 仓库中获取更改并将其合并到本地存储库中。</code></li>
+</ul>
+</li>
+<li>如果您只想更改仓库中特定文件夹中的特定文件，可以使用以下步骤：<ul>
+<li><code>git add &lt;file-path&gt;</code></li>
+<li><code>git commit -m &quot;Commit message&quot;</code></li>
+<li><code>git push origin master</code></li>
+</ul>
+</li>
 </ul>
 <blockquote>
-<p>Pay attention to port conflicts</p>
+<p>GitHub 在 2021 年 8 月 13 日停止了密码身份验证。现在，GitHub 推荐使用访问令牌（Access Token）或 SSH 密钥进行身份验证。</p>
 </blockquote>
+<ol>
+<li><p>在您的 GitHub 账户中生成一个访问令牌。请按照以下步骤进行操作：</p>
 <ul>
-<li>Reference<br><a target="_blank" rel="noopener" href="https://devblogs.microsoft.com/commandline/systemd-support-is-now-available-in-wsl/">Systemd support is now available in WSL!</a></li>
+<li>在 GitHub 上登录您的账户，并进入“Settings”（设置）页面。</li>
+<li>点击左侧导航栏中的“Developer settings”（开发人员设置），然后选择“Personal access tokens”（个人访问令牌）。</li>
+<li>点击“Generate new token”（生成新令牌）。</li>
+<li>选择所需的权限，然后点击“Generate token”（生成令牌）。</li>
+<li>复制生成的访问令牌。</li>
 </ul>
+</li>
+<li><p>在您的本地 Git 存储库中更新身份验证信息。执行以下命令：<br><code>git config --global credential.helper store</code><br>这将设置 Git 存储凭据的方式为存储在本地文件中。</p>
+</li>
+<li><p>现在，执行以下命令将访问令牌添加到 Git 存储库中：<br> <code>git config --global credential.helper &#39;cache --timeout=3600&#39;</code><br>在上面的命令中，<code>3600</code> 表示凭据缓存的有效时间为 1 小时。您可以根据需要调整这个值。</p>
+</li>
+<li><p>最后，重新执行 push 命令。Git 应该会提示您输入用户名和密码。此时，<strong>您应该输入刚才生成的访问令牌作为密码</strong>。<br> <code>git push origin master</code><br>在输入访问令牌后，应该可以成功推送您的更改到 GitHub 仓库中。</p>
+</li>
+</ol>
+<blockquote>
+<p>如果您想将凭据信息存储在特定的 Git 存储库中，而不是全局范围内，可以使用 –local 参数代替 –global 参数，例如：<code>git config --local credential.helper store</code></p>
+</blockquote>
+<ol start="5">
+<li>如果您想撤消全局设置并将存储方式更改回默认设置，可以使用以下命令：<br> <code>git config --global --unset credential.helper</code><br>这将删除全局配置中的凭据存储方式，并使 Git 使用默认方式处理凭据信息。</li>
+</ol>
+<p>git init                                                  # 初始化本地git仓库（创建新仓库）<br>git config –global user.name “xxx”                       # 配置用户名<br>git config –global user.email “<a href="mailto:&#x78;&#120;&#x78;&#x40;&#120;&#x78;&#x78;&#46;&#x63;&#111;&#x6d;">&#x78;&#120;&#x78;&#x40;&#120;&#x78;&#x78;&#46;&#x63;&#111;&#x6d;</a>“              # 配置邮件<br>git config –global color.ui true                         # git status等命令自动着色<br>git config –global color.status auto<br>git config –global color.diff auto<br>git config –global color.branch auto<br>git config –global color.interactive auto<br>git config –global –unset http.proxy                    # remove  proxy configuration on git<br>git clone git+ssh:&#x2F;&#x2F;<a href="mailto:&#x67;&#105;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#x38;&#46;&#53;&#x33;&#46;&#49;&#x36;&#x38;">&#x67;&#105;&#116;&#x40;&#x31;&#57;&#x32;&#x2e;&#49;&#54;&#x38;&#46;&#53;&#x33;&#46;&#49;&#x36;&#x38;</a>&#x2F;VT.git             # clone远程仓库<br>git status                                                # 查看当前版本状态（是否修改）<br>git add xyz                                               # 添加xyz文件至index<br>git add .                                                 # 增加当前子目录下所有更改过的文件至index<br>git commit -m ‘xxx’                                       # 提交<br>git commit –amend -m ‘xxx’                               # 合并上一次提交（用于反复修改）<br>git commit -am ‘xxx’                                      # 将add和commit合为一步<br>git rm xxx                                                # 删除index中的文件<br>git rm -r *                                               # 递归删除<br>git log                                                   # 显示提交日志<br>git log -1                                                # 显示1行日志 -n为n行<br>git log -5<br>git log –stat                                            # 显示提交日志及相关变动文件<br>git log -p -m<br>git show dfb02e6e4f2f7b573337763e5c0013802e392818         # 显示某个提交的详细内容<br>git show dfb02                                            # 可只用commitid的前几位<br>git show HEAD                                             # 显示HEAD提交日志<br>git show HEAD^                                            # 显示HEAD的父（上一个版本）的提交日志 ^^为上两个版本 ^5为上5个版本<br>git tag                                                   # 显示已存在的tag<br>git tag -a v2.0 -m ‘xxx’                                  # 增加v2.0的tag<br>git show v2.0                                             # 显示v2.0的日志及详细内容<br>git log v2.0                                              # 显示v2.0的日志<br>git diff                                                  # 显示所有未添加至index的变更<br>git diff –cached                                         # 显示所有已添加index但还未commit的变更<br>git diff HEAD^                                            # 比较与上一个版本的差异<br>git diff HEAD – .&#x2F;lib                                    # 比较与HEAD版本lib目录的差异<br>git diff origin&#x2F;master..master                            # 比较远程分支master上有本地分支master上没有的<br>git diff origin&#x2F;master..master –stat                     # 只显示差异的文件，不显示具体内容<br>git remote add origin git+ssh:&#x2F;&#x2F;<a href="mailto:&#103;&#105;&#116;&#64;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#x38;&#46;&#53;&#51;&#x2e;&#49;&#x36;&#56;">&#103;&#105;&#116;&#64;&#x31;&#x39;&#50;&#46;&#49;&#x36;&#x38;&#46;&#53;&#51;&#x2e;&#49;&#x36;&#56;</a>&#x2F;VT.git # 增加远程定义（用于push&#x2F;pull&#x2F;fetch）<br>git branch                                                # 显示本地分支<br>git branch –contains 50089                               # 显示包含提交50089的分支<br>git branch -a                                             # 显示所有分支<br>git branch -r                                             # 显示所有原创分支<br>git branch –merged                                       # 显示所有已合并到当前分支的分支<br>git branch –no-merged                                    # 显示所有未合并到当前分支的分支<br>git branch -m master master_copy                          # 本地分支改名<br>git checkout -b master_copy                               # 从当前分支创建新分支master_copy并检出<br>git checkout -b master master_copy                        # 上面的完整版<br>git checkout features&#x2F;performance                         # 检出已存在的features&#x2F;performance分支<br>git checkout –track hotfixes&#x2F;BJVEP933                    # 检出远程分支hotfixes&#x2F;BJVEP933并创建本地跟踪分支<br>git checkout v2.0                                         # 检出版本v2.0<br>git checkout -b devel origin&#x2F;develop                      # 从远程分支develop创建新本地分支devel并检出<br>git checkout – README                                    # 检出head版本的README文件（可用于修改错误回退）<br>git merge origin&#x2F;master                                   # 合并远程master分支至当前分支<br>git cherry-pick ff44785404a8e                             # 合并提交ff44785404a8e的修改<br>git push origin master                                    # 将当前分支push到远程master分支<br>git push origin :hotfixes&#x2F;BJVEP933                        # 删除远程仓库的hotfixes&#x2F;BJVEP933分支<br>git push –tags                                           # 把所有tag推送到远程仓库<br>git fetch                                                 # 获取所有远程分支（不更新本地分支，另需merge）<br>git fetch –prune                                         # 获取所有原创分支并清除服务器上已删掉的分支<br>git pull origin master                                    # 获取远程分支master并merge到当前分支<br>git mv README README2                                     # 重命名文件README为README2<br>git reset –hard HEAD                                     # 将当前版本重置为HEAD（通常用于merge失败回退）<br>git rebase<br>git branch -d hotfixes&#x2F;BJVEP933                           # 删除分支hotfixes&#x2F;BJVEP933（本分支修改已合并到其他分支）<br>git branch -D hotfixes&#x2F;BJVEP933                           # 强制删除分支hotfixes&#x2F;BJVEP933<br>git ls-files                                              # 列出git index包含的文件<br>git show-branch                                           # 图示当前分支历史<br>git show-branch –all                                     # 图示所有分支历史<br>git whatchanged                                           # 显示提交历史对应的文件修改<br>git revert dfb02e6e4f2f7b573337763e5c0013802e392818       # 撤销提交dfb02e6e4f2f7b573337763e5c0013802e392818<br>git ls-tree HEAD                                          # 内部命令：显示某个git对象<br>git rev-parse v2.0                                        # 内部命令：显示某个ref对于的SHA1 HASH<br>git reflog                                                # 显示所有提交，包括孤立节点<br>git show HEAD@{5}<br>git show master@{yesterday}                               # 显示master分支昨天的状态<br>git log –pretty&#x3D;format:’%h %s’ –graph                   # 图示提交日志<br>git show HEAD~3<br>git show -s –pretty&#x3D;raw 2be7fcb476<br>git stash                                                 # 暂存当前修改，将所有至为HEAD状态<br>git stash list                                            # 查看所有暂存<br>git stash show -p stash@{0}                               # 参考第一次暂存<br>git stash apply stash@{0}                                 # 应用第一次暂存<br>git grep “delete from”                                    # 文件中搜索文本“delete from”<br>git grep -e ‘#define’ –and -e SORT_DIRENT<br>git gc<br>git fsck</p>
+<p>Reference <a target="_blank" rel="noopener" href="https://gist.github.com/guweigang/9848271">guweigang&#x2F;git_toturial</a></p>
 
       
 	
@@ -224,7 +259,24 @@
 
 
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      Corner
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://corner647.gitee.io/2023/04/08/Manage-github-through-git/">http://corner647.gitee.io/2023/04/08/Manage-github-through-git/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
 
 
 <!-- 增加版权声明结束 -->
@@ -304,7 +356,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/04/03/wsl-supports-systemd/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/04/08/Manage-github-through-git/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -318,18 +370,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/04/03/WSL-modify-the-default-installation-directory-to-another-disk/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          WSL modify the default installation directory to another disk
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/04/03/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Hello World</div>
+    <a href="/2023/04/06/Sipser-The-third-edition-of-theory-of-computation-solutions/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Sipser The third edition of theory of computation solutions</div>
       <i class="icon-circle-right"></i>
     </a>
   
