@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. Docker 架构 Docker 包括三个基本概念: 镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。 容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-12T16:04:40.000Z">
-<meta property="article:modified_time" content="2023-04-12T16:44:43.168Z">
+<meta property="article:modified_time" content="2023-04-13T01:13:08.877Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:84.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:85k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.3k字 | 预计阅读时长：5分钟
+    		字数：2k字 | 预计阅读时长：8分钟
 	</div>
         
   
@@ -202,7 +202,41 @@
 <h3 id="2-Docker-容器使用"><a href="#2-Docker-容器使用" class="headerlink" title="2. Docker 容器使用"></a>2. Docker 容器使用</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">docker                      #查看到 Docker 客户端的所有命令选项。</span><br><span class="line">docker command --help       #更深入的了解指定的 Docker 命令使用方法。</span><br><span class="line">docker pull ubuntu          #如果我们本地没有 ubuntu 镜像，我们可以使用 docker pull 命令来载入 ubuntu 镜像</span><br><span class="line">docker run -it ubuntu /bin/bash     #使用 ubuntu 镜像启动一个容器，参数为以命令行模式进入该容器</span><br><span class="line">docker ps -a                #查看所有的容器命令</span><br><span class="line">docker start b750bbbcfd88   #启动一个已停止的容器</span><br><span class="line">docker run -itd --name ubuntu-test ubuntu /bin/bash     #通过 -d 指定容器的运行模式为后台运行，加了 -d 参数默认不会进入容器，想要进入容器需要使用指令 docker exec</span><br><span class="line">docker stop &lt;容器 ID&gt;       #停止一个容器</span><br><span class="line">docker restart &lt;容器 ID&gt;    #重启容器</span><br><span class="line">docker attach &lt;容器 ID&gt;     #进入容器，但是如果从这个容器退出，会导致容器的停止。</span><br><span class="line">docker exec -it &lt;容器 ID&gt; /bin/bash     #进入容器，如果从这个容器退出，容器不会停止</span><br><span class="line">docker export 1e560fca3906 &gt; ubuntu.tar     #导出本地某个容器</span><br><span class="line">cat docker/ubuntu.tar | docker import - test/ubuntu:v1      #从容器快照文件中再导入为镜像</span><br><span class="line">docker import http://example.com/exampleimage.tgz example/imagerepo     #也可以通过指定 URL 或者某个目录来导入</span><br><span class="line">docker rm -f 1e560fca3906   #删除容器，删除容器时，容器必须是停止状态。</span><br><span class="line">docker rmi &lt;镜像名&gt;         #删除镜像</span><br><span class="line">docker container prune      #清理掉所有处于终止状态的容器</span><br><span class="line">-P                          #将容器内部使用的网络端口随机映射到我们使用的主机上。</span><br><span class="line">-p                          #指定端口映射，左侧的为本地主机端口，右侧为容器内部端口</span><br><span class="line">docker port &lt;容器 ID&gt; or &lt;容器 name&gt;    #查看指定 （ID 或者名字）容器的某个确定端口映射到宿主机的端口号</span><br><span class="line">docker logs -f [ID或者名字]  #查看容器内部的标准输出。-f让 docker logs 像使用 tail -f 一样来输出容器内部的标准输出。</span><br><span class="line">docker top [ID或者名字]      #查看容器内部运行的进程</span><br><span class="line">docker inspect [ID或者名字]  #查看 Docker 的底层信息。它会返回一个 JSON 文件记录着 Docker 容器的配置和状态信息。</span><br><span class="line">docker ps -l                #查询最后一次创建的容器</span><br><span class="line">docker images               #列出本地主机上的镜像（REPOSITORY：表示镜像的仓库源；TAG：镜像的标签；IMAGE ID：镜像ID；CREATED：镜像创建时间；SIZE：镜像大小）</span><br><span class="line">docker run -it &lt;REPOSITORY:TAG&gt; #指定特定的镜像进行运行，不指定标签的情况下默认使用ubuntu:latest 镜像。</span><br><span class="line">docker search &lt;名字&gt;        #从 Docker Hub 网站来搜索镜像</span><br></pre></td></tr></table></figure>
 
 <hr>
-<h3 id="3-镜像使用"><a href="#3-镜像使用" class="headerlink" title="3. 镜像使用"></a>3. 镜像使用</h3><h2 id="当我们从-docker-镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。-从已经创建的容器中更新镜像，并且提交这个镜像-使用-Dockerfile-指令来创建一个新的镜像"><a href="#当我们从-docker-镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。-从已经创建的容器中更新镜像，并且提交这个镜像-使用-Dockerfile-指令来创建一个新的镜像" class="headerlink" title="当我们从 docker 镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。- 从已经创建的容器中更新镜像，并且提交这个镜像- 使用 Dockerfile 指令来创建一个新的镜像"></a>当我们从 docker 镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。<br>- 从已经创建的容器中更新镜像，并且提交这个镜像<br>- 使用 Dockerfile 指令来创建一个新的镜像</h2><h3 id="4-问题集"><a href="#4-问题集" class="headerlink" title="4. 问题集"></a>4. 问题集</h3><ul>
+<h3 id="3-镜像使用"><a href="#3-镜像使用" class="headerlink" title="3. 镜像使用"></a>3. 镜像使用</h3><p>当我们从 docker 镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。</p>
+<ul>
+<li>从已经创建的容器中更新镜像，并且提交这个镜像</li>
+<li>使用 Dockerfile 指令来创建一个新的镜像</li>
+</ul>
+<h4 id="3-1-更新镜像"><a href="#3-1-更新镜像" class="headerlink" title="3.1 更新镜像"></a>3.1 更新镜像</h4><ul>
+<li>更新镜像之前，我们需要使用镜像来创建一个容器。</li>
+<li>在运行的容器内使用 <code>apt-get update</code> 命令进行更新。</li>
+<li>在完成操作之后，输入 exit 命令来退出这个容器。</li>
+<li>此时 ID 为 e218edb10161 的容器，是按我们的需求更改的容器。我们可以通过命令 <code>docker commit</code> 来提交容器副本。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker commit -m=&quot;has update&quot; -a=&quot;corner&quot; e218edb10161 corner/ubuntu:v2</span><br><span class="line">sha256:70bf1840fd7c0d2d8ef0a42a817eb29f854c1af8f7c59fc03ac7bdee9545aff8</span><br></pre></td></tr></table></figure>
+各个参数说明：<ul>
+<li>-m: 提交的描述信息</li>
+<li>-a: 指定镜像作者</li>
+<li>e218edb10161：容器 ID</li>
+<li>corner&#x2F;ubuntu:v2: 指定要创建的目标镜像名<br>可以使用 <code>docker images</code> 命令来查看我们的新镜像 <code>corner/ubuntu:v2</code><br><code>docker run -t -i corner/ubuntu:v2 /bin/bash  #根据镜像启动新容器</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="3-2-构建镜像"><a href="#3-2-构建镜像" class="headerlink" title="3.2 构建镜像"></a>3.2 构建镜像</h4><p>我们使用命令 <code>docker build</code> ， 从零开始来创建一个新的镜像。为此，我们需要创建一个 Dockerfile 文件，其中包含一组<code>指令</code>来告诉 Docker 如何构建我们的镜像。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">corner@corner:~$ cat Dockerfile </span><br><span class="line">FROM    centos:6.7</span><br><span class="line">MAINTAINER      Fisher &quot;fisher@sudops.com&quot;</span><br><span class="line"></span><br><span class="line">RUN     /bin/echo &#x27;root:123456&#x27; |chpasswd</span><br><span class="line">RUN     useradd corner</span><br><span class="line">RUN     /bin/echo &#x27;corner:123456&#x27; |chpasswd</span><br><span class="line">RUN     /bin/echo -e &quot;LANG=\&quot;en_US.UTF-8\&quot;&quot; &gt;/etc/default/local</span><br><span class="line">EXPOSE  22</span><br><span class="line">EXPOSE  80</span><br><span class="line">CMD     /usr/sbin/sshd -D</span><br></pre></td></tr></table></figure>
+<ul>
+<li>每一个指令都会在镜像上创建一个新的层，每一个指令的前缀都必须是大写的。</li>
+<li>第一条FROM，指定使用哪个镜像源</li>
+<li>RUN 指令告诉docker 在镜像内执行命令，安装了什么</li>
+<li>然后，我们使用 Dockerfile 文件，通过 docker build 命令来构建一个镜像。</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">corner@corner:~$ docker build -t corner/centos:6.7 .</span><br><span class="line">Sending build context to Docker daemon 17.92 kB</span><br><span class="line">Step 1 : FROM centos:6.7</span><br><span class="line"> ---&amp;gt; d95b5ca17cc3</span><br><span class="line">Step 2 : MAINTAINER Fisher &quot;fisher@sudops.com&quot;</span><br><span class="line"> ---&amp;gt; Using cache</span><br><span class="line"> ---&amp;gt; 0c92299c6f03</span><br><span class="line">Step 3 : RUN /bin/echo &#x27;root:123456&#x27; |chpasswd</span><br><span class="line"> ---&amp;gt; Using cache</span><br><span class="line"> ---&amp;gt; 0397ce2fbd0a</span><br><span class="line">Step 4 : RUN useradd corner</span><br><span class="line">......</span><br></pre></td></tr></table></figure>
+<ul>
+<li>-t ：指定要创建的目标镜像名</li>
+<li>. ：Dockerfile 文件所在目录，可以指定Dockerfile 的绝对路径</li>
+</ul>
+<h4 id="3-3-设置镜像标签"><a href="#3-3-设置镜像标签" class="headerlink" title="3.3 设置镜像标签"></a>3.3 设置镜像标签</h4><p>我们可以使用 docker tag 命令，为镜像添加一个新的标签。<br><code>docker tag 860c279d2fec runoob/centos:dev</code><br>docker tag 镜像ID，这里是 860c279d2fec ,用户名称、镜像源名(repository name)和新的标签名(tag)。<br>使用 docker images 命令可以看到，ID为860c279d2fec的镜像多一个标签。</p>
+<h3 id="4-Docker-容器连接"><a href="#4-Docker-容器连接" class="headerlink" title="4. Docker 容器连接"></a>4. Docker 容器连接</h3><p>可以指定容器绑定的网络地址，比如绑定 127.0.0.1。还可以指定&#x2F;udp，默认是&#x2F;tcp<br><code>docker run -d -p 127.0.0.1:5001:5000/udp training/webapp python app.py</code></p>
+<h4 id="4-1-Docker容器互联"><a href="#4-1-Docker容器互联" class="headerlink" title="4.1 Docker容器互联"></a>4.1 Docker容器互联</h4><p>端口映射并不是唯一把 docker 连接到另一个容器的方法。<br>docker 有一个连接系统允许将多个容器连接在一起，共享连接信息。<br>docker 连接会创建一个父子关系，其中父容器可以看到子容器的信息。</p>
+<h3 id="5-问题集"><a href="#5-问题集" class="headerlink" title="5. 问题集"></a>5. 问题集</h3><ul>
 <li>安装完 docker 后，执行docker相关命令，出现：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/json: dial unix /var/run/docker.sock: connect: permission denied&quot;</span></span><br></pre></td></tr></table></figure>
 原因如下：<blockquote>
 <p>Manage Docker as a non-root user</p>
@@ -220,7 +254,7 @@
 <li>方案一：使用sudo获取管理员权限，运行docker命令</li>
 <li>方案二<br>  docker守护进程启动的时候，会默认赋予名字为docker的用户组读写Unix socket的权限，因此只要创建docker用户组，并将当前用户加入到docker用户组中，那么当前用户就有权限访问Unix socket了，进而也就可以执行docker相关命令<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker     #添加docker用户组</span><br><span class="line">sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中</span><br><span class="line">newgrp docker     #更新用户组</span><br><span class="line">docker ps    #测试docker命令是否可以使用sudo正常使用</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">- </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a target="_blank" rel="noopener" href="https://www.runoob.com/docker/docker-tutorial.html">Docker 教程</a><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/cli/">Use the Docker command line</a><br><a target="_blank" rel="noopener" href="https://geekflare.com/docker-commands/">26 Most Common Docker Commands with Examples</a></p>
+<h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a target="_blank" rel="noopener" href="https://www.corner.com/docker/docker-tutorial.html">Docker 教程</a><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/cli/">Use the Docker command line</a><br><a target="_blank" rel="noopener" href="https://geekflare.com/docker-commands/">26 Most Common Docker Commands with Examples</a></p>
 
       
 	
@@ -386,7 +420,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Docker-%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">1. Docker 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Docker-%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2. Docker 容器使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%95%9C%E5%83%8F%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3. 镜像使用</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BD%93%E6%88%91%E4%BB%AC%E4%BB%8E-docker-%E9%95%9C%E5%83%8F%E4%BB%93%E5%BA%93%E4%B8%AD%E4%B8%8B%E8%BD%BD%E7%9A%84%E9%95%9C%E5%83%8F%E4%B8%8D%E8%83%BD%E6%BB%A1%E8%B6%B3%E6%88%91%E4%BB%AC%E7%9A%84%E9%9C%80%E6%B1%82%E6%97%B6%EF%BC%8C%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E9%80%9A%E8%BF%87%E4%BB%A5%E4%B8%8B%E4%B8%A4%E7%A7%8D%E6%96%B9%E5%BC%8F%E5%AF%B9%E9%95%9C%E5%83%8F%E8%BF%9B%E8%A1%8C%E6%9B%B4%E6%94%B9%E3%80%82-%E4%BB%8E%E5%B7%B2%E7%BB%8F%E5%88%9B%E5%BB%BA%E7%9A%84%E5%AE%B9%E5%99%A8%E4%B8%AD%E6%9B%B4%E6%96%B0%E9%95%9C%E5%83%8F%EF%BC%8C%E5%B9%B6%E4%B8%94%E6%8F%90%E4%BA%A4%E8%BF%99%E4%B8%AA%E9%95%9C%E5%83%8F-%E4%BD%BF%E7%94%A8-Dockerfile-%E6%8C%87%E4%BB%A4%E6%9D%A5%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E9%95%9C%E5%83%8F"><span class="toc-number"></span> <span class="toc-text">当我们从 docker 镜像仓库中下载的镜像不能满足我们的需求时，我们可以通过以下两种方式对镜像进行更改。- 从已经创建的容器中更新镜像，并且提交这个镜像- 使用 Dockerfile 指令来创建一个新的镜像</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%97%AE%E9%A2%98%E9%9B%86"><span class="toc-number">1.</span> <span class="toc-text">4. 问题集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#References"><span class="toc-number">2.</span> <span class="toc-text">References</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Docker-%E6%9E%B6%E6%9E%84"><span class="toc-number">1.</span> <span class="toc-text">1. Docker 架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Docker-%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">2. Docker 容器使用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E9%95%9C%E5%83%8F%E4%BD%BF%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">3. 镜像使用</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#3-1-%E6%9B%B4%E6%96%B0%E9%95%9C%E5%83%8F"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 更新镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-2-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 构建镜像</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-3-%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E6%A0%87%E7%AD%BE"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 设置镜像标签</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Docker-%E5%AE%B9%E5%99%A8%E8%BF%9E%E6%8E%A5"><span class="toc-number">4.</span> <span class="toc-text">4. Docker 容器连接</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#4-1-Docker%E5%AE%B9%E5%99%A8%E4%BA%92%E8%81%94"><span class="toc-number">4.1.</span> <span class="toc-text">4.1 Docker容器互联</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%97%AE%E9%A2%98%E9%9B%86"><span class="toc-number">5.</span> <span class="toc-text">5. 问题集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#References"><span class="toc-number">6.</span> <span class="toc-text">References</span></a></li></ol>
                     </div>
                 </span>
             </div>
