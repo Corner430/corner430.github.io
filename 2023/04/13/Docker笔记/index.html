@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. Docker 架构 Docker 包括三个基本概念: 镜像（Image）：Docker 镜像（Image），就相当于是一个 root 文件系统。比如官方镜像 ubuntu:16.04 就包含了完整的一套 Ubuntu16.04 最小系统的 root 文件系统。 容器（Container）：镜像（Image）和容器（Container）的关系，就像是面向对象程序设计中的类和实例一样，镜像是静态">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-12T16:04:40.000Z">
-<meta property="article:modified_time" content="2023-04-13T01:13:08.877Z">
+<meta property="article:modified_time" content="2023-04-17T12:38:07.846Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2k字 | 预计阅读时长：8分钟
+    		字数：2.1k字 | 预计阅读时长：8分钟
 	</div>
         
   
@@ -252,7 +252,7 @@
 <p>大概的意思就是：docker进程使用Unix Socket而不是TCP端口。而默认情况下，Unix socket属于root用户，需要root权限才能访问。</p>
 <ul>
 <li>方案一：使用sudo获取管理员权限，运行docker命令</li>
-<li>方案二<br>  docker守护进程启动的时候，会默认赋予名字为docker的用户组读写Unix socket的权限，因此只要创建docker用户组，并将当前用户加入到docker用户组中，那么当前用户就有权限访问Unix socket了，进而也就可以执行docker相关命令<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker     #添加docker用户组</span><br><span class="line">sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中</span><br><span class="line">newgrp docker     #更新用户组</span><br><span class="line">docker ps    #测试docker命令是否可以使用sudo正常使用</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">- </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
+<li>方案二<br>  docker守护进程启动的时候，会默认赋予名字为docker的用户组读写Unix socket的权限，因此只要创建docker用户组，并将当前用户加入到docker用户组中，那么当前用户就有权限访问Unix socket了，进而也就可以执行docker相关命令<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG docker your-user   #Add the user to the docker group to avoid permission issues</span><br><span class="line"></span><br><span class="line">---------------------</span><br><span class="line">若上述方案失败，如下：</span><br><span class="line"></span><br><span class="line">sudo groupadd docker     #添加docker用户组</span><br><span class="line">sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中</span><br><span class="line">newgrp docker     #更新用户组</span><br><span class="line">docker ps    #测试docker命令是否可以使用sudo正常使用</span><br><span class="line"></span><br><span class="line">---------------------------------</span><br><span class="line">- </span><br><span class="line"></span><br></pre></td></tr></table></figure></li>
 </ul>
 <h3 id="References"><a href="#References" class="headerlink" title="References"></a>References</h3><p><a target="_blank" rel="noopener" href="https://www.corner.com/docker/docker-tutorial.html">Docker 教程</a><br><a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/cli/">Use the Docker command line</a><br><a target="_blank" rel="noopener" href="https://geekflare.com/docker-commands/">26 Most Common Docker Commands with Examples</a></p>
 
