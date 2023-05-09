@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. conda install jupyter notebook">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T10:53:13.000Z">
-<meta property="article:modified_time" content="2023-05-09T11:25:36.991Z">
+<meta property="article:modified_time" content="2023-05-09T11:41:01.464Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：328字 | 预计阅读时长：1分钟
+    		字数：343字 | 预计阅读时长：2分钟
 	</div>
         
   
@@ -208,6 +208,10 @@
 <hr>
 <h1 id="让局域网内设备都能连接"><a href="#让局域网内设备都能连接" class="headerlink" title="让局域网内设备都能连接"></a>让局域网内设备都能连接</h1><p>在配置文件中找到，并修改即可。</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">c.NotebookApp.ip = &#x27;your_ip_address&#x27;</span><br><span class="line">c.NotebookApp.allow_origin = &#x27;http://your_ip_address:port&#x27;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">The port the notebook server will listen on.</span></span><br><span class="line">c.NotebookApp.port = 8888</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="挂入后台，关闭终端也能用"><a href="#挂入后台，关闭终端也能用" class="headerlink" title="挂入后台，关闭终端也能用"></a>挂入后台，关闭终端也能用</h1><p><code>nohup jupyter notebook &amp;</code></p>
+
       
 	
        
