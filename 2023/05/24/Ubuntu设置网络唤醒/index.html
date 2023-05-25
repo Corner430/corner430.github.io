@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
   <title>Ubuntu设置网络唤醒 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1. 确保计算机的BIOS设置中已启用唤醒功能。2. 安装ethtool工具：1sudo apt install ethtool 3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查：1234ifconfig   # 查看网络接口的名称sudo ethtool &lt;interface&gt;# 其中，&lt;interface&gt;是网络接口的名称，如eth0或enp2s0。在ethto">
+  <meta name="description" content="1. 确保计算机的BIOS设置中已启用唤醒功能。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu设置网络唤醒">
 <meta property="og:url" content="http://corner647.gitee.io/2023/05/24/Ubuntu%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%94%A4%E9%86%92/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1. 确保计算机的BIOS设置中已启用唤醒功能。2. 安装ethtool工具：1sudo apt install ethtool 3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查：1234ifconfig   # 查看网络接口的名称sudo ethtool &lt;interface&gt;# 其中，&lt;interface&gt;是网络接口的名称，如eth0或enp2s0。在ethto">
+<meta property="og:description" content="1. 确保计算机的BIOS设置中已启用唤醒功能。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-05-25T01:55:57.000Z">
-<meta property="article:modified_time" content="2023-05-25T03:33:35.102Z">
+<meta property="article:modified_time" content="2023-05-25T03:37:50.399Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -190,8 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <span id="more"></span>
-<h1 id="1-确保计算机的BIOS设置中已启用唤醒功能。"><a href="#1-确保计算机的BIOS设置中已启用唤醒功能。" class="headerlink" title="1. 确保计算机的BIOS设置中已启用唤醒功能。"></a>1. 确保计算机的BIOS设置中已启用唤醒功能。</h1><h1 id="2-安装ethtool工具："><a href="#2-安装ethtool工具：" class="headerlink" title="2. 安装ethtool工具："></a>2. 安装ethtool工具：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ethtool</span><br></pre></td></tr></table></figure>
+        <h1 id="1-确保计算机的BIOS设置中已启用唤醒功能。"><a href="#1-确保计算机的BIOS设置中已启用唤醒功能。" class="headerlink" title="1. 确保计算机的BIOS设置中已启用唤醒功能。"></a>1. 确保计算机的BIOS设置中已启用唤醒功能。<span id="more"></span></h1><h1 id="2-安装ethtool工具："><a href="#2-安装ethtool工具：" class="headerlink" title="2. 安装ethtool工具："></a>2. 安装ethtool工具：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ethtool</span><br></pre></td></tr></table></figure>
 <h1 id="3-确认网卡支持唤醒功能。在终端中运行以下命令来检查："><a href="#3-确认网卡支持唤醒功能。在终端中运行以下命令来检查：" class="headerlink" title="3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查："></a>3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig   # 查看网络接口的名称</span><br><span class="line">sudo ethtool &lt;interface&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其中，&lt;interface&gt;是网络接口的名称，如eth0或enp2s0。在ethtool输出中，查找Wake-on:的行，如果它的值为d表示该接口支持唤醒功能。</span></span><br></pre></td></tr></table></figure>
 
 <h1 id="4-激活唤醒功能。在终端中运行以下命令："><a href="#4-激活唤醒功能。在终端中运行以下命令：" class="headerlink" title="4. 激活唤醒功能。在终端中运行以下命令："></a>4. 激活唤醒功能。在终端中运行以下命令：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ethtool -s &lt;interface&gt; wol g</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其中，&lt;interface&gt;是网络接口的名称，如eth0或enp2s0。此命令将启用接口的唤醒功能，并将其设置为通过网络唤醒（magicpacket）来唤醒计算机。</span></span><br></pre></td></tr></table></figure>
