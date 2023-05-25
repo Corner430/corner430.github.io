@@ -264,11 +264,17 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="1-确保计算机的BIOS设置中已启用唤醒功能。"><a href="#1-确保计算机的BIOS设置中已启用唤醒功能。" class="headerlink" title="1. 确保计算机的BIOS设置中已启用唤醒功能。"></a>1. 确保计算机的BIOS设置中已启用唤醒功能。</h1><h1 id="2-安装ethtool工具："><a href="#2-安装ethtool工具：" class="headerlink" title="2. 安装ethtool工具："></a>2. 安装ethtool工具：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ethtool</span><br></pre></td></tr></table></figure>
-<h1 id="3-确认网卡支持唤醒功能。在终端中运行以下命令来检查："><a href="#3-确认网卡支持唤醒功能。在终端中运行以下命令来检查：" class="headerlink" title="3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查："></a>3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查：</h1>
-        
-          <a class="article-more-a" href="/2023/05/24/Ubuntu%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%94%A4%E9%86%92/#more">more >></a>
-        
+        <span id="more"></span>
+<h1 id="1-确保计算机的BIOS设置中已启用唤醒功能。"><a href="#1-确保计算机的BIOS设置中已启用唤醒功能。" class="headerlink" title="1. 确保计算机的BIOS设置中已启用唤醒功能。"></a>1. 确保计算机的BIOS设置中已启用唤醒功能。</h1><h1 id="2-安装ethtool工具："><a href="#2-安装ethtool工具：" class="headerlink" title="2. 安装ethtool工具："></a>2. 安装ethtool工具：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install ethtool</span><br></pre></td></tr></table></figure>
+<h1 id="3-确认网卡支持唤醒功能。在终端中运行以下命令来检查："><a href="#3-确认网卡支持唤醒功能。在终端中运行以下命令来检查：" class="headerlink" title="3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查："></a>3. 确认网卡支持唤醒功能。在终端中运行以下命令来检查：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig   # 查看网络接口的名称</span><br><span class="line">sudo ethtool &lt;interface&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其中，&lt;interface&gt;是网络接口的名称，如eth0或enp2s0。在ethtool输出中，查找Wake-on:的行，如果它的值为d表示该接口支持唤醒功能。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="4-激活唤醒功能。在终端中运行以下命令："><a href="#4-激活唤醒功能。在终端中运行以下命令：" class="headerlink" title="4. 激活唤醒功能。在终端中运行以下命令："></a>4. 激活唤醒功能。在终端中运行以下命令：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ethtool -s &lt;interface&gt; wol g</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">其中，&lt;interface&gt;是网络接口的名称，如eth0或enp2s0。此命令将启用接口的唤醒功能，并将其设置为通过网络唤醒（magicpacket）来唤醒计算机。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="5-确认唤醒功能已经激活。在终端中运行以下命令："><a href="#5-确认唤醒功能已经激活。在终端中运行以下命令：" class="headerlink" title="5. 确认唤醒功能已经激活。在终端中运行以下命令："></a>5. 确认唤醒功能已经激活。在终端中运行以下命令：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo ethtool &lt;interface&gt;</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">再次查找Wake-on:的行，如果它的值为g表示该接口已经成功启用唤醒功能。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="6-保存唤醒设置。在终端中运行以下命令，将唤醒设置保存到网络接口的配置文件中："><a href="#6-保存唤醒设置。在终端中运行以下命令，将唤醒设置保存到网络接口的配置文件中：" class="headerlink" title="6. 保存唤醒设置。在终端中运行以下命令，将唤醒设置保存到网络接口的配置文件中："></a>6. 保存唤醒设置。在终端中运行以下命令，将唤醒设置保存到网络接口的配置文件中：</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/network/interfaces</span><br></pre></td></tr></table></figure>
+<p>将以下行添加到配置文件的末尾：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pre-up /usr/sbin/ethtool -s &lt;interface&gt; wol g</span><br></pre></td></tr></table></figure>
       
 	
 
