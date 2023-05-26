@@ -19,7 +19,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230525164402.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230525165051.png">
 <meta property="article:published_time" content="2023-05-25T23:31:34.000Z">
-<meta property="article:modified_time" content="2023-05-25T23:52:22.663Z">
+<meta property="article:modified_time" content="2023-05-26T04:10:54.633Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230525163331.png">
@@ -165,7 +165,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：294字 | 预计阅读时长：1分钟
+    		字数：340字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -219,6 +219,11 @@
 </ul>
 <hr>
 <p>references<br><a target="_blank" rel="noopener" href="https://youtu.be/GjhetHGIKLg">【建议收藏】一个视频讲清楚所有局域网共享科学上网方法，让家里所有网络设备无需安装代理工具即可翻墙，没有软路由怎么让全家科学上网？http代理&#x2F;socks代理&#x2F;透明代理&#x2F;WIFI热点，总有一种方法适合你</a><br><a target="_blank" rel="noopener" href="https://youtu.be/dpmnkKhBFtc">【全网首发】windows系统充当软路由，实现全家科学上网，小白也能轻松上手，代替电视盒子的openwrt，旁路网关、旁路由、透明代理、透明网关、网关代理、网关模式</a><br><a target="_blank" rel="noopener" href="https://bulianglin.com/archives/sharenetwork.html">将科学上网环境共享给局域网内其它设备的各种方式</a></p>
+<hr>
+<ul>
+<li>通过修改sysctl.conf文件来实现ip转发功能的开机自启动。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo vim /etc/sysctl.conf</span><br><span class="line">net.ipv4.ip_forward=1 # 在文件末尾添加内容</span><br></pre></td></tr></table></figure></li>
+<li>使修改生效：<code>sudo sysctl -p</code></li>
+</ul>
 
       
 	
