@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-15T03:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-28T06:04:55.883Z">
+<meta property="article:modified_time" content="2023-05-28T16:13:18.723Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:132.5k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:134.2k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：40.6k字 | 预计阅读时长：144分钟
+    		字数：42.3k字 | 预计阅读时长：150分钟
 	</div>
         
   
@@ -1964,6 +1964,26 @@
 <td align="center">利用最近发明的锐度感知最小化，开发了一种锐度感知的MAML方法，作者称之为Sharp-MAML。</td>
 <td align="center">open source</td>
 </tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abernethy22a.html">Active Sampling for Min-Max Fairness</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Jacob D Abernethy</td>
+<td align="center">Machine Learning</td>
+<td align="center">资源分配的公平性问题，通常采用的模型在训练时忽视了某些代表性不足的群体，而直接降低其他组的权重又是一种“降级”的表现，这可能导致不必要的降低整体表现。</td>
+<td align="center">通过主动采样和重加权策略，<strong>选取最差的节点来更新权重</strong>，这种“升级”的方式，如果提高了最差组的性能，也仅仅只会降低一个组的性能。</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abid22a.html">Meaningfully debugging model mistakes using conceptual counterfactual explanations</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Abubakar Abid</td>
+<td align="center">Machine Learning</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">open source</td>
+</tr>
 </tbody></table>
 <hr>
 <ul>
@@ -2025,6 +2045,64 @@
 <li>收敛速度和样本复杂度与训练单级ERM模型的复杂度相匹配。</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abernethy22a.html">Active Sampling for Min-Max Fairness（最小-最大公平性的主动采样）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Jacob Abernethy（美国佐治亚理工学院）</li>
+<li>问题：资源分配的公平性问题，通常采用的模型在训练时忽视了某些代表性不足的群体，而直接降低其他组的权重又是一种“降级”的表现，这可能导致不必要的降低整体表现。</li>
+<li>方法：通过主动采样和重加权策略，<strong>选取最差的节点来更新权重</strong>，这种“升级”的方式，如果提高了最差组的性能，也仅仅只会降低一个组的性能。</li>
+<li>先修知识：<ul>
+<li>主动抽样和重加权策略<ul>
+<li><strong>主动抽样和重加权策略是一种在机器学习中用于处理不平衡数据集的方法。</strong></li>
+<li>在不平衡数据集中，<strong>不同类别的样本数量存在显著差异，这可能会导致模型对数量较少的类别的学习不足</strong>。为了解决这个问题，可以使用主动抽样和重加权策略来平衡不同类别之间的样本数量。</li>
+<li><strong>主动抽样是通过随机丢弃一部分数量过多的样本</strong>，来达到类别平衡的目的。这种方法可<strong>能会导致有用的信息丢失</strong>，因为丢弃的样本可能包含一些重要的信息。</li>
+<li><strong>重加权策略则是通过为数量较少的类别赋予更高的权重来平衡类别之间的样本数量。</strong>这种方法不会丢失任何信息，因为所有的样本都被使用了，但是需要注意的是，在对数据集进行重加权之后，<strong>模型的评估指标可能需要进行相应的调整，以反映不同类别之间的平衡。</strong></li>
+<li>另外，重加权策略还可以通过使用不同的重加权方法来进一步优化模型性能。例如，可以使用基于样本难度的重加权方法，对数量较少的类别中更具挑战性的样本赋予更高的权重，以帮助模型更好地学习这些样本。</li>
+<li>总之，主动抽样和重加权策略是处理不平衡数据集的有效方法，具体使用哪种方法需要根据具体情况进行选择和调整。</li>
+</ul>
+</li>
+<li>最小-最大公平性（min-max fairness）<ul>
+<li>最小-最大公平性（min-max fairness）是一种公平性准则，<strong>旨在确保不同个体之间的最小福利水平最大化。</strong>在一个多个体的系统中，最小-最大公平性的<strong>目标是通过最小化最劣势群体的损失来实现公平分配。</strong>这个准则的<strong>核心思想是，系统中的最劣势群体应该得到最大的保障，</strong>即使这意味着其他群体需要做出一些妥协或牺牲。</li>
+<li>最小-最大公平性常常被应用于资源分配问题，例如公共服务、教育、就业机会和政府福利等领域。在这些领域中，最小-最大公平性的目标是确保最劣势群体的福利最大化，例如贫困人口、少数族裔、残疾人士和其他弱势群体。<strong>在实践中，实现最小-最大公平性可能需要政策制定者进行适当的权衡和资源分配，以确保最劣势群体的权益得到保障，同时避免其他群体的不公平损失。</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>这篇文章讲了什么？<ul>
+<li>在包含多个人口统计组的数据集上训练的模型通常在不同组之间具有不相等的错误率（<strong>例如我在基于白人数据集上调查的个人诉求可能并不适用于黑人</strong>），这要么是因为某些组在训练数据中代表性不足，要么是因为潜在的学习任务对特定组来说本质上更困难。作者说许多现有的公平概念旨在平衡不同人口群体的表现，<strong>这可能导致故意降低较富裕群体的表现，不必要地降低整体表现。</strong>这种表现的退化可能对应于失去获得相关服务的机会，这在法律和道德上被称为“降级”，它受到了大量批评。</li>
+<li>相比之下，最小-最大公平概念提供了另一种方法。<strong>这些概念“升级”，</strong>通过采用一个优化的观点，优先将改进模型性能的重点放在性能最差的组上。这种优化如果能提高最差组的性能，也只会降低一个组的性能。</li>
+<li>作者方法背后的关键思想是<strong>自适应地对最差群体的数据进行抽样或重新加权</strong>，具体来说，在每个时间步中<strong>使用来自当前模型下最糟糕的组的一个数据点来更新模型</strong></li>
+<li>重要的是，作者表明，对于凸学习问题，这种方法确实可以证明最小化<strong>每组的</strong>最大损失。</li>
+<li>作者提供了一个细粒度的分析，证明收敛到最小-最大公平解决方案的速度。</li>
+<li>作者提供了三种更新权重的方式，应对不同的场景。</li>
+</ul>
+</li>
+<li>数据集<ul>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/code/obeykhadija/drug-consumption-prediction">Drug Consumption（毒品消费预测）</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/danofer/compass">COMPAS Recidivism Racial Bias（比较累犯和种族偏见）</a></li>
+</ul>
+</li>
+<li>缺陷<ul>
+<li>损人利己</li>
+<li>种族偏见的执法实践使停车和逮捕率无法很好地替代犯罪活动;招聘数据基于有偏见的历史实践;或者使用现有诊断来训练皮肤癌检测;最小-最大公平以及其他基于错误的公平概念可能会产生模仿数据中存在的偏见的分类器，<strong>如果用于对个人做出实质性决策，可能会使不平等永永化</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abid22a.html">Meaningfully debugging model mistakes using conceptual counterfactual explanations</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Abubakar Abid（斯坦福大学）</li>
+<li>问题：</li>
+<li>方法：</li>
 </ul>
 </li>
 </ul>
