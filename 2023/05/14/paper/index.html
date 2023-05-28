@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-15T03:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-27T23:46:29.873Z">
+<meta property="article:modified_time" content="2023-05-28T06:04:55.883Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:130.4k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:132.5k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：38.5k字 | 预计阅读时长：137分钟
+    		字数：40.6k字 | 预计阅读时长：144分钟
 	</div>
         
   
@@ -1941,6 +1941,94 @@
 </li>
 </ul>
 <hr>
+<h4 id="7-May-27-2023-week7"><a href="#7-May-27-2023-week7" class="headerlink" title="7. May 27, 2023(week7)"></a>7. May 27, 2023(week7)</h4><table>
+<thead>
+<tr>
+<th align="center">Title</th>
+<th align="center">Publication</th>
+<th align="center">Year</th>
+<th align="center">Authors</th>
+<th align="center">Area</th>
+<th align="center">Problem</th>
+<th align="center">Main Method</th>
+<th align="center">Datasets</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abbas22b.html">Sharp-MAML: Sharpness-Aware Model-Agnostic Meta Learning</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Momin Abbas</td>
+<td align="center">Machine Learning</td>
+<td align="center">MAML由于固有的双层问题结构，导致其难以优化。具体来说，MAML的损失情况比经验风险最小化方法更复杂，鞍点可能更多，局部最小化器可能更大</td>
+<td align="center">利用最近发明的锐度感知最小化，开发了一种锐度感知的MAML方法，作者称之为Sharp-MAML。</td>
+<td align="center">open source</td>
+</tr>
+</tbody></table>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abbas22b.html">Sharp-MAML: Sharpness-Aware Model-Agnostic Meta Learning（Sharp-MAML：锐度感知模型不可知元学习）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Momin Abbas（Renselaer 理工学院，Troy）</li>
+<li>问题：MAML由于固有的双层问题结构，导致其难以优化。具体来说，MAML的损失情况比经验风险最小化方法更复杂，鞍点可能更多，局部最小化器可能更大</li>
+<li>方法：利用最近发明的锐度感知最小化，开发了一种锐度感知的MAML方法，作者称之为Sharp-MAML。</li>
+<li>先修知识<ul>
+<li>模型不可知元学习(MAML)<ul>
+<li>模型不可知元学习（Model-Agnostic Meta-Learning，MAML）是一种元学习算法，旨在通过在一组相关任务上<strong>快速调整模型参数，使得该模型在新任务上能够快速适应。</strong></li>
+<li>具体来说，MAML算法<strong>包含两个嵌套循环</strong>的过程。外循环用于迭代更新模型的初始参数，内循环用于在每个任务上进行快速调整。在内循环中，模型通过少量的梯度下降步骤来适应当前任务，以获得一个良好的初始化状态。在外循环中，模型的初始参数被更新为在所有任务中表现最好的参数，以便在新任务上获得更好的性能。</li>
+<li>MAML的一个重要优点是，它在不同的任务之间共享模型参数，因此可以在只有少量标记数据的情况下进行元学习。此外，由于它是<strong>模型不可知</strong>的，因此可以与各种不同类型的模型和损失函数一起使用，从而具有广泛的适用性。</li>
+<li>MAML已经在各种领域得到了广泛的应用，包括计算机视觉、自然语言处理、机器人学习等领域。</li>
+</ul>
+</li>
+<li>元学习（Meta-Learning）<ul>
+<li><strong>元学习（Meta-Learning）是指学习如何学习的过程，也称为“学习到学习”（Learning to Learn）</strong>。元学习的<strong>目标是</strong>设计一个能够自动学习适应新任务的学习算法，而不是手动为每个新任务设计一个新算法。</li>
+<li>在元学习中，算法需要<strong>从多个相关任务中获取经验</strong>，学习如何快速适应新任务。通常，元学习算法会学习一个<strong>模型或策略</strong>，该模型或策略可以在新任务上进行快速调整，以适应该任务的特定特征和要求。元学习算法通常使用一些指标来衡量模型在新任务上的适应能力，例如泛化误差、收敛速度等。</li>
+<li>元学习已经在许多应用领域得到了广泛的应用，例如计算机视觉、自然语言处理、机器人学习等。<strong>元学习的优点之一是它可以减少对大量标记数据的依赖，</strong>因为它可以使用先前学习的经验来快速适应新任务。另外，<strong>元学习还可以提高模型的泛化能力，</strong>使其在未见过的数据上表现更好。</li>
+</ul>
+</li>
+<li>锐度感知（Sharpness-Aware）<ul>
+<li>Sharpness-Aware是指在模型不可知元学习（MAML）中考虑模型的锐度（sharpness）。Sharpness通常是指模型的<strong>局部梯度范数的大小</strong>，用来反映模型的平滑度和泛化能力。<strong>Sharpness较低的模型通常具有更好的泛化能力，因为它们更容易避免过拟合。</strong></li>
+<li>在Sharp-MAML中，为了更好地控制模型的泛化能力，<strong>算法通过最大化每个任务的训练损失和验证损失之间的差异，来推动模型的锐度较低</strong>。具体来说，Sharp-MAML使用一种称为“sharpness-aware gradient”的梯度计算方式，这种方式可以精确地计算模型参数的梯度，并考虑到参数的锐度。通过调整梯度计算方式，Sharp-MAML可以使得模型在元学习过程中<strong>更加注重锐度，从而提高模型的泛化能力。</strong></li>
+<li>实验证明，Sharp-MAML在某些情况下可以显著提高模型的泛化能力和元学习性能，尤其是在使用少量训练数据时。<strong>然而，也有一些研究表明，在某些情况下，Sharp-MAML并不能带来明显的性能提升，甚至可能会导致性能下降。</strong>因此，使用Sharp-MAML需要根据具体情况进行调整和优化，才能发挥其最大的优势。</li>
+</ul>
+</li>
+<li>鞍点（Saddle point）<ul>
+<li>鞍点（Saddle point）是指在高维空间中的某个点，该点的梯度为0，但是它既不是局部最小值也不是局部最大值。在这样的点上，函数在某些方向上是上升的，而在另一些方向上是下降的。因此，鞍点可能会导致优化算法停留在局部极值附近，而不能找到全局最优解。</li>
+<li>在机器学习中，优化问题通常是在高维空间中进行的，因此鞍点是一个普遍存在的问题。特别是在深度神经网络中，由于网络的非线性结构和大量的参数，鞍点会更加常见。</li>
+</ul>
+</li>
+<li>局部最小化器（Local Minimizer）<ul>
+<li>局部最小化器（Local Minimizer）是指在优化问题中，找到局部最小值的算法。在机器学习中，常用的局部最小化器包括梯度下降、牛顿法、共轭梯度等。</li>
+<li>然而，局部最小化器通常会受到鞍点的影响，因为它们可能会停留在鞍点处，而无法找到全局最优解。因此，为了避免被鞍点困扰，通常需要使用更高级的优化算法，如随机梯度下降、动量优化、自适应学习率等。此外，还可以通过调整模型结构、初始化方式等方法来减少鞍点的影响，从而提高优化算法的收敛速度和稳定性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>本文内容<ul>
+<li>人类倾向于仅使用少数样本轻松学习新概念。相比之下，现代深度神经网络需要数千个样本来训练一个可以很好地泛化到看不见的数据的模型。元学习是对这样一个问题的补救措施，即可以使用有限数量的样本来学习新概念。元学习提供了对未见任务的快速适应。</li>
+<li>特别是，<strong>与模型无关的元学习 (MAML)</strong> 是最流行的基于优化的元学习框架之一，用于小样本学习。</li>
+<li><strong>MAML旨在学习初始化</strong>，以便在对初始化应用少量梯度下降更新后，适应的特定于任务的模型可以在验证数据集上实现所需的性能</li>
+<li>问题在于，这个初始化的模型怎么学习？<strong>通常的MAML需要两层循环，导致很多优化上的问题。</strong>例如，由于二阶导数，MAML 会产生很高的计算成本，需要搜索多个超参数，并且对神经网络架构很敏感。进而导致其鞍点和局部最小化器可能过多，其中许多没有良好的泛化性能。</li>
+<li>本文就是解决了这么一个问题，利用最近发明的锐度感知最小化，并开发了一种锐度感知的MAML方法，<strong>其收敛速度和泛化界限均有提高。</strong></li>
+<li>这是第一个在双层学习的背景下对锐度感知最小化的实证研究。</li>
+<li>这样训练出来的初始化模型很有实际意义，<strong>例如chatgpt-3</strong></li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mominabbass/Sharp-MAML">代码</a></li>
+<li>数据集<ul>
+<li><a target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10&#x2F;100</a></li>
+</ul>
+</li>
+<li>一言以蔽之<ul>
+<li>Sharp-MAML 避免了 MAML 损失函数的尖锐局部最小值，实现了更好的泛化性能。</li>
+<li>收敛速度和样本复杂度与训练单级ERM模型的复杂度相匹配。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h4 id="Neural-Network未读"><a href="#Neural-Network未读" class="headerlink" title="Neural Network未读"></a>Neural Network未读</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22b.html">Robust Training of Neural Networks Using Scale Invariant Architectures</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22ad.html">Finding Global Homophily in Graph Neural Networks When Meeting Heterophily</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lin22e.html">Constrained Gradient Descent: A Powerful and Principled Evasion Attack Against Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22k.html">Deep Neural Network Fusion via Graph Matching with Applications to Model Ensemble and Federated Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22s.html">Local Augmentation for Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lou22a.html">Feature Learning and Signal Propagation in Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/macdonald22a.html">Interpretable Neural Networks with Frank-Wolfe: Sparse Relevance Maps and Relevance Orderings</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/makhija22a.html">Architecture Agnostic Federated Learning for Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/meunier22a.html">A Dynamical System Perspective for Lipschitz Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mihaylova22a.html">Modeling Structure with Undirected Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mirzadeh22a.html">Wide Neural Networks Forget Less Catastrophically</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/munteanu22a.html">Bounding the Width of Neural Networks via Coupled Initialization A Worst Case Analysis</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/na22a.html">AutoSNN: Towards Energy-Efficient Spiking Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nacson22a.html">Implicit Bias of the Step Size in Linear Diagonal Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nanda22a.html">Measuring Representational Robustness of Neural Networks Through Shared Invariances</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nava22a.html">Fast Aquatic Swimmer Optimization with Differentiable Projective Dynamics and Neural Network Hydrodynamic Models</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nazaret22a.html">Variational Inference for Infinitely Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pan22b.html">A Unified Weight Initialization Paradigm for Tensorial Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/papp22a.html">A Theoretical Comparison of Graph Neural Network Extensions</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/patil22b.html">POET: Training Neural Networks on Tiny Devices with Integrated Rematerialization and Paging</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pellegrini22a.html">Neural Network Pruning Denoises the Features and Makes Local Connectivity Emerge in Visual Tasks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pichler22a.html">A Differential Entropy Estimator for Training Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/razin22a.html">Implicit Regularization in Hierarchical Tensor Factorization and Deep Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/schotthofer22a.html">Structure Preserving Neural Networks: A Case Study in the Entropy Closure of the Boltzmann Equation</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sheikh22a.html">DNS: Determinantal Point Process Based Neural Network Sampler for Ensemble Reinforcement Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sieradzki22a.html">Coin Flipping Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/tang22b.html">Rethinking Graph Neural Networks for Anomaly Detection</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/trinh22a.html">Tackling covariate shift with node-based Bayesian neural networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22a.html">What Can Linear Interpolation of Neural Network Loss Landscapes Tell Us?</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22b.html">Multirate Training of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22aj.html">DRAGONN: Distributed Randomized Approximate Gradients of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22am.html">How Powerful are Spectral Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wei22d.html">Mitigating Neural Network Overconfidence with Logit Normalization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22d.html">Characterizing and Overcoming the Greedy Nature of Learning in Multi-modal Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22j.html">DAVINZ: Data Valuation using Deep Neural Networks at Initialization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22h.html">Injecting Logical Constraints into Neural Networks via Straight-Through Estimators</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22i.html">Locally Sparse Neural Networks for Tabular Biomedical Data</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22l.html">Informed Learning by Wide Neural Networks: Convergence, Generalization and Sampling Complexity</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22n.html">A New Perspective on the Effects of Spectrum in Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22p.html">Estimating Instance-dependent Bayes-label Transition Matrix using a Deep Neural Network</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yashima22a.html">Feature Space Particle Inference for Neural Network Ensembles</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/you22a.html">ShiftAddNAS: Hardware-Inspired Search for More Accurate and Efficient Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22a.html">Molecular Representation Learning via Heterogeneous Motif Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22f.html">The Combinatorial Brain Surgeon: Pruning Weights That Cancel One Another in Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhang22q.html">Neural Network Weights Do Not Converge to Stationary Points: An Invariant Measure Perspective</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhi22a.html">Learning Efficient and Robust Ordinary Differential Equations via Invertible Neural Networks</a></p>
 <h4 id="不会"><a href="#不会" class="headerlink" title="不会"></a>不会</h4><p>|<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/frecon22a.html">Bregman Neural Networks</a>|ICML|2022|Jordan Frecon|Machine Learning|TODO|TODO|TODO|</p>
 <ul>
@@ -2201,7 +2289,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">7.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">8.</span> <span class="toc-text">不会</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">8.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">9.</span> <span class="toc-text">不会</span></a></li></ol>
                     </div>
                 </span>
             </div>
