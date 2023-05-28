@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-15T03:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-28T16:13:18.723Z">
+<meta property="article:modified_time" content="2023-05-28T19:00:49.603Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:134.2k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:136.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：42.3k字 | 预计阅读时长：150分钟
+    		字数：44.4k字 | 预计阅读时长：157分钟
 	</div>
         
   
@@ -1980,8 +1980,8 @@
 <td align="center">2022</td>
 <td align="center">Abubakar Abid</td>
 <td align="center">Machine Learning</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">如何理解和解释训练模型所犯的错误？为什么会将斑马分类为狗？了解这一点是非常重要的，可以提高鲁棒性、解决概念漂移和减轻偏差。通常所采用的方式是动查看模型在许多测试样本上的错误并猜测这些错误预测的潜在原因。</td>
+<td align="center">本文中提出了一种系统方法，即概念反事实解释 (CCE)，它解释了为什么分类器根据人类可理解的概念在特定测试样本上出错。</td>
 <td align="center">open source</td>
 </tr>
 </tbody></table>
@@ -2097,17 +2097,77 @@
 </ul>
 <hr>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abid22a.html">Meaningfully debugging model mistakes using conceptual counterfactual explanations</a><ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/abid22a.html">Meaningfully debugging model mistakes using conceptual counterfactual explanations（使用概念反事实解释有意义地调试模型错误）</a><ul>
 <li>文章发布在ICML</li>
 <li>时间为2022年</li>
 <li>作者：Abubakar Abid（斯坦福大学）</li>
+<li>问题：如何理解和解释训练模型所犯的错误？为什么会将斑马分类为狗？了解这一点是非常重要的，可以提高鲁棒性、解决概念漂移和减轻偏差。通常所采用的方式是动查看模型在许多测试样本上的错误并猜测这些错误预测的潜在原因。</li>
+<li>方法：本文中提出了一种系统方法，即概念反事实解释 (CCE)，它解释了为什么分类器根据人类可理解的概念在特定测试样本上出错。</li>
+<li>文章讲了什么？<ul>
+<li><strong>本文所说的反事实解释的方式就是添加扰动。</strong></li>
+<li>为什么经过训练的模型会犯特定的错？例如猫被分类成了狗，常规上认为可能是猫在训练分布中的<strong>代表性不足；预训练没做好，偏差</strong>等。</li>
+<li><strong>预训练没做好的例子：</strong>病理学家下载了一个预训练模型来对病理图像进行分类。尽管报告的准确性很高，但他发现该模型在他的图像上表现不佳。他调查了为什么会这样，发现他图像中的色调与原始训练数据不同。意识到这个问题，他能够通过一些预处理转换自己的图像，匹配训练分布并提高模型的性能。</li>
+<li>但是这在训练和测试之间发生了域转移，这降低了模型的性能。</li>
+<li><strong>偏差例子</strong>：皮肤科医生训练一个机器学习分类器，从她的医院患者的皮肤图像中对皮肤疾病进行分类。她与不同医院的同事分享她的训练模型，他们报告说该模型与他自己的患者犯很多错误。她调查了模型出错的原因，意识到她的同事医院的患者有不同的皮肤颜色和年龄。</li>
+<li>但是手动降低偏差（例如去除不正确的数据）也会降低模型的性能。</li>
+<li>那么要怎样去解释这些错误呢？作者提出了一种反事实概念解释（CCE），<strong>解释上面中的三条来给出正确的解释。</strong></li>
+<li>CCE只需要满足下面三个要求：<ul>
+<li><strong>没有训练数据或重新训练：</strong>CCE 不需要访问训练数据或模型再训练。</li>
+<li><strong>只需要模型：</strong>CCE 只需要对模型进行白盒访问。用户可以使用任何数据集来学习所需的概念。</li>
+<li><strong>高级解释：</strong>CCE 使用用户易于理解的概念为模型错误提供高级解释。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据集<ul>
+<li>ISIC dataset<ul>
+<li>ISIC数据集是一个<strong>医学图像数据集</strong>，包含超过23000张皮肤病诊断图像，用于机器学习和计算机视觉应用的训练和评估。这个数据集包括各种类型的皮肤病，例如黑色素瘤、基底细胞癌、鳞状细胞癌等。这个数据集可以用于训练深度学习模型，以帮助医生在早期发现皮肤病，提高诊断准确性。ISIC数据集是开源的，可以在官网上免费下载和使用。</li>
+</ul>
+</li>
+<li>Fitzpatrick17k dataset<ul>
+<li>Fitzpatrick17k数据集是一个<strong>肤色分类数据集</strong>，包含17000张人脸图像，用于肤色分类问题的训练和评估。这个数据集基于Fitzpatrick肤色分类系统，将人类肤色分为六个不同的类型。这个数据集可以用于训练机器学习模型，以帮助计算机自动识别人类肤色，例如在人脸识别、美颜软件和虚拟试衣间等应用中。Fitzpatrick17k数据集是开源的，可以在官网上免费下载和使用。</li>
+</ul>
+</li>
+<li>NIH dataset<ul>
+<li>NIH数据集是一个医学图像数据集，由美国国立卫生研究院（NIH）提供，包括超过100,000张二维X射线、CT和MRI图像，用于机器学习和计算机视觉应用的训练和评估。这个数据集包括各种疾病和异常，例如肺炎、结核病、肺气肿、肝脏病变等。这个数据集可以用于训练深度学习模型，以帮助医生在早期发现疾病，提高诊断准确性。NIH数据集是开源的，可以在NIH官网上免费下载和使用。需要注意的是，这个数据集包含的是医学图像，访问和使用数据集需要遵守相关的数据使用规定和法律法规。</li>
+</ul>
+</li>
+<li>SHREC14LSSTB dateset<ul>
+<li>这个数据集是一个用于大规模3D物体识别和检索的数据集，包含来自55个类别的1200个3D模型。这些模型由不同的来源生成，包括CAD软件、3D扫描和互联网上的3D模型库。这个数据集的目的是为了帮助开发基于3D形状特征的物体识别和检索算法，并促进在计算机视觉领域的相关研究。SHREC14LSSTB数据集是公开可用的，可以在其官方网站上免费下载和使用。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mertyg/debug-mistakes-cce">代码</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/aguiar22a.html">Learning of Cluster-based Feature Importance for Electronic Health Record Time-series（基于聚类的电子病历时间序列特征重要性学习）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Henrique Aguiar（英国牛津大学工程科学系）</li>
 <li>问题：</li>
 <li>方法：</li>
+<li><h2 id="先修知识-电子病历-电子病历是指医疗机构电子化的病历记录，包括患者的诊断、病史、药物治疗和检查结果等信息。这些信息通常以时间序列的形式进行存储，因此，对电子病历数据进行分析和建模可以帮助医生更好地理解疾病的发展和预测患者的病情。"><a href="#先修知识-电子病历-电子病历是指医疗机构电子化的病历记录，包括患者的诊断、病史、药物治疗和检查结果等信息。这些信息通常以时间序列的形式进行存储，因此，对电子病历数据进行分析和建模可以帮助医生更好地理解疾病的发展和预测患者的病情。" class="headerlink" title="先修知识- 电子病历  - 电子病历是指医疗机构电子化的病历记录，包括患者的诊断、病史、药物治疗和检查结果等信息。这些信息通常以时间序列的形式进行存储，因此，对电子病历数据进行分析和建模可以帮助医生更好地理解疾病的发展和预测患者的病情。"></a>先修知识<br>- 电子病历<br>  - 电子病历是指医疗机构电子化的病历记录，包括患者的诊断、病史、药物治疗和检查结果等信息。这些信息通常<strong>以时间序列的形式进行存储</strong>，因此，<strong>对电子病历数据进行分析和建模可以帮助医生更好地理解疾病的发展和预测患者的病情</strong>。</h2></li>
+<li>文章讲了什么？<ul>
+<li><p>最近电子健康记录 (EHR) 的可用性允许开发预测患者恶化和轨迹演变风险的算法。然而，使用 EHR 预测疾病进展具有挑战性，因为这些数据是稀疏的、异构的、多维的和多模态的时间序列。</p>
+</li>
+<li><p>在这篇论文中，作者提出了一种基于聚类的特征重要性学习方法，用于分析和建模电子病历数据。具体来说，该方法首先对电子病历数据进行聚类，将相似的时间序列数据分到同一个簇中。然后，对每个簇中的数据进行特征重要性学习，以确定哪些特征对于该簇中的数据的预测性能最为重要。这一过程使用了一种称为”Shapley-based Additive Explanations”的方法，该方法可以对每个特征的重要性进行量化，并将其解释为对预测结果的贡献。</p>
+</li>
+<li><p>该方法的主要优点是可以处理高维时间序列数据，并且可以对每个簇中的数据进行特征重要性学习。此外，该方法还可以提高预测性能和可解释性，并且可以通过对特征重要性的分析来帮助医生更好地理解疾病的发展和预测患者的病情。</p>
+</li>
+<li><p>总的来说，”Learning of Cluster-based Feature Importance for Electronic Health Record Time-series”这篇论文提出了一种创新的方法，可以帮助医生更好地分析和建模电子病历时间序列数据，并提高预测性能和可解释性。</p>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
 <hr>
 <h4 id="Neural-Network未读"><a href="#Neural-Network未读" class="headerlink" title="Neural Network未读"></a>Neural Network未读</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22b.html">Robust Training of Neural Networks Using Scale Invariant Architectures</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22ad.html">Finding Global Homophily in Graph Neural Networks When Meeting Heterophily</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lin22e.html">Constrained Gradient Descent: A Powerful and Principled Evasion Attack Against Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22k.html">Deep Neural Network Fusion via Graph Matching with Applications to Model Ensemble and Federated Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22s.html">Local Augmentation for Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lou22a.html">Feature Learning and Signal Propagation in Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/macdonald22a.html">Interpretable Neural Networks with Frank-Wolfe: Sparse Relevance Maps and Relevance Orderings</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/makhija22a.html">Architecture Agnostic Federated Learning for Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/meunier22a.html">A Dynamical System Perspective for Lipschitz Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mihaylova22a.html">Modeling Structure with Undirected Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mirzadeh22a.html">Wide Neural Networks Forget Less Catastrophically</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/munteanu22a.html">Bounding the Width of Neural Networks via Coupled Initialization A Worst Case Analysis</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/na22a.html">AutoSNN: Towards Energy-Efficient Spiking Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nacson22a.html">Implicit Bias of the Step Size in Linear Diagonal Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nanda22a.html">Measuring Representational Robustness of Neural Networks Through Shared Invariances</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nava22a.html">Fast Aquatic Swimmer Optimization with Differentiable Projective Dynamics and Neural Network Hydrodynamic Models</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nazaret22a.html">Variational Inference for Infinitely Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pan22b.html">A Unified Weight Initialization Paradigm for Tensorial Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/papp22a.html">A Theoretical Comparison of Graph Neural Network Extensions</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/patil22b.html">POET: Training Neural Networks on Tiny Devices with Integrated Rematerialization and Paging</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pellegrini22a.html">Neural Network Pruning Denoises the Features and Makes Local Connectivity Emerge in Visual Tasks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pichler22a.html">A Differential Entropy Estimator for Training Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/razin22a.html">Implicit Regularization in Hierarchical Tensor Factorization and Deep Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/schotthofer22a.html">Structure Preserving Neural Networks: A Case Study in the Entropy Closure of the Boltzmann Equation</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sheikh22a.html">DNS: Determinantal Point Process Based Neural Network Sampler for Ensemble Reinforcement Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sieradzki22a.html">Coin Flipping Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/tang22b.html">Rethinking Graph Neural Networks for Anomaly Detection</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/trinh22a.html">Tackling covariate shift with node-based Bayesian neural networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22a.html">What Can Linear Interpolation of Neural Network Loss Landscapes Tell Us?</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22b.html">Multirate Training of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22aj.html">DRAGONN: Distributed Randomized Approximate Gradients of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22am.html">How Powerful are Spectral Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wei22d.html">Mitigating Neural Network Overconfidence with Logit Normalization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22d.html">Characterizing and Overcoming the Greedy Nature of Learning in Multi-modal Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22j.html">DAVINZ: Data Valuation using Deep Neural Networks at Initialization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22h.html">Injecting Logical Constraints into Neural Networks via Straight-Through Estimators</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22i.html">Locally Sparse Neural Networks for Tabular Biomedical Data</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22l.html">Informed Learning by Wide Neural Networks: Convergence, Generalization and Sampling Complexity</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22n.html">A New Perspective on the Effects of Spectrum in Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22p.html">Estimating Instance-dependent Bayes-label Transition Matrix using a Deep Neural Network</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yashima22a.html">Feature Space Particle Inference for Neural Network Ensembles</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/you22a.html">ShiftAddNAS: Hardware-Inspired Search for More Accurate and Efficient Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22a.html">Molecular Representation Learning via Heterogeneous Motif Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22f.html">The Combinatorial Brain Surgeon: Pruning Weights That Cancel One Another in Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhang22q.html">Neural Network Weights Do Not Converge to Stationary Points: An Invariant Measure Perspective</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhi22a.html">Learning Efficient and Robust Ordinary Differential Equations via Invertible Neural Networks</a></p>
+<h4 id="待看"><a href="#待看" class="headerlink" title="待看"></a>待看</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agarwal22a.html">Batched Dueling Bandits</a></p>
 <h4 id="不会"><a href="#不会" class="headerlink" title="不会"></a>不会</h4><p>|<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/frecon22a.html">Bregman Neural Networks</a>|ICML|2022|Jordan Frecon|Machine Learning|TODO|TODO|TODO|</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/frecon22a.html">Bregman Neural Networks</a><ul>
@@ -2185,6 +2245,18 @@
 <li>这篇文章解决的问题是策略梯度全局收敛性，这是一个重要的问题，因为它可以帮助我们理解强化学习算法的收敛性质。</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<p>|<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agarwal22b.html">Hierarchical Shrinkage: Improving the accuracy and interpretability of tree-based models</a>|ICML|2022|Abhineet Agarwal|Machine Learning|||open source|</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agarwal22b.html">Hierarchical Shrinkage: Improving the accuracy and interpretability of tree-based models（分层收缩：提高基于树的模型的准确性和可解释性）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Abhineet Agarwal（加州大学伯克利分校统计系）</li>
+<li>问题：</li>
+<li>方法：</li>
+<li>文章讲了什么？</li>
 </ul>
 </li>
 </ul>
@@ -2367,7 +2439,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">8.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">9.</span> <span class="toc-text">不会</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86-%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E6%98%AF%E6%8C%87%E5%8C%BB%E7%96%97%E6%9C%BA%E6%9E%84%E7%94%B5%E5%AD%90%E5%8C%96%E7%9A%84%E7%97%85%E5%8E%86%E8%AE%B0%E5%BD%95%EF%BC%8C%E5%8C%85%E6%8B%AC%E6%82%A3%E8%80%85%E7%9A%84%E8%AF%8A%E6%96%AD%E3%80%81%E7%97%85%E5%8F%B2%E3%80%81%E8%8D%AF%E7%89%A9%E6%B2%BB%E7%96%97%E5%92%8C%E6%A3%80%E6%9F%A5%E7%BB%93%E6%9E%9C%E7%AD%89%E4%BF%A1%E6%81%AF%E3%80%82%E8%BF%99%E4%BA%9B%E4%BF%A1%E6%81%AF%E9%80%9A%E5%B8%B8%E4%BB%A5%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E7%9A%84%E5%BD%A2%E5%BC%8F%E8%BF%9B%E8%A1%8C%E5%AD%98%E5%82%A8%EF%BC%8C%E5%9B%A0%E6%AD%A4%EF%BC%8C%E5%AF%B9%E7%94%B5%E5%AD%90%E7%97%85%E5%8E%86%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8C%E5%88%86%E6%9E%90%E5%92%8C%E5%BB%BA%E6%A8%A1%E5%8F%AF%E4%BB%A5%E5%B8%AE%E5%8A%A9%E5%8C%BB%E7%94%9F%E6%9B%B4%E5%A5%BD%E5%9C%B0%E7%90%86%E8%A7%A3%E7%96%BE%E7%97%85%E7%9A%84%E5%8F%91%E5%B1%95%E5%92%8C%E9%A2%84%E6%B5%8B%E6%82%A3%E8%80%85%E7%9A%84%E7%97%85%E6%83%85%E3%80%82"><span class="toc-number"></span> <span class="toc-text">先修知识- 电子病历  - 电子病历是指医疗机构电子化的病历记录，包括患者的诊断、病史、药物治疗和检查结果等信息。这些信息通常以时间序列的形式进行存储，因此，对电子病历数据进行分析和建模可以帮助医生更好地理解疾病的发展和预测患者的病情。</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">1.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%85%E7%9C%8B"><span class="toc-number">2.</span> <span class="toc-text">待看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">不会</span></a></li></ol>
                     </div>
                 </span>
             </div>
