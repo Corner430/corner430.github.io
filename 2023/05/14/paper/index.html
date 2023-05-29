@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-15T03:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-28T22:48:07.273Z">
+<meta property="article:modified_time" content="2023-05-29T04:19:58.643Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:136.6k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:138.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：44.7k字 | 预计阅读时长：159分钟
+    		字数：46.8k字 | 预计阅读时长：166分钟
 	</div>
         
   
@@ -1995,10 +1995,20 @@
 <td align="center">open source</td>
 </tr>
 <tr>
-<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agussurja22a.html">On the Convergence of the Shapley Value in Parametric Bayesian Learning Games</a></td>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/aguiar22a.html">Minimum Cost Intervention Design for Causal Effect Identification</a></td>
 <td align="center">ICML</td>
 <td align="center">2022</td>
-<td align="center">Lucas Agussurja</td>
+<td align="center">Sina Akbari</td>
+<td align="center">Machine Learning</td>
+<td align="center">确定因果关系的成本过高</td>
+<td align="center">贪心算法 + 多项式时间启发式算法 或者 对数因子近似算法</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center"></td>
 <td align="center">Machine Learning</td>
 <td align="center"></td>
 <td align="center"></td>
@@ -2194,12 +2204,63 @@
 </ul>
 <hr>
 <ul>
-<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agussurja22a.html">On the Convergence of the Shapley Value in Parametric Bayesian Learning Games（关于参数贝叶斯学习对策中Shapley值的收敛）</a><ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/aguiar22a.html">Minimum Cost Intervention Design for Causal Effect Identification（因果关系识别的最小成本干预设计）</a><ul>
 <li>文章发布在ICML</li>
 <li>时间为2022年</li>
-<li>作者：Lucas Agussurja（英国牛津大学工程科学系）</li>
-<li>问题：</li>
-<li>方法：</li>
+<li>作者：Sina Akbari（EPFL 技术管理学院）</li>
+<li>问题：确定因果关系的成本过高</li>
+<li>方法：贪心算法 + 多项式时间启发式算法 或者 对数因子近似算法</li>
+<li>先修知识<ul>
+<li>对数因子近似算法<ul>
+<li>在计算机科学中，对数因子近似是一种近似算法，它产生的答案在最优解的log(N)因子内，其中n是输入的大小。对数因子近似算法通常用于NP困难的问题，这意味着没有已知的多项式时间算法来寻找最优解。</li>
+<li>对数因子近似算法的一个例子是最大覆盖问题的贪婪算法。最大复盖率问题是找到一组元素，尽可能多地覆盖给定的一组项目。贪婪算法的工作原理是将覆盖最多未覆盖项目的元素重复添加到集合中。贪婪算法是一种对数因子近似算法，这意味着它产生一个至少覆盖(1-1&#x2F;e)项的集合，其中e是自然对数的底。</li>
+<li>对数因子近似算法并不总是解决NP-Hard问题的最佳选择。在某些情况下，可能会找到一种更好的近似算法，该算法产生的答案在最优答案的较小因子内。然而，当问题是NP难的并且没有已知的更好的近似算法时，对数因子近似算法通常是一个很好的选择。</li>
+<li>以下是对数因子近似算法的一些优势：<ul>
+<li>它们通常很容易实现。</li>
+<li><strong>它们可用于解决NP-Hard问题。</strong></li>
+<li>它们可以在合理的时间内产生良好的近似值。</li>
+</ul>
+</li>
+<li>以下是对数因子近似算法的一些缺点：<ul>
+<li>它们可能不会产生最佳答案。</li>
+<li>它们可能不如其他近似算法那么高效。</li>
+</ul>
+</li>
+<li>总体而言，对数因子近似算法是解决NP-Hard问题的有力工具。它们易于实现，并且可以在合理的时间内产生良好的近似值。然而，它们可能不会产生最优解，并且可能不如其他近似算法那么有效。</li>
+</ul>
+</li>
+<li>最小碰集问题<ul>
+<li><strong>最小碰集问题（Minimum Hit Set Problem）是一个组合优化问题，通常用于在给定一组集合和一组元素的情况下，找到尽可能小的集合子集，使得这些子集的并集包含所有的元素。</strong></li>
+<li>具体来说，假设有一个包含n个元素的集合U，以及一个包含m个子集的集合S，每个子集都包含U中的一些元素。问题的目标是找到尽可能小的子集T，使得T中的所有子集的并集包含了U中的所有元素。换句话说，T中的子集必须覆盖U中的所有元素，且T的大小应该最小化。</li>
+<li>最小碰集问题可以应用于许多实际场景，如测试用例设计、组合优化、数据挖掘、生物信息学等领域。例如，在测试用例设计中，可以将测试用例看作集合中的元素，将测试用例的覆盖情况看作子集的覆盖情况，然后通过解决最小碰集问题来设计最少的测试用例集，以覆盖所有的代码路径或功能。</li>
+<li><strong>最小碰集问题是一个NP完全问题</strong>，因此在一般情况下，不存在多项式时间的算法来解决该问题。通常采用启发式算法和近似算法来求解。其中，贪心算法是一种常用的启发式算法，它通过选择覆盖元素最多的子集来逐步构建最小碰集。近似算法则是通过牺牲一定的精度来加速求解，从而在多项式时间内得到一个次优解。</li>
+<li>最小碰集问题在实际应用中有着广泛的应用，因此也是组合优化领域的一个重要研究方向。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>这篇文章讲了什么内容？</strong><ul>
+<li>本文考虑的问题是设计一套干预措施，以最大限度地减少确定因果关系的成本。</li>
+<li>作者首先证明了该问题是NP-难的。然后，他们提出了一种算法，可以找到问题的最优解，<strong>或</strong>对其进行对数因子近似。<strong>该算法基于最小成本干预问题和最小碰集问题之间的联系。</strong></li>
+<li>作者还提出了几种多项式时间<strong>启发式算法来解决该问题的计算复杂性</strong>。启发式算法基于最小值的概念。最低限度的对冲是一套足以识别因果关系的干预措施，其规模不可能在不失去识别因果关系的能力的情况下减少。</li>
+<li>作者在一个合成数据集上评估了他们的算法的性能。结果表明，该算法能够在合理的时间内找到问题的最优解<strong>或最优解的良好近似值</strong>。</li>
+</ul>
+</li>
+<li>本文对因果推理领域做出了几点贡献。<ul>
+<li>首先，证明了最小成本干预设计问题是NP难的。这意味着没有多项式时间算法可以找到问题的最优解。</li>
+<li>其次，本文提出了一种算法，可以找到问题的最优解，或者说是问题的对数因子近似解。</li>
+<li>第三，针对该问题的计算复杂性，提出了几种多项式时间启发式算法。</li>
+</ul>
+</li>
+<li>本文提出的算法可用于识别各种环境中的因果效应，包括医学研究、社会科学研究和商业。</li>
+<li><strong>一言以蔽之</strong>：<font color="#dd0000">本文提出了一种方法，首先列出所有可能的干预措施。然后，它使用贪婪算法找到最能改变系统结果的干预措施，同时也是成本最低的。结果表明，该方法能在合理的时间内找到最优解。</font><br></li>
+<li>数据集<ul>
+<li>合成数据集<ul>
+<li>该数据集由100个节点和100条边组成。节点表示系统中的变量，边表示变量之间的因果关系。因果关系用半马尔可夫图表示。数据集是使用随机图形生成器生成的。</li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -2282,6 +2343,31 @@
 <li>这篇文章的方法是研究了无限时域、连续状态和动作空间以及熵正则化马尔可夫决策过程（MDPs）的策略梯度全局收敛性。作者考虑了一个softmax策略，其中包含一个（单隐藏层）神经网络逼近，处于均场极限状态下。</li>
 <li>这篇文章解决的问题是策略梯度全局收敛性，这是一个重要的问题，因为它可以帮助我们理解强化学习算法的收敛性质。</li>
 </ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>|<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agussurja22a.html">On the Convergence of the Shapley Value in Parametric Bayesian Learning Games</a>|ICML|2022|Lucas Agussurja|Machine Learning|||open source|</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agussurja22a.html">On the Convergence of the Shapley Value in Parametric Bayesian Learning Games（关于参数贝叶斯学习对策中Shapley值的收敛）</a><ul>
+<li><p>文章发布在ICML</p>
+</li>
+<li><p>时间为2022年</p>
+</li>
+<li><p>作者：Lucas Agussurja（英国牛津大学工程科学系）</p>
+</li>
+<li><p>问题：</p>
+</li>
+<li><p>方法：</p>
+</li>
+<li><p>贝叶斯学习博弈是指一种博弈论模型，其中每个玩家都有一个概率分布，表示他对其他玩家策略的信念。在这个模型中，玩家的目标是通过博弈过程来更新自己的信念，并最终选择最优的策略。</p>
+</li>
+<li><p>Shapley值是一种用于评估博弈中参与者贡献的方法，它可以用来刻画每个参与者对于博弈结果的影响。在这篇论文中，作者研究了在贝叶斯学习博弈中，Shapley值的收敛性问题。具体来说，作者考虑了一个参数化的贝叶斯学习博弈模型，其中每个玩家的策略由一个参数向量表示。作者证明了在这个模型中，如果每个玩家的策略空间是紧致的（即有限且闭合），并且玩家的信念是连续的，那么Shapley值是收敛的，并且收敛到一个唯一的极限值。</p>
+</li>
+<li><p>该论文的主要贡献在于研究了在参数化的贝叶斯学习博弈中Shapley值的收敛性问题，并给出了收敛性的证明。这个结果对于理解博弈论中Shapley值的性质和应用具有重要的意义，可以帮助更好地评估参与者的贡献，并优化博弈的结果。</p>
+</li>
+<li><p>总的来说，”On the Convergence of the Shapley Value in Parametric Bayesian Learning Games”这篇论文主要探讨了在贝叶斯学习博弈中Shapley值的收敛性问题，提供了一些有用的结论和证明，对于博弈论中Shapley值的理解和应用具有重要的意义。</p>
 </li>
 </ul>
 </li>
