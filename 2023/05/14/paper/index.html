@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-30T12:44:06.787Z">
+<meta property="article:modified_time" content="2023-05-31T10:10:34.301Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:140.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:140.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：47.8k字 | 预计阅读时长：169分钟
+    		字数：48.3k字 | 预计阅读时长：171分钟
 	</div>
         
   
@@ -2175,26 +2175,46 @@
 <hr>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/aguiar22a.html">Learning of Cluster-based Feature Importance for Electronic Health Record Time-series（基于聚类的电子病历时间序列特征重要性学习）</a><ul>
-<li>文章发布在ICML</li>
-<li>时间为2022年</li>
-<li>作者：Henrique Aguiar（英国牛津大学工程科学系）</li>
-<li>问题：电子病历的数据是稀疏的、异构的、多维的和多模态的时间序列，怎么从中学习模型，进行病人疾病发展倾向进行预测。</li>
-<li>方法：采用时间序列，注意力机制，聚类的方法，提出了一个有监督的深度学习模型来对 EHR 数据进行聚类</li>
-<li>先修知识<ul>
+<li><p>文章发布在ICML</p>
+</li>
+<li><p>时间为2022年</p>
+</li>
+<li><p>作者：Henrique Aguiar（英国牛津大学工程科学系）</p>
+</li>
+<li><p>问题：电子病历的数据是<strong>稀疏的、异构的、多维的和多模态的时间序列</strong>，怎么从中学习模型，进行<strong>病人疾病发展倾向</strong>进行预测。</p>
+</li>
+<li><p>方法：采用时间序列，注意力机制，聚类的方法，提出了一个无监督的深度学习模型来对 EHR 数据进行聚类</p>
+</li>
+<li><p>先修知识</p>
+<ul>
 <li>电子病历<ul>
 <li>电子病历是指医疗机构电子化的病历记录，包括患者的诊断、病史、药物治疗和检查结果等信息。这些信息通常<strong>以时间序列的形式进行存储</strong>，因此，<strong>对电子病历数据进行分析和建模可以帮助医生更好地理解疾病的发展和预测患者的病情</strong>。</li>
 </ul>
 </li>
+<li>自组织映射（Self-Organizing Map，SOM）<ul>
+<li>自组织映射（Self-Organizing Map，SOM）是一种无监督学习的神经网络模型，由芬兰学者 Teuvo Kohonen 在1980年代提出。SOM 模型可以将高维数据映射到一个低维空间中，同时保留数据间的拓扑结构，即相似的数据在 SOM 映射中也会保持相邻的关系。SOM 模型的输出层结构呈现出网格状，每个网格被称为节点或神经元，每个节点与输入空间中的向量之间存在一定的拓扑关系。</li>
+<li>SOM 模型的训练过程分为两个阶段。第一阶段是竞争过程，每个输入向量与 SOM 网格中的节点进行竞争，最终每个输入向量都会被映射到最相似的节点上。第二阶段是合作过程，SOM 网格中的节点会相互调整，使得相邻的节点在输入空间中也应该相似，从而形成拓扑结构。SOM 模型的输出层可以用于数据聚类、数据可视化、降维等任务，也可以作为其他机器学习模型的特征提取器。</li>
 </ul>
 </li>
-<li>文章讲了什么？<ul>
+</ul>
+</li>
+<li><p>文章讲了什么？</p>
+<ul>
 <li>最近电子健康记录 (EHR) 的可用性允许开发预测患者恶化和轨迹演变风险的算法。然而，使用 EHR 预测疾病进展具有挑战性，<strong>因为这些数据是稀疏的、异构的、多维的和多模态的时间序列。</strong></li>
 <li>例如：首先，EHR 数据包含人口统计或静态变量（例如年龄和性别）和多维时间序列（例如心率、HR 和实验室测量，例如血液测试）的混合。其次，EHR时间序列是多模态的，因为不同的特征是从不同的设备收集的，代表相关性的不同临床属性。类似地，时间序列特征被不同时间采样，并且具有较低的和不同的采样率，以及不同的缺失值属性。此外，每个特征都与不同的噪声和进化模式相关联。</li>
 <li>通过引入基于集群的特征时间注意机制来改进通过 EHR 数据对患者结果的预测。我们的方法还利用表型信息来帮助临床可解释性，不仅利用人口和生命体征信息，而且还利用相关的实验室测量（均存在于 EHR 中）来提供更完整的患者生理状态。</li>
 <li><strong>作者采用时间序列，注意力机制，聚类的方法，提出了一个有监督的深度学习模型来对 EHR 数据进行聚类，该模型基于识别临床可理解的表型，关于结果预测和患者轨迹。</strong></li>
 </ul>
 </li>
-<li>数据集<ul>
+<li><p>一言以蔽之：</p>
+<ul>
+<li>在电子病历数据的背景下，<strong>聚类可用于识别在临床特征方面相似的患者组</strong>。然后，这些信息可以用来改进对患者结果的预测。</li>
+<li>文中使用的具体聚类算法称为自组织映射(SOM)。SOMS是一种神经网络，可用于表示低维空间中的数据。这使得可视化数据和识别模式变得更容易。</li>
+<li>研究表明，SOM模型可以有效地对EHR数据进行聚类。作者还表明，<strong>由SOM确定的集群可以用于改善对患者结果的预测</strong>。</li>
+</ul>
+</li>
+<li><p>数据集</p>
+<ul>
 <li>HAVEN dataset</li>
 <li>MIMIC-IV ED dateset</li>
 </ul>
