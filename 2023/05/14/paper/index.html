@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-31T10:10:34.301Z">
+<meta property="article:modified_time" content="2023-05-31T10:19:48.921Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:140.7k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:141.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：48.3k字 | 预计阅读时长：171分钟
+    		字数：48.8k字 | 预计阅读时长：173分钟
 	</div>
         
   
@@ -2192,8 +2192,8 @@
 </ul>
 </li>
 <li>自组织映射（Self-Organizing Map，SOM）<ul>
-<li>自组织映射（Self-Organizing Map，SOM）是一种无监督学习的神经网络模型，由芬兰学者 Teuvo Kohonen 在1980年代提出。SOM 模型可以将高维数据映射到一个低维空间中，同时保留数据间的拓扑结构，即相似的数据在 SOM 映射中也会保持相邻的关系。SOM 模型的输出层结构呈现出网格状，每个网格被称为节点或神经元，每个节点与输入空间中的向量之间存在一定的拓扑关系。</li>
-<li>SOM 模型的训练过程分为两个阶段。第一阶段是竞争过程，每个输入向量与 SOM 网格中的节点进行竞争，最终每个输入向量都会被映射到最相似的节点上。第二阶段是合作过程，SOM 网格中的节点会相互调整，使得相邻的节点在输入空间中也应该相似，从而形成拓扑结构。SOM 模型的输出层可以用于数据聚类、数据可视化、降维等任务，也可以作为其他机器学习模型的特征提取器。</li>
+<li>自组织映射（Self-Organizing Map，SOM）是一种无监督学习的神经网络模型，由芬兰学者 Teuvo Kohonen 在1980年代提出。<strong>SOM 模型可以将高维数据映射到一个低维空间中，同时保留数据间的拓扑结构，即相似的数据在 SOM 映射中也会保持相邻的关系</strong>。SOM 模型的输出层结构呈现出网格状，每个网格被称为节点或神经元，每个节点与输入空间中的向量之间存在一定的拓扑关系。</li>
+<li><strong>SOM 模型的训练过程分为两个阶段</strong>。第一阶段是竞争过程，每个输入向量与 SOM 网格中的节点进行竞争，最终每个输入向量都会被映射到最相似的节点上。第二阶段是合作过程，SOM 网格中的节点会相互调整，使得相邻的节点在输入空间中也应该相似，从而形成拓扑结构。SOM 模型的输出层可以用于数据聚类、数据可视化、降维等任务，也可以作为其他机器学习模型的特征提取器。</li>
 </ul>
 </li>
 </ul>
@@ -2311,7 +2311,7 @@
 <li>已经采用了许多技巧，如低精度浮点数、权重修剪和经典软件工程和性能调整，以降低这些计算成本。</li>
 <li>尽管如此，出于多种原因，<strong>通常需要在第三方计算硬件或云环境中部署模型</strong>（例如，客户的延迟较低、计算资源缺乏以及计算需求弹性）</li>
 <li><strong>如果第三方不完全可信，则希望混淆输入和输出的性质，以便第三方不容易确定正在执行哪些特定任务。</strong></li>
-<li>作者探索了一种不同的<strong>快速启发式安全策略</strong>，我们称之为<strong>连接主义符号伪秘密</strong>。通过利用**全息简化表示 (HRR)**，我们创建了一个具有伪加密风格防御的神经网络，该防御在经验上显示出对攻击的鲁棒性，即使在不现实地支持对手的威胁模型下。</li>
+<li>作者探索了一种不同的<strong>快速启发式安全策略</strong>，我们称之为<strong>连接主义符号伪秘密</strong>。通过利用 **全息简化表示 (HRR)**，我们创建了一个具有伪加密风格防御的神经网络，该防御在经验上显示出对攻击的鲁棒性，即使在不现实地支持对手的威胁模型下。</li>
 </ul>
 </li>
 <li>一言以蔽之<ul>
@@ -2324,6 +2324,16 @@
 <li><a target="_blank" rel="noopener" href="https://www.cs.toronto.edu/~kriz/cifar.html">CIFAR-10&#x2F;100</a>：自然图像的数据集。</li>
 <li><a target="_blank" rel="noopener" href="https://www.image-net.org/">ImageNet</a>：包含100多万张图片的数据集。</li>
 <li>除了上面列出的数据集，作者还使用了一个名为“全息简化表示(HRR)数据集”的<strong>合成数据集</strong>。通过使用HRR来表示一组自然图像来生成HRR数据集。作者使用HRR数据集来评估CSP在不是专门为机器学习设计的数据集上的性能。</li>
+</ul>
+</li>
+<li>具体而言<ul>
+<li>本文提出了一种<strong>在不可信平台上部署卷积神经网络(CNN)的方法</strong>。这种方法被称为**连接主义符号伪秘密(CSP)**，使用一种名为全息简化表示(HRR)的技术来混淆CNN的输入和输出，从而使对手难以推断CNN正在执行的潜在任务。</li>
+<li>CSPS方法的工作原理是<strong>首先将CNN的输入和输出转换为HRR表示</strong>。HRR表示是一种可用于表示组成结构的分布式表示。具体地，HRR表示可用于表示图像的不同部分之间的关系。</li>
+<li>一旦CNN的输入和输出被转换成HRR表示，然后使用密钥对其进行加密。然后，加密的表示被发送到不可信平台。然后，不受信任的平台可以对加密的表示执行推断，但如果没有密钥，它就不能解密它们。</li>
+<li>密钥永远不会被发送到不受信任的平台。相反，它存储在受信任的设备上。当不可信平台需要执行推理时，它向可信设备发送请求。然后，可信设备对加密的表示进行解密，并将解密的表示发送回不可信平台。</li>
+<li>与在不受信任的平台上部署CNN的其他方法相比，CSPs方法具有几个优点。首先，它非常高效。加密和解密操作非常快，并且它们不会给推理过程增加显著的开销。其次，CSPs方法非常安全。加密的表示在没有密钥的情况下很难解密。第三，CSPs方法非常灵活。它可用于在各种不受信任的平台上部署CNN。</li>
+<li>CSPS方法已经在各种任务上进行了评估，包括图像分类和目标检测。结果表明，在非可信平台上部署CNN时，CSPs方法可以达到与其他方法相当的精度。</li>
+<li>CSPs方法是在不可信平台上部署CNN的一种很有前途的新方法。它高效、安全、灵活。CSPS方法是保护敏感数据隐私的宝贵工具。</li>
 </ul>
 </li>
 </ul>
