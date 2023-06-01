@@ -8,17 +8,27 @@
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
   <title>openwrt单臂路由之单线多拨 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="接线 光猫和路由器是lan-lan 路由器和单臂路由是lan-lan">
+  <meta name="description" content="1. 单臂路由拨号上网设置1.1 接线 光猫和路由器是lan-lan 路由器和单臂路由是lan-lan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="openwrt单臂路由之单线多拨">
 <meta property="og:url" content="http://corner647.gitee.io/2023/06/01/openwrt%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B9%8B%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="接线 光猫和路由器是lan-lan 路由器和单臂路由是lan-lan">
+<meta property="og:description" content="1. 单臂路由拨号上网设置1.1 接线 光猫和路由器是lan-lan 路由器和单臂路由是lan-lan">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144627.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221149.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221258.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221324.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221348.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221529.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221536.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221543.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221624.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221629.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221634.png">
 <meta property="article:published_time" content="2023-06-01T06:48:16.000Z">
-<meta property="article:modified_time" content="2023-06-01T06:49:55.554Z">
+<meta property="article:modified_time" content="2023-06-01T14:18:05.682Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png">
@@ -67,7 +77,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:141.5k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:141.6k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -164,7 +174,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：174字 | 预计阅读时长：1分钟
+    		字数：361字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -193,16 +203,34 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h1><ul>
+        <h1 id="1-单臂路由拨号上网设置"><a href="#1-单臂路由拨号上网设置" class="headerlink" title="1. 单臂路由拨号上网设置"></a>1. 单臂路由拨号上网设置</h1><h2 id="1-1-接线"><a href="#1-1-接线" class="headerlink" title="1.1 接线"></a>1.1 接线</h2><ul>
 <li>光猫和路由器是lan-lan</li>
 <li>路由器和单臂路由是lan-lan<span id="more"></span></li>
 </ul>
-<h1 id="单臂路由拨号"><a href="#单臂路由拨号" class="headerlink" title="单臂路由拨号"></a>单臂路由拨号</h1><ul>
+<h2 id="1-2-单臂路由拨号"><a href="#1-2-单臂路由拨号" class="headerlink" title="1.2 单臂路由拨号"></a>1.2 单臂路由拨号</h2><ul>
 <li>修改lan口地址，<strong>取消lan口的桥接设置，</strong>，开启DHCP功能。其余不变</li>
 <li>手动创建wan口，接口和lan口的物理接口复用。设置PPPOE拨号。</li>
 </ul>
-<h1 id="关闭路由器的DHCP功能，并手动设置路由器为AP模式"><a href="#关闭路由器的DHCP功能，并手动设置路由器为AP模式" class="headerlink" title="关闭路由器的DHCP功能，并手动设置路由器为AP模式"></a>关闭路由器的DHCP功能，并手动设置路由器为AP模式</h1><h1 id="设置上网的网关和DNS都为单臂路由的地址"><a href="#设置上网的网关和DNS都为单臂路由的地址" class="headerlink" title="设置上网的网关和DNS都为单臂路由的地址"></a>设置上网的网关和DNS都为单臂路由的地址</h1><h1 id="修改防火墙的区域设置，使得LAN-WAN之间的数据流通"><a href="#修改防火墙的区域设置，使得LAN-WAN之间的数据流通" class="headerlink" title="修改防火墙的区域设置，使得LAN-WAN之间的数据流通"></a>修改防火墙的区域设置，使得LAN-WAN之间的数据流通</h1><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png" alt="20230601144607"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144627.png" alt="20230601144627"></p>
-<h1 id="DHCP-x2F-DNS中设置DNS转发"><a href="#DHCP-x2F-DNS中设置DNS转发" class="headerlink" title="DHCP&#x2F;DNS中设置DNS转发"></a>DHCP&#x2F;DNS中设置DNS转发</h1><h1 id="本校网络无法多拨"><a href="#本校网络无法多拨" class="headerlink" title="本校网络无法多拨"></a>本校网络无法多拨</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://youtu.be/0uNntGhMLvI">单臂路由|N1盒子(OpenWRT)单线多拨实现网速叠加|Owen带你一起玩</a></p>
+<h2 id="1-3-路由器和上网设备设置"><a href="#1-3-路由器和上网设备设置" class="headerlink" title="1.3 路由器和上网设备设置"></a>1.3 路由器和上网设备设置</h2><ul>
+<li>关闭路由器的DHCP功能，并手动设置路由器为AP模式</li>
+<li>设置上网的网关和DNS都为单臂路由的地址</li>
+</ul>
+<h2 id="1-4-修改单臂路由的防火墙的区域设置，使得LAN-WAN之间的数据流通"><a href="#1-4-修改单臂路由的防火墙的区域设置，使得LAN-WAN之间的数据流通" class="headerlink" title="1.4 修改单臂路由的防火墙的区域设置，使得LAN-WAN之间的数据流通"></a>1.4 修改单臂路由的防火墙的区域设置，使得LAN-WAN之间的数据流通</h2><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png" alt="20230601144607"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144627.png" alt="20230601144627"></p>
+<h2 id="1-5-设置单臂路由中DHCP-x2F-DNS中设置DNS转发"><a href="#1-5-设置单臂路由中DHCP-x2F-DNS中设置DNS转发" class="headerlink" title="1.5 设置单臂路由中DHCP&#x2F;DNS中设置DNS转发"></a>1.5 设置单臂路由中DHCP&#x2F;DNS中设置DNS转发</h2><hr>
+<h1 id="2-单线多拨"><a href="#2-单线多拨" class="headerlink" title="2. 单线多拨"></a>2. 单线多拨</h1><blockquote>
+<p>经测试，如果是多拨的账号不同，是可以拨通的，如果采用同一账号，就拨不通</p>
+</blockquote>
+<ul>
+<li>拨通的效果图如下：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221149.png" alt="20230601221149"></li>
+</ul>
+<p>设置方式如下：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221258.png" alt="20230601221258"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221324.png" alt="20230601221324"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221348.png" alt="20230601221348"></p>
+<blockquote>
+<p>重点注意虚拟wan口的防火墙设置和防火墙的区域设置</p>
+</blockquote>
+<h2 id="2-1-单线多拨（双账号）测速图"><a href="#2-1-单线多拨（双账号）测速图" class="headerlink" title="2.1 单线多拨（双账号）测速图"></a>2.1 单线多拨（双账号）测速图</h2><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221529.png" alt="20230601221529"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221536.png" alt="20230601221536"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221543.png" alt="20230601221543"></p>
+<h2 id="2-2-关闭多拨测速图"><a href="#2-2-关闭多拨测速图" class="headerlink" title="2.2 关闭多拨测速图"></a>2.2 关闭多拨测速图</h2><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221624.png" alt="20230601221624"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221629.png" alt="20230601221629"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601221634.png" alt="20230601221634"></p>
+<h1 id="3-结论"><a href="#3-结论" class="headerlink" title="3. 结论"></a>3. 结论</h1><p>或许是由于实验室网络接口被计算机网络中心限速的原因，并没有什么宽带叠加的效果，反而会更加不稳定。<br>一言以蔽之：没用</p>
+<h1 id="4-References"><a href="#4-References" class="headerlink" title="4. References"></a>4. References</h1><p><a target="_blank" rel="noopener" href="https://youtu.be/0uNntGhMLvI">单臂路由|N1盒子(OpenWRT)单线多拨实现网速叠加|Owen带你一起玩</a></p>
 
       
 	
@@ -368,7 +396,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A5%E7%BA%BF"><span class="toc-number">1.</span> <span class="toc-text">接线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E6%8B%A8%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">单臂路由拨号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84DHCP%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%B9%B6%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%BAAP%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">关闭路由器的DHCP功能，并手动设置路由器为AP模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8A%E7%BD%91%E7%9A%84%E7%BD%91%E5%85%B3%E5%92%8CDNS%E9%83%BD%E4%B8%BA%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-number">4.</span> <span class="toc-text">设置上网的网关和DNS都为单臂路由的地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE%EF%BC%8C%E4%BD%BF%E5%BE%97LAN-WAN%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E9%80%9A"><span class="toc-number">5.</span> <span class="toc-text">修改防火墙的区域设置，使得LAN-WAN之间的数据流通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DHCP-x2F-DNS%E4%B8%AD%E8%AE%BE%E7%BD%AEDNS%E8%BD%AC%E5%8F%91"><span class="toc-number">6.</span> <span class="toc-text">DHCP&#x2F;DNS中设置DNS转发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E6%A0%A1%E7%BD%91%E7%BB%9C%E6%97%A0%E6%B3%95%E5%A4%9A%E6%8B%A8"><span class="toc-number">7.</span> <span class="toc-text">本校网络无法多拨</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">8.</span> <span class="toc-text">References</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E6%8B%A8%E5%8F%B7%E4%B8%8A%E7%BD%91%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.</span> <span class="toc-text">1. 单臂路由拨号上网设置</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E6%8E%A5%E7%BA%BF"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 接线</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E6%8B%A8%E5%8F%B7"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 单臂路由拨号</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E8%B7%AF%E7%94%B1%E5%99%A8%E5%92%8C%E4%B8%8A%E7%BD%91%E8%AE%BE%E5%A4%87%E8%AE%BE%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 路由器和上网设备设置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E4%BF%AE%E6%94%B9%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E7%9A%84%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE%EF%BC%8C%E4%BD%BF%E5%BE%97LAN-WAN%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E9%80%9A"><span class="toc-number">1.4.</span> <span class="toc-text">1.4 修改单臂路由的防火墙的区域设置，使得LAN-WAN之间的数据流通</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E8%AE%BE%E7%BD%AE%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B8%ADDHCP-x2F-DNS%E4%B8%AD%E8%AE%BE%E7%BD%AEDNS%E8%BD%AC%E5%8F%91"><span class="toc-number">1.5.</span> <span class="toc-text">1.5 设置单臂路由中DHCP&#x2F;DNS中设置DNS转发</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8"><span class="toc-number">2.</span> <span class="toc-text">2. 单线多拨</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8%EF%BC%88%E5%8F%8C%E8%B4%A6%E5%8F%B7%EF%BC%89%E6%B5%8B%E9%80%9F%E5%9B%BE"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 单线多拨（双账号）测速图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%85%B3%E9%97%AD%E5%A4%9A%E6%8B%A8%E6%B5%8B%E9%80%9F%E5%9B%BE"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 关闭多拨测速图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%BB%93%E8%AE%BA"><span class="toc-number">3.</span> <span class="toc-text">3. 结论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-References"><span class="toc-number">4.</span> <span class="toc-text">4. References</span></a></li></ol>
                     </div>
                 </span>
             </div>
