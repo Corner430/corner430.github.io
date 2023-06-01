@@ -6,23 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
-  <title>DDNSTO | Hexo</title>
+  <title>openwrt进行DDNS解析 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="ddnsto官网ddnsto说明 ddnsto 支持很多系统">
+  <meta name="description" content="在cloudflare添加一条A记录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="DDNSTO">
-<meta property="og:url" content="http://corner647.gitee.io/2023/05/22/DDNSTO/index.html">
+<meta property="og:title" content="openwrt进行DDNS解析">
+<meta property="og:url" content="http://corner647.gitee.io/2023/05/19/openwrt%E8%BF%9B%E8%A1%8CDDNS%E8%A7%A3%E6%9E%90/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="ddnsto官网ddnsto说明 ddnsto 支持很多系统">
+<meta property="og:description" content="在cloudflare添加一条A记录">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521134212.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521133639.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521133744.png">
-<meta property="article:published_time" content="2023-05-21T20:34:41.000Z">
-<meta property="article:modified_time" content="2023-05-21T20:42:30.705Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519130833.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519131101.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519132624.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519135334.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519135539.png">
+<meta property="article:published_time" content="2023-05-19T05:03:15.000Z">
+<meta property="article:modified_time" content="2023-05-19T20:56:15.394Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521134212.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519130833.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -160,17 +162,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-DDNSTO" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-openwrt进行DDNS解析" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：75字 | 预计阅读时长：1分钟
+    		字数：136字 | 预计阅读时长：1分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      DDNSTO
+      openwrt进行DDNS解析
     </h1>
   
 
@@ -186,25 +188,35 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/05/22/DDNSTO/" class="archive-article-date">
-  	<time datetime="2023-05-21T20:34:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
+        <a href="/2023/05/19/openwrt%E8%BF%9B%E8%A1%8CDDNS%E8%A7%A3%E6%9E%90/" class="archive-article-date">
+  	<time datetime="2023-05-19T05:03:15.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><a href="ddnsto.com">ddnsto官网</a><br><a target="_blank" rel="noopener" href="https://doc.linkease.com/zh/guide/ddnsto/">ddnsto说明</a></p>
-<p>ddnsto 支持很多系统<span id="more"></span><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521134212.png" alt="20230521134212"></p>
-<hr>
-<ol>
-<li>注册账号，保留右上角的令牌</li>
-<li>复制令牌，启用<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521133639.png" alt="20230521133639"></li>
-<li>修改设备名，添加域名映射<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521133744.png" alt="20230521133744"></li>
+        <ol>
+<li><p>在cloudflare添加一条A记录<span id="more"></span><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519130833.png" alt="20230519130833"></p>
+</li>
+<li><p>获取cloudflare的API key<br><a target="_blank" rel="noopener" href="https://dash.cloudflare.com/profile/api-tokens">API Tokens</a></p>
+</li>
+</ol>
+<p>复制这串密钥<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519131101.png" alt="20230519131101"></p>
+<ol start="3">
+<li>openwrt设置DDNS<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519132624.png" alt="20230519132624"></li>
 </ol>
 <blockquote>
-<p>这里并不需要有自己的域名，域名映射到的目标主机地址是内网ip，例如192.168.1.1</p>
+<p>这里如果有问题，把route都改成www，包括cloudflare那里的A记录也要更改</p>
 </blockquote>
+<ol start="4">
+<li>使用url转发来避免使用域名加端口号进行访问</li>
+</ol>
+<ul>
+<li>设置页面规则<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519135334.png" alt="20230519135334"></li>
+<li>添加一条新记录，要和页面规则的相匹配<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230519135539.png" alt="20230519135539"></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://youtu.be/Y0HGp94eHGU?t=889">【278】如何随时随地访问家中的软路由和其他设备？远程访问端口转发保姆级教程丨CloudFlare设置动态DNS 域名解析 URL转发</a></p>
 
       
 	
@@ -237,7 +249,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner647.gitee.io/2023/05/22/DDNSTO/">http://corner647.gitee.io/2023/05/22/DDNSTO/</a>
+    <a rel="license" href="http://corner647.gitee.io/2023/05/19/openwrt%E8%BF%9B%E8%A1%8CDDNS%E8%A7%A3%E6%9E%90/">http://corner647.gitee.io/2023/05/19/openwrt%E8%BF%9B%E8%A1%8CDDNS%E8%A7%A3%E6%9E%90/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -327,7 +339,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/05/22/DDNSTO/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/05/19/openwrt%E8%BF%9B%E8%A1%8CDDNS%E8%A7%A3%E6%9E%90/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -341,18 +353,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/05/22/200%E5%85%83E3%E7%A5%9E%E6%95%99%E8%A3%85%E6%9C%BA/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/05/21/Ubuntu%E8%BF%9B%E5%85%A5grub%E7%95%8C%E9%9D%A2/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          200元E3神教装机
+          Ubuntu进入grub界面
         
       </div>
     </a>
   
   
-    <a href="/2023/05/22/Ubuntu%E8%BF%9B%E5%85%A5grub%E7%95%8C%E9%9D%A2/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ubuntu进入grub界面</div>
+    <a href="/2023/05/18/windows11%E5%AE%89%E8%A3%85%E5%AE%89%E5%8D%93%E5%AD%90%E7%B3%BB%E7%BB%9F/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">windows11安装安卓子系统</div>
       <i class="icon-circle-right"></i>
     </a>
   

@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
-  <title>WSL开机自启动并在后台运行 | Hexo</title>
+  <title>机场或节点测速 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在Windows中创建一个vbs脚本文件，例如wsl.vbs，该文件包含以下内容：12Set ws &#x3D; CreateObject(&quot;Wscript.Shell&quot;)ws.run &quot;wsl -d &lt;distribution_name&gt;&quot;, 0  其中，&lt;distribution_name&gt;是您的WSL发行版的名称。例如，如果您的发行版名">
+  <meta name="description" content="1. 单节点测速speedtest">
 <meta property="og:type" content="article">
-<meta property="og:title" content="WSL开机自启动并在后台运行">
-<meta property="og:url" content="http://corner647.gitee.io/2023/05/26/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/index.html">
+<meta property="og:title" content="机场或节点测速">
+<meta property="og:url" content="http://corner647.gitee.io/2023/05/16/%E6%9C%BA%E5%9C%BA%E6%88%96%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在Windows中创建一个vbs脚本文件，例如wsl.vbs，该文件包含以下内容：12Set ws &#x3D; CreateObject(&quot;Wscript.Shell&quot;)ws.run &quot;wsl -d &lt;distribution_name&gt;&quot;, 0  其中，&lt;distribution_name&gt;是您的WSL发行版的名称。例如，如果您的发行版名">
+<meta property="og:description" content="1. 单节点测速speedtest">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-25T22:07:30.000Z">
-<meta property="article:modified_time" content="2023-05-25T23:57:09.633Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230516162259.png">
+<meta property="article:published_time" content="2023-05-16T08:21:08.000Z">
+<meta property="article:modified_time" content="2023-05-19T16:07:30.434Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230516162259.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,17 +158,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-WSL开机自启动并在后台运行" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-机场或节点测速" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：186字 | 预计阅读时长：1分钟
+    		字数：304字 | 预计阅读时长：1分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      WSL开机自启动并在后台运行
+      机场或节点测速
     </h1>
   
 
@@ -182,24 +184,34 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/05/26/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2023-05-25T22:07:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-26</time>
+        <a href="/2023/05/16/%E6%9C%BA%E5%9C%BA%E6%88%96%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F/" class="archive-article-date">
+  	<time datetime="2023-05-16T08:21:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-16</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li>在Windows中创建一个vbs脚本文件，例如wsl.vbs，该文件包含以下内容：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set ws = CreateObject(&quot;Wscript.Shell&quot;)</span><br><span class="line">ws.run &quot;wsl -d &lt;distribution_name&gt;&quot;, 0</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>其中，<code>&lt;distribution_name&gt;</code>是您的WSL发行版的名称。例如，如果您的发行版名称为Ubuntu，则应将其替换为Ubuntu。<br><code>0</code>是一个常量，它指示在调用Shell函数时，所调用程序的窗口样式是隐藏的。0表示隐藏窗口，1表示正常窗口，2表示最小化窗口。</p>
-</blockquote>
-</li>
-<li>将vbs脚本文件复制到Windows启动文件夹中。要打开Windows启动文件夹，请按<code>Win + R</code>键，输入<code>shell:startup</code>，然后单击<code>确定</code>。</li>
-<li>重新启动计算机以使更改生效。</li>
-<li>references <a target="_blank" rel="noopener" href="https://www.cnblogs.com/wswind/p/17201979.html">Dev-blog by WS</a></li>
+        <h2 id="1-单节点测速"><a href="#1-单节点测速" class="headerlink" title="1. 单节点测速"></a>1. 单节点测速</h2><p><a target="_blank" rel="noopener" href="https://www.speedtest.net/">speedtest</a><span id="more"></span></p>
+<p>在这里添加规则，指定当前是节点测速还是本地测速<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230516162259.png" alt="20230516162259"></p>
+<p>这是一些无广告版本的speedtest：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="http://mybroadbandspeed.speedtestcustom.com/">http://mybroadbandspeed.speedtestcustom.com/</a></li>
+<li><a target="_blank" rel="noopener" href="http://aaaaaa.speedtestcustom.com/">http://aaaaaa.speedtestcustom.com/</a></li>
+<li><a target="_blank" rel="noopener" href="http://rixcloud.speedtestcustom.com/">http://rixcloud.speedtestcustom.com/</a></li>
+<li><a target="_blank" rel="noopener" href="http://cordcloud.speedtestcustom.com/">http://cordcloud.speedtestcustom.com/</a></li>
 </ul>
+<h2 id="2-YouTube-视频统计信息"><a href="#2-YouTube-视频统计信息" class="headerlink" title="2. YouTube 视频统计信息"></a>2. YouTube 视频统计信息</h2><h2 id="3-全节点测速"><a href="#3-全节点测速" class="headerlink" title="3. 全节点测速"></a>3. 全节点测速</h2><p><a target="_blank" rel="noopener" href="https://github.com/tindy2013/stairspeedtest-reborn">https://github.com/tindy2013/stairspeedtest-reborn</a></p>
+<ul>
+<li>双击webgui.bat脚本进行测试</li>
+<li>结果是一张测速图片，在result文件夹中</li>
+</ul>
+<hr>
+<p>也可以运行stairspeedtest.exe进行测速</p>
+<h2 id="nodesCatch-V2-0-全自动一键节点测速工具"><a href="#nodesCatch-V2-0-全自动一键节点测速工具" class="headerlink" title="nodesCatch V2.0 全自动一键节点测速工具"></a>nodesCatch V2.0 全自动一键节点测速工具</h2><p><a target="_blank" rel="noopener" href="https://github.com/bulianglin/demo">github仓库下载</a><br><a target="_blank" rel="noopener" href="https://github.com/kivid/nodesCatch">nodescatch</a></p>
+<h2 id="4-参考"><a href="#4-参考" class="headerlink" title="4. 参考"></a>4. 参考</h2><p><a target="_blank" rel="noopener" href="https://merlinblog.xyz/wiki/speedtest.html">测速指南 | 如何测试自己的科学上网速度？</a><br><a target="_blank" rel="noopener" href="https://bulianglin.com/archives/nodescatch.html">nodesCatch V2.0 全自动一键节点测速工具</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=AGk4qw3n9wk&ab_channel=%E4%B8%8D%E8%89%AF%E6%9E%97">永久有效！让你有用不完的免费节点，揭秘博主分享的免费节点是哪里来的，学会了你也可以给别人分享节点，全平台客户端可用 v2ray|clash|ShadowRocket|Surge|trojan</a><br><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=aSR6OuqtFdU&ab_channel=%E4%B8%8D%E8%89%AF%E6%9E%97">免费节点自动抓取软件，8K秒开，一键全自动节点测速软件分享，快速检测节点池免费节点是否可用，从此再也不用担心失联了，支持ss、ssr、Vmess、Trojan、socks5、http、https测速</a><br><a target="_blank" rel="noopener" href="https://oliverhou.com/archives/213">nodesCatch V2.0节点筛选工具使用教程</a></p>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://www.google.com.hk/search?q=inurl:clash/proxies">google 搜索节点池</a></p>
 
       
 	
@@ -232,7 +244,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner647.gitee.io/2023/05/26/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/">http://corner647.gitee.io/2023/05/26/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/</a>
+    <a rel="license" href="http://corner647.gitee.io/2023/05/16/%E6%9C%BA%E5%9C%BA%E6%88%96%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F/">http://corner647.gitee.io/2023/05/16/%E6%9C%BA%E5%9C%BA%E6%88%96%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -322,7 +334,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/05/26/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/05/16/%E6%9C%BA%E5%9C%BA%E6%88%96%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -336,18 +348,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/05/26/%E7%BD%91%E5%85%B3%E4%BB%A3%E7%90%86/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2023/05/16/windows11%E8%BF%9E%E6%8E%A5%E9%9A%90%E8%97%8FWIFI/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          网关代理
+          windows11连接隐藏WIFI
         
       </div>
     </a>
   
   
-    <a href="/2023/05/25/Ubuntu%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%94%A4%E9%86%92/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Ubuntu设置网络唤醒</div>
+    <a href="/2023/05/14/paper/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">paper</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -374,7 +386,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8D%95%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F"><span class="toc-number">1.</span> <span class="toc-text">1. 单节点测速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-YouTube-%E8%A7%86%E9%A2%91%E7%BB%9F%E8%AE%A1%E4%BF%A1%E6%81%AF"><span class="toc-number">2.</span> <span class="toc-text">2. YouTube 视频统计信息</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E5%85%A8%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F"><span class="toc-number">3.</span> <span class="toc-text">3. 全节点测速</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#nodesCatch-V2-0-%E5%85%A8%E8%87%AA%E5%8A%A8%E4%B8%80%E9%94%AE%E8%8A%82%E7%82%B9%E6%B5%8B%E9%80%9F%E5%B7%A5%E5%85%B7"><span class="toc-number">4.</span> <span class="toc-text">nodesCatch V2.0 全自动一键节点测速工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8F%82%E8%80%83"><span class="toc-number">5.</span> <span class="toc-text">4. 参考</span></a></li></ol>
                     </div>
                 </span>
             </div>
