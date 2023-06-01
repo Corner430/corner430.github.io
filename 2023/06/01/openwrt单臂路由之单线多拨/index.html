@@ -6,19 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner647.gitee.io">
-  <title>Ubuntu新用户创建初始化 | Hexo</title>
+  <title>openwrt单臂路由之单线多拨 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作： 以root用户身份登录系统，或使用已经拥有sudo权限的用户账户登录。">
+  <meta name="description" content="接线 光猫和路由器是lan-lan 路由器和单臂路由是lan-lan">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Ubuntu新用户创建初始化">
-<meta property="og:url" content="http://corner647.gitee.io/2023/05/09/Ubuntu%E6%96%B0%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%8C%96/index.html">
+<meta property="og:title" content="openwrt单臂路由之单线多拨">
+<meta property="og:url" content="http://corner647.gitee.io/2023/06/01/openwrt%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B9%8B%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作： 以root用户身份登录系统，或使用已经拥有sudo权限的用户账户登录。">
+<meta property="og:description" content="接线 光猫和路由器是lan-lan 路由器和单臂路由是lan-lan">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-09T11:26:51.000Z">
-<meta property="article:modified_time" content="2023-05-09T11:30:26.273Z">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144627.png">
+<meta property="article:published_time" content="2023-06-01T06:48:16.000Z">
+<meta property="article:modified_time" content="2023-06-01T06:49:55.554Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -156,17 +159,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Ubuntu新用户创建初始化" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-openwrt单臂路由之单线多拨" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：367字 | 预计阅读时长：1分钟
+    		字数：174字 | 预计阅读时长：1分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu新用户创建初始化
+      openwrt单臂路由之单线多拨
     </h1>
   
 
@@ -182,28 +185,24 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/05/09/Ubuntu%E6%96%B0%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%8C%96/" class="archive-article-date">
-  	<time datetime="2023-05-09T11:26:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-09</time>
+        <a href="/2023/06/01/openwrt%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B9%8B%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8/" class="archive-article-date">
+  	<time datetime="2023-06-01T06:48:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-01</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作："><a href="#在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作：" class="headerlink" title="在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作："></a>在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作：</h2><ul>
-<li>以root用户身份登录系统，或使用已经拥有sudo权限的用户账户登录。<span id="more"></span></li>
-<li>执行以下命令创建新用户，其中”newuser”是您要创建的新用户名：<code>sudo adduser newuser</code></li>
-<li>您需要为新用户设置密码，以及其他相关的信息，例如全名、电话等。按照提示输入相关信息即可。</li>
-<li>接下来，将新用户添加到sudo用户组中，使其拥有sudo权限：<code>sudo usermod -aG sudo newuser</code></li>
-<li>现在，新用户应该已经可以使用sudo命令了。您可以切换到新用户身份进行测试：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">su - newuser</span><br><span class="line">sudo ls</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>如果没有出现权限不足的提示，说明新用户已经拥有sudo权限。</p>
-</blockquote>
-</li>
-<li>配置Shell环境：默认情况下，新用户的Shell环境是Bash。您可以根据需要修改其Shell环境。例如，如果您希望将其Shell环境更改为Zsh，可以使用以下命令：<br><code>sudo chsh -s /usr/bin/zsh username</code></li>
-<li>配置SSH访问：如果您希望新用户可以通过SSH访问系统，您需要为其生成SSH密钥对，并将公钥添加到系统的authorized_keys文件中。您可以使用以下命令为新用户生成SSH密钥对：<code>sudo -u username ssh-keygen -t rsa</code></li>
-<li>将公钥添加到系统的authorized_keys文件中：<code>sudo -u username cat ~/.ssh/id_rsa.pub &gt;&gt; ~/.ssh/authorized_keys</code></li>
+        <h1 id="接线"><a href="#接线" class="headerlink" title="接线"></a>接线</h1><ul>
+<li>光猫和路由器是lan-lan</li>
+<li>路由器和单臂路由是lan-lan<span id="more"></span></li>
 </ul>
+<h1 id="单臂路由拨号"><a href="#单臂路由拨号" class="headerlink" title="单臂路由拨号"></a>单臂路由拨号</h1><ul>
+<li>修改lan口地址，<strong>取消lan口的桥接设置，</strong>，开启DHCP功能。其余不变</li>
+<li>手动创建wan口，接口和lan口的物理接口复用。设置PPPOE拨号。</li>
+</ul>
+<h1 id="关闭路由器的DHCP功能，并手动设置路由器为AP模式"><a href="#关闭路由器的DHCP功能，并手动设置路由器为AP模式" class="headerlink" title="关闭路由器的DHCP功能，并手动设置路由器为AP模式"></a>关闭路由器的DHCP功能，并手动设置路由器为AP模式</h1><h1 id="设置上网的网关和DNS都为单臂路由的地址"><a href="#设置上网的网关和DNS都为单臂路由的地址" class="headerlink" title="设置上网的网关和DNS都为单臂路由的地址"></a>设置上网的网关和DNS都为单臂路由的地址</h1><h1 id="修改防火墙的区域设置，使得LAN-WAN之间的数据流通"><a href="#修改防火墙的区域设置，使得LAN-WAN之间的数据流通" class="headerlink" title="修改防火墙的区域设置，使得LAN-WAN之间的数据流通"></a>修改防火墙的区域设置，使得LAN-WAN之间的数据流通</h1><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144607.png" alt="20230601144607"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230601144627.png" alt="20230601144627"></p>
+<h1 id="DHCP-x2F-DNS中设置DNS转发"><a href="#DHCP-x2F-DNS中设置DNS转发" class="headerlink" title="DHCP&#x2F;DNS中设置DNS转发"></a>DHCP&#x2F;DNS中设置DNS转发</h1><h1 id="本校网络无法多拨"><a href="#本校网络无法多拨" class="headerlink" title="本校网络无法多拨"></a>本校网络无法多拨</h1><h1 id="References"><a href="#References" class="headerlink" title="References"></a>References</h1><p><a target="_blank" rel="noopener" href="https://youtu.be/0uNntGhMLvI">单臂路由|N1盒子(OpenWRT)单线多拨实现网速叠加|Owen带你一起玩</a></p>
 
       
 	
@@ -236,7 +235,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner647.gitee.io/2023/05/09/Ubuntu%E6%96%B0%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%8C%96/">http://corner647.gitee.io/2023/05/09/Ubuntu%E6%96%B0%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%8C%96/</a>
+    <a rel="license" href="http://corner647.gitee.io/2023/06/01/openwrt%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B9%8B%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8/">http://corner647.gitee.io/2023/06/01/openwrt%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B9%8B%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -326,7 +325,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/05/09/Ubuntu%E6%96%B0%E7%94%A8%E6%88%B7%E5%88%9B%E5%BB%BA%E5%88%9D%E5%A7%8B%E5%8C%96/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/06/01/openwrt%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E4%B9%8B%E5%8D%95%E7%BA%BF%E5%A4%9A%E6%8B%A8/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -340,18 +339,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/05/10/openwrt-ipv6-%E5%BC%80%E5%90%AF%E8%AE%B0%E5%BD%95/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          openwrt ipv6 开启记录
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/05/09/openwrt%E5%8D%A1%E5%9C%A8%E6%AD%A3%E5%9C%A8%E5%BA%94%E7%94%A8%E6%9B%B4%E6%94%B9/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">openwrt卡在正在应用更改</div>
+    <a href="/2023/05/31/windows%E5%AE%89%E8%A3%85v2ray/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">windows安装v2ray</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -378,7 +368,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9C%A8Ubuntu%E4%B8%AD%E5%88%9B%E5%BB%BA%E6%96%B0%E7%94%A8%E6%88%B7%E5%B9%B6%E5%85%81%E8%AE%B8%E5%85%B6%E4%BD%BF%E7%94%A8sudo%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%82%A8%E5%8F%AF%E4%BB%A5%E6%8C%89%E7%85%A7%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作：</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8E%A5%E7%BA%BF"><span class="toc-number">1.</span> <span class="toc-text">接线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E6%8B%A8%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">单臂路由拨号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E8%B7%AF%E7%94%B1%E5%99%A8%E7%9A%84DHCP%E5%8A%9F%E8%83%BD%EF%BC%8C%E5%B9%B6%E6%89%8B%E5%8A%A8%E8%AE%BE%E7%BD%AE%E8%B7%AF%E7%94%B1%E5%99%A8%E4%B8%BAAP%E6%A8%A1%E5%BC%8F"><span class="toc-number">3.</span> <span class="toc-text">关闭路由器的DHCP功能，并手动设置路由器为AP模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AE%E4%B8%8A%E7%BD%91%E7%9A%84%E7%BD%91%E5%85%B3%E5%92%8CDNS%E9%83%BD%E4%B8%BA%E5%8D%95%E8%87%82%E8%B7%AF%E7%94%B1%E7%9A%84%E5%9C%B0%E5%9D%80"><span class="toc-number">4.</span> <span class="toc-text">设置上网的网关和DNS都为单臂路由的地址</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9%E9%98%B2%E7%81%AB%E5%A2%99%E7%9A%84%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE%EF%BC%8C%E4%BD%BF%E5%BE%97LAN-WAN%E4%B9%8B%E9%97%B4%E7%9A%84%E6%95%B0%E6%8D%AE%E6%B5%81%E9%80%9A"><span class="toc-number">5.</span> <span class="toc-text">修改防火墙的区域设置，使得LAN-WAN之间的数据流通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#DHCP-x2F-DNS%E4%B8%AD%E8%AE%BE%E7%BD%AEDNS%E8%BD%AC%E5%8F%91"><span class="toc-number">6.</span> <span class="toc-text">DHCP&#x2F;DNS中设置DNS转发</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%AC%E6%A0%A1%E7%BD%91%E7%BB%9C%E6%97%A0%E6%B3%95%E5%A4%9A%E6%8B%A8"><span class="toc-number">7.</span> <span class="toc-text">本校网络无法多拨</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#References"><span class="toc-number">8.</span> <span class="toc-text">References</span></a></li></ol>
                     </div>
                 </span>
             </div>
