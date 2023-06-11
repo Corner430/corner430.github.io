@@ -5,20 +5,20 @@
   
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <link rel="dns-prefetch" href="http://corner647.gitee.io">
+  <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>paper | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="1. April 4, 2023(week 1)Decision tree">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper">
-<meta property="og:url" content="http://corner647.gitee.io/2023/05/14/paper/index.html">
+<meta property="og:url" content="http://corner430.github.io/2023/05/14/paper/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1. April 4, 2023(week 1)Decision tree">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-05-31T10:19:48.921Z">
+<meta property="article:modified_time" content="2023-06-06T08:38:04.396Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:142k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:146.1k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：48.8k字 | 预计阅读时长：173分钟
+    		字数：61.5k字 | 预计阅读时长：217分钟
 	</div>
         
   
@@ -2340,6 +2340,435 @@
 </li>
 </ul>
 <hr>
+<h4 id="8-June-6-2023-week8"><a href="#8-June-6-2023-week8" class="headerlink" title="8. June 6, 2023(week8)"></a>8. June 6, 2023(week8)</h4><table>
+<thead>
+<tr>
+<th align="center">Title</th>
+<th align="center">Publication</th>
+<th align="center">Year</th>
+<th align="center">Authors</th>
+<th align="center">Area</th>
+<th align="center">Problem</th>
+<th align="center">Main Method</th>
+<th align="center">Datasets</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/ali22a.html">XAI for Transformers: Better Explanations through Conservative Propagation</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Ameen Ali</td>
+<td align="center">Machine Learning</td>
+<td align="center">Transformer模型的可解释性，<font color="#dd000">常规的XAI方法无法解决注意力头和 LayerNorm 的问题</font><br></td>
+<td align="center">将XAI方法应用的Transformer模型。具体而言，作者提出一种叫做保守传播（Conservative Propagation，CP）的方法来解释Transformer模型的预测。CP方法基于层级相关传播（Layer-wise Relevance Propagation，LRP）框架。</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/alon22a.html">Neuro-Symbolic Language Modeling with Automaton-augmented Retrieval</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Momin Abbas</td>
+<td align="center">Machine Learning</td>
+<td align="center">基于检索的语言模型 (R-LM) 通过将标准语言模型 (LM) 与在测试时从外部数据存储中检索的示例相结合来对自然语言文本的概率进行建模。虽然有效，但在实践中使用这些模型的一个主要瓶颈是<strong>计算成本高的数据存储搜索</strong>。</td>
+<td align="center">作者提出了 RetoMaton，RetoMaton是一种基于检索的语言模型，使用自动机来近似数据存储的搜索。</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/alvarez22a.html">Minimax Classification under Concept Drift with Multidimensional Adaptation and Performance Guarantees</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Ver ́onica  ́Alvarez</td>
+<td align="center">Machine Learning</td>
+<td align="center"><strong>传统的分类算法不适用于处理概念漂移</strong>，因为它们通常假设数据的基本分布随时间保持不变。这个假设在现实世界的应用中经常被违反，因为数据的分布可能因环境变化或用户行为变化而改变</td>
+<td align="center">在常见的情况下，时间变化是多维的，即不同的统计特征通常会以不同的方式变化。本文提出了自适应极小极大风险分类器（AMRCs），通过对时变基础分布进行多元和高阶跟踪，考虑多维的时间变化</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/amid22a.html">Public Data-Assisted Mirror Descent for Private Model Training</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Ehsan Amid</td>
+<td align="center">Machine Learning</td>
+<td align="center">当DP-SGD用于训练大型深度学习模型时，与非私有对应模型相比，准确率显著下降。</td>
+<td align="center">使用公共数据生成的损失函数作为镜像映射，私有数据上 DP 梯度作为线性项。简而言之，更好的综合私有数据和公共数据，设计了DP变体。<strong>其效果至少要优于原来的DP-SGD</strong>。</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/anand22a.html">Online Algorithms with Multiple Predictions</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Keerti Anand</td>
+<td align="center">Machine Learning</td>
+<td align="center">在线算法是一种在不了解未来情况下做出决策的算法类型。这使得它们非常适用于环境不断变化的问题，比如股市或交通路由等领域。而传统的在线算法通常使用单个预测来做出决策。然而，在许多情况下，我们可以从不同的来源获取多个预测，比如机器学习模型或人工专家。</td>
+<td align="center">该论文研究了如何利用多个预测来提高在线算法的性能。作者们提出了一种名为”多重预测在线算法”（Multiple Prediction Online Algorithm，简称MPOA）的新算法。MPOA算法利用这些预测的组合来做出决策。简言之，<strong>为具有多个预测的在线覆盖问题提供了一个通用的算法框架</strong></td>
+<td align="center">无<font color="#dd000">纯数学理论，无实验</font><br></td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andoni22a.html">Learning to Hash Robustly, Guaranteed</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Alexandr Andoni</td>
+<td align="center">Machine Learning</td>
+<td align="center">作者说明了在稳健和保证的前提下学习哈希数据点的问题。他们将稳健性定义为哈希函数处理有噪声或不完整数据的能力，并将保证性定义为哈希函数高效且可扩展的能力。</td>
+<td align="center">作者提出了一种新的学习哈希数据点的算法。他们的算法基于学习一组哈希函数，这些函数共同优化以最小化碰撞的风险。作者展示了他们的算法可以使用半监督学习方法高效地学习。</td>
+<td align="center">open source</td>
+</tr>
+</tbody></table>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/ali22a.html">XAI for Transformers: Better Explanations through Conservative Propagation（基于保守传播的Transformer的XAI：通过保守传播实现更好的解释）</a><ul>
+<li><p>文章发布在ICML</p>
+</li>
+<li><p>时间为2022年</p>
+</li>
+<li><p>作者：Ameen Ali（以色列特拉维夫大学计算机科学学院）</p>
+</li>
+<li><p>问题：Transformer模型的可解释性，<font color="#dd000">常规的XAI方法无法解决注意力头和 LayerNorm 的问题</font><br></p>
+</li>
+<li><p>方法：将XAI方法应用的Transformer模型。具体而言，作者提出一种叫做保守传播（Conservative Propagation，CP）的方法来解释Transformer模型的预测。CP方法基于层级相关传播（Layer-wise Relevance Propagation，LRP）框架。</p>
+</li>
+<li><p>通过论文题目可以了解到什么信息？</p>
+<ul>
+<li>XAI for Transformers：XAI代表可解释人工智能（Explainable Artificial Intelligence），是一种关注解释模型决策和预测的研究领域。<strong>这篇论文聚焦于在Transformer模型中应用XAI技术</strong>。Transformer是一种广泛应用于自然语言处理和其他序列任务的深度学习模型。论文可能介绍了如何使用XAI方法来提高Transformer模型的解释能力。</li>
+<li>Better Explanations through Conservative Propagation：这个论文提出了一种名为”Conservative Propagation”的方法，旨在通过这种方法来提供更好的解释能力。具体而言，论文可能探讨如何利用”Conservative Propagation”技术在Transformer模型中生成解释，以提高解释的准确性、一致性和可理解性。</li>
+<li>Transformer模型和其应用：论文可能会介绍Transformer模型的基本原理和结构，以及它在自然语言处理和其他序列任务中的应用。可能会涉及到Transformer模型的关键概念、自注意力机制、编码器-解码器结构等。</li>
+<li>可解释人工智能（XAI）方法：在论文中，可能会涉及到一些XAI方法的原理和应用。这可能包括局部解释方法、全局解释方法、特征重要性分析、模型可视化等。论文可能会探讨如何将这些XAI方法与Transformer模型结合起来，以提供更好的解释能力。</li>
+<li>综上所述，通过这个论文题目，可以了解到XAI方法在Transformer模型中的应用，特别是通过”Conservative Propagation”技术提供更好的解释能力。同时，可能会获得关于Transformer模型、XAI方法和可解释人工智能的相关背景知识。然而，具体的内容和深度将需要进一步阅读论文才能确定。</li>
+</ul>
+</li>
+<li><p>先修知识</p>
+<ul>
+<li>Transformer<ul>
+<li>Transformer是一种基于注意力机制的深度学习模型，由Vaswani等人在2017年提出，并在自然语言处理（NLP）任务中取得了巨大成功。它在处理序列数据，特别是文本数据的任务上表现出色。</li>
+<li><strong>传统的循环神经网络（RNN）在处理长序列时存在梯度消失和梯度爆炸的问题，并且计算效率较低</strong>。Transformer通过引入<strong>自注意力机制</strong>来解决这些问题，并将序列中的所有位置进行<strong>并行计算</strong>。</li>
+<li>Transformer模型由<strong>编码器（Encoder）和解码器（Decoder）组成，其中编码器负责将输入序列进行编码表示，解码器负责生成输出序列。</strong>编码器和解码器均由多个相同的层（Layer）堆叠而成。</li>
+<li>自注意力机制是Transformer的关键组成部分。<strong>它通过计算输入序列中不同位置之间的注意力权重，来建立每个位置与其他位置的依赖关系。</strong>自注意力机制允许模型在编码和解码过程中<strong>动态地</strong>关注输入序列中的不同部分，从而捕捉到更丰富的上下文信息。</li>
+<li>Transformer模型还引入了<strong>残差连接（Residual Connection）和层归一化（Layer Normalization）</strong>等技术，以促进模型的训练和优化过程。</li>
+<li>由于Transformer模型的出色表现和<strong>并行计算能力</strong>，它被广泛应用于机器翻译、文本生成、语言理解、文本分类、问答系统等各种自然语言处理任务，并在这些任务中取得了非常显著的成果。</li>
+</ul>
+</li>
+<li>XAI（Explainable Artificial Intelligence，可解释人工智能）<ul>
+<li>XAI（Explainable Artificial Intelligence，可解释人工智能）是一系列方法和技术，旨在使人工智能系统的决策和行为更具解释性和可理解性。XAI的目标是提供对人类用户解释其决策依据的能力，以增强人工智能系统的可信度、透明度和可接受性。</li>
+<li>以下是几种常见的XAI方法：<ul>
+<li>特征重要性分析：这种方法通过分析模型对输入特征的重要性来解释模型的决策。例如，使用特征重要性方法（如基于树的模型中的特征重要性评估或基于梯度的方法），可以确定哪些输入特征对于模型输出的影响最大。</li>
+<li>局部可解释性方法：这些方法旨在解释模型对于特定实例的决策。通过观察模型在邻近样本上的行为，可以提供关于模型决策的局部解释。局部可解释性方法包括局部线性近似（LIME）、SHAP（Shapley Additive Explanations）等。</li>
+<li>规则提取和决策树：该方法将模型的决策转化为一系列规则或决策树的形式，使其更易理解和解释。这些规则或决策树可以直观地表示模型的决策过程。</li>
+<li>可视化方法：可视化方法通过可视化模型的内部状态、决策过程或决策依据，提供对模型行为的直观理解。例如，通过热力图、激活图、注意力图等方式，可视化模型对不同特征的关注程度。</li>
+<li>基于原型的解释：这种方法通过寻找代表性的实例或原型，解释模型对这些实例的决策依据。通过展示原型和相似样本之间的关系，可以帮助用户理解模型的决策依据。</li>
+</ul>
+</li>
+<li>需要注意的是，XAI方法并不是单一的方法，而是涵盖了多个技术和方法。选择适合的XAI方法取决于具体的应用场景、模型类型和解释需求。研究人员和开发者们一直在努力推动XAI的发展，并提出了许多新颖的方法来提高解释性能和用户满意度。</li>
+</ul>
+</li>
+<li>层级相关传播（Layer-wise Relevance Propagation，LRP）<ul>
+<li>层级相关传播（Layer-wise Relevance Propagation，LRP）是一种用于解释深度神经网络（DNN）决策的框架。<strong>它旨在通过将输入的重要性（或相关性）在网络的每一层传播，揭示网络决策的依据。</strong></li>
+<li>LRP的<strong>基本思想是将网络的输出反向传播到输入层，将重要性从输出传递回输入，以识别对于网络决策贡献重要性较大的输入特征</strong>。它通过计算每个输入特征的重要性分数，可以帮助我们理解网络对输入的关注和决策过程。</li>
+<li>下面是LRP框架的基本步骤：<ul>
+<li>定义初始重要性：首先，为网络的输出类别设置初始重要性分数。通常情况下，将目标类别设置为1，其他类别设置为0。</li>
+<li>反向传播：从输出层开始，将重要性分数从上一层传播到下一层。在传播过程中，根据层间连接权重、激活函数等规则将重要性分数分配给输入特征。</li>
+<li>层间重要性分配规则：LRP使用不同的规则来分配重要性分数。常见的规则包括“按比例分配”（Proportional Rule）、“平方比例分配”（Alpha-Beta Rule）和“ε修正”（Epsilon Rule）等。这些规则定义了如何根据连接权重和激活函数来分配重要性分数。</li>
+<li>重要性归一化：在传播到输入层之后，对输入的重要性进行归一化处理，以便在输入特征上得到合理的重要性分数。</li>
+</ul>
+</li>
+<li>通过执行上述步骤，LRP框架可以<strong>为每个输入特征计算相对于网络输出的重要性分数</strong>，从而帮助我们理解网络对于决策的关注和贡献。</li>
+<li>LRP框架在解释深度神经网络决策方面具有一定的优势，但也存在一些挑战和限制。<strong>设计合适的重要性分配规则是一个关键问题</strong>，不同的规则可能会导致不同的解释结果。<font color="#dd000">此外，对于复杂的网络结构和大规模数据集，LRP的计算成本可能很高。</font><br></li>
+<li>需要注意的是，LRP框架是一个活跃的研究领域，有许多变体和改进的技术被提出来进一步增强解释性能。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>这篇文章讲了什么内容？</p>
+<ul>
+<li>这篇论文是Ameen Ali等人提出的关于使用保守传播（Conservative Propagation，CP）方法来解释Transformer模型预测的新方法。Transformer是一种神经网络，近年来在各种自然语言处理任务中越来越受欢迎。<strong>但是，Transformer的预测结果往往难以解释，这会影响人们对其预测结果的信任度</strong>。</li>
+<li><font color="#dd000">CP方法基于层级相关传播（Layer-wise Relevance Propagation，LRP）框架</font><br>。<strong>LRP是一种将神经网络输出的相关得分向其输入特征传播的方法</strong>。CP将LRP方法扩展到了Transformer模型上，并考虑了Transformer的注意力机制和归一化层等特殊属性。</li>
+<li><strong>作者在情感分析和问答等多种自然语言处理任务上评估了CP的性能，并发现CP能够产生比其他方法更准确和更有信息量的解释。即使Transformer的预测结果不正确，CP仍然能够更可靠地解释其预测结果。</strong></li>
+<li>作者得出结论，CP是一种有前途的解释Transformer模型预测的方法。CP可以提高Transformer模型的透明度和可信度，使其在实际应用中更广泛地被采用。</li>
+<li>这篇论文的一些关键发现包括：<ul>
+<li>CP是比其他方法更准确和更有信息量的解释Transformer模型预测的方法。</li>
+<li>CP能够更可靠地解释Transformer模型的预测结果，即使这些预测结果是不正确的。</li>
+<li>CP可以提高Transformer模型的透明度和可信度。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>数据集</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/atulanandjha/stanford-sentiment-treebank-v2-sst2">Stanford Sentiment Treebank v2 (SST2)Stanford Sentiment Treebank v2 (SST2)</a>：一个情感分析数据集，包含电影评论，标记为正面或负面情感。具体而言，SST-2数据集包含570,000个训练样本和11,000个测试样本。训练样本是标记为正面或负面情感的电影评论。测试样本用于评估模型性能。</li>
+<li><a target="_blank" rel="noopener" href="https://www.kaggle.com/datasets/lakshmi25npathi/imdb-dataset-of-50k-movie-reviews">IMDB</a>：具有 50K 电影评论的 IMDB 数据集，用于自然语言处理或文本分析。这是一个用于二元情感分类的数据集，包含比以前的基准数据集多得多的数据。 25,000 条高度极端的电影评论用于训练，25,000 条用于测试。因此，使用分类或深度学习算法预测正面和负面评论的数量。</li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/tweet_eval">tweet_eval</a>：对情绪 (59,899)、仇恨检测 (12,970) 和情绪识别 (5,052) 进行推文分类</li>
+<li>T-Emotions</li>
+<li>T-Hate</li>
+<li>T-Sentiment</li>
+<li>Meld-S</li>
+<li>Semaine</li>
+</ul>
+</li>
+<li><p>graph Transformers 数据集</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/datasets/silicone">silicone</a>：情感检测任务和话语情感分析</li>
+<li>MNIST</li>
+<li><a target="_blank" rel="noopener" href="https://paperswithcode.com/dataset/bace-scaffold">BACE</a>：包含 1,522 种化合物，以及它们的结构和二进制标签，表明一组人类 β-分泌酶 1 (BACE-1) 抑制剂的结合结果</li>
+</ul>
+</li>
+<li><p>一言以蔽之：通常而言，关于Transformers的可解释性的方法都是基于梯度信息。作者认为 Transformer 中的梯度仅在局部反映函数，因此无法可靠地识别输入特征对预测的贡献，主要原因在于Attention Heads 和 LayerNorm 。故而提出一种新的叫做保守传播（Conservative Propagation，CP）的方法来解释Transformer模型预测。哪怕预测的错误的，也能给出合理的解释，<font color="#dd000">具体做法是，定性定量的做实验中，也就是对输入做不同的扰动</font><br></p>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/alon22a.html">Neuro-Symbolic Language Modeling with Automaton-augmented Retrieval（使用自动机增强检索的神经符号语言建模）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Uri Alon（卡内基梅隆大学的语言技术研究所）</li>
+<li>问题：基于检索的语言模型 (R-LM) 通过将标准语言模型 (LM) 与在测试时从外部数据存储中检索的示例相结合来对自然语言文本的概率进行建模。虽然有效，但在实践中使用这些模型的一个主要瓶颈是<strong>计算成本高的数据存储搜索</strong>。</li>
+<li>方法：作者提出了 RetoMaton，RetoMaton是一种基于检索的语言模型，使用自动机来近似数据存储的搜索。</li>
+<li>从论文标题中可以得到的信息<ul>
+<li>Neuro-Symbolic Language Modeling：这个短语表明，论文介绍了一种将<strong>神经网络和符号自动机结合起来的新的语言建模方法</strong>。神经网络是一种机器学习算法，可以学习表示数据之间复杂关系的模型。<strong>符号自动机是一种数学对象，可以用来表示语言的结构</strong>。</li>
+<li>Automaton-augmented Retrieval：这个短语表明，论文介绍了一种使用符号自动机来<strong>提高检索准确性和效率的语言建模方法</strong>。检索是从大量文档或数据中找到相关内容的过程。符号自动机可以用来表示语言的结构，从而提高检索的准确性和效率。</li>
+<li>总的来说，这篇论文的标题表明，该论文介绍了一种将神经网络和符号自动机结合起来的新的语言建模方法，以提高语言建模的准确性和效率。</li>
+</ul>
+</li>
+<li>先修知识<ul>
+<li>R-LM<ul>
+<li>R-LM是一种基于检索的语言模型，全称为Retrieval-based Language Model，它通过查询一个候选答案集合来生成文本。R-LM通常使用符号自动机来表示文本结构，并使用自动机来指导检索过程，从而提高检索效率。R-LM的优点是可以通过检索来生成答案，避免了生成式语言模型中的搜索问题，同时还可以利用自动机表示文本结构，从而提高模型的效率和准确性。</li>
+</ul>
+</li>
+<li>LM<ul>
+<li>LM是一种生成式语言模型，全称为Language Model，它是一种用于生成自然语言文本的模型。LM通常基于神经网络（如循环神经网络或Transformer）来学习语言的概率分布，以便在给定先前的文本序列的情况下，生成下一个单词的概率分布。LM的优点是可以生成非常灵活和多样的语言，因为它是基于生成式的方法，不受预定义答案集合的限制。</li>
+</ul>
+</li>
+<li>总之，R-LM和LM都是用于处理自然语言言的模型，<strong>但R-LM更注重检索和利用自动机表示文本结构，而LM更注重生成自然语言文本的灵活性和多样性。</strong></li>
+<li>困惑度（Perplexity<ul>
+<li>困惑度（Perplexity）是一种衡量语言模型预测能力的指标，它是对一个给定序列的<strong>预测概率的倒数，即倒数对数似然。困惑度越低，表示模型的预测能力越好</strong>，因为它对于给定的测试数据集中的未知序列，能够给出更准确的预测概率。通常情况下，一个好的语言模型的困惑度应该在一个较小的范围内，比如在自然语言处理领域，一个好的语言模型的困惑度应该在20左右，更低的困惑度表示模型预测能力更好。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>这篇论文讲了什么？<ul>
+<li>该论文提出了一种将神经网络和符号自动机相结合的新的语言建模方法。论文作者认为，他们的方法能够通过利用神经网络和符号自动机各自的优势来提高语言建模的准确性和效率。</li>
+<li><strong>神经网络</strong>是一种机器学习算法，可以学习表示复杂数据之间关系的模型。<strong>符号自动机</strong>是一种数学对象，可以用来表示语言的结构。论文作者提出了一种利用符号自动机来提高检索准确性和效率的语言建模方法。</li>
+<li>该论文提出的<strong>方法</strong>由两个主要组成部分构成：<strong>神经语言模型（NNLM）和符号自动机</strong>。神经语言模型用于生成序列中下一个记号的概率分布，符号自动机用于指导搜索序列中下一个记号。神经语言模型在大型文本数据集上进行训练，符号自动机是从训练数据中构建的。在推理时，神经语言模型用于生成序列中下一个记号的概率分布，然后使用符号自动机来指导搜索序列中下一个记号。选择具有最高概率的记号。</li>
+<li>作者在多项任务中对他们的方法进行了评估，包括语言建模、问答和自然语言推理。他们展示了他们的方法能够在所有任务中提高语言建模的准确性和效率。</li>
+<li>综上所述，该论文提出了一种新的语言建模方法，将神经网络和符号自动机相结合，并通过实验验证了该方法的有效性。</li>
+</ul>
+</li>
+<li>数据集<ul>
+<li><a target="_blank" rel="noopener" href="https://paperswithcode.com/dataset/wikitext-103">Wikitext-103</a>：Wikitext-103是一个包含1.03亿个单词的数据集，从维基百科和其他来源提取而来。它是一个平衡的数据集，包含各种领域的文本。</li>
+<li>Law-MT：Law-MT是一个包含150万个单词的数据集，由其他语言翻译成英语的法律文件组成。该数据集不平衡，包含一些语言的文档比其他语言更多。</li>
+<li>作者使用这些数据集来训练和评估他们提出的<strong>模型RetoMaton</strong>。RetoMaton是一种基于检索的语言模型，使用自动机来近似数据存储的搜索。</li>
+<li>论文作者选择使用这些数据集，<strong>因为它们都是大型和多样化的</strong>。他们想要在各种数据上测试他们的模型，以确保它能够很好地推广到新的任务中。</li>
+</ul>
+</li>
+<li>总结<ul>
+<li>基于检索的语言模型 (R-LM) 应用在无条件语言建模、机器翻译、问答和代码生成等领域。改进了很多的神经网络。</li>
+<li>在这些模型中，检索组件首先搜索外部数据存储中的最近邻示例；然后，基本模型在预测期间引用这些示例。</li>
+<li>这是一种语言模型 (LM) 和检索相融合的角度</li>
+<li><strong>k-最近邻语言模型这种基于检索的模型的一个突出例子是kNN-LM</strong> ，它通过线性插值基LM的输出和非参数最近邻分布来预测令牌。该分布是通过搜索数据存储中的k近邻(kNN)来构造的，并根据它们与当前测试上下文的距离对它们进行加权。值得注意的是，对每个生成的测试标记执行这种 k 最近邻搜索，<strong>引入了严重的推理开销</strong>，因为该搜索明显慢于 LM 的标准“前向传递”。</li>
+<li>作者的方法：RETOMATON。也就是说，<strong>在当前时间步骤检索到的邻居也提示了将来时间步骤将要检索的邻居，因此可以节省后续的重复搜索</strong>。具体来说，我们使用完全无监督的方式，在现有数据存储之上构建了一个带权有限自动机（WFA），通过在数据存储条目之间保持指针并将相似条目进行聚类。<strong>这个自动机允许间歇性、不频繁的kNN搜索</strong>，并在其他时间步骤上以更低成本的遍历方式遍历自动机。</li>
+</ul>
+</li>
+<li>实验效果<ul>
+<li>在Wikitext-103上应用RetoMaton，直接使用原始训练姐，可以节省81%的kNN搜索次数，而不会影响困惑度，或者可以将困惑度降低1.85而不进行任何额外的训练</li>
+<li>在一个经过微调的LM之上构建RetoMaton时，可以将困惑度降低超过17%。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/alvarez22a.html">Minimax Classification under Concept Drift with Multidimensional Adaptation and Performance Guarantees（具有多维度适应和性能保证的概念漂移下的极小极大分类）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Ver ́onica  ́Alvarez（西班牙毕尔巴鄂（Bilbao）的一个研究机构）</li>
+<li>问题：<strong>传统的分类算法不适用于处理概念漂移</strong>，因为它们通常假设数据的基本分布随时间保持不变。这个假设在现实世界的应用中经常被违反，因为数据的分布可能因环境变化或用户行为变化而改变</li>
+<li>方法：在常见的情况下，时间变化是多维的，即不同的统计特征通常会以不同的方式变化。本文提出了自适应极小极大风险分类器（AMRCs），通过对时变基础分布进行多元和高阶跟踪，考虑多维的时间变化</li>
+<li>从论文标题中可以了解到的信息<ul>
+<li>该论文是关于开发一种新的分类算法，可以在<strong>数据的基本分布随时间变化（概念漂移）</strong>的情况下进行自适应，并提供性能保证。论文的作者声称他们的算法称为自适应极小极大风险分类器（AMRCs），可以通过跟踪时间变化的基本分布的多个统计特征来实现这一目标。</li>
+<li>Minimax（极小极大）：这指的是一种决策问题类型，目标是<strong>最小化最坏情况下的错误概率</strong>。在分类的上下文中，这意味着目标是开发一种算法，即使数据的基本分布随时间变化，也能正确分类大多数实例。</li>
+<li>Concept drift（概念漂移）：这指的是数据的基本分布随时间变化的现象。这可能由于环境变化或用户行为变化等各种原因而发生。</li>
+<li>Multidimensional adaptation（多维度适应）：这指的是算法能够适应基本分布的多个统计特征的能力。在分类的上下文中，这意味着算法应该能够适应数据的均值、方差和其他统计特性的变化。</li>
+<li>Performance Guarantees（性能保证）：这是对算法错误概率的数学界限。在分类的上下文中，这意味着论文的作者声称他们的算法即使在数据的基本分布随时间变化的情况下也能达到一定的准确性水平。</li>
+</ul>
+</li>
+<li>这篇文章讲了什么内容？<ul>
+<li>本文介绍了一种名为<strong>自适应极小极大风险分类器（AMRCs）</strong>的新的分类算法，该算法可以适应数据的基本分布随时间变化（概念漂移），同时提供性能保证。</li>
+<li>论文的作者认为传统的分类算法不适用于处理概念漂移，因为它们通常假设数据的基本分布随时间保持不变。这个假设在现实世界的应用中经常被违反，因为数据的分布可能因环境变化或用户行为变化而改变。</li>
+<li>AMRCs通过<strong>跟踪时间变化的基本分布的多个统计特征来解决这个问题</strong>。这使得AMRCs比传统的分类算法更有效地适应数据分布的变化。</li>
+<li>除了能够适应概念漂移外，AMRCs还能提供性能保证。这意味着论文的作者可以在数学上证明，即使数据的基本分布随时间变化，AMRCs也能达到一定的准确性水平。</li>
+<li>论文的作者在多个基准数据集上评估了AMRCs，并表明它们在准确性和对概念漂移的鲁棒性方面优于传统的分类算法。</li>
+<li>以下是论文的一些关键要点：<ul>
+<li>AMRCs是一种新的分类算法，可以适应概念漂移，并提供性能保证。</li>
+<li>AMRCs跟踪时间变化的基本分布的多个统计特征。</li>
+<li>AMRCs在准确性和对概念漂移的鲁棒性方面优于传统的分类算法。</li>
+<li>AMRCs有潜力改进各种现实世界应用中的分类算法的准确性和鲁棒性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据集<ul>
+<li>12个开源 数据集</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/amid22a.html">Public Data-Assisted Mirror Descent for Private Model Training（借助公共数据的镜像下降算法进行私有模型训练）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Ehsan Amid（MIT，Google实习）</li>
+<li>问题：当DP-SGD用于训练大型深度学习模型时，与非私有对应模型相比，准确率显著下降。</li>
+<li>方法：使用公共数据生成的损失函数作为镜像映射，私有数据上 DP 梯度作为线性项。简而言之，更好的综合私有数据和公共数据，设计了DP变体。<strong>其效果至少要优于原来的DP-SGD</strong>。</li>
+<li>从论文标题中可以了解到的信息<ul>
+<li>该论文介绍了使用公共数据来改进差分隐私（DP）训练的机器学习模型的隐私和效用。</li>
+<li>作者提出了一种名为Public Data-Assisted Mirror Descent（PDA-DPMD）的新算法，利用公共数据训练既具有隐私又准确的模型。</li>
+<li>下面是标题中每个术语的更详细解释：<ul>
+<li>Public data 公共数据：公共数据是不敏感的数据，可以在不损害个人隐私的情况下共享。例如，公共数据可以包括政府网站、科学数据库或社交媒体平台的数据。</li>
+<li>Mirror Descent 镜像下降：Mirror Descent是一种优化算法，可用于训练机器学习模型。Mirror Descent通过迭代地朝向损失函数的最小值移动，同时尽量保持接近起始点。</li>
+<li>Differential privacy 差分隐私：差分隐私是一种保护数据集中个人隐私的技术。<strong>差分隐私通过向数据中添加噪声来保护隐私，以至于无法确定特定个体的数据是否包含在数据集中。</strong></li>
+<li>Private model training 私有模型训练：私有模型训练是在保护用于训练模型的数据隐私的同时进行的机器学习模型训练过程。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>先修知识<ul>
+<li>镜像下降（Mirror Descent）<ul>
+<li>镜像下降（Mirror Descent）是一种优化算法，<strong>用于解决凸优化问题。它是对经典梯度下降算法的一种变体，它不直接在参数空间中迭代更新，而是在对偶空间中进行迭代。</strong></li>
+<li>在镜像下降算法中，我们考虑到凸优化问题的目标函数和约束条件的对偶形式。对偶问题中的每个约束条件都对应一个对偶变量，这些对偶变量以某种方式与原始问题的参数相关联。算法的主要思想是使用对偶变量来表示参数空间中的更新方向，并根据此更新方向迭代地更新参数。</li>
+<li>在每个迭代步骤中，镜像下降算法首先计算目标函数的梯度，然后计算对偶变量的梯度。通过将这两个梯度结合起来，算法确定了参数空间中的更新方向。然后，算法根据步长参数来更新参数，并确保更新后的参数在凸集中。这个步骤称为投影操作，用于维持参数的合法性。</li>
+<li>相比传统的梯度下降算法，镜像下降算法具有一些优势。首先，镜像下降算法可以应用于凸优化问题的对偶形式，这使得算法更适用于某些特定的优化任务。其次，镜像下降算法对约束的处理更加灵活，可以处理一些非凸约束问题。此外，镜像下降算法还可以适应非欧几里德空间中的优化问题，如流形上的优化。</li>
+<li>总而言之，镜像下降算法是一种基于对偶空间的优化算法，通过结合目标函数和约束条件的梯度来更新参数。它在一些特定的优化问题和约束条件下具有优势，并且可以适应非欧几里德空间的情况。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>这篇论文讲了什么内容？<ul>
+<li>《Public Data-Assisted Mirror Descent for Private Model Training》是Amid等人于2022年发表的一篇论文，提出了一种新的算法来训练差分隐私（DP）模型。该算法称为PDA-DPMD（Public Data-Assisted Differentially Private Mirror Descent），利用<strong>公共数据和私有数据的组合</strong>来训练既具有隐私性又准确的模型。</li>
+<li>论文的作者认为，利用公共数据可以改善DP模型训练中的隐私&#x2F;效用权衡。他们展示了对于从非各向同性亚高斯分布中绘制的特征向量的线性回归，当公共数据样本数量足够大时，他们的算法PDA-DPMD提供的总体风险保证比DP下已知的最佳保证渐近地更好（没有访问公共数据）。</li>
+<li>论文作者还展示了他们的算法具有自然的“噪声稳定性”属性，可以控制由于为确保DP而添加的噪声引起的方差。他们通过展示四个基准数据集（StackOverflow，WikiText-2，CIFAR-10和EMNIST）上的隐私&#x2F;效用权衡来展示他们算法的有效性。他们表明，他们的算法不仅显著改进了传统的DP-SGD（没有访问公共数据），而且据他们所知，是首个在已经用公共数据进行预训练的模型上改进DP-SGD的算法。</li>
+<li>总之，论文作者提出了一种新的算法，利用公共数据和私有数据的组合来训练既具有隐私性又准确的模型。作者还为其算法提供了理论保证，并在多个基准数据集上展示了其有效性。</li>
+</ul>
+</li>
+<li>数据集<ul>
+<li>Stack Overflow：一个编程问题和答案的数据集。</li>
+<li>WikiText-2：来自维基百科文章的文本数据集。</li>
+<li>CIFAR-10：一个物体图像数据集。</li>
+<li>EMNIST：一个手写数字数据集。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/anand22a.html">Online Algorithms with Multiple Predictions（具有多个预测的在线算法）</a><ul>
+<li><p>文章发布在ICML</p>
+</li>
+<li><p>时间为2022年</p>
+</li>
+<li><p>作者：Keerti Anand（美国北卡罗来纳州杜克大学的计算机科学系）</p>
+</li>
+<li><p>问题：在线算法是一种在不了解未来情况下做出决策的算法类型。这使得它们非常适用于环境不断变化的问题，比如股市或交通路由等领域。而传统的在线算法通常使用单个预测来做出决策。然而，在许多情况下，我们可以从不同的来源获取多个预测，比如机器学习模型或人工专家。</p>
+</li>
+<li><p>方法：该论文研究了如何利用多个预测来提高在线算法的性能。作者们提出了一种名为”多重预测在线算法”（Multiple Prediction Online Algorithm，简称MPOA）的新算法。MPOA算法利用这些预测的组合来做出决策。简言之，<strong>为具有多个预测的在线覆盖问题提供了一个通用的算法框架</strong></p>
+</li>
+<li><p>从论文标题中可以了解到的信息</p>
+<ul>
+<li>该论文研究了一种可以利用多个预测来做出更好决策的在线算法。</li>
+</ul>
+</li>
+<li><p>先修知识</p>
+<ul>
+<li>多个预测 (Multiple Predictions)。<ul>
+<li><strong>多个预测（Multiple Predictions）是指从不同的来源或方法中获得的多个预测结果</strong>。在研究论文中，多个预测可以来自不同的机器学习模型、不同的数据源，或者是由不同的专家提供的预测。通过使用多个预测，可以获得多个视角和信息来源的综合，从而提高决策的准确性和可靠性。这种方法可以在在线算法中使用，使算法能够更好地适应不断变化的环境和数据。通过整合多个预测，可以更好地预测未来情况，并做出更好的决策。</li>
+</ul>
+</li>
+<li>在线集合覆盖（Online Set Cover）<ul>
+<li>在线集合覆盖（Online Set Cover）是一种经典的优化问题，涉及到在动态的情况下，从一个集合系统中选择一些集合，以覆盖所有的元素，同时尽量减少所选集合的数量。该问题通常用于描述实际应用中的资源分配、任务调度、广告投放等场景。<font color="#dd000">类似于最小碰集</font><br></li>
+<li>在在线集合覆盖问题中，集合系统一开始是未知的，集合逐渐以逐个元素的方式揭示。在每个时刻，算法必须决定是否选择某个新揭示的集合以覆盖尚未覆盖的元素。算法的目标是在尽可能早地覆盖所有元素的同时，选择尽量少的集合。</li>
+<li>具体来说，在线集合覆盖问题可以定义如下：<ul>
+<li>输入：一组元素（即全集），以及一系列集合的序列，每个集合包含一些元素。</li>
+<li>输出：选择一些集合，以覆盖所有的元素。</li>
+<li>目标：尽可能减少所选集合的数量。</li>
+<li>算法在每个时刻都要根据当前已知的信息进行决策，通常使用贪心策略来选择下一个集合。一种常见的贪心算法是选择能够覆盖最多尚未被覆盖元素的集合。这种策略被称为最大覆盖（Maximum Coverage）。其他变体的贪心策略也可以用于解决在线集合覆盖问题。</li>
+</ul>
+</li>
+<li>在线集合覆盖是一个具有挑战性的问题，<strong>因为算法必须在只知道部分信息的情况下做出决策，并且需要在有限的时间内找到一个近似最优解。</strong>研究人员一直致力于设计有效的在线算法，并对问题的性质和界限进行深入研究，以提供更好的解决方案。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>这篇论文讲了什么内容？</p>
+<ul>
+<li>本文讨论了一种适用于具有多重预测的在线覆盖问题的通用算法框架。该框架能够获得一个在线解，<font color="#dd000">其竞争力能够与从预测中获得的最佳解的性能相媲美</font><br>。该算法结合了对在线算法的经典基于潜力的分析中预测的使用。</li>
+<li>作者将他们的算法框架应用于解决经典问题，如在线集合覆盖、（加权）缓存和多重预测设置中的在线设施定位。他们的算法还可以进行健壮性处理，即算法可以同时具有与最佳预测和最佳在线算法（无预测）性能相竞争的特性。</li>
+<li>以下是论文的一些关键要点：<ul>
+<li>具有多重预测的在线算法是一个新兴的研究领域。</li>
+<li>作者的算法框架是解决具有多重预测的在线覆盖问题的一种通用方法。</li>
+<li>该框架能够与从预测中获得的最佳解的性能相竞争。</li>
+<li>该框架可以应用于解决经典问题，如在线集合覆盖、（加权）缓存和在线设施定位。</li>
+<li>该框架还可以进行健壮性处理，即算法可以同时具有与最佳预测和最佳在线算法（无预测）性能相竞争的特性。</li>
+</ul>
+</li>
+<li>作者的算法框架是一种通用方法，适用于各种问题。该框架能够与从预测中获得的最佳解的性能相竞争，并且还可以进行健壮性处理。这使得该框架成为解决各种设置中的在线问题的一种有前景的工具。</li>
+</ul>
+</li>
+<li><p>数据集</p>
+<ul>
+<li><font color="#dd000">纯数学理论，无实验</font><br></li>
+</ul>
+</li>
+<li><p>注释</p>
+<ul>
+<li>竞争力能够与从预测中获得的最佳解的性能相媲美<ul>
+<li>这句话的意思是说，论文中提出的算法框架在解决在线覆盖问题时能够达到与从预测中获得的最佳解相当的竞争力。</li>
+<li>在问题求解过程中，通过使用预测模型或者其他方法，我们可以获得对问题的预测或估计。这些预测可能是关于未来事件、系统状态或者其他相关信息的。论文中的算法框架利用这些预测来指导在线覆盖问题的解决过程。</li>
+<li><strong>竞争力是衡量算法性能的指标</strong>，它表示算法的解与最佳解之间的性能比较。这句话中所指的竞争力就是指论文中的算法框架能够在在线覆盖问题中达到与从预测中获得的最佳解相当的性能水平。换句话说，算法的解决方案与预测中的最佳解相比，具有接近甚至相等的效果。</li>
+<li>这句话强调了论文中算法框架的竞争力，即其能够在实践中取得良好的效果，与使用预测所获得的最佳解相当甚至更好。这表明论文中的算法框架在解决在线覆盖问题时具有实用性和可行性。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andoni22a.html">Learning to Hash Robustly, Guaranteed（学习哈希：鲁棒性保证）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Alexandr Andoni（加州大学圣地亚哥分校计算机科学与工程系）</li>
+<li>问题：作者说明了在稳健和保证的前提下学习哈希数据点的问题。他们将稳健性定义为哈希函数处理有噪声或不完整数据的能力，并将保证性定义为哈希函数高效且可扩展的能力。</li>
+<li>方法：作者提出了一种新的学习哈希数据点的算法。他们的算法基于学习一组哈希函数，这些函数共同优化以最小化碰撞的风险。作者展示了他们的算法可以使用半监督学习方法高效地学习。</li>
+<li>从论文标题中可以了解到的信息<ul>
+<li>Learning to hash 学习哈希：该论文涉及学习如何对数据点进行哈希。哈希是一种将数据点转换为较小表示的技术，然后可以用于各种任务，如搜索、聚类和降维。</li>
+<li>Robustly 稳健性：该论文侧重于以稳健的方式学习哈希数据点。稳健性意味着哈希函数应能处理有噪声或不完整数据。</li>
+<li>Guaranteed 保证性：该论文还承诺生成的哈希函数将是高效且可扩展的。高效性意味着哈希函数应能够快速为大量数据点生成哈希。可扩展性意味着哈希函数能够处理大型数据集，而不会变得过于缓慢或昂贵。</li>
+</ul>
+</li>
+<li>先修知识<ul>
+<li>学习哈希（Learning to Hash）<ul>
+<li>学习哈希（Learning to Hash）指的是通过机器学习的方法，将原始数据映射为二进制码（hash code），以便于高效地存储、检索和处理数据。<strong>学习哈希的目标是将原始数据的相似性在哈希码空间中保持</strong>，即相似的数据在哈希码空间中距离较近，不相似的数据在哈希码空间中距离较远。<strong>通过学习哈希，可以在保证数据隐私和安全的前提下，加速大规模数据的相似性搜索、聚类、分类等任务</strong>。学习哈希有许多应用，例如图像检索、文本检索、视频检索等领域。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>这篇文章讲了什么内容？<ul>
+<li>本文讨论了一种既稳健又保证的学习哈希数据点的新方法。作者提出了一种新的算法，可以学习哈希数据点，<strong>以最小化碰撞的风险，并确保生成的哈希函数高效且可扩展</strong>。作者对多种数据集进行了算法评估，并表明它在准确性和速度方面优于现有方法。</li>
+</ul>
+</li>
+<li>数据集<ul>
+<li>MNIST：MNIST数据集是一个手写数字数据集。它包含了70,000张训练图像和10,000张测试图像。</li>
+<li>ImageNet：ImageNet数据集是一个图像数据集。它包含了1.2百万张训练图像和50,000张验证图像。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h4 id="Neural-Network未读"><a href="#Neural-Network未读" class="headerlink" title="Neural Network未读"></a>Neural Network未读</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22b.html">Robust Training of Neural Networks Using Scale Invariant Architectures</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22ad.html">Finding Global Homophily in Graph Neural Networks When Meeting Heterophily</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lin22e.html">Constrained Gradient Descent: A Powerful and Principled Evasion Attack Against Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22k.html">Deep Neural Network Fusion via Graph Matching with Applications to Model Ensemble and Federated Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22s.html">Local Augmentation for Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lou22a.html">Feature Learning and Signal Propagation in Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/macdonald22a.html">Interpretable Neural Networks with Frank-Wolfe: Sparse Relevance Maps and Relevance Orderings</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/makhija22a.html">Architecture Agnostic Federated Learning for Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/meunier22a.html">A Dynamical System Perspective for Lipschitz Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mihaylova22a.html">Modeling Structure with Undirected Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mirzadeh22a.html">Wide Neural Networks Forget Less Catastrophically</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/munteanu22a.html">Bounding the Width of Neural Networks via Coupled Initialization A Worst Case Analysis</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/na22a.html">AutoSNN: Towards Energy-Efficient Spiking Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nacson22a.html">Implicit Bias of the Step Size in Linear Diagonal Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nanda22a.html">Measuring Representational Robustness of Neural Networks Through Shared Invariances</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nava22a.html">Fast Aquatic Swimmer Optimization with Differentiable Projective Dynamics and Neural Network Hydrodynamic Models</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nazaret22a.html">Variational Inference for Infinitely Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pan22b.html">A Unified Weight Initialization Paradigm for Tensorial Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/papp22a.html">A Theoretical Comparison of Graph Neural Network Extensions</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/patil22b.html">POET: Training Neural Networks on Tiny Devices with Integrated Rematerialization and Paging</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pellegrini22a.html">Neural Network Pruning Denoises the Features and Makes Local Connectivity Emerge in Visual Tasks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pichler22a.html">A Differential Entropy Estimator for Training Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/razin22a.html">Implicit Regularization in Hierarchical Tensor Factorization and Deep Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/schotthofer22a.html">Structure Preserving Neural Networks: A Case Study in the Entropy Closure of the Boltzmann Equation</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sheikh22a.html">DNS: Determinantal Point Process Based Neural Network Sampler for Ensemble Reinforcement Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sieradzki22a.html">Coin Flipping Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/tang22b.html">Rethinking Graph Neural Networks for Anomaly Detection</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/trinh22a.html">Tackling covariate shift with node-based Bayesian neural networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22a.html">What Can Linear Interpolation of Neural Network Loss Landscapes Tell Us?</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22b.html">Multirate Training of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22aj.html">DRAGONN: Distributed Randomized Approximate Gradients of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22am.html">How Powerful are Spectral Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wei22d.html">Mitigating Neural Network Overconfidence with Logit Normalization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22d.html">Characterizing and Overcoming the Greedy Nature of Learning in Multi-modal Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22j.html">DAVINZ: Data Valuation using Deep Neural Networks at Initialization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22h.html">Injecting Logical Constraints into Neural Networks via Straight-Through Estimators</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22i.html">Locally Sparse Neural Networks for Tabular Biomedical Data</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22l.html">Informed Learning by Wide Neural Networks: Convergence, Generalization and Sampling Complexity</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22n.html">A New Perspective on the Effects of Spectrum in Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22p.html">Estimating Instance-dependent Bayes-label Transition Matrix using a Deep Neural Network</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yashima22a.html">Feature Space Particle Inference for Neural Network Ensembles</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/you22a.html">ShiftAddNAS: Hardware-Inspired Search for More Accurate and Efficient Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22a.html">Molecular Representation Learning via Heterogeneous Motif Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22f.html">The Combinatorial Brain Surgeon: Pruning Weights That Cancel One Another in Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhang22q.html">Neural Network Weights Do Not Converge to Stationary Points: An Invariant Measure Perspective</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhi22a.html">Learning Efficient and Robust Ordinary Differential Equations via Invertible Neural Networks</a></p>
 <h4 id="待看"><a href="#待看" class="headerlink" title="待看"></a>待看</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agarwal22a.html">Batched Dueling Bandits</a></p>
 <h4 id="不会"><a href="#不会" class="headerlink" title="不会"></a>不会</h4><p>|<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/frecon22a.html">Bregman Neural Networks</a>|ICML|2022|Jordan Frecon|Machine Learning|TODO|TODO|TODO|</p>
@@ -2459,6 +2888,55 @@
 </ul>
 </li>
 </ul>
+<hr>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/alegre22a.html">Optimistic Linear Support and Successor Features as a Basis for Optimal Policy Transfer（作为最优策略转移基础的乐观线性支持和后续特征）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Lucas N. Alegre（巴西里约格兰德杜若斯州波尔图阿莱格里的联邦大学信息学院）</li>
+<li>问题：</li>
+<li>方法：</li>
+<li>这篇文章主要讲了什么内容？<ul>
+<li>这篇文章提出了一种新的算法，可以在多个任务之间进行最优策略转移。这个算法叫做Optimistic Linear Support (OLS)。OLS算法通过学习不同的线性偏好来构建一个CCS（Cone of Credible Sets），并且可以在这个集合中找到至少一个对应的最优策略。</li>
+</ul>
+</li>
+<li>这篇文章的创新点是什么？<ul>
+<li>这篇文章的创新点是提出了一种新的算法，可以在多个任务之间进行最优策略转移。这个算法叫做Optimistic Linear Support (OLS)。OLS算法通过学习不同的线性偏好来构建一个CCS（Cone of Credible Sets），并且可以在这个集合中找到至少一个对应的最优策略。</li>
+</ul>
+</li>
+<li>这篇文章解决了什么问题？采用的什么方法？<ul>
+<li>这篇文章解决的问题是如何在多个任务之间进行最优策略转移。文章提出了一种新的算法，叫做Optimistic Linear Support (OLS)，它通过学习不同的线性偏好来构建一个CCS（Cone of Credible Sets），并且可以在这个集合中找到至少一个对应的最优策略。</li>
+</ul>
+</li>
+<li>先修知识：<ul>
+<li>Optimistic Linear Support（OLS）<ul>
+<li>OLS是一种基于置信上限的强化学习算法。在强化学习中，通常使用值函数来评估状态或状态-动作对的价值。OLS通过引入一个置信上限来估计值函数，从而对价值进行乐观估计。这个置信上限用于表示对未知价值的乐观估计，以鼓励探索未知状态和动作。OLS算法通过不断更新值函数的估计值，并基于乐观估计选择动作，以最大化奖励或收益</li>
+</ul>
+</li>
+<li>Successor Features（SF）<ul>
+<li>SF是一种基于状态转移的表示方法，用于将MDP中的状态映射到特征空间。SF通过表示每个状态的”继承特征”，即描述从一个状态转移到其他状态的可能性。通过学习和使用SF，智能体可以更有效地表示和推断状态之间的关系，并进行策略优化。SF具有一些优势，例如对状态转移的建模能力强、泛化性好、高效学习等。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>OLS和SF都是用于强化学习中的策略优化的技术。OLS通过乐观估计值函数来促进探索，而SF则通过表示状态之间的转移特征来改进状态表示和策略优化。这些方法在强化学习中有广泛的应用，并在不同的问题领域中取得了一定的成功。</p>
+</blockquote>
+<pre><code>- 可信集锥 CCS（Cone of Credible Sets）
+  - CCS（Cone of Credible Sets）是一种统计学方法，用于确定参数估计的可信区间。它是由统计学家Adrian Raftery于1995年提出的。
+  - 传统的**参数估计方法通常使用点估计**，即给出一个单一的估计值。然而，这种方法无法提供关于估计值的不确定性的信息。**CCS是一种贝叶斯统计方法，旨在通过提供参数的可信区间来解决这个问题**。
+  - CCS基于贝叶斯定理，并使用MCMC（Markov Chain Monte Carlo）方法来从参数的后验分布中抽取样本。通过抽取的样本，可以形成一个参数空间的锥形区域，称为Cone of Credible Sets。这个锥形区域表示了参数估计的不确定性范围，其中包含了真实参数的可能值。
+  - CCS的优点是能够提供参数估计的可信区间，反映了参数估计的不确定性。这对于统计推断和决策分析非常有用，因为它可以帮助研究人员更准确地理解参数估计的可靠性和置信度。
+- 最优策略转移
+  - 最优策略转移是指在一个决策问题中，通过选择最佳策略，从一个状态转移到另一个状态以**最大化预期收益或最小化预期成本**的过程。
+  - **最优策略转移通常应用于强化学习和动态规划等领域**。在强化学习中，一个智能体需要学习在给定环境中作出最佳决策的策略。最优策略转移就是在给定环境状态下，智能体选择能够最大化预期累积奖励的动作。这个过程涉及评估每个可能动作的价值，并选择具有最高价值的动作。
+  - 动态规划中的最优策略转移是通过迭代计算来确定在给定状态下应采取的最佳决策。该过程通常涉及构建一个值函数或者策略函数，用于评估每个状态的价值或决策。然后，通过比较不同策略的预期收益或成本，选择具有最优价值的策略。
+  - 最优策略转移的目标是通过选择最佳策略来实现最优的结果。这在许多领域中都是重要的，如机器人导航、金融投资决策、游戏策略等。通过使用最优策略转移方法，可以使决策过程更加智能化和优化。
+</code></pre>
 
       
 	
@@ -2491,7 +2969,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner647.gitee.io/2023/05/14/paper/">http://corner647.gitee.io/2023/05/14/paper/</a>
+    <a rel="license" href="http://corner430.github.io/2023/05/14/paper/">http://corner430.github.io/2023/05/14/paper/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -2586,7 +3064,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner647.gitee.io/2023/05/14/paper/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/05/14/paper/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -2638,7 +3116,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">8.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%85%E7%9C%8B"><span class="toc-number">9.</span> <span class="toc-text">待看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">10.</span> <span class="toc-text">不会</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-June-6-2023-week8"><span class="toc-number">8.</span> <span class="toc-text">8. June 6, 2023(week8)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">9.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%85%E7%9C%8B"><span class="toc-number">10.</span> <span class="toc-text">待看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">11.</span> <span class="toc-text">不会</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -2701,7 +3179,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
-		toc_hide_index: false,
+		toc_hide_index: true,
 		root: "/",
 		innerArchive: true,
 		showTags: false
