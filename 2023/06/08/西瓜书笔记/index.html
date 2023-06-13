@@ -51,8 +51,11 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613131109.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613184850.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613185347.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613213915.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613214852.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613225704.png">
 <meta property="article:published_time" content="2023-06-08T02:53:14.000Z">
-<meta property="article:modified_time" content="2023-06-13T11:08:33.695Z">
+<meta property="article:modified_time" content="2023-06-13T15:03:02.671Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521233538.png">
@@ -101,7 +104,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:154.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:161.4k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -202,7 +205,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：12.4k字 | 预计阅读时长：42分钟
+    		字数：19.6k字 | 预计阅读时长：67分钟
 	</div>
         
   
@@ -670,8 +673,165 @@
 <li>压缩感知的关键概念是信号的稀疏表示和稀疏重构算法。通过采用低采样率和合适的稀疏表示方法，压缩感知能够从少量的测量数据中重构出高质量的信号。这种技术在信号处理、图像处理、通信等领域具有广泛的应用，可以实现低成本、高效率的信号采样和传输。</li>
 </ul>
 <hr>
-<h1 id="第十二章-计算学习理论"><a href="#第十二章-计算学习理论" class="headerlink" title="第十二章 计算学习理论"></a>第十二章 计算学习理论</h1><hr>
-<h1 id="第十三章-半监督学习"><a href="#第十三章-半监督学习" class="headerlink" title="第十三章 半监督学习"></a>第十三章 半监督学习</h1><hr>
+<h1 id="第十二章-计算学习理论"><a href="#第十二章-计算学习理论" class="headerlink" title="第十二章 计算学习理论"></a>第十二章 计算学习理论</h1><ol>
+<li>泛化误差和经验误差</li>
+</ol>
+<ul>
+<li>在机器学习中，泛化误差（Generalization Error）和经验误差（Empirical Error）是两个重要的概念，用于评估学习算法的性能和能力。</li>
+<li><strong>经验误差指的是在训练数据集上使用学习算法得到的误差</strong>。它是通过将学习算法应用于已知标签的训练数据，并计算预测输出与真实标签之间的差异来计算的。经验误差衡量的是学习算法在已有数据上的拟合程度。通常，经验误差越小，说明算法在训练数据上的性能越好。</li>
+<li><strong>然而，仅仅关注经验误差是不够的，因为学习算法可能会过度拟合（Overfitting）训练数据，导致在未见过的新数据上表现不佳</strong>。这时候就需要考虑泛化误差。</li>
+<li><strong>泛化误差是指学习算法在未见过的新数据上的误差</strong>。它是衡量学习算法的泛化能力，即算法对未知数据的适应能力。泛化误差反映了学习算法从训练数据中学到的模式对新数据的预测性能。<strong>理想情况下，泛化误差应该尽可能接近经验误差</strong>。</li>
+<li><strong>过度拟合是导致泛化误差增加的常见原因</strong>。当学习算法过度拟合训练数据时，它会过度记住训练数据的噪声和细节，而无法很好地泛化到新数据上。相反，当学习算法欠拟合（Underfitting）训练数据时，它无法捕捉到数据中的重要模式和结构，导致较高的泛化误差。</li>
+<li>为了减小泛化误差，需要使用合适的模型选择、特征选择、正则化等方法。这些方法旨在平衡经验误差和泛化误差之间的关系，以获得对新数据具有良好泛化能力的模型。</li>
+</ul>
+<hr>
+<h2 id="12-1-PAC学习"><a href="#12-1-PAC学习" class="headerlink" title="12.1 PAC学习"></a>12.1 PAC学习</h2><ul>
+<li>PAC（Probably Approximately Correct）学习理论是机器学习中的一个理论框架，提供了关于学习算法的性能分析和泛化保证的理论基础。</li>
+<li>PAC学习理论的核心思想是：<strong>如果一个学习算法能够在有限的样本上获得高概率的正确性，且在未见过的新样本上也能取得相近的正确性，则称该算法是“可能近似正确”的</strong>。具体来说，PAC学习理论包括以下要素：<ul>
+<li>可能近似正确性：PAC学习要求学习算法以高概率（1-δ）获得近似正确的结果。其中，δ是一个很小的正数，表示学习算法在新样本上可能出现错误的概率。</li>
+<li>样本复杂性：PAC学习理论关注学习问题中的样本复杂性。样本复杂性包括样本空间的大小（样本数目）和样本分布的特征。通过研究样本复杂性，可以理解学习问题的困难程度以及学习算法所需的样本数目。</li>
+<li>假设空间：假设空间是指学习算法考虑的所有可能解的集合。PAC学习理论假设目标函数属于一个给定的假设空间，并通过分析假设空间的复杂性来研究学习问题的可解性。</li>
+<li>可学习性：PAC学习理论研究学习算法在有限样本和有限时间内是否能够从假设空间中找到一个近似正确的假设。可学习性的分析涉及到学习算法的效率和泛化性能的折衷。<br>PAC学习理论为机器学习提供了一种理论保证，即在一定条件下，学习算法可以通过有限样本来获得近似正确的结果，并在未见过的新样本上具有较好的泛化能力。这一理论框架对于设计、分析和改进学习算法具有重要的指导作用，促进了机器学习的理论研究和实践发展。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li>PAC辨识：PAC辨识是指在PAC学习理论中，通过有限的样本和有限的时间，确定出一个近似正确的目标函数的过程。PAC辨识问题的关键是找到一个学习算法，能够以高概率获得近似正确的结果。</li>
+<li>PAC可学习：PAC可学习性是指在PAC学习理论中，给定一个假设空间和一个概念类，判断是否存在一个学习算法可以以高概率获得近似正确的结果。PAC可学习性的分析涉及到学习问题的可解性和假设空间的复杂性。</li>
+<li>PAC学习算法：PAC学习算法是指在PAC学习理论中，根据有限样本和有限时间的限制，通过学习过程找到一个近似正确的假设。PAC学习算法的设计和分析是研究学习问题的可解性和泛化能力的关键。</li>
+<li>样本复杂度：样本复杂度是指在PAC学习理论中，描述学习问题所需的样本数目。样本复杂度分析研究了学习算法所需的样本数目与学习问题的性质、假设空间的复杂性以及算法的性能之间的关系。<br>这些概念在PAC学习理论中相互关联，共同构成了理论框架的核心。PAC学习理论通过研究这些概念的关系，旨在提供关于学习算法性能、泛化保证和学习问题可解性的理论保证。这为机器学习的设计、分析和实践提供了指导，并推动了机器学习理论的发展和应用。</li>
+</ul>
+<hr>
+<h2 id="12-2-有限假设空间"><a href="#12-2-有限假设空间" class="headerlink" title="12.2 有限假设空间"></a>12.2 有限假设空间</h2><p><strong>有限假设空间（Finite Hypothesis Space）是指在学习问题中，用于表示可能解的假设的集合是有限的</strong>。假设空间可以包含各种可能的函数、模型或参数组合，用于描述学习算法可以选择的所有可能解。<strong>有限假设空间假设了学习问题的解空间是可枚举且有限的</strong>。</p>
+<h3 id="12-2-1-可分情形（Separable-Case）"><a href="#12-2-1-可分情形（Separable-Case）" class="headerlink" title="12.2.1 可分情形（Separable Case）"></a>12.2.1 可分情形（Separable Case）</h3><p>在可分情形中，<strong>假设空间中存在一个假设能够完美地将训练样本进行分类</strong>。也就是说，存在一个假设能够将正例和负例完全分开。这种情况下，学习算法可以找到一个完美的分类器，能够在训练数据上取得零经验误差，并具备在新样本上取得零泛化误差的潜力。</p>
+<h3 id="12-2-2-不可分情形（Non-Separable-Case）"><a href="#12-2-2-不可分情形（Non-Separable-Case）" class="headerlink" title="12.2.2 不可分情形（Non-Separable Case）"></a>12.2.2 不可分情形（Non-Separable Case）</h3><p>在不可分情形中，<strong>假设空间中的任何假设都无法完美地将训练样本进行分类</strong>，即不存在一个超平面或决策边界能够完美分隔正例和负例。在这种情况下，学习算法无法达到零经验误差，并且无法在新样本上取得零泛化误差。</p>
+<ul>
+<li>“不可知PAC可学习”（AgnoPAC Learnable）<br>不可知PAC可学习的情况与可分情形和不可分情形有一定关系。在可分情形下，我们可以确定存在一个学习算法能够完美地将训练数据进行分类，因此该问题是PAC可学习的。<strong>而在不可分情形下，我们无法确定是否存在一个学习算法能够达到PAC可学习的要求，即我们无法确定问题的可解性。因此，不可知PAC可学习常常与不可分情形相关联</strong>。</li>
+</ul>
+<p>不可知PAC可学习的情况表明对于某些学习问题，<strong>我们无法确定是否存在一个学习算法能够在有限样本和有限时间内获得近似正确的解</strong>。这种情况下，我们需要进一步研究学习问题的性质，探索其他的算法或技术来处理这些问题。不可知PAC可学习的情况属于一种特殊的情况，需要更深入的研究和分析才能得出结论。</p>
+<hr>
+<h2 id="12-3-VC维（Vapnik-Chervonenkis-Dimension）"><a href="#12-3-VC维（Vapnik-Chervonenkis-Dimension）" class="headerlink" title="12.3 VC维（Vapnik-Chervonenkis Dimension）"></a>12.3 VC维（Vapnik-Chervonenkis Dimension）</h2><p><strong>现实学习任务所面临的通常是无线假设空间</strong>，例如实数域中的所有区间、$\mathbb{R}^d$空间中的所有线性超平面。欲对此种情形的可学习性进行研究，<strong>需度量假设空间的复杂度。最常见的办法是考虑假设空间的“VC维”（Vapnik-Chervonenkis Dimension）</strong></p>
+<ul>
+<li>VC维（Vapnik-Chervonenkis Dimension）是统计学习理论中的一个重要概念，<strong>用于衡量一个假设空间的表达能力或复杂性</strong>。</li>
+<li>VC维是由Vladimir Vapnik和Alexey Chervonenkis提出的，<strong>它描述了一个假设空间能够在样本上自由分布并完全正确分类的最大样本数量</strong>。换句话说，VC维是指一个假设空间可以灵活地适应任何可能的样本配置，并能够对这些样本进行完美的分类的能力。</li>
+<li><strong>具体而言，给定一个假设空间H，VC维被定义为该假设空间可以破坏任意大小的样本集合的最大值。也就是说，VC维是假设空间中能够存在的最大破坏样本数量的大小。</strong></li>
+<li>VC维的重要性在于它与学习算法的泛化性能相关。<strong>根据VC维理论，如果一个假设空间的VC维较小，则学习算法在该假设空间上具有较好的泛化能力，即能够从有限的样本中推广到未见过的新样本。相反，如果一个假设空间的VC维较大，则可能导致学习算法出现过拟合的问题，即在训练数据上表现良好，但在新样本上的性能较差</strong>。</li>
+<li>在实际应用中，研究者和从业者利用VC维理论来评估和选择合适的假设空间和模型复杂度，以平衡模型的表达能力和泛化能力。此外，VC维还与学习算法的样本复杂度和收敛速度等方面的分析有关，对于理解学习问题的困难程度和算法性能具有重要意义。</li>
+</ul>
+<hr>
+<h2 id="12-4-Rademacher复杂度（Rademacher-Complexity）"><a href="#12-4-Rademacher复杂度（Rademacher-Complexity）" class="headerlink" title="12.4 Rademacher复杂度（Rademacher Complexity）"></a>12.4 Rademacher复杂度（Rademacher Complexity）</h2><p><strong>基于VC维的泛化误差界是分布无关、数据独立的，也就是说，对任何数据分布都成立。</strong>这使得基于VC维的可学习性分析结果具有一定的“普适性”；但从另一方面来说，由于没有考虑数据自身，基于VC维得到的泛化误差界通常比较“松”，对那些与学习问题的典型情况相差甚远的较“坏”分布来说尤其如此。<br><strong>Rademacher 复杂度（Rademacher complexity）是另一种刻画假设空间复杂度的途径，与VC维不同的是，它在一定程度上考虑了数据分布</strong></p>
+<ul>
+<li>Rademacher复杂度（Rademacher Complexity）是统计学习理论中用于度量假设空间复杂度的一种方法。它由Rademacher符号引入，<strong>可以用于估计一个假设空间的泛化能力。</strong></li>
+<li><strong>Rademacher复杂度通过引入随机变量的符号来评估假设空间在随机样本上的表现。具体而言，给定一个假设空间H和一个样本集合，Rademacher复杂度衡量了该假设空间中所有可能的函数对样本的拟合程度。</strong></li>
+<li>具体计算Rademacher复杂度的过程如下：<ol>
+<li>从一个取值在[-1, 1]之间的均匀分布中抽取与样本集合中样本数量相同的随机变量，称为Rademacher符号。</li>
+<li>对于假设空间H中的每个函数，计算该函数在样本集合上的平均值，并与Rademacher符号相乘。</li>
+<li>对所有函数的平均值取最大值，得到Rademacher复杂度。</li>
+</ol>
+</li>
+<li>Rademacher复杂度可以理解为假设空间的平均适应度，或者说是假设空间中函数对随机样本的平均适应度。<strong>较小的Rademacher复杂度表示假设空间具有较强的泛化能力，能够从有限的样本中推广到未见过的新样本。</strong></li>
+<li>Rademacher复杂度与VC维密切相关，它们在分析假设空间的复杂性和泛化性能方面具有一定的相似性。<strong>然而，它们的计算方式和理论基础有所不同。Rademacher复杂度更注重样本集合与假设空间之间的匹配度，而VC维更关注假设空间中样本集合的分布模式和破坏能力。</strong></li>
+<li>Rademacher复杂度为我们提供了一种量化假设空间复杂度的工具，用于评估学习算法的泛化能力和性能。它在理论分析和算法设计中具有重要作用。</li>
+</ul>
+<hr>
+<h2 id="12-5-稳定性（stability）"><a href="#12-5-稳定性（stability）" class="headerlink" title="12.5 稳定性（stability）"></a>12.5 稳定性（stability）</h2><p><strong>无论是基于VC维还是Rademacher复杂度来推导泛化误差界，所得到的结果均与具体学习算法无关，对所有学习算法都适用</strong>。这使得人们能够脱离具体学习算法的设计来考虑学习问题本身的性质，但在另一方面，<strong>若希望获得与算法有关的分析结果，则需另辟蹊径。稳定性(stability) 分析</strong>是这方面一个值得关注的方向.<br>顾名思义，<strong>算法的“稳定性”考察的是算法在输入发生变化时，输出是否会随之发生较大的变化.</strong></p>
+<ul>
+<li>稳定性分析是一种用于评估学习算法的性质的方法，<strong>关注算法在输入发生变化时输出的稳定性程度</strong>。稳定性分析主要研究学习算法的输入域上的小扰动对输出的影响，并通过量化输出的变化程度来度量算法的稳定性。</li>
+<li>在机器学习中，算法的稳定性分析通常涉及以下两个方面：<ol>
+<li><strong>输入扰动：稳定性分析考虑在输入数据发生小幅度扰动或变化时，算法的输出是否会产生显著的变化</strong>。这些输入扰动可以是针对训练数据的微小变化，或者是对模型输入的微小变化。<strong>稳定性分析可以帮助我们了解算法对数据中的噪声或不确定性的敏感程度。</strong></li>
+<li><strong>算法变化：稳定性分析还可以研究在算法本身发生微小变化时，其输出的变化情况</strong>。这包括对算法参数、模型选择、优化方法等的微小调整或变化。<strong>通过稳定性分析，我们可以了解算法的鲁棒性和对变化的适应能力。</strong></li>
+</ol>
+</li>
+<li>稳定性分析在理论研究和实际应用中都具有重要意义：<ol>
+<li>理论分析：稳定性分析为我们提供了一种理解学习算法行为的方式，可以帮助我们研究算法的一致性、泛化能力以及与其他算法的比较等方面。通过稳定性分析，我们可以脱离具体的学习算法细节，探究学习问题本身的性质和算法的一般性质。</li>
+<li>算法设计：稳定性分析可以指导学习算法的设计和改进。通过考虑算法的稳定性，我们可以选择更稳定的算法或改进算法以提高其稳定性。稳定性的提高可以降低算法对输入的噪声和变化的敏感性，增强算法的鲁棒性。</li>
+</ol>
+</li>
+<li>总的来说，稳定性分析在研究学习算法的性质、评估算法的鲁棒性和推导算法性能上具有重要作用。它为我们提供了一种从另一个角度理解和分析学习算法的方法，有助于深入研究学习问题并设计更鲁棒、稳定的算法。</li>
+</ul>
+<hr>
+<h1 id="第十三章-半监督学习"><a href="#第十三章-半监督学习" class="headerlink" title="第十三章 半监督学习"></a>第十三章 半监督学习</h1><ol>
+<li>主动学习（Active Learning）</li>
+</ol>
+<ul>
+<li>主动学习（Active Learning）是一种机器学习的方法，旨在提高训练模型的效率和准确性。在传统的机器学习中，通常需要大量的标记数据来训练模型，然后使用该模型进行预测。但是，标记数据的收集和准备往往是耗时和昂贵的。<strong>主动学习的目标是通过选择最有价值的样本来减少标记数据的需求。</strong></li>
+<li>主动学习的<strong>基本思想是，在训练模型的过程中，不仅仅是被动地使用已有的标记数据，而是主动地选择一些未标记的样本</strong>，然后请人类专家或模型本身来标记这些样本。<strong>选择哪些样本进行标记的过程是主动学习的关键。</strong></li>
+<li><strong>主动学习通常使用一种叫做”不确定性采样”（Uncertainty Sampling）的方法来选择要标记的样本</strong>。这种方法<strong>会在模型对未标记样本进行预测时，关注那些模型预测结果最为不确定的样本</strong>。例如，在二分类问题中，一个样本可能距离分类决策边界很近，模型很难确定其分类，那么这个样本就是一个不确定的样本，可以选择标记它来改善模型的预测能力。</li>
+<li>另一种常用的主动学习方法是<strong>基于模型不确定性的抽样方法</strong>，例如使用不确定性估计（Uncertainty Estimation）的方法，如基于不确定性的置信度或熵等指标来选择样本。<strong>这些方法通常利用模型在样本空间的不确定性来衡量样本的价值，以便在训练过程中选择最具信息量的样本。</strong></li>
+<li><strong>通过选择最有价值的样本进行标记，主动学习可以在相对较少的标记数据的情况下构建高性能的模型</strong>。这对于训练数据有限或者标记数据成本较高的任务尤为重要。通过主动学习，可以最大程度地利用有限的标记数据，从而提高模型的泛化能力和预测性能。</li>
+</ul>
+<ol start="2">
+<li>事实上，<strong>没有专家干涉，也可利用无标记样本数据的信息。</strong><br>若能观察到图中的未标记样本，则将很有把握地判别为正例。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613213915.png" alt="20230613213915"></li>
+<li>让学习器不依赖外界交互，自动地利用未标记样本来提升学习性能，就是半监督学习（semi-supervised learning）</li>
+<li><strong>要利用未标记样本，必然要做一些将未标记样本所揭示的数据分布信息与类别标记相联系的假设。</strong><ol>
+<li>聚类假设（cluster assumption）</li>
+<li>流形假设（manifold assumption）<blockquote>
+<p>事实上，无论聚类假设还是流形假设，其本质都是“相似的样本拥有相似的输出”这个基本假设</p>
+</blockquote>
+</li>
+</ol>
+</li>
+<li><strong>半监督学习可进一步划分为纯（pure）半监督学习和直推学习（transductive learning），前者假定训练数据中的未标记样本并非待预测的数据，而后者则假定学习过程中所考虑的未标记样本恰是待预测数据，学习的目的就是在这些未标记样本上获得最优泛化性能。</strong><br>一图胜千言：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613214852.png" alt="20230613214852"></li>
+<li>生成式方法（Generative Methods）</li>
+</ol>
+<ul>
+<li>生成式方法（Generative Methods）是直接基于生成式模型的方法。<strong>此类方法假设所有数据（无论是否有标记）都是由同一个潜在的模型“生成”的。</strong>这个假设使得我们能通过潜在模型的参数将未标记数据与学习目标联系起来，而未标记数据的标记则可看作模型的确实参数。</li>
+<li><strong>此类方法的区别主要在于生成式模型的假设，不同的模型假设将产生不同的方法。</strong></li>
+<li>遗憾的是，<strong>在现实任务中往往很难事先做出准确的模型假设，除非拥有充分可靠的领域知识。</strong></li>
+<li>生成式方法常用的模型包括：<ol>
+<li>高斯混合模型（Gaussian Mixture Model，GMM）：GMM 是一种<strong>概率模型，假设数据由多个高斯分布组合而成</strong>。通过学习高斯分布的参数，GMM 可以生成新的数据样本。</li>
+<li>隐马尔可夫模型（Hidden Markov Model，HMM）：HMM 是一种<strong>时序模型，用于建模具有隐含状态的序列数据</strong>。HMM 假设数据的生成过程是一个马尔可夫过程，通过学习转移矩阵和观测概率，HMM 可以生成与原始序列类似的新序列。</li>
+<li>生成对抗网络（Generative Adversarial Network，GAN）：<strong>GAN 是一种基于博弈论的生成模型，由生成器（Generator）和判别器（Discriminator）组成</strong>。生成器试图生成逼真的数据样本，而判别器则试图区分生成的样本和真实样本。通过对抗训练，生成器逐渐学习生成高质量的数据样本。</li>
+<li>变分自编码器（Variational Autoencoder，VAE）：<strong>VAE 是一种基于神经网络的生成模型，通过学习数据样本的潜在变量分布，实现数据的生成和重构</strong>。VAE 通过编码器将数据映射到潜在空间，再通过解码器将潜在变量映射回数据空间，从而生成新的数据样本。</li>
+</ol>
+</li>
+</ul>
+<ol start="7">
+<li><p>半监督支持向量机(Semi-Supervised Support Vector Machine, 简称S3VM)是支持向量机在半监督学习上的推广。<strong>在不考虑未标记样本时，支持向量机试图找到最大间隔划分超平面，而在考虑未标记样本后，S3VM试图找到能将两类有标记样本分开，且穿过数据低密度区域的划分超平面</strong>.</p>
+</li>
+<li><p>半监督SVM的<strong>基本思想是，通过在支持向量机的优化目标函数中引入无标签数据的约束，利用无标签数据的分布信息来提供额外的学习信号</strong>。这样，模型可以通过利用无标签数据的分布特征来更好地学习分类边界，从而提高分类器的性能。<br>半监督SVM的训练过程包括以下步骤：</p>
+</li>
+<li><p>初始训练：使用有标签数据训练一个标准的支持向量机分类器。</p>
+</li>
+<li><p>标签传播：<strong>使用该分类器对无标签数据进行预测，将预测结果作为无标签数据的伪标签。</strong></p>
+</li>
+<li><p>重新训练：将有标签数据和带有伪标签的无标签数据合并，重新训练支持向量机分类器。</p>
+</li>
+<li><p>重复迭代：重复执行步骤2和步骤3，直到达到一定的迭代次数或收敛条件。<br>通过不断迭代的过程，半监督SVM可以逐渐利用无标签数据的信息进行学习，从而提高分类器的泛化能力。<br>半监督SVM的优点在于可以利用未标记数据来提供额外的信息，从而扩大训练数据集，改善模型性能。它尤其适用于标记数据稀缺或者标记过程代价较高的情况。然而，<strong>半监督SVM也面临一些挑战，如如何准确传播标签、无标签数据中的噪声以及类别不平衡等问题</strong>。因此，在使用半监督SVM时需要谨慎处理这些问题，以获得更好的结果。</p>
+</li>
+<li><p>图半监督学习（Graph Semi-Supervised Learning）</p>
+</li>
+</ol>
+<ul>
+<li><strong>给定一个数据集，我们可将其映射为一个图，数据集中每个样本对应于图中一个结点，若两个样本之间的相似度很高(或相关性很强)，则对应的结点之间存在一条边, 边的“强度”(strength)正比于样本之间的相似度(或相关性)<strong>。我们可将有标记样本所对应的结点想象为染过色，而未标记样本所对应的结点尚未染色。于是，半监督学习就对应于“颜色”在图上扩散或传播的过程。</strong>由于一个图对应了一个矩阵，这就使得我们能基于矩阵运算来进行半监督学习算法的推导与分析.</strong></li>
+<li>图半监督学习（Graph Semi-Supervised Learning）是一种机器学习方法，旨在利用图结构数据中的标记和未标记节点信息来进行分类或回归任务。<strong>与传统的半监督学习方法相比，图半监督学习更适用于处理具有图结构的数据，例如社交网络、推荐系统、生物网络等。</strong></li>
+<li>图半监督学习的<strong>基本思想是将节点之间的连接关系转化为图结构，利用图中节点的拓扑结构和特征信息来推断未标记节点的标签</strong>。以下是图半监督学习的关键要素和步骤：<ol>
+<li>图构建：将数据集中的节点和它们之间的连接关系表示为图结构。连接关系可以是节点之间的边、邻接矩阵或者相似性矩阵。</li>
+<li>节点特征提取：为每个节点提取特征表示，这些特征可以是节点的属性、结构信息或其他相关信息。常用的特征提取方法包括节点属性传播、图卷积网络（Graph Convolutional Networks）等。</li>
+<li>标记传播：<strong>利用已标记节点的标签信息，通过图结构进行标签传播，将已标记节点的标签信息传递给未标记节点</strong>。传播的方式可以是基于图的扩散算法，如拉普拉斯传播（Laplacian Propagation）或基于图卷积网络的方法。</li>
+<li>学习模型：基于已标记和未标记节点的特征和标签信息，训练一个分类器或回归模型来进行预测。常用的模型包括支持向量机、随机森林、神经网络等。</li>
+</ol>
+</li>
+<li>图半监督学习的优点在于它能够利用图结构中的节点连接关系和特征信息来推断未标记节点的标签，从而提供更准确的预测结果。它对于处理具有图结构的数据和标记数据不充分的情况下特别有用。然而，<strong>图半监督学习也面临一些挑战，如图噪声、图稀疏性、标签传播的准确性等问题。</strong></li>
+<li>图半监督学习方法在概念上相当清晰，且易于通过对涉矩阵运算的分析来探索算法性质。但此类算法的缺陷也相当明显：<ul>
+<li>存储开销</li>
+<li>由于构图过程中仅能考虑训练样本集，<strong>难以判知新样本在图中的位置。</strong></li>
+</ul>
+</li>
+</ul>
+<ol start="10">
+<li>基于分歧的方法（Divergence-Based Methods）<br>与生成式方法、半监督SVM、图半监督学习等基于单学习器利用未标记数据不同，<strong>基于分歧的方法（Divergence-Based Methods）使用多学习器，而学习器之间的“分歧”（disagreement）对未标记数据的利用至关重要</strong></li>
+<li>聚类是一种典型的无监督学习任务，然而在现实聚类任务中我们往往能获得一些额外的监督信息。于是可通过<strong>半监督聚类（Semi-Supervised Clustering）</strong>来利用监督信息以获得更好的聚类效果。</li>
+<li>聚类任务中获得的监督信息大致有两种，<strong>第一种类型是“必连”（must-link）与“勿连”（cannot-link）约束，前者是指样本必属于同一个簇，后者是指样本必不属于同一个簇</strong></li>
+<li>阅读材料<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613225704.png" alt="20230613225704"><blockquote>
+<p>许多集成学习研究者认为：只要能使用多个学习器即可将弱学习器性能提升到极高，无须使用未标记样本；许多半监督学习研究者认为：只要能使用未标记样本即可将弱学习器性能提升到极高，无须使用多学习器。但这两种看法都有其局限.</p>
+</blockquote>
+</li>
+<li>半监督学习<strong>不仅仅可应用于半监督分类和聚类，也可用于半监督回归、降维等方面</strong></li>
+<li><strong>确保半监督学习的泛化性能至少不差于仅利用有标记样本仍是一个未解决的问题</strong></li>
+</ol>
+<hr>
 <h1 id="第十四章-概率图模型"><a href="#第十四章-概率图模型" class="headerlink" title="第十四章 概率图模型"></a>第十四章 概率图模型</h1><hr>
 <h1 id="第十五章-规则学习"><a href="#第十五章-规则学习" class="headerlink" title="第十五章 规则学习"></a>第十五章 规则学习</h1><hr>
 <h1 id="第十六章-强化学习"><a href="#第十六章-强化学习" class="headerlink" title="第十六章 强化学习"></a>第十六章 强化学习</h1>
@@ -853,7 +1013,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">第二章 模型评估与选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E8%85%BE%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">折腾数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%99%E5%87%BA%E6%B3%95%EF%BC%88hold-out%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">留出法（hold-out）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95%EF%BC%88cross-validation%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">交叉验证法（cross validation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A9%E6%B3%95%EF%BC%88bootstrapping%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">自助法（bootstrapping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第三章 线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">第四章 决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">第五章 神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">第六章 支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章 贝叶斯分类器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.</span> <span class="toc-text">第八章 集成学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E8%81%9A%E7%B1%BB"><span class="toc-number">9.</span> <span class="toc-text">第九章 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E8%81%9A%E7%B1%BB%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F%E4%BA%A6%E7%A7%B0%E8%81%9A%E7%B1%BB%E2%80%9C%E6%9C%89%E6%95%88%E6%80%A7%E6%8C%87%E6%A0%87%E2%80%9D%EF%BC%88validity-index%EF%BC%89"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 聚类性能度量亦称聚类“有效性指标”（validity index）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 距离计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E9%99%8D%E7%BB%B4%E5%92%8C%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.</span> <span class="toc-text">第十章 降维和度量学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">11.</span> <span class="toc-text">第十一章 特征选择与稀疏学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E6%96%B9%E6%B3%95"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 常见的特征选择方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">第十二章 计算学习理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">13.</span> <span class="toc-text">第十三章 半监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">14.</span> <span class="toc-text">第十四章 概率图模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0"><span class="toc-number">15.</span> <span class="toc-text">第十五章 规则学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text">第十六章 强化学习</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">第二章 模型评估与选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E8%85%BE%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">折腾数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%99%E5%87%BA%E6%B3%95%EF%BC%88hold-out%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">留出法（hold-out）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95%EF%BC%88cross-validation%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">交叉验证法（cross validation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A9%E6%B3%95%EF%BC%88bootstrapping%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">自助法（bootstrapping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第三章 线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">第四章 决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">第五章 神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">第六章 支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章 贝叶斯分类器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.</span> <span class="toc-text">第八章 集成学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E8%81%9A%E7%B1%BB"><span class="toc-number">9.</span> <span class="toc-text">第九章 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E8%81%9A%E7%B1%BB%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F%E4%BA%A6%E7%A7%B0%E8%81%9A%E7%B1%BB%E2%80%9C%E6%9C%89%E6%95%88%E6%80%A7%E6%8C%87%E6%A0%87%E2%80%9D%EF%BC%88validity-index%EF%BC%89"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 聚类性能度量亦称聚类“有效性指标”（validity index）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 距离计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E9%99%8D%E7%BB%B4%E5%92%8C%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.</span> <span class="toc-text">第十章 降维和度量学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">11.</span> <span class="toc-text">第十一章 特征选择与稀疏学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E6%96%B9%E6%B3%95"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 常见的特征选择方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">第十二章 计算学习理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-PAC%E5%AD%A6%E4%B9%A0"><span class="toc-number">12.1.</span> <span class="toc-text">12.1 PAC学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E6%9C%89%E9%99%90%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4"><span class="toc-number">12.2.</span> <span class="toc-text">12.2 有限假设空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-1-%E5%8F%AF%E5%88%86%E6%83%85%E5%BD%A2%EF%BC%88Separable-Case%EF%BC%89"><span class="toc-number">12.2.1.</span> <span class="toc-text">12.2.1 可分情形（Separable Case）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-2-%E4%B8%8D%E5%8F%AF%E5%88%86%E6%83%85%E5%BD%A2%EF%BC%88Non-Separable-Case%EF%BC%89"><span class="toc-number">12.2.2.</span> <span class="toc-text">12.2.2 不可分情形（Non-Separable Case）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-3-VC%E7%BB%B4%EF%BC%88Vapnik-Chervonenkis-Dimension%EF%BC%89"><span class="toc-number">12.3.</span> <span class="toc-text">12.3 VC维（Vapnik-Chervonenkis Dimension）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-4-Rademacher%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88Rademacher-Complexity%EF%BC%89"><span class="toc-number">12.4.</span> <span class="toc-text">12.4 Rademacher复杂度（Rademacher Complexity）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-5-%E7%A8%B3%E5%AE%9A%E6%80%A7%EF%BC%88stability%EF%BC%89"><span class="toc-number">12.5.</span> <span class="toc-text">12.5 稳定性（stability）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">13.</span> <span class="toc-text">第十三章 半监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">14.</span> <span class="toc-text">第十四章 概率图模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0"><span class="toc-number">15.</span> <span class="toc-text">第十五章 规则学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text">第十六章 强化学习</span></a></li></ol>
                     </div>
                 </span>
             </div>
