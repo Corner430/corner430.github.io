@@ -32,8 +32,27 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230608230636.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230608231139.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230608231238.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230611161623.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230611161652.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230611163211.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612162450.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612162514.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612162642.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612163728.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612163808.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612193309.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612193728.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612201702.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612211615.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612231236.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612231248.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612231416.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613130159.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613131109.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613184850.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613185347.png">
 <meta property="article:published_time" content="2023-06-08T02:53:14.000Z">
-<meta property="article:modified_time" content="2023-06-08T15:21:02.996Z">
+<meta property="article:modified_time" content="2023-06-13T11:08:33.695Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521233538.png">
@@ -82,7 +101,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:146.1k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:154.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -183,7 +202,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：4.2k字 | 预计阅读时长：14分钟
+    		字数：12.4k字 | 预计阅读时长：42分钟
 	</div>
         
   
@@ -301,9 +320,9 @@
 </li>
 <li><p><strong>标准的BP算法</strong>每次仅针对一个训练样例更新连接权重和阈值。</p>
 </li>
-<li><p>**累积BP算法直接针对累积误差最小化，它在读取整个数据集D一遍后才对参数进行更新。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230608200745.png" alt="20230608200745"></p>
+<li><p><strong>累积BP算法直接针对累积误差最小化，它在读取整个数据集D一遍后才对参数进行更新。</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230608200745.png" alt="20230608200745"></p>
 <blockquote>
-<p>一言以蔽之，先用累积BP算法，再用标准BP算法。<br>读取训练集一遍称为进行了“一轮”(one round,亦称oneepoch)学习.<br>标准BP算法和累积BP算法的区别类似于<strong>随机梯度下降(stochastic gradientdescent,简称SGD)与标准梯度下降</strong>之间的区别.</p>
+<p>一言以蔽之，先用累积BP算法，再用标准BP算法。<br>读取训练集一遍称为进行了“一轮”(one round,亦称one epoch)学习.<br>标准BP算法和累积BP算法的区别类似于<strong>随机梯度下降(stochastic gradientdescent,简称SGD)与标准梯度下降</strong>之间的区别.</p>
 </blockquote>
 </li>
 <li><p>已经证明，只要神经元的隐层够多，多层前馈网络就能以任意精度逼近任意复杂度的连续函数。<strong>难点在于</strong>，隐层神经元的个数如何设计最为合理。</p>
@@ -366,10 +385,296 @@
 </li>
 <li><p>常用核函数<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230608231238.png" alt="20230608231238"></p>
 </li>
-<li><p>软间隔</p>
+<li><p>事实上，并非所有的训练样本在样本空间或特征空间中都是线性可分的。就算找到了一个核函数使得训练集在特征空间中线性可分，也很难断定这个貌似线性可分的结果是不是由于过拟合所造成的。缓解该问题的一个办法是允许支持向量机在一些样本上出错，为此要引入“软间隔”的概念。</p>
+</li>
+<li><p>软间隔中每个样本都有一个对应的松弛变量，用以表征该样本不满足约束的程度。</p>
+</li>
+<li><p>多核学习（multiple kernel learning）是使用多个核函数并通过学习获得其优化凸组合作为最终的核函数，这实际上是在借助集成学习机制。</p>
+</li>
+<li><p>SVM的确与神经网络有密切联系：若将隐层神经元数设置为训练样本数，且每个训练样本对应一个神经元中心，则以高斯径向基函数为激活函数的RBF网络恰与高斯核SVM的预测函数相同。</p>
 </li>
 </ol>
-
+<hr>
+<h1 id="第七章-贝叶斯分类器"><a href="#第七章-贝叶斯分类器" class="headerlink" title="第七章 贝叶斯分类器"></a>第七章 贝叶斯分类器</h1><ol>
+<li>对于分类任务来说，在所有相关概率都已知的理想情形下，贝叶斯决策论考虑如何基于这些概率和误判所示来选择最优的类别标记。</li>
+<li>贝叶斯判定准则（Bayes decision rule）：为最小化总体风险，只需在每个样本上选择那个能使条件风险R(c|x)最小的类别标记。</li>
+<li>为便于讨论，假设所有属性均为离散型。对连续属性，可将概率质量函数P(·)换成概率密度函数p(·)<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230611161623.png" alt="20230611161623"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230611161652.png" alt="20230611161652"></li>
+<li><a href="https://corner430.github.io/2023/04/03/Maximum-Likelihood-Estimation-Bayesian-Estimation-and-Maximum-A-Posteriori-Estimation/">贝叶斯估计、最大似然估计、最大后验概率估计</a><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230611163211.png" alt="20230611163211"></li>
+<li>基于有限训练样本直接估计联合概率，在计算上将会遭遇组合爆炸问题，在数据上将会遭遇样本稀疏问题；属性数越多，问题越严重。</li>
+<li>不难发现，基于贝叶斯公式来估计后验概率P(c|x)的主要困难在于：类条件概率P(x|c)是所有属性上的联合概率，难以从有限的训练样本直接估计而得。为避开这个障碍，朴素贝叶斯分类器(naive Bayes classifier)采用了**“属性条件独立性假设”(attribute conditional independence assumption)**：对已知类别，假设所有属性相互独立。换言之，假设每个属性独立地对分类结果生影响。</li>
+<li>若某个属性值在<strong>训练集中没有与某个类同时出现过</strong>，则直接进行概率估计，之后进行判别将出现问题。为了避免其他属性携带的信息被训练集中未出现的属性值“抹去”，在估计概率值时通常要进行“平滑”（smoothing），常用“拉普拉斯修正”（Laplacian correction）</li>
+<li>显然拉普拉斯修正避免了因训练集样本不充分而导致概率估值为零的问题，并且在训练集变大时，修正过程所引入的先验（prior）的影响也会逐渐变得可忽略，使得估值渐趋向于实际概率值。</li>
+<li>拉普拉斯修正实际上假设了属性值与类别均匀分布，这是在朴素贝叶斯学习过程中额外引入了关于数据的先验。</li>
+<li>朴素贝叶斯分类器采用了属性条件独立性假设，但在现实任务中这个假设往往很难成立。于是，人们尝试对属性条件独立性假设进行一定程度的放松，由此产生了一类为<strong>“半朴素贝叶斯分类器”（semi-naive Bayes classifiers）</strong>的学习方法。</li>
+</ol>
+<ul>
+<li>半朴素贝叶斯分类器的基本想法是<strong>适当考虑一部分属性间的相互依赖信息</strong>，从而既不需进行完全联合概率计算，又不至于彻底忽略了比较强的属性依赖关系。 <ul>
+<li>独依赖估计（One-Dependent Estimator，简称ODE）是半朴素贝叶斯分类器最常用的一种策略。顾名思义，<strong>所谓“独依赖”就是假设每个属性在类别之外最多仅依赖于一个其他属性</strong>。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612162450.png" alt="20230612162450"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612162514.png" alt="20230612162514"><ul>
+<li>TAN（Tree Augmented naive Bayes）<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612162642.png" alt="20230612162642"></li>
+<li>AODE（Averaged One-Dependent Estimator）是一种基于集成学习机制、更为强大的独依赖分类器。与SPODE通过模型选择确定超父属性不同、AODE尝试将每个属性作为超父来构建SPODE，然后将那些具有足够数据支撑的SPODE集成起来作为最终结果。</li>
+</ul>
+</li>
+<li>贝叶斯网（Bayesian network）亦称“信念网”（belief network），它借助有向无环图（Directed Acyclic Graph，简称DAG）来刻画属性之间的依赖关系，并使用条件概率表（Conditional Probability Table，简称CRT）来描述属性的联合概率分布。</li>
+<li><font color="#dd0000">贝叶斯结构有效地表达了属性间的条件独立性</font><br><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612163728.png" alt="20230612163728"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612163808.png" alt="20230612163808"></li>
+</ul>
+</li>
+</ul>
+<ol start="11">
+<li>若网络结构已知，即属性间的依赖关系已知，则贝叶斯网的学习过程相对简单，只需通过对训练样本“计数”，估计出每个节点的条件概率表即可。但在现实应用中我们往往并不知晓网格结构，<strong>于是贝叶斯网学习的首要任务就是根据训练数据集来找出结构最“恰当”的贝叶斯网。</strong> <strong>“评分搜索”</strong>是求解这一问题的常用办法。</li>
+<li>EM算法（Expectation Maximization Algorithm）是一种迭代优化算法，<strong>用于解决在概率统计中的一类问题，特别是在存在隐变量（或未观测变量）的概率模型中的参数估计问题。</strong><br>EM算法的核心思想是通过<strong>迭代地进行两个步骤：E步骤（Expectation Step）和M步骤（Maximization Step），来逐步优化参数估计。</strong></li>
+</ol>
+<ul>
+<li>以下是EM算法的基本步骤：<ol>
+<li><strong>初始化参数</strong>: 首先需要对模型的参数进行初始化。</li>
+<li><strong>E步骤（Expectation Step）</strong>: 在E步骤中，根据当前的参数估计，计算隐变量的后验概率分布。这里的隐变量指的是未观测到的变量。通过计算隐变量的后验概率，可以得到对于每个样本，它属于每个隐变量取值的概率。</li>
+<li><strong>M步骤（Maximization Step）</strong>: 在M步骤中，利用E步骤中计算得到的隐变量后验概率分布，对参数进行更新估计。这个步骤的目标是最大化观测数据的对数似然函数，即通过优化参数来使模型能够更好地拟合观测数据。</li>
+<li><strong>迭代更新</strong>: 重复执行E步骤和M步骤，直到算法收敛或达到预设的停止条件。通常，通过计算参数的变化量来判断算法是否收敛。</li>
+</ol>
+</li>
+</ul>
+<p>EM算法的<strong>优点</strong>是可以用于估计存在隐变量的概率模型的参数，即使在隐变量存在的情况下，也可以对参数进行有效估计。但它也有一些<strong>限制</strong>，例如容易陷入局部最优解、收敛速度可能较慢等。<br>EM算法在许多领域都有应用，比如混合高斯模型的参数估计、隐马尔可夫模型的参数学习等。它为解决概率统计中的一类问题提供了一种有效的迭代优化方法。<br>事实上，隐变量估计问题也可通过梯度下降等优化算法求解，但由于求和的项数将随着隐变量的数目以指数级上升，会给梯度计算带来麻烦；而<strong>EM算法则可看作一种非梯度优化方法。</strong></p>
+<hr>
+<h1 id="第八章-集成学习"><a href="#第八章-集成学习" class="headerlink" title="第八章 集成学习"></a>第八章 集成学习</h1><ol>
+<li><p>集成学习（ensemble learning）通过构建并结合多个学习器来完成学习任务，有时也被称为多分类器系统（multi-classifier system）、基于学员会的学习（committee-base learning）等。</p>
+</li>
+<li><p>集成的方式分为“同质”（homogeneous）和“异质”（heterogenous）<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612193309.png" alt="20230612193309"></p>
+</li>
+<li><p>要获得好的集成，个体学习器应<strong>“好而不同”</strong>，即个体学习器要有一定的“准确性”，即学习器不能太坏，并且要有“多样性”（diversity），即学习器间具有差异。</p>
+</li>
+<li><p>假设基分类器的错误率相互独立，则由Hoeffding不等式可知，集成的错误率为：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612193728.png" alt="20230612193728"></p>
+<blockquote>
+<p>但是，错误率相互独立不可能成立，原因在于个体学习器是为解决同一问题训练出来的。准确性和多样性本就存在冲突。也就是说，如何产生并结合“好而不同”的个体学习器，恰是集成学习研究的核心。</p>
+</blockquote>
+</li>
+<li><p>根据个体学习器的生成方式，目前的集成学习方法大致可分为两大类，即个体学习器间存在强依赖关系、必须<strong>串行</strong>生成的序列化方法，以及个体学习器间不存在强依赖关系、可同时生成的<strong>并行</strong>化方法；前者的代表是Boosting，后者的代表是Bagging和“随机森林”(Random Forest).</p>
+</li>
+<li><p><strong>Boosting是一族可将弱学习器提升为强学习器的算法</strong>。这族算法的工作机制类似：先从初始训练集训练出一个基学习器，<strong>再根据基学习器的表现对训练样本分布进行调整</strong>，使得先前学习器做错的训练样本在后续受到更多关注,然后基于调整后的样本分布来训练下一个基学习器；如此重复进行，直至基学习器数目达到事先指定的值T，最终将这T个基学习器进行<strong>加权结合</strong>。Boosting族算法最著名的代表是AdaBoost。</p>
+</li>
+<li><p>从偏差-方差分解的角度看，Boosting主要关注降低偏差，因此Boosting能基于泛化性能相当弱的学习器构建出很强的集成。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612201702.png" alt="20230612201702"></p>
+</li>
+<li><p>欲得到泛化性能强的集成，集成中的个体学习器应尽可能相互独立；虽然“独立”在现实任务中无法做到,但<strong>可以设法使基学习器尽可能具有较大的差异</strong>。给定一个训练数据集，一种可能的做法是对训练样本进行采样，产生出若千个不同的子集，再从每个数据子集中训练出一个基学习器。这样，由于训练数据不同，我们获得的基学习器可望具有比较大的差异。然而，为获得好的集成，我们同时还希望个体学习器不能太差。如果采样出的每个子集都完全不同，则每个基学习器只用到了一小部分训练数据，甚至不足以进行有效学习，这显然无法确保产生出比较好的基学习器。为解决这个问题，我们可考虑<strong>使用相互有交叠的采样子集</strong>.</p>
+</li>
+<li><p>Bagging是并行式集成学习方法最著名的代表。它基于<strong>自助采样法</strong>。在对预测输出进行结合时，<strong>Bagging通常对分类任务使用简单投票法，对回归任务使用简单平均法</strong>。</p>
+</li>
+<li><p>值得一提的是，自助采样过程还给Bagging带来了另一个优点：由于每个基学习器只使用了初始训练集中约63.2%的样本，剩下约36.8%的样本可用作验证集来对泛化性能进行“包外估计”（out-of-bag estimate）</p>
+</li>
+<li><p>从偏差-方差分解的角度看，Bagging主要关注降低方差，因此它在不剪枝决策树、神经网络等易受样本扰动的学习器上效用更为明显。</p>
+</li>
+<li><p>随机森林（Random Forest，简称RF）是Bagging的一个扩展变体。RF在以决策树为基学习器构建Bagging集成的基础上，进一步在决策树的训练过程中<strong>引入了随机属性选择</strong>。</p>
+</li>
+<li><p>随机森林中基学习器的多样性不仅来自<strong>样本扰动，还来自属性扰动</strong>，这就使得最终集成的泛化性能可通过个体学习器之间差异度的增加而进一步提升。</p>
+</li>
+<li><p>随机森林简单、容易实现、计算开销小。值得一提的是，<strong>随机森林的训练效率常优于Bagging</strong>，因为在个体决策树的构建过程中，Bagging使用的是“确定型”决策树，在选择划分属时要对结点的所有属性进行考察，而随机森林使用的“随机型”决策树则只需考察一个属性子集。</p>
+</li>
+<li><p>学习器结合可能会带来的好处。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612211615.png" alt="20230612211615"></p>
+</li>
+<li><p>学习器的结合策略</p>
+<ol>
+<li><p>平均法（averaging）：对<strong>数值型输出</strong> $h_i(x) \in \mathbb{R}$，最常见的结合策略是使用平均法。（平均法又分为简单平均法（simple averaging）和加权平均法（weighted averaging））</p>
+</li>
+<li><p>投票法：绝对多数投票法（majority voting）、相对多数投票法（plurality voting）和加权投票法（weighted voting）</p>
+<blockquote>
+<p><strong>标准的绝对多数投票法提供了“拒绝预测”选项</strong>，这在可靠性要求较高的学习任务中是一个很好的机制。但若学习任务要求必须提供预测结果，则绝对多数投票法将退化为相对多数投票法。因此，在不允许拒绝预测的任务中，绝对多数、相对多数投票法统称为“多数投票法”</p>
+</blockquote>
+</li>
+<li><p>学习法：当训练数据很多时，一种更为强大的组合策略是使用“学习法”，<strong>即通过另一个学习器来进行结合</strong>。</p>
+</li>
+</ol>
+</li>
+<li><p>多样性度量（diversity measure）是用于度量集成中个体分类器的多样性，即估算个体学习器的多样化程度。</p>
+</li>
+<li><p>多样性增强</p>
+<ol>
+<li>数据样本扰动：数据样本扰动通常是基于采样法。<strong>此类做法简单高效，使用最广。然而</strong>，有一些基学习器对数据样本的扰动不敏感，例如线性学习器、支持向量机、朴素贝叶斯、k近邻学习器等，这样的基学习器称为稳定基学习器（stable base learner），对此类基学习器进行集成往往需使用输入属性扰动等其他机制。</li>
+<li>输入属性扰动</li>
+<li>输出表示扰动：此类做法的基本思路是对输出表示进行操纵以增强多样性</li>
+<li><font color="#dd0000">算法参数扰动</font><br>：基学习算法一般都有参数需进行设置，例如神经网络的隐层神经元数、初始连接权值等，<strong>通过随机设置不同的参数，往往可产生差别较大的个体学习器，例如“负相关法”（Negative Correlation）显式地通过正则化项来强制个体神经网络使用不同的参数</strong>.</li>
+</ol>
+<ul>
+<li><strong>对参数较少的算法，可通过将其学习过程中某些环节用其他类似方式代替</strong>，从而达到扰动的目的，例如可将决策树使用的属性选择机制替换成其他的属性选择机制。</li>
+<li>值得指出的是，使用单一学习器时通常需使用交叉验证等方法来确定参数值，这事实上已使用了不同参数训练出多个学习器，只不过最终仅选择其中一个学习器进行使用，而集成学习则相当于把这些学习器都利用起来；由此也可看出，<strong>集成学习技术的实际计算开销并不比使用单一学习器大很多</strong>。<blockquote>
+<p>不同的多样性增强机制可同时使用。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>弱学习等价于强学习</p>
+</li>
+<li><p>在集成产生之后再试图通过去除一些个体学习器来获得较小的集成，称为集成修剪（ensemble pruning）</p>
+</li>
+<li><p>由于集成包含多个学习器，即便个体学习器有较好的可解释性，集成仍是黑箱模型。</p>
+</li>
+</ol>
+<hr>
+<h1 id="第九章-聚类"><a href="#第九章-聚类" class="headerlink" title="第九章 聚类"></a>第九章 聚类</h1><ol>
+<li>无监督学习（unsupervised learning）：聚类（clustering）、密度估计（density estimation）、异常检测（anomaly-detection）</li>
+<li>聚类既能作为一个单独过程，用于找寻数据内在的分布结构，也可作为分类等其他学习任务的前驱过程。</li>
+</ol>
+<hr>
+<h2 id="9-1-聚类性能度量亦称聚类“有效性指标”（validity-index）"><a href="#9-1-聚类性能度量亦称聚类“有效性指标”（validity-index）" class="headerlink" title="9.1 聚类性能度量亦称聚类“有效性指标”（validity index）"></a>9.1 聚类性能度量亦称聚类“有效性指标”（validity index）</h2><ol>
+<li>若明确了最终将要使用的性能度量，<strong>则可直接将其作为聚类过程的优化目标</strong>，从而更好地得到符合要求的聚类结果</li>
+<li>聚类结果的“簇内相似度”（intra-cluster similarity）高且“簇间相似度”（inter-cluster similarity）低.</li>
+<li>聚类性能度量大致有两类。<ol>
+<li>外部指标（external index）：将聚类结果与某个“参考模型”（reference model）进行比较</li>
+<li>内部指标（internal index）：直接考察聚类结果而不利用任何参考模型</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="9-2-距离计算"><a href="#9-2-距离计算" class="headerlink" title="9.2 距离计算"></a>9.2 距离计算</h2><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612231236.png" alt="20230612231236"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612231248.png" alt="20230612231248"></p>
+<ol>
+<li>“闵可夫斯基距离”(Minkowski distance)</li>
+<li>VDM (Value Diference Metric)</li>
+</ol>
+<blockquote>
+<p>我们常将属性划分为“连续属性”(continuousattribute)和“离散属性”(categorical attribute)，前者在定义域上有无穷多个可能的取值，后者在定义域上是有限个取值。然而，在讨论距离计算时，属性上是否定义了“序”关系更为重要。<br>闵可夫斯基距离可用于有序属性，对无序属性可采用VDM</p>
+</blockquote>
+<ol start="3">
+<li>将闵可夫斯基距离和VDM结合即可处理<strong>混合属性</strong></li>
+<li>当样本空间不同属性的重要性不同时，可使用<strong>“加权距离”（weighted distance）</strong></li>
+<li>用于相似度度量的距离未必一定药满足距离度量的所有基本性质，尤其是直递性<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230612231416.png" alt="20230612231416"></li>
+</ol>
+<hr>
+<ol start="3">
+<li>聚类的种类</li>
+</ol>
+<ul>
+<li>原型聚类：亦称为“基于原型的聚类”（prototype-based clustering），此类算法假设聚类结构能通过一组原型刻画，<strong>在现实聚类任务中极为常用</strong>。<ul>
+<li>k均值算法</li>
+<li>学习向量量化</li>
+<li>高斯混合聚类</li>
+</ul>
+</li>
+<li>密度聚类：密度聚类亦称“基于密度的聚类”(density-based clustering)，此类算法<strong>假设聚类结构能通过样本分布的紧密程度确定</strong>。通常情形下，密度聚类算法从样本密度的角度来考察样本之间的可连接性，并基于可连接样本不断扩展聚类簇以获得最终的聚类结果.</li>
+<li>层次聚类：层次聚类(hierarchical clustering)试图在不同层次对数据集进行划分，从而形成树形的聚类结构。数据集的划分可采用“自底向上”的聚合策略，也可采用“自顶向下”的分拆策略.</li>
+</ul>
+<ol start="4">
+<li>聚类也可以集成。</li>
+</ol>
+<hr>
+<h1 id="第十章-降维和度量学习"><a href="#第十章-降维和度量学习" class="headerlink" title="第十章 降维和度量学习"></a>第十章 降维和度量学习</h1><ol>
+<li>懒惰学习（lazy learning）：此类学习技术在训练阶段仅仅是把样本报错起来，训练时间开销为零，待收到测试样本后再进行处理。</li>
+<li>急切学习（eager learning）：在训练阶段就对样本进行学习处理</li>
+<li>最近邻分类器虽简单，但它的泛化错误不超过贝叶斯最优分类器的错误率的两倍！</li>
+<li>在高维情形下出现的数据样本稀疏、距离计算困难等问题，是所有机器学习方法共同面临的严重障碍，<strong>被称为“维数灾难”（curse of dimensionality）</strong></li>
+<li><strong>缓解维数灾难的一个重要途径是降维（dimension reduction），亦称“维数约简”，即通过某种数学变换将原始高维属性空间转变为一个低维“子空间”（subspace）</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613130159.png" alt="20230613130159"></li>
+<li><strong>若要求原始空间中样本之间的距离在低维空间中得以保持</strong>，如上图所示，即得到“多维缩放”（Multiple Dimensional Scaling，简称MDS）。这是一种经典的降维方法。<strong>要求<br>任意两个样本在新的空间中的欧式距离等于原始空间中的距离</strong>.<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613131109.png" alt="20230613131109"></li>
+<li>主成分分析（Principal Component Analysis，简称PCA），亦称“主分量分析”，是最常用的一种降维方法。</li>
+</ol>
+<ul>
+<li>PCA的目标是将原始数据集投影到一个新的低维空间中，<strong>同时最大程度地保留数据的方差</strong>。在新的低维空间中，每个维度都被称为主成分，其按照数据的方差递减的顺序排列。第一个主成分捕捉到数据中的最大方差，第二个主成分捕捉到与第一个<strong>主成分正交（无关）的最大方差</strong>，以此类推。</li>
+<li>PCA的算法步骤如下：<ul>
+<li>数据预处理：对原始数据进行中心化，即将每个特征的平均值减去数据集中的平均值，以确保数据的均值为零。</li>
+<li>协方差矩阵计算：计算经过中心化的数据集的协方差矩阵。协方差矩阵反映了数据特征之间的相关性。</li>
+<li>特征值分解：对协方差矩阵进行特征值分解，得到特征值和对应的特征向量。特征向量表示数据在主成分方向上的投影。</li>
+<li>特征值排序：按照特征值的大小降序排列特征向量，选择最大的k个特征向量对应的特征值。这些特征向量就是数据的主成分。</li>
+<li>投影到低维空间：将原始数据投影到由选取的k个主成分张成的空间中，形成降维后的数据集。</li>
+</ul>
+</li>
+<li>通过使用PCA，我们可以实现以下几个目标：<ul>
+<li>数据降维：将高维数据映射到低维空间，减少数据特征的数量，从而降低计算复杂性。</li>
+<li>特征提取：通过选择最相关的主成分，保留数据中最重要的信息，并丢弃与之无关的噪声或冗余特征。</li>
+<li>数据可视化：将高维数据可视化为二维或三维图形，便于理解和解释数据。</li>
+<li>PCA在数据分析、模式识别、图像处理等领域得到广泛应用，它帮助我们发现数据中的重要模式和结构，并简化复杂问题的处理。</li>
+</ul>
+</li>
+</ul>
+<ol start="8">
+<li>线性降维方法假设从高维空间到低维空间的函数映射是线性的，然而，在不少现实任务中，<strong>可能需要非线性映射才能找到恰当的低维嵌入</strong>。</li>
+<li><strong>非线性降维的一种常用方法，是基于核技巧对线性降维方法进行“核化”（kernelized）</strong></li>
+<li>流形学习<ol>
+<li>等度量映射</li>
+<li>局部线性嵌入</li>
+</ol>
+</li>
+<li>度量学习<br><strong>在机器学习中，对高维数据进行降维的主要目的是希望找到一个合适的低维空间，在此空间中进行学习能比原始空间性能更好。</strong>事实上，每个空间对应了在样本属性上定义的一个距离度量，而寻找合适的空间，实质上就是在寻找一个合适的距离度量。<strong>那么，为何不直接尝试“学习”出一个合适的距离度量呢？这就是度量学习（metric learning）的基本动机。</strong></li>
+<li><strong>主成分分析（PCA）是迄今最常用的降维方法，它有许多名字，例如线性代数中的散度矩阵奇异值分解（SVD）</strong>、统计学中的因子分析（factor analysis）等等</li>
+</ol>
+<hr>
+<h1 id="第十一章-特征选择与稀疏学习"><a href="#第十一章-特征选择与稀疏学习" class="headerlink" title="第十一章 特征选择与稀疏学习"></a>第十一章 特征选择与稀疏学习</h1><ol>
+<li>对一个学习任务来说，给定属性集， 其中有些属性可能很关键、很有用，另一些属性则可能没什么用。我们将属性称为<strong>“特征”（feature）</strong> ，对当前学习任务有用的属性称为“相关特征”（relevant feature）、没什么用的属性称为“无关特征”（irrelevant feature）.<strong>从给定的特征集合中选择出相关特征子集的过程，称为“特征选择”（feature selection）</strong></li>
+<li>特征选择是一个重要的<strong>数据预处理</strong>（data preprocessing）过程，这么做的原因有二：<ol>
+<li>维数灾难</li>
+<li>去除不相关特征往往会降低学习任务的难度</li>
+</ol>
+</li>
+<li>特征选择过程必须确保不丢失重要特征，否则后续学习过程会因为重要信息的缺失而无法获得好的性能。</li>
+<li>特征选择中所谓的“无关特征”是指与当前学习任务无关。</li>
+<li>有一类特征称为“冗余特征”（redundant feature），它们所包含的信息能从其他特征中推演出来。更确切地说，<strong>若某个冗余特征恰好对应了完成学习任务所需的“中间概念”，则该冗余特征是有益的</strong></li>
+<li>欲从初始的特征集合中选取一个包含了所有重要信息的特征子集，<strong>若没有任何领域知识作为先验假设，那就只好遍历所有可能的子集了</strong>，然而这在计算上却会遭遇<strong>组合爆炸问题</strong>.</li>
+<li>特征选择涉及两个关键环节<ol>
+<li>子集搜索（subset search）：如何根据评价结果获取下一个候选特征子集。<ol>
+<li>逐渐增加相关特征的策略称为<strong>“前向”（forword）搜索</strong></li>
+<li>逐渐减少特征的策略称为<strong>“后向”（backward）搜索</strong></li>
+<li>还可将前向与后向搜索结合起来，每一轮逐渐增加选定相关特征（这些特征在后续轮中将确定不会被去除）、同时减少无关特征，这样的策略称为<strong>“双向”（bidrectional）搜索</strong></li>
+</ol>
+</li>
+<li>子集评价（subset evaluation）：如何评价候选特征子集的好坏<ol>
+<li>可计算属性子集A的<strong>信息增益</strong>。信息增益Gain(A)越大，意味着特征子集A包含的有助于分类的信息越多。于是，对每个候选特征子集，我们可基于训练数据集D来计算其信息增益，以此作为评价准则。</li>
+<li>更一般的，特征子集A实际上确定了对数据集D的一个划分，每个划分区域对应着A上的一个取值，而样本标记信息Y则对应着对D的<strong>真实划分</strong>，通过估算这两个划分的差异，就能对A进行评价。<strong>与Y对应的划分的差异越小，则说明A越好</strong>。</li>
+<li><strong>信息熵仅是判断这个差异的一种途径，其他能判断两个划分差异的机制都能用于特征子集评价</strong>.<blockquote>
+<p>将特征子集搜索机制与子集评价机制相结合，即可得到特征选择方法。</p>
+</blockquote>
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<hr>
+<h2 id="11-1-常见的特征选择方法"><a href="#11-1-常见的特征选择方法" class="headerlink" title="11.1 常见的特征选择方法"></a>11.1 常见的特征选择方法</h2><p>常见的特征选择方法大致可分为三类：过滤式（filter）、包裹式（wrapper）和嵌入式（embedding）.</p>
+<ol>
+<li><strong>过滤式方法先对数据集进行特征选择，然后再训练学习器，特征选择过程与后续学习器无关</strong></li>
+<li>包裹式选择<ol>
+<li>与过滤式特征选择不考虑后续学习器不同，包裹式特征选择<strong>直接把最终将要使用的学习器的性能作为特征子集的评价准则</strong>.换言之，包裹式特征选择的目的<strong>就是为给定学习器选择最有利于其性能、“量身定做”的特征子集</strong></li>
+<li>由于包裹式特征选择方法直接针对给定学习器进行优化，<strong>因此</strong>从最终学习器性能来看，<strong>包裹式特征选择比过滤式特征选择更好</strong>，但另一方面，由于在特征选择过程中需多次训练学习器，因此<strong>包裹式特征选择的计算开销通常比过滤式特征选择大得多</strong>.</li>
+</ol>
+</li>
+<li>嵌入式选择与$L_1$正则化<br>在过滤式和包裹式特征选择方法中，特征选择过程与学习器训练过程有明显的分别；<strong>与此不同，嵌入式特征选择是将特征选择过程与学习器训练过程融为一体，两者在同一个优化过程中完成，即在学习器训练过程中自动地进行了特征选择。</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613184850.png" alt="20230613184850"><blockquote>
+<p>$L_1$范数和$L_1$范数正则化都有助于降低过拟合风险，但前者还会带来一个额外的好处：它比后者更易于获得“稀疏”（sparse）解，即它求得的$\omega$会有很少的非零向量</p>
+</blockquote>
+</li>
+</ol>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613185347.png" alt="20230613185347"></p>
+<blockquote>
+<p>注意到$\omega$取得稀疏解意味着初始的d个特征中仅有对应着的$\omega$非零分量的特征才会出现在最终模型中，于是求解$L_1$范数正则化的结果是得到了仅采用一部分初始特征的模型；换言之，基于$L_1$正则化的学习方法就是一种嵌入式特征选择方法，其特征选择过程与学习器训练过程融为一体，同时完成.</p>
+</blockquote>
+<hr>
+<ol start="8">
+<li>稀疏表示（Sparse Representation）和字典学习（Dictionary Learning）</li>
+</ol>
+<ul>
+<li>稀疏表示（Sparse Representation）和字典学习（Dictionary Learning）是一种用于信号处理和机器学习中的技术，旨在通过寻找最佳的线性表示来描述数据。</li>
+<li>稀疏表示是一种表示方法，它假设信号可以由一组基向量的线性组合表示，而这组基向量中只有很少一部分起作用。这意味着信号可以用很少的非零系数表示，其他系数为零。这种表示的优势在于能够提取出数据中的关键信息，并且具有较强的鲁棒性。</li>
+<li>字典学习是稀疏表示的一种方法，它通过学习一个字典（也称为原子集合），其中包含一组基向量，这些基向量可以线性组合来表示数据。字典的目标是使得数据能够以稀疏的方式表示，即用尽可能少的基向量来表示尽可能多的数据。字典学习的过程通常包括以下几个步骤：<ul>
+<li>初始化字典：选择一组初始的基向量作为字典。</li>
+<li>稀疏编码：使用某种优化算法，对数据进行稀疏编码，即寻找使得数据以稀疏方式表示的系数。</li>
+<li>字典更新：根据稀疏编码的结果，通过更新字典中的基向量，使其能够更好地表示数据。常见的更新方法包括迭代最小化（iterative minimization）和梯度下降等。</li>
+<li>重复步骤2和3，直到达到收敛条件或满足预定的停止准则。</li>
+</ul>
+</li>
+<li><strong>字典学习的目标是找到一个最佳的字典，使得数据能够以最少的基向量表示，从而提取出数据的最重要特征并去除冗余信息</strong>。它在信号处理、图像处理、模式识别等领域中具有广泛的应用，例如图像压缩、人脸识别、目标检测等。字典学习的好处在于能够适应不同类型的数据，并从数据中学习到最具代表性的基向量。</li>
+</ul>
+<ol start="9">
+<li>压缩感知（Compressed Sensing）</li>
+</ol>
+<ul>
+<li>压缩感知（Compressed Sensing）是一种基于信号处理和数学理论的新兴技术，<strong>用于从少量的测量数据中恢复原始信号</strong>。传统的信号采样理论要求对信号进行高密度的采样，但压缩感知则允许在采样时以远远低于传统采样要求的采样率进行采样。</li>
+<li>压缩感知的核心思想是，<strong>对于稀疏或具有某种结构的信号，可以使用远远少于信号维度的线性测量进行采样，并通过优化算法重构原始信号</strong>。稀疏性指的是信号在某个特定域中具有较少的非零系数，或者说信号可以通过较少的基向量进行稀疏表示。</li>
+<li>压缩感知的算法通常包括以下几个步骤：<ul>
+<li>采样：使用低采样率的线性测量设备对信号进行采样。采样矩阵可以是随机矩阵或具有特定结构的矩阵。</li>
+<li>稀疏表示：使用适当的稀疏变换或字典，将采样到的信号表示为稀疏系数的线性组合。</li>
+<li>重构：通过优化算法，寻找最优的稀疏系数，使其与测量数据保持一致。常用的优化算法包括基于凸优化的方法，如迭代阈值算法（Iterative Thresholding）、最小二乘法（Least Squares）等。</li>
+</ul>
+</li>
+<li>压缩感知的关键概念是信号的稀疏表示和稀疏重构算法。通过采用低采样率和合适的稀疏表示方法，压缩感知能够从少量的测量数据中重构出高质量的信号。这种技术在信号处理、图像处理、通信等领域具有广泛的应用，可以实现低成本、高效率的信号采样和传输。</li>
+</ul>
+<hr>
+<h1 id="第十二章-计算学习理论"><a href="#第十二章-计算学习理论" class="headerlink" title="第十二章 计算学习理论"></a>第十二章 计算学习理论</h1><hr>
+<h1 id="第十三章-半监督学习"><a href="#第十三章-半监督学习" class="headerlink" title="第十三章 半监督学习"></a>第十三章 半监督学习</h1><hr>
+<h1 id="第十四章-概率图模型"><a href="#第十四章-概率图模型" class="headerlink" title="第十四章 概率图模型"></a>第十四章 概率图模型</h1><hr>
+<h1 id="第十五章-规则学习"><a href="#第十五章-规则学习" class="headerlink" title="第十五章 规则学习"></a>第十五章 规则学习</h1><hr>
+<h1 id="第十六章-强化学习"><a href="#第十六章-强化学习" class="headerlink" title="第十六章 强化学习"></a>第十六章 强化学习</h1>
       
 	
        
@@ -548,7 +853,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">第二章 模型评估与选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E8%85%BE%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">折腾数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%99%E5%87%BA%E6%B3%95%EF%BC%88hold-out%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">留出法（hold-out）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95%EF%BC%88cross-validation%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">交叉验证法（cross validation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A9%E6%B3%95%EF%BC%88bootstrapping%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">自助法（bootstrapping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第三章 线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">第四章 决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">第五章 神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">第六章 支持向量机</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">第二章 模型评估与选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E8%85%BE%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">折腾数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%99%E5%87%BA%E6%B3%95%EF%BC%88hold-out%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">留出法（hold-out）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95%EF%BC%88cross-validation%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">交叉验证法（cross validation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A9%E6%B3%95%EF%BC%88bootstrapping%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">自助法（bootstrapping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第三章 线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">第四章 决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">第五章 神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">第六章 支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章 贝叶斯分类器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.</span> <span class="toc-text">第八章 集成学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E8%81%9A%E7%B1%BB"><span class="toc-number">9.</span> <span class="toc-text">第九章 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E8%81%9A%E7%B1%BB%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F%E4%BA%A6%E7%A7%B0%E8%81%9A%E7%B1%BB%E2%80%9C%E6%9C%89%E6%95%88%E6%80%A7%E6%8C%87%E6%A0%87%E2%80%9D%EF%BC%88validity-index%EF%BC%89"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 聚类性能度量亦称聚类“有效性指标”（validity index）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 距离计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E9%99%8D%E7%BB%B4%E5%92%8C%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.</span> <span class="toc-text">第十章 降维和度量学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">11.</span> <span class="toc-text">第十一章 特征选择与稀疏学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E6%96%B9%E6%B3%95"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 常见的特征选择方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">第十二章 计算学习理论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">13.</span> <span class="toc-text">第十三章 半监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">14.</span> <span class="toc-text">第十四章 概率图模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0"><span class="toc-number">15.</span> <span class="toc-text">第十五章 规则学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text">第十六章 强化学习</span></a></li></ol>
                     </div>
                 </span>
             </div>
