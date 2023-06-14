@@ -16,7 +16,7 @@
 <meta property="og:description" content="Just pass the entire directory directly through sftp">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T08:34:34.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:02:53.675Z">
+<meta property="article:modified_time" content="2023-06-14T12:29:53.723Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:170k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:171k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：49字 | 预计阅读时长：1分钟
+    		字数：1k字 | 预计阅读时长：3分钟
 	</div>
         
   
@@ -204,6 +204,59 @@
 <li><p>Uninstall each plugin one by one using the following command, for example: <code>npm uninstall hexo-deployer-git --save</code></p>
 </li>
 </ul>
+<hr>
+<ol>
+<li>创建一个新的 GitHub 仓库：登录到 GitHub，然后点击页面右上角的 “+” 按钮，选择 “New repository”（新建仓库）来创建一个新的仓库。为仓库指定一个名称，选择公开或私有的可见性设置，然后点击 “Create repository”（创建仓库）。</li>
+<li>初始化本地 Git 仓库：在你的 Hexo 博客文件夹的根目录下，打开命令行或终端，并执行以下命令：<code>git init</code></li>
+<li>添加远程仓库链接：将新创建的 GitHub 仓库的远程链接添加到你的本地 Git 仓库中，执行以下命令：<code>git remote add origin &lt;GitHub 仓库的 URL&gt;</code></li>
+<li>将所有文件添加到 Git 中：执行以下命令将你的 Hexo 博客文件夹中的所有文件添加到 Git 中：<code>git add .</code></li>
+<li>提交更改：执行以下命令将更改提交到 Git：<code>git commit -m &quot;Initial commit&quot;  // 这里的消息可以根据您的需要进行修改</code></li>
+<li>推送到 GitHub：执行以下命令将本地的 Git 仓库推送到 GitHub：<code>git push -u origin main</code><blockquote>
+<p>完成上述步骤后，Hexo 博客文件夹将被备份到 GitHub 上的新仓库中。每当对博客进行更新时，只需执行步骤 5-7，将更改提交并推送到 GitHub 上的仓库即可。<br>如果在 GitHub 上进行公开仓库的备份，确保不要将敏感信息（如个人访问令牌或配置文件中的密码）包含在博客文件夹中，<strong>并添加这些敏感文件到 .gitignore 文件中</strong>，以避免将其提交到公开的代码库中。<br>切记要注意.gitignore，theme下也是一个独立的仓库。确保文件都已经上传</p>
+</blockquote>
+</li>
+</ol>
+<hr>
+<p>在另一台电脑上下载 Hexo 博客的备份，可以按照以下步骤进行操作：</p>
+<ol>
+<li><p>克隆 GitHub 仓库：执行以下命令来克隆在 GitHub 上创建的仓库：<code>git clone &lt;GitHub 仓库的 URL&gt;</code></p>
+<blockquote>
+<p>其中，&lt;GitHub 仓库的 URL&gt; 是在备份博客时创建的 GitHub 仓库的 URL。</p>
+</blockquote>
+</li>
+<li><p>进入博客文件夹：执行以下命令进入已克隆的仓库目录：<code>cd &lt;仓库目录&gt;</code></p>
+<blockquote>
+<p>其中，&lt;仓库目录&gt; 是克隆仓库后所在的本地文件夹路径。</p>
+</blockquote>
+</li>
+<li><p>安装 Hexo：如果在新电脑上还没有安装 Hexo，请确保在执行以下命令之前先安装 Node.js 和 Hexo：<code>npm install hexo-cli -g</code></p>
+</li>
+<li><p>安装博客依赖：进入博客文件夹后，执行以下命令安装博客所需的依赖：<code>npm install</code></p>
+</li>
+<li><p>生成博客静态文件：执行以下命令生成博客的静态文件：<code>hexo generate</code></p>
+</li>
+<li><p>启动本地服务器：执行以下命令启动本地服务器以查看博客内容：<code>hexo server</code></p>
+</li>
+</ol>
+<p>完成上述步骤后，将能够在新电脑上下载并运行 Hexo 博客的备份。请注意，如果在新电脑上使用了不同的 Git 账户，可能需要提供相应的身份验证凭据以克隆仓库和推送更改。</p>
+<blockquote>
+<p>可能需要执行<code>rm -rf node_modules &amp;&amp; npm install --force</code>进行安装模块&#x2F;插件</p>
+</blockquote>
+<hr>
+<p>如果在 GitHub 上的 Hexo 博客备份进行了更改，可以按照以下步骤将更改拉取（pull）到本地：</p>
+<ol>
+<li>确保当前分支是主分支（通常为 master 或 main）。可以通过以下命令查看当前分支：<code>git branch</code></li>
+<li>如果当前分支不是主分支，可以使用以下命令切换到主分支：<code>git checkout &lt;branch_name&gt;</code><blockquote>
+<p>其中，<branch_name> 是主分支的名称。</branch_name></p>
+</blockquote>
+</li>
+<li>拉取更改：执行以下命令从 GitHub 仓库拉取最新更改：<code>git pull origin main</code></li>
+<li>完成后，本地博客文件夹将与 GitHub 上的备份保持同步。</li>
+<li>如果在本地进行了修改并想要将更改推送到 GitHub 上的仓库，可以使用 git push 命令将本地更改推送到远程仓库。</li>
+</ol>
+<blockquote>
+<p>对于theme文件夹，可以单独建立一个分支。</p>
+</blockquote>
 
       
 	
