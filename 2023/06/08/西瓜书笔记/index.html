@@ -54,8 +54,11 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613213915.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613214852.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230613225704.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230614100417.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230614150202.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230614155654.png">
 <meta property="article:published_time" content="2023-06-08T02:53:14.000Z">
-<meta property="article:modified_time" content="2023-06-13T15:03:02.671Z">
+<meta property="article:modified_time" content="2023-06-14T08:41:22.893Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230521233538.png">
@@ -104,7 +107,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:161.4k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:170k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -205,7 +208,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：19.6k字 | 预计阅读时长：67分钟
+    		字数：28.2k字 | 预计阅读时长：97分钟
 	</div>
         
   
@@ -832,9 +835,244 @@
 <li><strong>确保半监督学习的泛化性能至少不差于仅利用有标记样本仍是一个未解决的问题</strong></li>
 </ol>
 <hr>
-<h1 id="第十四章-概率图模型"><a href="#第十四章-概率图模型" class="headerlink" title="第十四章 概率图模型"></a>第十四章 概率图模型</h1><hr>
-<h1 id="第十五章-规则学习"><a href="#第十五章-规则学习" class="headerlink" title="第十五章 规则学习"></a>第十五章 规则学习</h1><hr>
-<h1 id="第十六章-强化学习"><a href="#第十六章-强化学习" class="headerlink" title="第十六章 强化学习"></a>第十六章 强化学习</h1>
+<h1 id="第十四章-概率图模型"><a href="#第十四章-概率图模型" class="headerlink" title="第十四章 概率图模型"></a>第十四章 概率图模型</h1><h2 id="14-1-先修知识"><a href="#14-1-先修知识" class="headerlink" title="14.1 先修知识"></a>14.1 先修知识</h2><ul>
+<li><p>概率图模型（Probabilistic Graphical Model，PGM）</p>
+<ul>
+<li>概率图模型（Probabilistic Graphical Model，PGM）是一种用于建模概率关系的图结构模型。<strong>它能够表示变量之间的依赖关系</strong>，并且使用概率分布来描述这些依赖关系。</li>
+<li>概率图模型主要有两种类型：<strong>贝叶斯网络（Bayesian Network）和马尔可夫随机场（Markov Random Field）。</strong><ol>
+<li><strong>贝叶斯网络（Bayesian Network，也称为有向图模型）：贝叶斯网络使用有向无环图（DAG）表示变量之间的依赖关系</strong>。节点表示随机变量，边表示变量之间的条件依赖关系。每个节点都与一个条件概率表相关联，该表描述了给定其父节点的取值时，该节点的取值的概率分布。<strong>贝叶斯网络可以用来进行因果推断和概率推理</strong>，常用于处理不确定性推理和决策问题。</li>
+<li><strong>马尔可夫随机场（Markov Random Field，也称为无向图模型）：马尔可夫随机场使用无向图表示变量之间的依赖关系</strong>。图中的节点表示随机变量，边表示变量之间的相关性。每个节点与一个势函数（或能量函数）相关联，该函数度量了该节点与其邻居节点的关系。马尔可夫随机场主要用于建模联合概率分布，可以用于图像分割、图像处理、计算机视觉等领域。<br>概率图模型具有许多优点，包括清晰的可视化表示、模型的简洁性和模块化性质。它们提供了一种灵活的框架，用于对复杂的概率关系建模和推理。概率图模型在机器学习、人工智能、统计学和模式识别等领域中被广泛应用，包括决策网络、隐马尔可夫模型和条件随机场等。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>隐马尔可夫模型（Hidden Markov Model，HMM）</p>
+<ul>
+<li>隐马尔可夫模型（Hidden Markov Model，HMM）是一种用于<strong>建模序列数据</strong>的统计模型。它是马尔可夫模型的扩展，<strong>适用于存在状态（观察不到）和观察（可见）之间的关系的问题。</strong></li>
+<li><strong>HMM由两个基本要素组成：状态和观察</strong>。状态是隐藏的，表示系统内部的一种特定状态；观察是可见的，表示我们能够观测到的数据。在HMM中，系统在不同的状态之间转换，并且每个状态生成特定的观察。</li>
+<li><strong>HMM由以下几个部分组成</strong>：<ol>
+<li>状态集合（State set）：包含系统可能的状态。记为S&#x3D;{$s_1, s_2, …, s_n$}。</li>
+<li>观察集合（Observation set）：包含可以观察到的数据。记为O&#x3D;{$o_1, o_2, …, o_m$}。</li>
+<li>状态转移概率矩阵（Transition probability matrix）：表示状态之间的转换概率。记为A&#x3D;{$a_{ij}$}，其中{$a_{ij}$}表示从状态$s_i$转移到状态$s_j$的概率。</li>
+<li>观察概率矩阵（Observation probability matrix）：表示在给定状态下生成观察的概率。记为B&#x3D;{$b_{ij}$}，其中B&#x3D;{$b_{ij}$}表示在状态$s_i$生成观察$o_j$的概率。</li>
+<li>初始状态概率向量（Initial state probability vector）：表示系统初始状态的概率分布。记为π&#x3D;{$π_i$}，其中$π_i$表示系统初始状态为$s_i$的概率。</li>
+</ol>
+</li>
+<li><strong>HMM有三个基本问题</strong>：<ol>
+<li>评估问题（Evaluation problem）：给定模型λ&#x3D;(A, B, π)和观察序列O，计算给定观察序列的概率P(O|λ)。</li>
+<li>解码问题（Decoding problem）：给定模型λ&#x3D;(A, B, π)和观察序列O，找到最可能的对应状态序列。</li>
+<li>学习问题（Learning problem）：给定观察序列O，估计模型λ&#x3D;(A, B, π)的参数。</li>
+</ol>
+</li>
+<li>HMM的应用非常广泛，特别适用于语音识别、自然语言处理、生物信息学和时间序列分析等领域。通过对状态和观察之间的关系进行建模，HMM可以用来预测未来的状态，进行序列标注和分类，以及进行序列生成等任务。</li>
+</ul>
+</li>
+<li><p>马尔可夫随机场（Markov Random Field，MRF）</p>
+<ul>
+<li><strong>马尔可夫随机场（Markov Random Field，MRF）是一种用于建模联合概率分布的无向图模型</strong>。它描述了一组变量之间的相关性，并且基于马尔可夫性质，即给定一个变量集合的条件下，<strong>每个变量只依赖于其邻居节点的取值</strong>。</li>
+<li>MRF由一个无向图表示，图中的节点表示随机变量，边表示变量之间的相关性。<strong>与有向图模型（如贝叶斯网络）不同，MRF没有明确的因果关系，变量之间的依赖关系是对称的</strong>。</li>
+<li>MRF中的变量可以分为两类：<ol>
+<li>可见变量（Observable Variables）：表示我们能够直接观察到的变量。</li>
+<li>隐藏变量（Hidden Variables）：表示我们无法直接观察到的变量。</li>
+</ol>
+</li>
+<li><strong>MRF使用势函数（Potential Function）来度量变量之间的相关性</strong>。势函数定义在<strong>图中的团（Clique）上，一个团是指图中完全连接的一组节点</strong>。势函数通常表示为指数函数的形式，其中指数的值与团的配置相关。</li>
+<li>MRF的联合概率分布可以通过对势函数的归一化常数进行标准化来计算。给定MRF的势函数和变量的取值，可以计算出整个网络的联合概率分布。</li>
+<li>MRF可以用于许多任务，包括图像处理、计算机视觉、模式识别和统计推断等。例如，在图像处理中，MRF被广泛用于图像分割、图像去噪和图像恢复等任务，其中变量通常表示图像的像素或区域。</li>
+<li><strong>对于MRF，推断问题是一个重要的任务</strong>，包括计算变量的边缘概率、最大后验概率估计和找到具有最高概率的变量配置。<strong>常用的推断算法包括信念传播（Belief Propagation）、Gibbs采样和变分推断等</strong>。</li>
+<li>总而言之，马尔可夫随机场是一种强大的概率图模型，能够用于建模变量之间的相关性。它具有广泛的应用领域，并在许多机器学习和人工智能任务中发挥重要作用。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ol>
+<li><p>概率模型（probabilistic model）提供了一种描述框架，将学习任务归结于计算变量的概率分布。<strong>在概率模型中，利用已知变量推测未知变量的分布称为“推断”（inference）</strong>，其核心是如何基于可观测变量推测出未知变量的<strong>条件分布</strong>。**直接利用概率求和规则消去变量R显然不可行，因为即便每个变量仅有两种取值的简单问题，其复杂度已至少是$O(2^{|Y|+|R|})$.</p>
+</li>
+<li><p>概率图模型（probabilistic graphical model）是一类用图来表达变量相关关系的概率模型。它以图为表示工具，最常见的是用一个结点表示一个或一组随机变量，节点之间的边表示变量间的概率相关关系，即“变量关系图”</p>
+</li>
+<li><p>根据边的性质不同，概率图模型可大致分为两类：</p>
+<ol>
+<li>使用<strong>有向无环图</strong>表示变量间的<strong>依赖关系</strong>，称为<strong>有向图模型或贝叶斯网（Bayesian netword）</strong></li>
+<li>使用<strong>无向图</strong>表示变量间的<strong>相关关系</strong>，称为<strong>无向图模型或马尔可夫网（Markov network）</strong></li>
+</ol>
+</li>
+<li><p><strong>隐马尔可夫模型（Hidden Markov Model，简称HMM）是结构最简单的动态贝叶斯网（dynamic Bayesian network），这是一种著名的有向图模型，主要用于时序数据建模</strong></p>
+</li>
+<li><p><strong>隐马尔可夫用到了所谓的“马尔科夫链”（Markov chain），即：系统下一时刻的状态仅由当前状态决定，不依赖于以往的任何状态</strong></p>
+</li>
+<li><p>隐马尔可夫模型的三个基本问题：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230614100417.png" alt="20230614100417"></p>
+<blockquote>
+<p>值得庆幸的是，基于条件独立性，隐马尔可夫模型的这三个问题均能被高效求解</p>
+</blockquote>
+</li>
+<li><p>马尔可夫随机场（Markov Random Field，MRF）是典型的马尔可夫网，这是一种著名的<strong>无向图模型</strong>。图中每个结点表示一个或一组变量，节点之间的边表示两个变量之间的<strong>依赖关系</strong>。马尔可夫随机场有一组<strong>势函数（potential functions），亦称“因子”（factor），这是定义在变量子集上的非负实函数，主要用于定义概分布函数</strong>.对于图中结点的一个子集，<strong>若其中任意两结点间都有边连接，则称该结点子集为一个“团”（clique）</strong>.若在一个团中加入另外任何一个结点都不再形成团，则称该团为“极大团”（maximal clique）；<strong>换言之，极大团就是不能被其他团所包含的团</strong>。</p>
+</li>
+</ol>
+<p>TODO</p>
+<hr>
+<h1 id="第十五章-规则学习"><a href="#第十五章-规则学习" class="headerlink" title="第十五章 规则学习"></a>第十五章 规则学习</h1><p>TODO</p>
+<hr>
+<h1 id="第十六章-强化学习"><a href="#第十六章-强化学习" class="headerlink" title="第十六章 强化学习"></a>第十六章 强化学习</h1><ol>
+<li>强化学习（reinforcement learning）</li>
+</ol>
+<ul>
+<li>强化学习（Reinforcement Learning，RL）是机器学习的一个分支，<strong>用于解决智能体（Agent）在与环境进行交互的过程中，通过试错和学习来获得最优行为策略的问题</strong>。强化学习是一种通过奖励信号来引导学习的方法，智能体通过与环境的交互，通过尝试不同的行动并接收环境的反馈来学习如何在给定的环境中做出最佳的决策。</li>
+<li>强化学习涉及以下几个核心元素：<ol>
+<li>环境（Environment）：强化学习中智能体所处的外部环境，它包含智能体<strong>可以观察到的状态和智能体可以采取的动作</strong>。</li>
+<li>智能体（Agent）：强化学习的学习主体，通过观察环境的状态，选择合适的动作以最大化累积奖励。</li>
+<li>状态（State）：环境的观察值，用于描述环境的特定情况。</li>
+<li>动作（Action）：智能体在给定状态下可以执行的操作或决策。</li>
+<li>奖励（Reward）：环境在智能体执行动作后<strong>提供的反馈信号，用于指导智能体的学习过程。奖励可以是正向的（鼓励行为）或负向的（惩罚行为）</strong>。</li>
+</ol>
+</li>
+<li>强化学习的目标是通过学习最优的策略，使智能体在环境中<strong>获得最大的累积奖励。学习过程通常基于价值函数（Value Function）或策略（Policy）的优化</strong>。价值函数用于评估在给定状态下采取特定动作的<strong>长期回报，而策略定义了智能体在给定状态下应该采取的动作</strong>。</li>
+<li>强化学习算法可以基于<strong>模型（Model-Based）或无模型（Model-Free）进行分类</strong>。模型基础的方法通过学习环境的模型（包括状态转移和奖励函数）来做出决策。无模型的方法则直接从与环境的交互中学习，通过尝试和错误来更新价值函数或策略。</li>
+<li>强化学习在许多领域有广泛应用，包括机器人控制、自动驾驶、游戏玩法、资源管理和金融交易等。著名的强化学习算法包括Q-learning、SARSA、深度强化学习（Deep Reinforcement Learning）和策略梯度（Policy Gradient）等。</li>
+<li><strong>总而言之，强化学习是一种通过试错和学习来获得最优行为策略的机器学习方法。它通过智能体与环境的交互和奖励信号来引导学习，以实现在给定环境下最大化累积奖励的目标</strong>。</li>
+</ul>
+<ol start="2">
+<li>马尔可夫决策过程（Markov Decision Process，MDP）</li>
+</ol>
+<ul>
+<li><strong>马尔可夫决策过程（Markov Decision Process，MDP）是一种用于建模序贯决策问题的数学框架</strong>。它基于马尔可夫性质，<strong>描述了在随机环境中，智能体通过采取不同的动作来达到目标的决策过程</strong>。</li>
+<li>MDP由五个核心要素组成：<ol>
+<li>状态（State）：表示智能体所处的环境状态。<strong>在每个时间步，智能体通过观察当前状态来做出决策</strong>。</li>
+<li>动作（Action）：表示智能体可以采取的行动或决策。<strong>在给定状态下，智能体可以选择执行的动作集合</strong>。</li>
+<li>转移概率（Transition Probability）：<strong>表示从一个状态到另一个状态的转移概率</strong>。给定当前状态和采取的动作，转移概率描述了下一个状态的<strong>可能性分布</strong>。</li>
+<li>奖励（Reward）：表示智能体在状态转移过程中获得的<strong>即时反馈</strong>。奖励可以是正向的（鼓励行为）或负向的（惩罚行为）。</li>
+<li>折扣因子（Discount Factor）：<strong>用于权衡当前奖励和未来奖励的重要性。折扣因子决定了未来奖励对智能体决策的相对重要性</strong>。</li>
+</ol>
+</li>
+<li>基于这些要素，MDP的<strong>目标是找到一个最优策略（Policy），使智能体在给定状态下能够选择最佳的动作以最大化累积奖励</strong>。最优策略可以通过价值函数（Value Function）来衡量，价值函数表示从给定状态开始，智能体在执行最优策略下可以获得的长期回报。</li>
+<li>MDP的求解可以使用<strong>动态规划方法，其中常用的算法包括值迭代（Value Iteration）和策略迭代（Policy Iteration）</strong>。值迭代通过迭代更新价值函数来逐步逼近最优策略，而策略迭代则通过反复改进策略和更新价值函数来获得最优策略。<strong>策略迭代算法在每次改进策略后都需重新进行策略评估，这通常比较耗时。策略改进与值函数的改进是一致的，因此可将策略改进视为值函数的改善</strong></li>
+<li>马尔可夫决策过程在强化学习中具有重要的地位，被广泛应用于智能体在复杂环境中进行决策和规划的问题，如机器人控制、自动驾驶和资源管理等领域。</li>
+</ul>
+<ol start="3">
+<li>总之，在环境中状态的转移、奖赏的返回是不受机器控制的，<strong>机器只能通过选择要执行的动作来影响环境，也只能通过观察转移后的状态和返回的奖赏来感知环境</strong></li>
+<li>机器要做的是通过在环境中不断尝试而学得一个“策略”（policy）$\pi$。策略有两种表示办法：一种是将策略表示为函数$\pi : X \rightarrow A$，确定性策略常用这种表示；另一种是概率表示$\pi : X x A \rightarrow \mathbb{R}$，随机性策略常用这种表示。</li>
+<li><strong>浅谈强化学习与监督学习的差别</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230614150202.png" alt="20230614150202"></li>
+</ol>
+<h2 id="16-1-K-摇臂赌博机（K-Armed-Bandit），亦称“K-摇臂老虎机”"><a href="#16-1-K-摇臂赌博机（K-Armed-Bandit），亦称“K-摇臂老虎机”" class="headerlink" title="16.1 K-摇臂赌博机（K-Armed Bandit），亦称“K-摇臂老虎机”"></a>16.1 K-摇臂赌博机（K-Armed Bandit），亦称“K-摇臂老虎机”</h2><ul>
+<li><p>探索与利用</p>
+<ul>
+<li>强化学习任务的最终奖赏是在多步动作之后才能观察到，这里我们不妨先考虑比较简单的情形：<strong>最大化单步奖赏，即仅考虑一步操作。欲最大化单步奖赏需考虑两个方面</strong>：<ul>
+<li>每个动作带来的奖赏</li>
+<li>要执行奖赏最大的动作<br>若每个动作对应的奖赏是一个确定值，那么尝试一遍所有的动作便能找出奖赏最大的动作。<strong>然而，更一般的情形是，一个动作的奖赏值是来自于一个概率分布，仅通过一次尝试并不能确切地获得平均奖赏值</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>这样的单步强化学习任务对应了一个理论模型，即“K-摇臂赌博机”（K-armed bandit）</strong>。K-摇臂赌博机有K个摇臂，赌徒在投入一个硬币后可选择按下其中一个摇臂，每个摇臂以一定的概率吐出硬币，但这个概率赌徒并不知道。赌徒的目标是通过一定的策略最大化自己的奖赏，即获得最多的硬币。</p>
+</li>
+<li><p><strong>若仅为获知每个摇臂的期望奖赏，则可采用仅探索”（exploration-only）</strong>法：将所有的尝试机会平均分配给每个摇臂（即轮流按下每个摇臂），最后以每个摇臂各自的平均吐币概率作为其奖赏期望的近似估计。<strong>若仅为执行奖赏最大的动作，则可采用“仅利用”（exploitation-only）</strong>法：按下目前最优的（即到目前为止平均奖赏最大的）摇臂，若有多个摇臂同为最优，则从中随机选取一个。</p>
+<blockquote>
+<p>显然，“仅探索”法能很好地估计每个摇臂的奖赏，却会失去很多选择最优摇臂的机会；“仅利用”法则相反，它没有很好地估计摇臂期望奖赏，很可能经常选不到最优摇臂。因此，这两种方法都难以使最终的累积奖赏最大化。</p>
+</blockquote>
+</li>
+<li><p>事实上，<strong>“探索”(即估计摇臂的优劣)和“利用”(即选择当前最优摇臂)这两者是矛盾的</strong>，因为尝试次数(即总投币数)有限，加强了一方则会自然削弱另一方，<strong>这就是强化学习所面临的“探索利用窘境”(Exploration-Exploitation dilemma)<strong>。显然，</strong>欲累积奖赏最大，则必须在探索与利用之间达成较好的折中.</strong></p>
+</li>
+</ul>
+<ol start="6">
+<li>K-摇臂赌博机（K-Armed Bandit）是强化学习中的一个经典问题。<strong>它模拟了在面临多个选择（摇臂）时，如何在有限的资源和不确定性环境下进行决策的情境</strong>。</li>
+</ol>
+<ul>
+<li>K-摇臂赌博机的设定如下：<ol>
+<li>摇臂（Arms）：有K个摇臂可供选择，每个摇臂<strong>都有一个固定的概率分布</strong>，表示在选择该摇臂时获得奖励的概率分布。</li>
+<li>奖励（Reward）：在每次选择摇臂后，根据所选择摇臂的概率分布随机产生一个奖励，奖励可以是实数值或离散值。</li>
+<li>动作选择（Action Selection）：在每个时间步，智能体需要选择一个摇臂进行操作。选择哪个摇臂是智能体的决策。</li>
+<li>目标：智能体的目标是通过与摇臂的交互累积获得最大的奖励。</li>
+</ol>
+</li>
+<li><strong>在K-摇臂赌博机问题中，智能体需要在探索（Exploration）和利用（Exploitation）之间做出权衡。探索是指尝试选择未知的摇臂以了解它们的概率分布和奖励情况，以便获取更准确的信息。利用是指选择已知的高奖励摇臂，以最大化当前获得的奖励</strong>。</li>
+<li>解决K-摇臂赌博机问题的关键是找到一个合适的策略，即在探索和利用之间找到平衡点。常用的策略包括：<ol>
+<li>ε-贪心策略（ε-Greedy）：以1-ε的概率选择当前奖励最高的摇臂，以ε的概率选择随机摇臂，以促进探索。</li>
+<li>上限置信界（Upper Confidence Bound，UCB）：根据奖励的置信界，选择具有最高上界的摇臂，以平衡探索和利用。</li>
+<li>梯度赌博算法（Gradient Bandit Algorithm）：使用梯度信息来调整选择每个摇臂的概率，以最大化奖励的期望。</li>
+</ol>
+</li>
+<li>这些策略都有不同的权衡，探索能力强的策略可能会获得更多信息，但可能在短期内获得较低的奖励；而利用能力强的策略可能会在短期内获得较高的奖励，但可能会错过更高奖励的摇臂。</li>
+<li>K-摇臂赌博机问题作为一个简单但具有挑战性的强化学习问题，可以帮助我们理解和研究在有限资源和不确定环境下的决策过程，并为更复杂的强化学习问题提供基础。</li>
+</ul>
+<ol start="7">
+<li><p>$\epsilon$-贪心法基于一个概率来对探索和利用进行折中：每次尝试时，以$\epsilon$的概率进行探索，即以均匀概率随机选取一个摇臂；以$1 - \epsilon$的概率进行利用，即选择当前平均奖赏最高的摇臂(若有多个，则随机选取一个).</p>
+<blockquote>
+<p>若摇臂奖赏的不确定性较大，例如概率分布较宽时，则需更多的探索，此时需要较大的$\epsilon$值；若摇臂的不确定性较小，例如概率分布较集中时，则少量的尝试就能很好地近似真实奖赏，此时需要的$\epsilon$较小。通常令$\epsilon$取一个较小的常数，如0.1或0.01。<strong>然而，若尝试次数非常大，那么在一段时间后，摇臂的奖赏都能很好地近似出来，不再需要探索，这种情形下可让$\epsilon$随着尝试次数的增加而逐渐减小</strong>，例如令$\epsilon &#x3D; 1&#x2F;\sqrt{t}$.</p>
+</blockquote>
+</li>
+<li><p>Softmax</p>
+</li>
+</ol>
+<ul>
+<li>Softmax算法基于<strong>当前已知的摇臂平均奖赏</strong>来对探索和利用进行折中。<strong>若各摇臂的平均奖赏相当，则选取各摇臂的概率也相当；若某些摇臂的平均奖赏明显高于其他摇臂,则它们被选取的概率也明显更高.</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230614155654.png" alt="20230614155654"></li>
+</ul>
+<ol start="9">
+<li>对于离散状态空间、离散动作空间上的<strong>多步强化学习任务，一种直接的办法是将每个状态上动作的选择看作一个K-摇臂赌博机问题，用强化学习任务的累积奖赏来代替K-摇臂赌博机算法中的奖赏函数</strong>，即可将赌博机算法用于每个状态：对每个状态分别记录各动作的尝试次数、当前平均累积奖赏等信息，基于赌博机算法选择要尝试的动作。<strong>然而这样的做法有很多局限，因为它没有考虑强化学习任务马尔可夫决策过程的结构</strong>。若能有效考虑马尔可夫决策过程的特性，则可有更聪明的办法.</li>
+<li><strong>考虑多步强化学习任务，暂且先假定任务对应的马尔可夫决策过程四元组E &#x3D; (X，A，P，R)均为已知，这样的情形称为“模型已知”</strong>，即机器已对环境进行了建模，能在机器内部模拟出与环境相同或近似的状况。<strong>在已知模型的环境中学习称为“有模型学习”(model-based learning)</strong>.</li>
+<li>在现实的强化学习任务中，环境的转移概率、奖赏函数往往很难得知，甚至很难知道环境中一共有多少状态。<strong>若学习算法不依赖于环境建模，则称为“免模型学习”(model-free learning)，亦称“无模型学习”，这比有模型学习要困难得多</strong>.</li>
+<li><strong>在免模型情形下，策略迭代算法首先遇到的问题是策略无法评估，这是由于模型未知而导致无法做全概率展开</strong>。此时，只能通过在环境中执行选择的动作，来观察转移的状态和得到的奖赏。受K摇臂赌博机的启发，<strong>一种直接的策略评估替代方法是多次“采样”，然后求取平均累积奖赏来作为期望累积奖赏的近似，这称为蒙特卡罗强化学习</strong>。由于采样必须为有限次数，因此该方法更适合于使用T步累积奖赏的强化学习任务.</li>
+<li><strong>蒙特卡罗强化学习（Monte Carlo Reinforcement Learning）是一种基于样本采样的强化学习方法。它通过与环境的交互来获取经验数据，并利用这些数据进行策略评估和策略改进</strong>。</li>
+</ol>
+<ul>
+<li>蒙特卡罗强化学习的核心思想是基于回报样本的累积来评估策略的好坏。<strong>具体而言，它通过执行一系列完整的回合（Episode）来采样轨迹数据</strong>。在每个回合中，智能体与环境进行交互，根据当前的策略选择动作，并观察环境的反馈（奖励和下一个状态）。通过多次回合的交互，蒙特卡罗方法可以得到一组回合样本。</li>
+<li>利用这些回合样本，蒙特卡罗强化学习主要包含两个步骤：<strong>策略评估和策略改进</strong>。<ol>
+<li>策略评估（Policy Evaluation）：在策略评估中，通过对回合样本的回报进行累积，估计每个状态的值函数或状态动作对值函数。一种常用的方法是使用蒙特卡罗预测（Monte Carlo Prediction），根据回合样本计算状态值函数或状态动作对值函数的平均回报。</li>
+<li>策略改进（Policy Improvement）：在策略改进中，基于估计的值函数，可以对策略进行改进。常用的方法是使用ε-贪心策略（ε-Greedy Policy），以一定概率选择当前估计值最高的动作，以提高利用能力；同时，以一定概率选择随机动作，以增加探索能力。策略改进可以根据当前值函数的估计，生成新的策略。</li>
+</ol>
+</li>
+<li>通过反复进行策略评估和策略改进，蒙特卡罗强化学习逐渐优化策略，并逐步收敛到最优策略。</li>
+<li><strong>蒙特卡罗强化学习的优点是它不需要对环境的转移概率进行假设，只利用交互的样本数据进行学习。然而，由于需要采样大量的回合样本，蒙特卡罗方法通常具有较高的计算成本和样本效率。此外，它在处理连续状态和动作空间的问题上存在一定的挑战</strong>。</li>
+<li>总之，蒙特卡罗强化学习是一种基于样本采样的强化学习方法，通过采样回合样本来评估和改进策略。它是强化学习中重要的方法之一，为解决复杂的强化学习问题提供了一种有效的学习框架。</li>
+</ul>
+<ol start="14">
+<li><strong>时序差分学习（Temporal Difference Learning）是一种强化学习方法，它结合了动态规划和蒙特卡罗方法的优点。时序差分学习用于估计值函数或值函数的更新，通过观察到的即时奖励和预测的未来奖励之间的差异来进行学习</strong>。</li>
+</ol>
+<ul>
+<li>在时序差分学习中，智能体通过与环境的交互来获取经验数据。在每个时间步，智能体观察当前状态，选择动作并执行，然后观察环境的反馈（奖励）和下一个状态。智能体使用这些信息来<strong>更新值函数的估计</strong>。</li>
+<li>时序差分学习使用<strong>贝尔曼方程（Bellman equation）作为基本的更新规则</strong>。贝尔曼方程描述了值函数的递归关系，将当前状态的值与下一个状态的值之间建立了联系。</li>
+<li>具体而言，<strong>时序差分学习中最常用的方法是Q-learning</strong>。Q-learning使用一个Q值函数（动作值函数）来估计在给定状态下执行每个动作的价值。在每个时间步，Q-learning通过以下更新规则来更新Q值函数的估计：<br>$$Q(s, a) &#x3D; Q(s, a) + \alpha [r + \gamma max_a’ Q(s’, a’) - Q(s, a)]$$<blockquote>
+<p>其中，Q(s, a)表示在状态s下执行动作a的Q值，r表示即时奖励，s’表示下一个状态，a’表示下一个状态下的最优动作，$\alpha$表示学习率（用于控制更新幅度），$\gamma$表示折扣因子（用于平衡即时奖励和未来奖励的重要性）。</p>
+</blockquote>
+</li>
+<li>Q-learning通过迭代地更新Q值函数，逐渐收敛到最优的Q值函数。一旦获得最优的Q值函数，智能体可以根据该函数选择具有最高Q值的动作作为策略。</li>
+<li><strong>时序差分学习的优点是它可以在每个时间步进行更新，不需要等待整个回合的结束，因此具有较高的样本效率。它还能够处理连续状态和动作空间，并且能够在未知环境中进行在线学习</strong>。</li>
+<li>总之，时序差分学习是一种强化学习方法，通过观察到的即时奖励和预测的未来奖励之间的差异来更新值函数的估计。Q-learning是时序差分学习的一种常用方法，通过迭代更新Q值函数来实现值函数的学习和策略的改进。</li>
+</ul>
+<ol start="15">
+<li><strong>值函数近似是一种在强化学习中用于估计值函数的方法。它的主要思想是通过函数逼近器（如线性函数、神经网络等）来近似值函数，而不是显式地存储和计算所有可能状态的值</strong>。</li>
+</ol>
+<ul>
+<li>在强化学习中，值函数用于估计每个状态或状态动作对的价值，表示在当前状态下采取行动的预期回报。然而，对于大规模状态空间或连续状态空间的问题，显式存储和计算值函数是不可行的。值函数近似通过使用函数逼近器来解决这个问题，将状态空间映射到一个参数化的函数空间中。</li>
+<li>值函数近似的基本步骤如下：<ol>
+<li>选择一个函数逼近器：值函数近似使用函数逼近器来估计值函数。常见的函数逼近器包括线性函数、多项式函数、神经网络等。函数逼近器的选择取决于具体问题的性质和复杂度。</li>
+<li>定义特征表示：为了进行值函数近似，需要将状态或状态动作对映射到函数逼近器所能接受的输入格式。通常，需要定义一组特征表示来描述状态或状态动作对的属性。这些特征可以是原始状态的函数变换、经验数据的统计特征等。</li>
+<li>参数估计：使用强化学习算法，根据采集的样本数据，对函数逼近器的参数进行估计。常见的算法包括梯度下降、随机梯度下降、Q-learning等。通过与环境的交互，根据奖励信号和下一个状态的值函数估计，更新函数逼近器的参数。</li>
+<li>策略改进：根据近似的值函数，可以使用贪心策略或其他策略选择方法来改进智能体的策略。根据值函数近似的结果，智能体可以选择具有最高估计值的动作作为策略。</li>
+</ol>
+</li>
+<li>值函数近似的优点是它能够处理大规模状态空间或连续状态空间的问题，节省了存储和计算的开销。然而，它也面临着一些挑战，如函数逼近器的选择、特征表示的设计和参数估计的稳定性等。</li>
+<li><strong>总结而言，值函数近似是一种通过使用函数逼近器来估计值函数的方法。它通过将状态映射到函数空间中，解决了大规模状态空间或连续状态空间问题中的存储和计算困难</strong>。</li>
+</ul>
+<ol start="16">
+<li><strong>模仿学习（Imitation Learning）是一种强化学习的方法，旨在通过观察和模仿专家（或者已经解决任务的人）的行为来学习任务的策略</strong>。模仿学习的目标是从专家的示范中学习到一个能够执行类似行为的策略，而无需进行探索和试错。</li>
+</ol>
+<ul>
+<li>在模仿学习中，通常存在两种主要方法：<strong>直接模仿学习和逆强化学习</strong>。<ul>
+<li>直接模仿学习（Direct Imitation Learning）：<ul>
+<li>直接模仿学习是一种简单直接的模仿方法，它通过收集专家演示的样本数据，然后直接使用这些数据来训练一个模型，例如神经网络。模型会尽量复制专家示范的行为。在训练过程中，模型学习将输入状态映射到输出动作的映射关系，以实现与专家类似的策略。<strong>直接模仿学习可以使用监督学习的方法来进行训练，其中输入是状态，输出是动作</strong>。</li>
+<li><strong>直接模仿学习的优点是简单直接，容易实现。然而，它也面临一些挑战。例如，直接模仿学习可能会受到专家演示中的噪声和偏差的影响，导致模型学到错误的策略。此外，直接模仿学习无法解决探索问题，因为它仅仅是复制专家的行为而不具备主动探索新策略的能力</strong>。</li>
+</ul>
+</li>
+<li>逆强化学习（Inverse Reinforcement Learning）：<ul>
+<li><strong>逆强化学习是一种基于观察者行为来推断其背后的奖励函数的方法</strong>。在逆强化学习中，智能体试图从专家示范中学习到任务的奖励函数，然后根据这个奖励函数来执行任务。<strong>逆强化学习的目标是理解专家示范的动机和目标，而不仅仅是模仿其行为</strong>。</li>
+<li>逆强化学习的基本思想是通过比较专家示范的行为与候选奖励函数生成的行为来推断奖励函数。通过迭代的过程，逆强化学习算法可以找到与专家示范最一致的奖励函数。<strong>一旦获得了奖励函数，智能体可以使用强化学习方法来学习最优策略</strong>。</li>
+<li><strong>逆强化学习的优点是它能够从专家示范中推断出更深层次的意图和目标，使得智能体能够更加灵活地适应环境和任务变化。然而，逆强化学习也存在一些挑战，例如推断奖励函数的不确定性、计算复杂度和过拟合等问题</strong>。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>总结而言，<strong>模仿学习是一种通过观察和模仿专家的行为来学习任务策略的方法。直接模仿学习直接使用专家示范来训练模型，而逆强化学习通过推断奖励函数来学习专家的目标和动机</strong>。这些方法在实际应用中具有各自的优缺点，可以根据具体问题选择合适的方法。</p>
+
       
 	
        
@@ -1013,7 +1251,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">第二章 模型评估与选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E8%85%BE%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">折腾数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%99%E5%87%BA%E6%B3%95%EF%BC%88hold-out%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">留出法（hold-out）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95%EF%BC%88cross-validation%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">交叉验证法（cross validation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A9%E6%B3%95%EF%BC%88bootstrapping%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">自助法（bootstrapping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第三章 线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">第四章 决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">第五章 神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">第六章 支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章 贝叶斯分类器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.</span> <span class="toc-text">第八章 集成学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E8%81%9A%E7%B1%BB"><span class="toc-number">9.</span> <span class="toc-text">第九章 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E8%81%9A%E7%B1%BB%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F%E4%BA%A6%E7%A7%B0%E8%81%9A%E7%B1%BB%E2%80%9C%E6%9C%89%E6%95%88%E6%80%A7%E6%8C%87%E6%A0%87%E2%80%9D%EF%BC%88validity-index%EF%BC%89"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 聚类性能度量亦称聚类“有效性指标”（validity index）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 距离计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E9%99%8D%E7%BB%B4%E5%92%8C%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.</span> <span class="toc-text">第十章 降维和度量学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">11.</span> <span class="toc-text">第十一章 特征选择与稀疏学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E6%96%B9%E6%B3%95"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 常见的特征选择方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">第十二章 计算学习理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-PAC%E5%AD%A6%E4%B9%A0"><span class="toc-number">12.1.</span> <span class="toc-text">12.1 PAC学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E6%9C%89%E9%99%90%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4"><span class="toc-number">12.2.</span> <span class="toc-text">12.2 有限假设空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-1-%E5%8F%AF%E5%88%86%E6%83%85%E5%BD%A2%EF%BC%88Separable-Case%EF%BC%89"><span class="toc-number">12.2.1.</span> <span class="toc-text">12.2.1 可分情形（Separable Case）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-2-%E4%B8%8D%E5%8F%AF%E5%88%86%E6%83%85%E5%BD%A2%EF%BC%88Non-Separable-Case%EF%BC%89"><span class="toc-number">12.2.2.</span> <span class="toc-text">12.2.2 不可分情形（Non-Separable Case）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-3-VC%E7%BB%B4%EF%BC%88Vapnik-Chervonenkis-Dimension%EF%BC%89"><span class="toc-number">12.3.</span> <span class="toc-text">12.3 VC维（Vapnik-Chervonenkis Dimension）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-4-Rademacher%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88Rademacher-Complexity%EF%BC%89"><span class="toc-number">12.4.</span> <span class="toc-text">12.4 Rademacher复杂度（Rademacher Complexity）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-5-%E7%A8%B3%E5%AE%9A%E6%80%A7%EF%BC%88stability%EF%BC%89"><span class="toc-number">12.5.</span> <span class="toc-text">12.5 稳定性（stability）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">13.</span> <span class="toc-text">第十三章 半监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">14.</span> <span class="toc-text">第十四章 概率图模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0"><span class="toc-number">15.</span> <span class="toc-text">第十五章 规则学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text">第十六章 强化学习</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E7%BB%AA%E8%AE%BA"><span class="toc-number">1.</span> <span class="toc-text">第一章 绪论</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%A0-%E6%A8%A1%E5%9E%8B%E8%AF%84%E4%BC%B0%E4%B8%8E%E9%80%89%E6%8B%A9"><span class="toc-number">2.</span> <span class="toc-text">第二章 模型评估与选择</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%98%E8%85%BE%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">2.1.</span> <span class="toc-text">折腾数据集</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%95%99%E5%87%BA%E6%B3%95%EF%BC%88hold-out%EF%BC%89"><span class="toc-number">2.1.1.</span> <span class="toc-text">留出法（hold-out）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89%E9%AA%8C%E8%AF%81%E6%B3%95%EF%BC%88cross-validation%EF%BC%89"><span class="toc-number">2.1.2.</span> <span class="toc-text">交叉验证法（cross validation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A9%E6%B3%95%EF%BC%88bootstrapping%EF%BC%89"><span class="toc-number">2.1.3.</span> <span class="toc-text">自助法（bootstrapping）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%A0-%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第三章 线性模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%A0-%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-number">4.</span> <span class="toc-text">第四章 决策树</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%A0-%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-number">5.</span> <span class="toc-text">第五章 神经网络</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%A0-%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-number">6.</span> <span class="toc-text">第六章 支持向量机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%A0-%E8%B4%9D%E5%8F%B6%E6%96%AF%E5%88%86%E7%B1%BB%E5%99%A8"><span class="toc-number">7.</span> <span class="toc-text">第七章 贝叶斯分类器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-number">8.</span> <span class="toc-text">第八章 集成学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E7%AB%A0-%E8%81%9A%E7%B1%BB"><span class="toc-number">9.</span> <span class="toc-text">第九章 聚类</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E8%81%9A%E7%B1%BB%E6%80%A7%E8%83%BD%E5%BA%A6%E9%87%8F%E4%BA%A6%E7%A7%B0%E8%81%9A%E7%B1%BB%E2%80%9C%E6%9C%89%E6%95%88%E6%80%A7%E6%8C%87%E6%A0%87%E2%80%9D%EF%BC%88validity-index%EF%BC%89"><span class="toc-number">9.1.</span> <span class="toc-text">9.1 聚类性能度量亦称聚类“有效性指标”（validity index）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E8%B7%9D%E7%A6%BB%E8%AE%A1%E7%AE%97"><span class="toc-number">9.2.</span> <span class="toc-text">9.2 距离计算</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E7%AB%A0-%E9%99%8D%E7%BB%B4%E5%92%8C%E5%BA%A6%E9%87%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">10.</span> <span class="toc-text">第十章 降维和度量学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%80%E7%AB%A0-%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E4%B8%8E%E7%A8%80%E7%96%8F%E5%AD%A6%E4%B9%A0"><span class="toc-number">11.</span> <span class="toc-text">第十一章 特征选择与稀疏学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E5%B8%B8%E8%A7%81%E7%9A%84%E7%89%B9%E5%BE%81%E9%80%89%E6%8B%A9%E6%96%B9%E6%B3%95"><span class="toc-number">11.1.</span> <span class="toc-text">11.1 常见的特征选择方法</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%8C%E7%AB%A0-%E8%AE%A1%E7%AE%97%E5%AD%A6%E4%B9%A0%E7%90%86%E8%AE%BA"><span class="toc-number">12.</span> <span class="toc-text">第十二章 计算学习理论</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-PAC%E5%AD%A6%E4%B9%A0"><span class="toc-number">12.1.</span> <span class="toc-text">12.1 PAC学习</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E6%9C%89%E9%99%90%E5%81%87%E8%AE%BE%E7%A9%BA%E9%97%B4"><span class="toc-number">12.2.</span> <span class="toc-text">12.2 有限假设空间</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-1-%E5%8F%AF%E5%88%86%E6%83%85%E5%BD%A2%EF%BC%88Separable-Case%EF%BC%89"><span class="toc-number">12.2.1.</span> <span class="toc-text">12.2.1 可分情形（Separable Case）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-2-2-%E4%B8%8D%E5%8F%AF%E5%88%86%E6%83%85%E5%BD%A2%EF%BC%88Non-Separable-Case%EF%BC%89"><span class="toc-number">12.2.2.</span> <span class="toc-text">12.2.2 不可分情形（Non-Separable Case）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-3-VC%E7%BB%B4%EF%BC%88Vapnik-Chervonenkis-Dimension%EF%BC%89"><span class="toc-number">12.3.</span> <span class="toc-text">12.3 VC维（Vapnik-Chervonenkis Dimension）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-4-Rademacher%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%88Rademacher-Complexity%EF%BC%89"><span class="toc-number">12.4.</span> <span class="toc-text">12.4 Rademacher复杂度（Rademacher Complexity）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-5-%E7%A8%B3%E5%AE%9A%E6%80%A7%EF%BC%88stability%EF%BC%89"><span class="toc-number">12.5.</span> <span class="toc-text">12.5 稳定性（stability）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%B8%89%E7%AB%A0-%E5%8D%8A%E7%9B%91%E7%9D%A3%E5%AD%A6%E4%B9%A0"><span class="toc-number">13.</span> <span class="toc-text">第十三章 半监督学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%9B%9B%E7%AB%A0-%E6%A6%82%E7%8E%87%E5%9B%BE%E6%A8%A1%E5%9E%8B"><span class="toc-number">14.</span> <span class="toc-text">第十四章 概率图模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#14-1-%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">14.1.</span> <span class="toc-text">14.1 先修知识</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E4%BA%94%E7%AB%A0-%E8%A7%84%E5%88%99%E5%AD%A6%E4%B9%A0"><span class="toc-number">15.</span> <span class="toc-text">第十五章 规则学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%8D%81%E5%85%AD%E7%AB%A0-%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-number">16.</span> <span class="toc-text">第十六章 强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#16-1-K-%E6%91%87%E8%87%82%E8%B5%8C%E5%8D%9A%E6%9C%BA%EF%BC%88K-Armed-Bandit%EF%BC%89%EF%BC%8C%E4%BA%A6%E7%A7%B0%E2%80%9CK-%E6%91%87%E8%87%82%E8%80%81%E8%99%8E%E6%9C%BA%E2%80%9D"><span class="toc-number">16.1.</span> <span class="toc-text">16.1 K-摇臂赌博机（K-Armed Bandit），亦称“K-摇臂老虎机”</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
