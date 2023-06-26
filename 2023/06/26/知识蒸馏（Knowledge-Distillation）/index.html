@@ -6,15 +6,30 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner430.github.io">
-  <title>Archives: 2023/5 | Hexo</title>
+  <title>知识蒸馏（Knowledge Distillation） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://corner430.github.io/archives/2023/05/index.html">
+  <meta name="description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="知识蒸馏（Knowledge Distillation）">
+<meta property="og:url" content="http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090640.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090733.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626092947.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093327.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093745.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100408.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100507.png">
+<meta property="article:published_time" content="2023-06-26T02:19:41.000Z">
+<meta property="article:modified_time" content="2023-06-26T02:20:45.431Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -152,295 +167,305 @@
           </div>
           <div id="js-content" class="content-ll">
             
-  
-  
+  <i class="fa fa-thumb-tack"></i>
+  <font color=7D26CD>置顶</font>
+  <span class="post-meta-divider">|</span>
+
+<article id="post-知识蒸馏（Knowledge-Distillation）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：1.3k字 | 预计阅读时长：4分钟
+	</div>
+        
+  
+    <h1 class="article-title" itemprop="name">
+      知识蒸馏（Knowledge Distillation）
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+          <br/>
+          <a class="cloud-tie-join-count" href="javascript:void(0);" style="color:gray;font-size:14px;">
+          <span class="icon-sort"></span>
+          <span id="busuanzi_container_page_pv" style="color:#ef7522;font-size:14px;">
+                    阅读数: <span id="busuanzi_value_page_pv"></span>次 &nbsp;&nbsp;
+          </span>
+          </a>
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/" class="archive-article-date">
+  	<time datetime="2023-06-26T02:19:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-06-26</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）<span id="more"></span></p>
+<ul>
+<li>从题目中获取信息<ul>
+<li><p>这里的Online并非模型在线，不停的加入数据进行不停的微调训练。这个Online 是来自于（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.04606">Knowledge Distillation by On-the-Fly Native Ensemble</a>）的online ensemble，即在线集成。所谓在线集成，就是同一套数据，训练多个分支，之后通过一定的方式集成一下，集成出来的模型作为蒸馏学习的教师模型，不需要单独训练一个大模型作为教师模型，作者把这件事称为online。这里附上这个参考文献的贴图<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png" alt="20230626084711"></p>
+</li>
+<li><p>Collaborative Learning，也就是协作学习。作者参考自<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.11761">Collaborative Learning for Deep Neural Networks</a>.一言以蔽之，<strong>嵌套 + 共享权重</strong>，这里也附上贴图。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090640.png" alt="20230626090640"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090733.png" alt="20230626090733"><br>图上表达了创建一组分类的器的几种不同的模式，作者将此称为不同的头部head。g由网络决定，输出的结果就是我们所说的logits，$\theta$表示当前层的一切网络参数，这里假定网络可级联。学完之后头部一扔，OK</p>
+<ul>
+<li><p>也就是说作者把这种协作学习和online ensemble结合了一下，放在了知识蒸馏上面，进而写了这篇文章。</p>
+</li>
+<li><p>当然，这里也要补充一些知识蒸馏的基础知识，参考自开山作<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png" alt="20230626094428"></p>
+<ul>
+<li>原文作者指出，先找一个大模型进行训练，之后指导小模型学习。<strong>指导的时候通过soft lables和小模型的输出做交叉熵</strong>，也就是说直接学习大模型所学习到的结果。除此之外再配一个小模型的输出和ground truth之间的交叉熵，这个用hard lables，之所以再加上这个损失，<strong>是因为老师也会犯错。两个损失按照一定比例组合，构成最终损失</strong>。<blockquote>
+<p>此处需要注意一点，作者把事情局限在了分类问题。</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p>具体流程如下：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png" alt="20230626094525"></p>
+<ul>
+<li>这里的两个损失所造成的梯度之间<strong>有着$T^2$的差距</strong>，故而要给蒸馏损失前面的系数调大一些，使得两者最起码能起到同等作用。这里贴出作者的结论。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626092947.png" alt="20230626092947"><br>推导过程如下<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093327.png" alt="20230626093327"></li>
+</ul>
+<blockquote>
+<p>soft lable可以保留更多的信息，对负标签做区分。区分程度由温度系数调控</p>
+</blockquote>
+<ul>
+<li><p>作者提出了一种特殊的蒸馏形式，也就是我们不对logits做softmax的操作，直接进行<strong>Matching Logits</strong>操作</p>
+</li>
+<li><p>这里直接给出结论，作者推导之后证明，当温度$T \rightarrow ∞$时，两者的Soft-target损失函数部分是等价的，<strong>也就是说Matching Logits是一般知识蒸馏方法的一种特殊形式</strong>。贴出作者的推导过程。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093745.png" alt="20230626093745"></p>
+</li>
+<li><p>思考一下：**有的时候我们是可以将整个模型当作特征提取器的，也就是说，所谓Logits结果无中间层的特征没有什么区别。进而不难想到，蒸馏能针对结果，那必然也可以针对中间的隐藏层。这就是另外一种蒸馏的方式，叫做特征蒸馏。首次提出于<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6550">FITNETS：Hints for Thin Deep Nets</a>**，本文不涉及，不做介绍。</p>
+</li>
+<li><p>再思考，为什么小模型可以去取代大模型，换句话说大模型凭什么可以压缩成小模型。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://zh.wikipedia.org/wiki/%E9%80%9A%E7%94%A8%E8%BF%91%E4%BC%BC%E5%AE%9A%E7%90%86">通用近似定理</a>指出，一层模型 + 一个激活函数，只要结点够多，可以任意精度逼近任意函数</li>
+<li>一次仿射变换和无数次仿射变换区别不大，不过是矩阵运算而已。麻烦仅仅出现在激活函数，只要有一个不错的非线性切向核函数，以多项式形式逼近非线性函数不成问题，只是泰勒的余项沉重一些的问题。</li>
+</ul>
+</li>
+<li><p>还要思考一下，知识蒸馏和直接从头训练区别在哪？</p>
+<ul>
+<li>收敛的形式不一样，大模型的隐藏层比较复杂，搜索的空间比较大，收敛的位置更平滑，也就是得到的解空间更优美。让大模型指导小模型，能让二者的解空间尽量逼近，收敛的位置尽量接近。<strong>说句专业的话，就是让二者的模型参数之间的散度尽量小。</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>本文作者认为，知识蒸馏有一个很大问题，就是需要进行二段式训练，且需要先训练一个大模型，成本太高。能否端对端且不加大模型的情况下解决这个问题？</p>
+<ul>
+<li>有如下三种方案，但各有缺陷<ul>
+<li>online emsemble 集成不协调</li>
+<li>Collaborative learning 协调不集成</li>
+<li>Mutual learning 并行机制导致了成本高。<br>如果能结合就好了<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100408.png" alt="20230626100408"></li>
+</ul>
+</li>
+</ul>
+<hr>
+<p>这里给出作者最终的模型结构及其损失函数构成<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100507.png" alt="20230626100507"></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.04147">Peer Collaborative Learning For Online Konwledge Distillation</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.04606">Knowledge Distillation by On-the-Fly Native Ensemble</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/76bea80a6113">Knowledge Distillation by On-the-Fly Native Ensemble</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.11761">Collaborative Learning for Deep Neural Networks</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a></li>
+<li><a href="%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%E6%8A%80%E6%9C%AF%EF%BC%88%E4%B8%8A%EF%BC%89">深度学习中的知识蒸馏技术（上）</a></li>
+<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/102038521">【经典简读】知识蒸馏(Knowledge Distillation) 经典之作</a></li>
+</ul>
+
+      
+	
+       
+         <div class="essayending">
+           <div>
+            <div style="text-align:center;color: #ccc;font-size:22px;">
+            <br/>
+            <br/>
+            -------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------
+            <br/>
+            <br/>
+             <br/>
+             <br/>
+            </div>
+           </div>
+         </div>
+       
+
+   
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      Corner
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/">http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
+
+
+<!-- 增加版权声明结束 -->
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+        <div class="article-pop-out tagcloud">
+          <i class="icon-tuding"></i>
+          <a class="article-tag-list-link color3">置顶</a>
+        </div>
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/31/windows%E5%AE%89%E8%A3%85v2ray/" class="archive-article-date">
-  	<time datetime="2023-05-31T12:28:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-31</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/31/windows%E5%AE%89%E8%A3%85v2ray/">windows安装v2ray</a>
-    </h1>
-  
+      
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/30/%E5%B0%86openwrt%E5%88%B7%E5%85%A5%E7%94%B5%E8%84%91/" class="archive-article-date">
-  	<time datetime="2023-05-30T15:07:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-30</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2023/06/24/%E5%A6%82%E6%AD%A4%E6%83%8A%E8%89%B3%E3%80%81%E5%A6%82%E6%AD%A4%E4%BC%98%E7%BE%8E/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">如此惊艳、如此优美</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/30/%E5%B0%86openwrt%E5%88%B7%E5%85%A5%E7%94%B5%E8%84%91/">将openwrt刷入电脑</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/30/windows%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8/" class="archive-article-date">
-  	<time datetime="2023-05-30T06:34:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-30</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/30/windows%E7%BB%88%E7%AB%AF%E5%A4%8D%E7%94%A8/">windows终端复用</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/29/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%BA%94%E7%94%A8%E7%BD%91%E7%BB%9C%E7%8A%B6%E5%86%B5%E4%B8%8D%E4%BD%B3/" class="archive-article-date">
-  	<time datetime="2023-05-29T04:10:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/29/%E9%98%BF%E9%87%8C%E4%BA%91%E7%9B%98%E5%BA%94%E7%94%A8%E7%BD%91%E7%BB%9C%E7%8A%B6%E5%86%B5%E4%B8%8D%E4%BD%B3/">阿里云盘应用网络状况不佳</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/25/%E7%BD%91%E5%85%B3%E4%BB%A3%E7%90%86/" class="archive-article-date">
-  	<time datetime="2023-05-25T08:31:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/25/%E7%BD%91%E5%85%B3%E4%BB%A3%E7%90%86/">网关代理</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/25/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/" class="archive-article-date">
-  	<time datetime="2023-05-25T07:07:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-25</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/25/WSL%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8%E5%B9%B6%E5%9C%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C/">WSL开机自启动并在后台运行</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/24/Ubuntu%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%94%A4%E9%86%92/" class="archive-article-date">
-  	<time datetime="2023-05-24T10:55:57.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/24/Ubuntu%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E5%94%A4%E9%86%92/">Ubuntu设置网络唤醒</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/22/windows%E7%94%A8xrdp%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%88%B0deepin%E5%8D%A1%E9%A1%BF/" class="archive-article-date">
-  	<time datetime="2023-05-22T04:08:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/22/windows%E7%94%A8xrdp%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2%E5%88%B0deepin%E5%8D%A1%E9%A1%BF/">windows用xrdp远程桌面到deepin卡顿</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/22/%E9%BB%91%E7%BE%A4%E6%99%96NAS%E5%AE%89%E8%A3%85/" class="archive-article-date">
-  	<time datetime="2023-05-21T16:29:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-22</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/22/%E9%BB%91%E7%BE%A4%E6%99%96NAS%E5%AE%89%E8%A3%85/">黑群晖NAS安装</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/05/21/200%E5%85%83E3%E7%A5%9E%E6%95%99%E8%A3%85%E6%9C%BA/" class="archive-article-date">
-  	<time datetime="2023-05-21T11:37:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-21</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/05/21/200%E5%85%83E3%E7%A5%9E%E6%95%99%E8%A3%85%E6%9C%BA/">200元E3神教装机</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2023/05/page/2/">2</a><a class="page-number" href="/archives/2023/05/page/3/">3</a><a class="extend next" rel="next" href="/archives/2023/05/page/2/">Next &amp;raquo;</a>
-    </nav>
-  
 
 
           </div>
@@ -478,8 +503,8 @@
 	var yiliaConfig = {
 		mathjax: true,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
