@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>知识蒸馏（Knowledge Distillation） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）  这里补充一些知识蒸馏的基础知识，参考自开山作Distilling the Knowledge in a Neural Network 原文作者指出，先找一个大模型进行训练，之后指导小模型学习。指导的时候通过soft lab">
+  <meta name="description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知识蒸馏（Knowledge Distillation）">
 <meta property="og:url" content="http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）  这里补充一些知识蒸馏的基础知识，参考自开山作Distilling the Knowledge in a Neural Network 原文作者指出，先找一个大模型进行训练，之后指导小模型学习。指导的时候通过soft lab">
+<meta property="og:description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627095837.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627100012.png">
 <meta property="article:published_time" content="2023-06-26T02:19:41.000Z">
-<meta property="article:modified_time" content="2023-06-27T02:04:16.092Z">
+<meta property="article:modified_time" content="2023-06-27T08:19:28.122Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
@@ -89,7 +89,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:183.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:183.4k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -190,7 +190,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：3k字 | 预计阅读时长：11分钟
+    		字数：3.2k字 | 预计阅读时长：12分钟
 	</div>
         
   
@@ -219,7 +219,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）</p>
+        <p>Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）<span id="more"></span></p>
 <ul>
 <li>这里补充一些知识蒸馏的基础知识，参考自开山作<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png" alt="20230626094428"><ul>
 <li>原文作者指出，先找一个大模型进行训练，之后指导小模型学习。<strong>指导的时候通过soft lables和小模型的输出做交叉熵</strong>，也就是说直接学习大模型所学习到的结果。除此之外再配一个小模型的输出和ground truth之间的交叉熵，这个用hard lables，之所以再加上这个损失，<strong>是因为老师也会犯错。两个损失按照一定比例组合，构成最终损失</strong>。<blockquote>
@@ -244,7 +244,7 @@
 </li>
 <li><p>这里直接给出结论，作者推导之后证明，当温度$T \rightarrow ∞$时，两者的Soft-target损失函数部分是等价的，<strong>也就是说Matching Logits是一般知识蒸馏方法的一种特殊形式</strong>。贴出作者的推导过程。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093745.png" alt="20230626093745"></p>
 </li>
-<li><p>思考一下：<strong>有的时候我们是可以将整个模型当作特征提取器的，也就是说，所谓Logits结果无中间层的特征没有什么区别。进而不难想到，蒸馏能针对结果，那必然也可以针对中间的隐藏层。这就是另外一种蒸馏的方式，叫做特征蒸馏</strong>。首次提出于<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6550">FITNETS：Hints for Thin Deep Nets</a>，本文不涉及，不做介绍。</p>
+<li><p>思考一下：<strong>有的时候我们是可以将整个模型当作特征提取器的，也就是说，所谓Logits结果与中间层的特征没有什么区别。进而不难想到，蒸馏能针对结果，那必然也可以针对中间的隐藏层。这就是另外一种蒸馏的方式，叫做特征蒸馏</strong>。首次提出于<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6550">FITNETS：Hints for Thin Deep Nets</a>，本文不涉及，不做介绍。</p>
 </li>
 <li><p>再思考，为什么小模型可以去取代大模型，换句话说大模型凭什么可以压缩成小模型。</p>
 <ul>
@@ -306,14 +306,14 @@
 <h1 id="Peer-Ensemble-Teacher"><a href="#Peer-Ensemble-Teacher" class="headerlink" title="Peer Ensemble Teacher"></a>Peer Ensemble Teacher</h1><ul>
 <li>为了让模型尽量的多而不同，这里对于输入X使用了m次的<strong>随机增强</strong>。之后的m个值作为m个分支的输入</li>
 <li>这里对feature进行学习，是因为这样的teacher是可学习的，并且可以让每个peer进行学习。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205811.png" alt="20230626205811"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205949.png" alt="20230626205949"></li>
-<li>$L_{pe}$使用的是KL散度进行衡量。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626211607.png" alt="20230626211607"></li>
+<li>$L_{pe}$使用的是KL散度进行衡量。（corner推测，原因在于，这个并不是预训练好的teacher，也就是说不够权威，所有不宜使用交叉熵损失）<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626211607.png" alt="20230626211607"><br>$\omega(e)$ 随着 e 的增大先增大再平稳，也就是说随着epoch的增多，ensemble teacher越权威，我们给它更多的比重</li>
 </ul>
 <hr>
 <h1 id="Peer-Mean-Teacher"><a href="#Peer-Mean-Teacher" class="headerlink" title="Peer Mean Teacher"></a>Peer Mean Teacher</h1><ul>
 <li>每一个peer，都可以导出一个peer mean teacher。两部分构成，一部分是底层，一部分是高层。<strong>和对应的peer以及上一刻的自己有关，训练次数越多，和上次的自己的相关性越大。</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626222140.png" alt="20230626222140"></li>
 </ul>
 <blockquote>
-<p>用7来更新peer mean teacher，无需进行反向传播</p>
+<p>用(7)来更新peer mean teacher，无需进行反向传播。<br>公式（8）说明一开始，peer mean teacher能力比较弱，用来更新下次的peer mean teacher时候所占的比重比较小，之后逐渐增大</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626222313.png" alt="20230626222313"></p>
 <blockquote>
