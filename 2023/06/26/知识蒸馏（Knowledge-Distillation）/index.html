@@ -8,28 +8,42 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>知识蒸馏（Knowledge Distillation） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
+  <meta name="description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）  这里补充一些知识蒸馏的基础知识，参考自开山作Distilling the Knowledge in a Neural Network 原文作者指出，先找一个大模型进行训练，之后指导小模型学习。指导的时候通过soft lab">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知识蒸馏（Knowledge Distillation）">
 <meta property="og:url" content="http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
+<meta property="og:description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）  这里补充一些知识蒸馏的基础知识，参考自开山作Distilling the Knowledge in a Neural Network 原文作者指出，先找一个大模型进行训练，之后指导小模型学习。指导的时候通过soft lab">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090640.png">
-<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090733.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205249.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205323.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626092947.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093327.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093745.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090640.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090733.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100408.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100507.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205811.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205949.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626211607.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626222140.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626222313.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626225857.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626231217.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626232345.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626232821.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627092548.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627095837.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627100012.png">
 <meta property="article:published_time" content="2023-06-26T02:19:41.000Z">
-<meta property="article:modified_time" content="2023-06-26T02:20:45.431Z">
+<meta property="article:modified_time" content="2023-06-27T02:04:16.092Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -75,7 +89,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:181.6k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:183.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -176,7 +190,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.3k字 | 预计阅读时长：4分钟
+    		字数：3k字 | 预计阅读时长：11分钟
 	</div>
         
   
@@ -205,22 +219,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）<span id="more"></span></p>
+        <p>Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）</p>
 <ul>
-<li>从题目中获取信息<ul>
-<li><p>这里的Online并非模型在线，不停的加入数据进行不停的微调训练。这个Online 是来自于（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.04606">Knowledge Distillation by On-the-Fly Native Ensemble</a>）的online ensemble，即在线集成。所谓在线集成，就是同一套数据，训练多个分支，之后通过一定的方式集成一下，集成出来的模型作为蒸馏学习的教师模型，不需要单独训练一个大模型作为教师模型，作者把这件事称为online。这里附上这个参考文献的贴图<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png" alt="20230626084711"></p>
-</li>
-<li><p>Collaborative Learning，也就是协作学习。作者参考自<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.11761">Collaborative Learning for Deep Neural Networks</a>.一言以蔽之，<strong>嵌套 + 共享权重</strong>，这里也附上贴图。</p>
-</li>
-</ul>
-</li>
-</ul>
-<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090640.png" alt="20230626090640"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090733.png" alt="20230626090733"><br>图上表达了创建一组分类的器的几种不同的模式，作者将此称为不同的头部head。g由网络决定，输出的结果就是我们所说的logits，$\theta$表示当前层的一切网络参数，这里假定网络可级联。学完之后头部一扔，OK</p>
-<ul>
-<li><p>也就是说作者把这种协作学习和online ensemble结合了一下，放在了知识蒸馏上面，进而写了这篇文章。</p>
-</li>
-<li><p>当然，这里也要补充一些知识蒸馏的基础知识，参考自开山作<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png" alt="20230626094428"></p>
-<ul>
+<li>这里补充一些知识蒸馏的基础知识，参考自开山作<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png" alt="20230626094428"><ul>
 <li>原文作者指出，先找一个大模型进行训练，之后指导小模型学习。<strong>指导的时候通过soft lables和小模型的输出做交叉熵</strong>，也就是说直接学习大模型所学习到的结果。除此之外再配一个小模型的输出和ground truth之间的交叉熵，这个用hard lables，之所以再加上这个损失，<strong>是因为老师也会犯错。两个损失按照一定比例组合，构成最终损失</strong>。<blockquote>
 <p>此处需要注意一点，作者把事情局限在了分类问题。</p>
 </blockquote>
@@ -228,19 +229,22 @@
 </ul>
 </li>
 </ul>
-<p>具体流程如下：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png" alt="20230626094525"></p>
+<p>具体流程如下：<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png" alt="20230626094525"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205249.png" alt="20230626205249"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205323.png" alt="20230626205323"></p>
 <ul>
-<li>这里的两个损失所造成的梯度之间<strong>有着$T^2$的差距</strong>，故而要给蒸馏损失前面的系数调大一些，使得两者最起码能起到同等作用。这里贴出作者的结论。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626092947.png" alt="20230626092947"><br>推导过程如下<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093327.png" alt="20230626093327"></li>
+<li>这里的两个损失所造成的梯度之间<strong>有着$T^2$的差距</strong>，故而要给蒸馏损失前面的系数调大一些，使得两者最起码能起到同等作用。这里贴出作者的结论。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626092947.png" alt="20230626092947"><br>网友给出的推导过程如下<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093327.png" alt="20230626093327"><blockquote>
+<p>这个地方我自己推导了一遍，首先关系差了T倍是肯定的，至于T平方中的另一个T，和两个模型softmax时候选取的T以及当下的样本有关。</p>
+</blockquote>
+</li>
 </ul>
 <blockquote>
 <p>soft lable可以保留更多的信息，对负标签做区分。区分程度由温度系数调控</p>
 </blockquote>
 <ul>
-<li><p>作者提出了一种特殊的蒸馏形式，也就是我们不对logits做softmax的操作，直接进行<strong>Matching Logits</strong>操作</p>
+<li><p>作者提出了一种特殊的蒸馏形式，也就是我们不对logits做softmax的操作，直接进行<strong>Matching Logits</strong>操作。<strong>直接Matching Logits指的是，直接使用softmax层的输入logits（而不再是输出）作为Soft- target，需要最小化的目标函数是Teacher模型和Student模型的logits之间的平方差</strong></p>
 </li>
 <li><p>这里直接给出结论，作者推导之后证明，当温度$T \rightarrow ∞$时，两者的Soft-target损失函数部分是等价的，<strong>也就是说Matching Logits是一般知识蒸馏方法的一种特殊形式</strong>。贴出作者的推导过程。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626093745.png" alt="20230626093745"></p>
 </li>
-<li><p>思考一下：**有的时候我们是可以将整个模型当作特征提取器的，也就是说，所谓Logits结果无中间层的特征没有什么区别。进而不难想到，蒸馏能针对结果，那必然也可以针对中间的隐藏层。这就是另外一种蒸馏的方式，叫做特征蒸馏。首次提出于<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6550">FITNETS：Hints for Thin Deep Nets</a>**，本文不涉及，不做介绍。</p>
+<li><p>思考一下：<strong>有的时候我们是可以将整个模型当作特征提取器的，也就是说，所谓Logits结果无中间层的特征没有什么区别。进而不难想到，蒸馏能针对结果，那必然也可以针对中间的隐藏层。这就是另外一种蒸馏的方式，叫做特征蒸馏</strong>。首次提出于<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1412.6550">FITNETS：Hints for Thin Deep Nets</a>，本文不涉及，不做介绍。</p>
 </li>
 <li><p>再思考，为什么小模型可以去取代大模型，换句话说大模型凭什么可以压缩成小模型。</p>
 <ul>
@@ -253,9 +257,21 @@
 <li>收敛的形式不一样，大模型的隐藏层比较复杂，搜索的空间比较大，收敛的位置更平滑，也就是得到的解空间更优美。让大模型指导小模型，能让二者的解空间尽量逼近，收敛的位置尽量接近。<strong>说句专业的话，就是让二者的模型参数之间的散度尽量小。</strong></li>
 </ul>
 </li>
+<li><p>从题目中获取信息</p>
+<ul>
+<li><p>这里的Online并非模型在线，不停的加入数据进行不停的微调训练。这个Online 是来自于（<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.04606">Knowledge Distillation by On-the-Fly Native Ensemble</a>）和<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1912.00350">Online Knowledge Distillation with Diverse Peers</a>的online ensemble，即在线集成。所谓在线集成，就是同一套数据，训练多个分支，之后通过一定的方式集成一下，集成出来的模型作为蒸馏学习的教师模型，不需要单独训练一个大模型作为教师模型<strong>先存起来</strong>，作者把这件事称为online。这里附上这个参考文献的贴图<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626084711.png" alt="20230626084711"></p>
+</li>
+<li><p>Collaborative Learning，也就是协作学习。作者参考自<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1805.11761">Collaborative Learning for Deep Neural Networks</a>.一言以蔽之，<strong>嵌套 + 共享权重</strong>，这里也附上贴图。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090640.png" alt="20230626090640"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626090733.png" alt="20230626090733"><br>图上表达了创建一组分类的器的几种不同的模式，作者将此称为不同的头部head。g由网络决定，输出的结果就是我们所说的logits，$\theta$表示当前层的一切网络参数，这里假定网络可级联。学完之后头部一扔，OK</p>
+<ul>
+<li>也就是说作者把这种协作学习和online ensemble结合了一下，放在了知识蒸馏上面，进而写了这篇文章。</li>
 </ul>
 <hr>
-<p>本文作者认为，知识蒸馏有一个很大问题，就是需要进行二段式训练，且需要先训练一个大模型，成本太高。能否端对端且不加大模型的情况下解决这个问题？</p>
+<p>本文作者认为，知识蒸馏有一个很大问题，就是需要进行二段式训练，且需要先训练一个大模型作为teacher model，计算成本高，计算时间长。能否端对端且不加大模型的情况下解决这个问题？</p>
 <ul>
 <li>有如下三种方案，但各有缺陷<ul>
 <li>online emsemble 集成不协调</li>
@@ -266,6 +282,116 @@
 </ul>
 <hr>
 <p>这里给出作者最终的模型结构及其损失函数构成<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626100507.png" alt="20230626100507"></p>
+<ul>
+<li>每个分支，名字就叫做peer</li>
+<li>在输入上进行多次的随机增强，通过特征层集成教师，有助于提取过去更多的信息。<ul>
+<li>此处介绍一个定理。弱学习器等价于强学习器，只要模型<strong>多而不同</strong>，集成之后的误差就会变低很多。</li>
+<li>这里就是为了多而不同</li>
+</ul>
+</li>
+<li>使用了temporal mean model of each peer as the peer mean teacher，一者防止偏差，学到更丰富的知识；二者学到的结果会更加的稳定。参考自<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1610.02242.pdf">Temporal Ensembling for Semi-Supervised Learning</a>和<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.01780">Mean Teachers are better role models: Weight-averaged consistency targets improve semi-supervised deep learning results</a>，通过集成一个模型不同时间的输出，来形成对未知标签的共识预测.</li>
+<li>test时候的两种部署方式<ul>
+<li>在test时候，我们要一个temporal mean model of a peer 就 OK。也就是<strong>PCL</strong></li>
+<li>peer mean teacher 们的特征表示 + 一个分类器，可以形成一个大模型，可以部署在不限制计算成本的场景下。也就是<strong>PCL-E</strong></li>
+</ul>
+</li>
+<li>训练时，PCL的损失函数有三部分组成：<ul>
+<li>第一部分就是peers的标准交叉熵损失$L^p_{ce}$ 和 peer ensemble teacher的标准交叉熵损失$L^t_{ce}$</li>
+<li>第二部分是peer ensemble teacher的蒸馏损失$L_{pe}$</li>
+<li>第三部分是peer mean teacher的蒸馏损失$L_{pm}$<br>$$L &#x3D; L^p_{ce} + L^t_{ce} + L_{pe} + L_{pm}$$</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h1 id="Peer-Ensemble-Teacher"><a href="#Peer-Ensemble-Teacher" class="headerlink" title="Peer Ensemble Teacher"></a>Peer Ensemble Teacher</h1><ul>
+<li>为了让模型尽量的多而不同，这里对于输入X使用了m次的<strong>随机增强</strong>。之后的m个值作为m个分支的输入</li>
+<li>这里对feature进行学习，是因为这样的teacher是可学习的，并且可以让每个peer进行学习。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205811.png" alt="20230626205811"><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626205949.png" alt="20230626205949"></li>
+<li>$L_{pe}$使用的是KL散度进行衡量。<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626211607.png" alt="20230626211607"></li>
+</ul>
+<hr>
+<h1 id="Peer-Mean-Teacher"><a href="#Peer-Mean-Teacher" class="headerlink" title="Peer Mean Teacher"></a>Peer Mean Teacher</h1><ul>
+<li>每一个peer，都可以导出一个peer mean teacher。两部分构成，一部分是底层，一部分是高层。<strong>和对应的peer以及上一刻的自己有关，训练次数越多，和上次的自己的相关性越大。</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626222140.png" alt="20230626222140"></li>
+</ul>
+<blockquote>
+<p>用7来更新peer mean teacher，无需进行反向传播</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626222313.png" alt="20230626222313"></p>
+<blockquote>
+<p>为了稳定，这里的每一个peer要和除了自己生成的那个之外的所有的peer mean teacher进行计算KL散度</p>
+</blockquote>
+<h1 id="实验部分"><a href="#实验部分" class="headerlink" title="实验部分"></a>实验部分</h1><h2 id="实现细节"><a href="#实现细节" class="headerlink" title="实现细节"></a>实现细节</h2><ul>
+<li><p>每个网络的最后一层被分离作为high lever layer；在ImageNet中是最后两层</p>
+</li>
+<li><p>设定了m&#x3D;3的branch</p>
+</li>
+<li><p>训练时，随机增强的方式为 standard random crop and horizontal flip</p>
+</li>
+<li><p>test时，没有使用随机增强</p>
+</li>
+<li><p>We used SGD as the optimiser with Nesterov momentum0.9 and weight decay 5e-4。使用随机梯度下降作为优化器，结合 Nesterov 动量参数为0.9 和权重衰减参数为5e-4 来训练模型的设置。</p>
+<ul>
+<li><p>SGD（Stochastic Gradient Descent）：随机梯度下降是一种常用的优化算法，用于训练机器学习模型。它通过迭代地更新模型的参数，以最小化损失函数。在每一次迭代中，随机梯度下降使用随机选择的一小部分样本（称为批量）来计算损失函数的梯度，并利用该梯度更新模型的参数。</p>
+</li>
+<li><p>Nesterov momentum（Nesterov 动量）：Nesterov 动量是随机梯度下降算法的一种变体。它在梯度更新中引入了动量的概念，以加速收敛过程。Nesterov 动量使用当前参数的动量来估计下一个位置的梯度，并在梯度更新时进行修正。这种修正能够减小更新方向上的震荡，并使收敛更快。</p>
+</li>
+<li><p>0.9（Nesterov 动量的值）：这里的0.9是 Nesterov 动量的参数，用来调整动量的影响程度。<strong>较高的动量参数值表示更多的历史梯度信息被保留</strong>，可以帮助加速训练过程，但如果设置得过高，可能导致震荡或收敛不稳定。</p>
+</li>
+<li><p>Weight decay（权重衰减）：权重衰减是一种正则化技术，用于控制模型的复杂性，防止过拟合。它通过在损失函数中添加一个惩罚项，惩罚较大的权重值，从而鼓励模型学习较为简单的表示。权重衰减可以视为一种L2正则化，通过在更新梯度时减小权重值来实现。</p>
+</li>
+<li><p>5e-4（权重衰减的值）：这里的5e-4是权重衰减的参数值，用来调整惩罚的强度。较大的权重衰减值会更强烈地惩罚较大的权重值，有助于控制模型的复杂性。</p>
+</li>
+</ul>
+</li>
+<li><p>在CIFAR-10&#x2F;100上训练了300个epoch，在ImageNet上训练了90个epoch</p>
+</li>
+<li><p>初始学习率为0.1，衰减情况为：decayed to {0.01, 0.001} at {150, 225} epochs on CIFAR10&#x2F;100 and at {30, 60} epochs on ImageNet</p>
+</li>
+<li><p>Batch size &#x3D; 128</p>
+</li>
+<li><p>温度系数为3</p>
+</li>
+<li><p>更多参数见原文</p>
+</li>
+<li><p>默认使用第一个模型作为目标网络，也就是最终我们要的模型。</p>
+</li>
+<li><p>评估指标为 top-1 classification error rate。跑三次，取平均</p>
+</li>
+</ul>
+<h2 id="实验结果"><a href="#实验结果" class="headerlink" title="实验结果"></a>实验结果</h2><ul>
+<li>为了公平，对标的时候如果是大模型，就是用PCL-E；如果是小模型就使用PCL</li>
+<li>Baseline就是直接让student和ground truth做交叉熵，之后反向传播</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626225857.png" alt="20230626225857"></p>
+<ul>
+<li><p>消融实验<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626231217.png" alt="20230626231217"><br>Table 2: Component effectiveness evaluation with ResNet110 on CIFAR-100. Top-1 error rates (%). P.E.: Peer Ensemble teacher. P.M.: Peer Mean teacher.</p>
+</li>
+<li><p>首先$L^t_{ce}$好像没什么用，$L_{pe}$起到了很大作用。仅仅这一套peer ensemble teacher就提升了2.6%；之后再加peer mean teacher也只是再增加1.1%</p>
+</li>
+<li><p>而且PE配别的东西效果也不错，就是说这个PE很重要。</p>
+</li>
+<li><p>PCL泛化率最好，<strong>且最稳定，说明了peer mean teacher在起作用</strong><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626232345.png" alt="20230626232345"></p>
+</li>
+</ul>
+<hr>
+<p>Ensemble 有效性评估，使用PCL-E<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626232821.png" alt="20230626232821"></p>
+<p>Table 3: Ensemble effectiveness evaluation with ResNet-110 on CIFAR-10&#x2F;100. Top-1 error rates (%) and the number of model parameters are reported.</p>
+<ul>
+<li>Peer Variance for Online Ensembling Analysis<br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627092548.png" alt="20230627092548"></li>
+</ul>
+<p>Figure 4: Peer variance for online ensembling analysis with ResNet-110 on CIFAR-100. ‘-BranVar’: the branch variance. Here, we use top-1 accuracy for better visualisation.</p>
+<ul>
+<li><p>0-150 epoch，PCL-E的top-1 acc最高，但PCL的分支方差（PCL-BranVar）偏大。也就是说，此时泛化能力差，但各分支可以很好的协作。协同工作才有意义。</p>
+</li>
+<li><p>150-300 epoch，PCL的分支方差变小，模型更稳定且更通用</p>
+</li>
+<li><p>进一步实验分析</p>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627095837.png" alt="20230627095837"></p>
+<p>Table 4: Comparison with two-stage distillation with ResNet-32 on CIFAR-10&#x2F;100. Top-1 error rates (%). †: Use ResNet-110 as the teacher model.</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627100012.png" alt="20230627100012"></p>
+<p>Figure 5: Evaluating the impact of (a) different number of branches and (b) input augmentation for PCL with ResNet110 on CIFAR-100.</p>
+<p>比较去除输入增强的结果</p>
 <h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.04147">Peer Collaborative Learning For Online Konwledge Distillation</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1806.04606">Knowledge Distillation by On-the-Fly Native Ensemble</a></li>
@@ -445,7 +571,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">1.</span> <span class="toc-text">参考文献</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Peer-Ensemble-Teacher"><span class="toc-number">1.</span> <span class="toc-text">Peer Ensemble Teacher</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Peer-Mean-Teacher"><span class="toc-number">2.</span> <span class="toc-text">Peer Mean Teacher</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E9%83%A8%E5%88%86"><span class="toc-number">3.</span> <span class="toc-text">实验部分</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E7%BB%86%E8%8A%82"><span class="toc-number">3.1.</span> <span class="toc-text">实现细节</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C%E7%BB%93%E6%9E%9C"><span class="toc-number">3.2.</span> <span class="toc-text">实验结果</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">4.</span> <span class="toc-text">参考文献</span></a></li></ol>
                     </div>
                 </span>
             </div>
