@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>知识蒸馏（Knowledge Distillation） | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
+  <meta name="description" content="Title: Peer Collaborative Learning For Online Knowledge Distillation（用于在线知识蒸馏的Peer协作学习）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="知识蒸馏（Knowledge Distillation）">
 <meta property="og:url" content="http://corner430.github.io/2023/06/26/%E7%9F%A5%E8%AF%86%E8%92%B8%E9%A6%8F%EF%BC%88Knowledge-Distillation%EF%BC%89/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）">
+<meta property="og:description" content="Title: Peer Collaborative Learning For Online Knowledge Distillation（用于在线知识蒸馏的Peer协作学习）">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094525.png">
@@ -40,7 +40,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627095837.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230627100012.png">
 <meta property="article:published_time" content="2023-06-26T02:19:41.000Z">
-<meta property="article:modified_time" content="2023-06-27T08:19:28.122Z">
+<meta property="article:modified_time" content="2023-06-27T12:53:43.142Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png">
@@ -219,7 +219,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Title: Peer Collaborative Learning For Online Konwledge Distillation（用于在线知识蒸馏的Peer协作学习）<span id="more"></span></p>
+        <p>Title: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2006.04147">Peer Collaborative Learning For Online Knowledge Distillation（用于在线知识蒸馏的Peer协作学习）</a><span id="more"></span></p>
 <ul>
 <li>这里补充一些知识蒸馏的基础知识，参考自开山作<a target="_blank" rel="noopener" href="https://arxiv.org/abs/1503.02531">Distilling the Knowledge in a Neural Network</a><br><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230626094428.png" alt="20230626094428"><ul>
 <li>原文作者指出，先找一个大模型进行训练，之后指导小模型学习。<strong>指导的时候通过soft lables和小模型的输出做交叉熵</strong>，也就是说直接学习大模型所学习到的结果。除此之外再配一个小模型的输出和ground truth之间的交叉熵，这个用hard lables，之所以再加上这个损失，<strong>是因为老师也会犯错。两个损失按照一定比例组合，构成最终损失</strong>。<blockquote>
