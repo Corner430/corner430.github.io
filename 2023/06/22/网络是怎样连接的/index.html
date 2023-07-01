@@ -16,7 +16,7 @@
 <meta property="og:description" content="已经有了IP地址了，为什么还需要MAC地址呢？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-22T14:35:21.000Z">
-<meta property="article:modified_time" content="2023-06-28T15:40:18.526Z">
+<meta property="article:modified_time" content="2023-07-01T13:53:25.293Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:184.1k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:184.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：3.8k字 | 预计阅读时长：13分钟
+    		字数：4.4k字 | 预计阅读时长：15分钟
 	</div>
         
   
@@ -278,6 +278,25 @@
 <li>路由器的子网掩码列只表示在匹配网络包目标地址时需要对比的比特数量，<strong>匹配的比特数越长优先级越高（最长匹配原则）</strong></li>
 <li>路由器的端口都具有MAC地址，只接收与自身地址匹配的包，遇到不匹配的包则直接丢弃</li>
 <li>子网掩码0.0.0.0的意思是网络包接收方IP地址和路由表目标地址的匹配中需要匹配的比特数为0，换句话说，就是根本不需要匹配。只要将子网掩码设置为0.0.0.0，那么无论任何地址都能匹配到这一条记录。也就是说<strong>路由表中子网掩码为0.0.0.0的记录表示“默认路由”，这一行配置的网关地址被称为默认网关</strong></li>
+<li>路由器判断下一个转发目标的方法如下：</li>
+</ol>
+<ul>
+<li>如果路由表的网关列内容为IP地址，则该地址就是下一个转发目标</li>
+<li>如果路由表的<strong>网关列内容为空</strong>，则IP头部中的接收方IP地址就是下一个转发目标</li>
+</ul>
+<ol start="23">
+<li>IP（路由器）负责将包送达通信对象这一整体过程，而其中将包传输到下一个路由器的过程则是由以太网（交换机）来负责的</li>
+<li>在内网中可用作私有地址的范围仅限一下这些：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10.0.0.0 ~ 10.255.255.255</span><br><span class="line">172.16.0.0 ~ 172.31.255.255</span><br><span class="line">192.168.0.0 ~ 192.168.255.255</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>在制作私有地址规则时，这些地址属于公有地址中还没有被分配的范围</p>
+</blockquote>
+</li>
+<li>地址转换的基本原理是在转发网络包时对IP头部中的<strong>IP地址和端口号</strong>进行改写，这里的端口号指的是TCP和UDP的端口号，不是路由器和集线器连接网线的那个端口。在对外只能使用一个共有地址的情况下，可以用不同的端口号来区别内网中的不同终端</li>
+<li>具备地址转换功能的设备不仅有路由器，有些防火墙也有地址转换功能，它的工作方式和路由器是相同的。</li>
+<li>早期的地址转换机制是只改写地址，不改写端口号</li>
+<li>对于从公司内网访问互联网的包，即便其发送方私有地址和端口号没有保存在对应表中<strong>也是可以正常转发的</strong>；然而，对于从互联网访问公司内网的包，如果在对应表中没有记录就<strong>无法正常转发</strong>。也就是说，除非公司主动允许，否则是无法从互联网向公司内网发送网络包的。这种机制具有<strong>防止非法入侵</strong>的效果。</li>
+<li><strong>包过滤</strong>也是路由器的一个重要附加功能。包过滤就是在对包进行转发时，根据MAC头部、IP头部、TCP头部的内容，按照事先设置好的规则决定是转发这个包，还是丢弃这个包。我们通常说的<strong>防火墙设备或软件</strong>，大多数都是利用这一机制来防止非法入侵的。</li>
+<li>hub: central part of a wheel from which the spokes radiate 轮毂。集线器（repeater hub）、交换机（switching hub）</li>
 <li></li>
 </ol>
 
