@@ -16,7 +16,7 @@
 <meta property="og:description" content="已经有了IP地址了，为什么还需要MAC地址呢？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-22T14:35:21.000Z">
-<meta property="article:modified_time" content="2023-07-02T09:41:31.613Z">
+<meta property="article:modified_time" content="2023-07-02T15:26:14.222Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:187.4k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:189.2k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：7.1k字 | 预计阅读时长：24分钟
+    		字数：8.9k字 | 预计阅读时长：30分钟
 	</div>
         
   
@@ -358,6 +358,29 @@
 <li><strong>PPPoE是将PPP消息装入以太网包进行传输的方式</strong></li>
 <li>所谓<strong>隧道，就是能将包原封不动搬运到另一端</strong></li>
 <li>一对一连接的端口可以不分配IP地址，这种方式称为无编号</li>
+<li>PPPoA: Point-to-Point Protocol over ATM. PPPoA方式不添加MAC头部和PPPoE头部，而是直接将包装入信元中</li>
+<li><strong>POP（Point of Presence）和NOC（Network Operations Center）</strong>是与网络和通信基础设施相关的术语。</li>
+<li>POP（Point of Presence，中文一般叫做“接入点”）：<br>- <strong>POP指的是在网络服务提供商（ISP）或通信运营商网络中的一个点，通常是物理位置或网络节点</strong>。它是用户与ISP网络连接的地点，提供网络接入、路由和交换等服务。POP通常位于地理上的关键位置，以便为用户提供更好的网络接入服务和更低的延迟。<br>- 在一个ISP网络中，可能会有多个POP分布在不同的地理位置，每个POP通常包含路由器、交换机、服务器等网络设备，用于连接用户和核心网络。通过建立多个POP，ISP可以提供更广泛的覆盖范围，并提高网络的可靠性和性能。</li>
+<li>NOC（Network Operations Center）：<br>- <strong>NOC是一个专门的中心或部门，负责监控、管理和维护一个网络的运行</strong>。NOC通常由一组网络工程师和技术人员组成，他们负责确保网络的正常运行，并快速响应和解决任何网络问题或故障。<br>- NOC的主要职责包括实时监控网络设备和链路的状态、处理网络事件和故障、进行网络配置和优化、执行维护计划、协调与其他运营商的互联等。NOC通常使用监控系统、网络管理工具和报警系统等来帮助监控和管理网络。<br>- NOC还负责与其他相关部门或合作伙伴进行沟通和协调，如与运营商、互联网服务提供商、数据中心等。通过及时响应和解决网络问题，NOC确保网络的稳定性、可靠性和性能，以提供良好的网络服务体验。<blockquote>
+<p>总结起来，POP是网络服务提供商或通信运营商网络中用户连接的点，提供网络接入和服务，而NOC是负责监控、管理和维护网络运行的中心或部门。它们在网络基础设施中扮演着重要的角色，保证了网络的可用性和性能。可以简单地认为，NOC就是规模扩大后的POP</p>
+</blockquote>
+</li>
+<li><strong>专线是固定连接线路</strong>，不需要进行身份认证，参数是根据传真、书面等方式下发后进行手动配置的，因此也不需要PPP、DHCP等机制。其实，这就是最古老的互联网接入方式。</li>
+<li>BGP: Border Gateway Protocol, 边界网关协议.互联网内部使用BGP机制在运营商之间交换路由信息</li>
+<li>IX: Internet eXchange, 中文一般叫做“互联网交换中心”。设置一个中心设备，通过连接到中心设备的方式来减少线路数量，这个中心设备就称为IX。</li>
+<li><strong>防火墙不会检查通信数据的具体内容，因此无法抵御隐藏在通信数据内容中的攻击。</strong></li>
+<li><strong>防火墙：一种抵御外部网络攻击的机制，也是最早出现的一种防御机制</strong>。现在已经出现了很多可以绕过防火墙的攻击方法，因此防火墙一般需要和反病毒、非法入侵检测、访问隔离等机制并用。</li>
+<li>包过滤方式的防火墙不仅可以允许或者阻止网络包的通过，还具备地址转换功能，因此还需要进行相关的设置。</li>
+<li>包过滤方式的防火墙可根据接收方IP地址、发送方IP地址、接收方端口号、发送方端口号、控制位等信息来判断是否允许某个包通过</li>
+<li>防火墙无法抵御的攻击：防火墙可以根据包的起点和终点来判断是否允许其通过，但仅凭起点和终点并不能筛选出所有风险的包。比如，假设Web服务器在收到含有特定数据的包时会引起宕机。但是防火墙只关心包的起点和终点，因此即便包中含有特定数据，防火墙也无法发现，于是包就被放行了。然后，当包到达Web服务器时，就会引发服务器宕机。通过这个例子可以看出，<strong>只有检查包的内容才能识别这种风险，因此防火墙对这种情况无能为力</strong></li>
+<li><strong>DNS服务器可以为一个域名填写多个IP地址，并通过轮询（Round Robin）方式实现负载均衡和故障容错</strong>。下面是一种常见的做法：</li>
+<li>在DNS服务器上为域名配置多个A记录：A记录是用来指定域名对应的IP地址的记录类型。在DNS服务器上为域名配置多个A记录，每个A记录对应一个IP地址。例如：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">example<span class="selector-class">.com</span>. IN <span class="selector-tag">A</span> <span class="number">192.168</span>.<span class="number">1.100</span></span><br><span class="line">example<span class="selector-class">.com</span>. IN <span class="selector-tag">A</span> <span class="number">192.168</span>.<span class="number">1.101</span></span><br><span class="line">example<span class="selector-class">.com</span>. IN <span class="selector-tag">A</span> <span class="number">192.168</span>.<span class="number">1.102</span></span><br></pre></td></tr></table></figure></li>
+<li>DNS服务器返回多个IP地址：<strong>当DNS服务器接收到客户端的查询请求时，它会从配置的多个A记录中选择一个IP地址返回给客户端</strong>。可以采用简单的轮询方式，每次返回下一个IP地址。例如，第一次返回192.168.1.100，第二次返回192.168.1.101，以此类推。</li>
+<li>客户端使用返回的IP地址：客户端收到DNS服务器返回的IP地址后，可以使用该IP地址与目标服务器建立连接。通过轮询方式，不同的客户端可能会获得不同的IP地址，从而分散负载到多个服务器上。<br><strong>这种配置方式可以实现简单的负载均衡效果，将流量分散到多个服务器上，减轻单个服务器的负载压力。同时，如果其中一个服务器不可用，DNS服务器将不再返回该服务器的IP地址，从而实现故障容错。</strong><br>需要注意的是，这种简单的轮询方式并不能完全保证负载均衡，因为DNS服务器无法感知服务器的实际负载情况。在实际应用中，可能需要结合其他负载均衡技术和算法，如权重设置、健康检查等，以达到更精确的负载均衡效果。</li>
+<li>使用负载均衡器时，<strong>要用负载均衡器的IP地址代替Web服务器的实际地址注册到DNS服务器上</strong></li>
+<li>对HTTP规格进行扩展，<strong>在HTTP头部字段中加上用来判断相关性的信息，这种信息俗称Cookie</strong>。这样，负载均衡器就可以通过这些信息来作出判断，将一系列相关的请求发送到同一台Web服务器，对于不相关的请求则发送到负载较低的服务器了。</li>
+<li><strong>代理：一种介于客户端和Web服务器之间，对访问操作进行中转的机制</strong>。</li>
+<li>缓存服务器是一台通过代理机制对数据进行缓存的服务器。</li>
 <li></li>
 </ol>
 
