@@ -18,7 +18,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515143612.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:02:53.555Z">
+<meta property="article:modified_time" content="2023-07-11T10:52:08.524Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230515133529.png">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:191.5k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:194.9k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：61.5k字 | 预计阅读时长：217分钟
+    		字数：64.9k字 | 预计阅读时长：229分钟
 	</div>
         
   
@@ -2769,6 +2769,240 @@
 </li>
 </ul>
 <hr>
+<h4 id="9-July-11-2023-week9"><a href="#9-July-11-2023-week9" class="headerlink" title="9. July 11, 2023(week9)"></a>9. July 11, 2023(week9)</h4><table>
+<thead>
+<tr>
+<th align="center">Title</th>
+<th align="center">Publication</th>
+<th align="center">Year</th>
+<th align="center">Authors</th>
+<th align="center">Area</th>
+<th align="center">Problem</th>
+<th align="center">Main Method</th>
+<th align="center">Datasets</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andreis22a.html">Set Based Stochastic Subsampling</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Bruno Andreis</td>
+<td align="center">Machine Learning</td>
+<td align="center">常规的随机子采样方法将数据维度降低，甚至将多通道的图像先变成单通道，之后变成向量，损失了太多的信息，对结果造成太大的影响</td>
+<td align="center"><strong>第一个阶段：摒弃一部分样本，构成候选集（粗粒度）；第二个阶段：通过条件概率和自注意力机制考虑候选集中的样本的相对重要性，从候选集中选择较小的子集（细粒度）</strong></td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andriushchenko22a.html">Towards Understanding Sharpness-Aware Minimization</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Bruno Andreis</td>
+<td align="center">Machine Learning</td>
+<td align="center">SAM为何有效？</td>
+<td align="center">隐式偏差</td>
+<td align="center">open source</td>
+</tr>
+<tr>
+<td align="center"><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/angelidakis22a.html">fair and fast k-center clustering for data summarization</a></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Bruno Andreis</td>
+<td align="center">Machine Learning</td>
+<td align="center">聚类算法中的两个关键性问题：（1）“人口群体”的不公平代表性；（2）失真的数据概括</td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center">K-Center（过于繁琐，没有细看）</td>
+<td align="center">open source</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+</tr>
+<tr>
+<td align="center"></td>
+<td align="center">ICML</td>
+<td align="center">2022</td>
+<td align="center">Bruno Andreis</td>
+<td align="center">Machine Learning</td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">open source</td>
+</tr>
+</tbody></table>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andreis22a.html">Set Based Stochastic Subsampling（基于集合的随机子采样方法）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Bruno Andreis（韩国科学技术院（KAIST）人工智能研究生院（Graduate School of AI）</li>
+<li>问题：常规的随机子采样方法将数据维度降低，甚至将多通道的图像先变成单通道，之后变成向量，损失了太多的信息，对结果造成太大的影响</li>
+<li>方法：<strong>第一个阶段：摒弃一部分样本，构成候选集（粗粒度）；第二个阶段：通过条件概率和自注意力机制考虑候选集中的样本的相对重要性，从候选集中选择较小的子集（细粒度）</strong></li>
+<li>从论文标题中可以了解到的信息<ul>
+<li>主题：论文的主题是 “Set Based Stochastic Subsampling”，意味着该论文将探讨一种<strong>基于集合的随机子采样方法</strong>。</li>
+<li>方法：论文将介绍一种用于随机子采样的方法，该方法可能是基于集合的。这种方法可能是一种统计学或机器学习中的采样技术，<strong>用于从一个集合中随机选择子集</strong>。</li>
+<li>概率性：标题中的 “Stochastic” 表示这种子采样方法是随机的，即在选择子集时可能具有一定的概率性。</li>
+<li>集合：标题中的 “Set Based” 暗示该子采样方法可能与<strong>集合操作和特征选择</strong>相关。这可能意味着论文讨论的是从给定集合中选择子集的方法，或者在集合上执行随机采样的相关技术。</li>
+</ul>
+</li>
+<li>先修知识<ul>
+<li>随机子采样是一种<strong>从给定数据集或总体中随机选择子集的采样方法</strong>。在统计学和机器学习中，随机子采样常用于以下情况：<ul>
+<li><strong>数据集降维</strong>：当数据集非常庞大时，为了减少计算和存储的负担，可以使用随机子采样来选择一个较小的代表性子集，以代替整个数据集进行分析和建模。</li>
+<li><strong>模型训练</strong>：在训练机器学习模型时，如果数据集非常庞大，可能会导致训练时间过长或内存不足的问题。在这种情况下，可以使用随机子采样从数据集中选择一个随机样本子集，用于模型的训练和调优。</li>
+<li><strong>蒙特卡洛模拟</strong>：在蒙特卡洛模拟中，随机子采样可用于从总体中选择一部分样本，以近似估计总体的某些属性或概率分布。</li>
+</ul>
+</li>
+<li>随机子采样的关键特点是<strong>随机性</strong>，即每个样本都有被选择的概率，并且<strong>每次采样都是独立进行的</strong>。通过随机性，我们可以期望采样的子集能够代表整个数据集或总体的特征，从而进行有效的分析、建模或估计。</li>
+</ul>
+</li>
+<li>这篇文章讲了什么内容？<ul>
+<li>这篇文章提出了一个两阶段的端到端神经子采样模型，与任意下游任务网络进行联合优化。该论文的结构如下：<ul>
+<li>引言：论文首先介绍了基于集合的随机子采样问题。他们认为现有的集合子采样方法要么效率低下，要么不能捕捉集合中元素之间的复杂交互。</li>
+<li>方法：接着，论文介绍了他们提出的方法。该方法包括两个阶段：<ul>
+<li>第一阶段<strong>使用条件独立的伯努利随机变量</strong>，通过使用集合编码函数捕捉粗粒度全局信息，高效地对候选元素进行子采样。</li>
+<li>第二阶段使用<strong>条件依赖</strong>的分类随机变量，<strong>利用集合注意力网络对候选集合进行自回归子采样，以建模成对的相互作用</strong>。</li>
+</ul>
+</li>
+<li>实验：接着，论文在多个任务上对他们的方法进行了评估，包括图像分类、图像重构、函数重构和少样本分类。他们表明，在低子采样率下，他们的方法优于相关的基准方法。此外，他们还表明，他们的方法可用于提高非参数模型（如神经过程）的可扩展性。</li>
+</ul>
+</li>
+<li>这篇论文写作精细，实验结果有说服力。所提出的方法是一种有前景的基于集合的随机子采样方法，可以用于改善各种机器学习任务的性能。</li>
+<li>以下是论文的一些主要贡献：<ul>
+<li>论文提出了一个两阶段的端到端神经子采样模型，<strong>与任意下游任务网络进行联合优化</strong>。</li>
+<li>论文表明，在<strong>低子采样率下</strong>，他们的方法优于相关的基准方法。</li>
+<li>论文表明，他们的方法可用于提高<strong>非参数模型（如神经过程）</strong>的可扩展性。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据集</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andriushchenko22a.html">Towards Understanding Sharpness-Aware Minimization（对于锐度感知最小化的理解）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Maksym Andriushchenko（洛桑联邦理工）</li>
+<li>问题：SAM为何有效？</li>
+<li>方法：隐式偏差</li>
+<li>从论文标题中可以了解到的信息<ul>
+<li>主题：论文的主题是 “Sharpness-Aware Minimization”，意味着该论文旨在<strong>研究和理解与最小化损失函数的尖锐度有关的方法</strong>。</li>
+<li>方法：论文将介绍一种名为 “Sharpness-Aware Minimization” 的方法。这种方法可能是一种优化算法或技术，<strong>用于在训练神经网络或优化模型时考虑尖锐度的影响</strong>。</li>
+<li>尖锐度：标题中的 “Sharpness” 暗示该论文将关注尖锐度的概念。在机器学习中，<strong>尖锐度通常指的是损失函数的曲率或梯度的属性</strong>。这可能与模型的收敛性、泛化能力或优化过程中的问题有关。</li>
+<li>探索：标题中的 “Towards Understanding” 表明该论文将探索和理解尖锐度感知最小化的方法。这表明该论文可能会提供对现有优化算法的改进或对尖锐度概念的新见解。</li>
+</ul>
+</li>
+<li>先修知识<ul>
+<li>Sharpness-Aware Minimization（SAM）是一种训练方法，它通过<strong>同时最小化损失值和损失锐度</strong>来提高模型的泛化能力。SAM通过寻找在具有均匀低损失值的邻域中的参数（而不是仅具有低损失值的参数）来实现。</li>
+<li>Sharpness-Aware是指在训练过程中，SAM会尝试在最小化损失值的同时，最小化损失函数的锐度，以此来提高模型的泛化能力。</li>
+</ul>
+</li>
+<li>这篇文章讲了什么内容？<ul>
+<li>这篇文章研究了用于训练深度神经网络的<strong>尖锐度感知最小化（Sharpness-Aware Minimization，SAM）</strong>方法。SAM是一种近期的训练方法，已被证明在各种任务上改善了泛化性能。<strong>该论文旨在通过对其内在偏差进行理论分析，更好地理解SAM方法成功的原因</strong>。</li>
+<li>论文首先回顾了SAM方法。<strong>SAM通过最小化模型预测的最坏尖锐度来工作。尖锐度是衡量模型对权重的微小扰动有多敏感的指标</strong>。通过最小化尖锐度，SAM鼓励模型学习更具鲁棒性的预测结果，<strong>从而减少过拟合训练数据的可能性</strong>。</li>
+<li>接下来，论文提出了对SAM的内在偏差进行理论分析的结果。作者证明了对于某类问题，SAM总是选择一个具有比标准梯度下降更好的泛化特性的解决方案。使用SAM中的m-尖锐度可以放大这种效果，而m-尖锐度已被证明对泛化性能至关重要。</li>
+<li>论文还提供了支持理论发现的实证结果。作者展示了用SAM对标准模型进行微调可以显著提高泛化性能。他们还展示了SAM在噪声标签设置下的有效性，即标签受到噪声污染。</li>
+<li>以下是论文的一些<strong>主要贡献</strong>：<ul>
+<li>论文对SAM的内在偏差提供了理论洞见。</li>
+<li>论文表明SAM可以显著提高泛化性能。</li>
+<li>论文表明SAM在噪声标签设置下是有效的。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据集</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andriushchenko22a.html">Fair and Fast k-Center Clustering for Data Summarization（公平快速的数据概括k中心聚类）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：Haris Angelidakis（苏黎世联邦理工数学系）</li>
+<li>问题：聚类算法中的两个关键性问题：（1）“人口群体”的不公平代表性；（2）失真的数据概括</li>
+<li>方法：K-Center（过于繁琐，没有细看）</li>
+<li>从论文标题中可以了解到的信息<ul>
+<li>主题：该论文的主题是关于数据概括的聚类方法，旨在实现公平和快速的聚类算法。</li>
+<li>公平性：论文关注解决聚类算法在数据概括中可能出现的公平性问题，特别是避免对不同人群的数据选择造成不公平的情况。</li>
+<li>快速性：除了公平性，论文还关注聚类算法的效率，追求快速的运行时间。</li>
+<li><strong>k-Center聚类</strong>：论文所介绍的算法基于k-Center聚类问题，<strong>这是一种常见的聚类方法，通过选择k个中心点将数据划分成不同的簇</strong>。</li>
+<li><strong>数据概括</strong>：该论文的研究目标是数据概括，<strong>即从原始数据中生成代表性的概括或摘要</strong>，以便更有效地分析和处理数据。</li>
+</ul>
+</li>
+<li>这篇文章讲了什么内容？<ul>
+<li>本文针对许多聚类方法在数据概括时面临的两个关键问题进行了探讨：<ul>
+<li><strong>不公平的代表性</strong>：当聚类算法在选择数据点时不成比例地选取某一人群而忽略其他人群时，就会出现这种情况。</li>
+<li><strong>失真的概括</strong>：当聚类算法产生代表原始数据相差巨大的子集概括时，就会出现这种情况。</li>
+</ul>
+</li>
+<li>作者提出了一种新的聚类算法，同时解决了这两个问题。他们的算法<strong>基于k中心聚类问题，但引入了公平约束，以确保所选中心在不同人群之间均匀分布</strong>。该算法还被设计为高效，其运行时间与数据集大小和k呈线性关系。</li>
+<li>作者在多种合成和真实数据集上评估了他们的算法。结果显示，该算法能够产生公平且代表性强的概括，并且具有高效性。</li>
+<li>以下是该论文的一些主要贡献：<ul>
+<li>作者提出了一种新的聚类算法，解决了数据概括中的公平性和代表性问题。</li>
+<li>该算法高效，其运行时间与数据集大小和k呈线性关系。</li>
+<li>作者在多种合成和真实数据集上评估了算法，结果表明该算法能够产生公平且代表性强的概括。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>一言以蔽之<ul>
+<li>给定一个大型数据集，<strong>文档摘要的目标是提取代表整个数据集的一小部分样本</strong>。对较小的数据集进行进一步分析要容易得多。当用较小的子集表示大型数据集面临的一个关键挑战是<strong>正确处理公平考虑</strong>。作者专注于获得底层数据的公平表示的两个中心方面，即：<ul>
+<li><strong>敏感属性正确地反映在摘要中</strong></li>
+<li><strong>摘要中的不同数据点不应该代表不同大小的原始数据的子集</strong>，从而导致摘要失真</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据集</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andriushchenko22a.html">Towards Understanding Sharpness-Aware Minimization（对于锐度感知最小化的理解）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：</li>
+<li>问题：</li>
+<li>方法：</li>
+<li>从论文标题中可以了解到的信息</li>
+<li>先修知识</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andriushchenko22a.html">Towards Understanding Sharpness-Aware Minimization（对于锐度感知最小化的理解）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：</li>
+<li>问题：</li>
+<li>方法：</li>
+<li>从论文标题中可以了解到的信息</li>
+<li>先修知识</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/andriushchenko22a.html">Towards Understanding Sharpness-Aware Minimization（对于锐度感知最小化的理解）</a><ul>
+<li>文章发布在ICML</li>
+<li>时间为2022年</li>
+<li>作者：</li>
+<li>问题：</li>
+<li>方法：</li>
+<li>从论文标题中可以了解到的信息</li>
+<li>先修知识</li>
+</ul>
+</li>
+</ul>
+<hr>
 <h4 id="Neural-Network未读"><a href="#Neural-Network未读" class="headerlink" title="Neural Network未读"></a>Neural Network未读</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22b.html">Robust Training of Neural Networks Using Scale Invariant Architectures</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/li22ad.html">Finding Global Homophily in Graph Neural Networks When Meeting Heterophily</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lin22e.html">Constrained Gradient Descent: A Powerful and Principled Evasion Attack Against Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22k.html">Deep Neural Network Fusion via Graph Matching with Applications to Model Ensemble and Federated Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/liu22s.html">Local Augmentation for Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/lou22a.html">Feature Learning and Signal Propagation in Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/macdonald22a.html">Interpretable Neural Networks with Frank-Wolfe: Sparse Relevance Maps and Relevance Orderings</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/makhija22a.html">Architecture Agnostic Federated Learning for Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/meunier22a.html">A Dynamical System Perspective for Lipschitz Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mihaylova22a.html">Modeling Structure with Undirected Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/mirzadeh22a.html">Wide Neural Networks Forget Less Catastrophically</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/munteanu22a.html">Bounding the Width of Neural Networks via Coupled Initialization A Worst Case Analysis</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/na22a.html">AutoSNN: Towards Energy-Efficient Spiking Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nacson22a.html">Implicit Bias of the Step Size in Linear Diagonal Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nanda22a.html">Measuring Representational Robustness of Neural Networks Through Shared Invariances</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nava22a.html">Fast Aquatic Swimmer Optimization with Differentiable Projective Dynamics and Neural Network Hydrodynamic Models</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/nazaret22a.html">Variational Inference for Infinitely Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pan22b.html">A Unified Weight Initialization Paradigm for Tensorial Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/papp22a.html">A Theoretical Comparison of Graph Neural Network Extensions</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/patil22b.html">POET: Training Neural Networks on Tiny Devices with Integrated Rematerialization and Paging</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pellegrini22a.html">Neural Network Pruning Denoises the Features and Makes Local Connectivity Emerge in Visual Tasks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/pichler22a.html">A Differential Entropy Estimator for Training Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/razin22a.html">Implicit Regularization in Hierarchical Tensor Factorization and Deep Convolutional Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/schotthofer22a.html">Structure Preserving Neural Networks: A Case Study in the Entropy Closure of the Boltzmann Equation</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sheikh22a.html">DNS: Determinantal Point Process Based Neural Network Sampler for Ensemble Reinforcement Learning</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/sieradzki22a.html">Coin Flipping Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/tang22b.html">Rethinking Graph Neural Networks for Anomaly Detection</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/trinh22a.html">Tackling covariate shift with node-based Bayesian neural networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22a.html">What Can Linear Interpolation of Neural Network Loss Landscapes Tell Us?</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/vlaar22b.html">Multirate Training of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22aj.html">DRAGONN: Distributed Randomized Approximate Gradients of Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wang22am.html">How Powerful are Spectral Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wei22d.html">Mitigating Neural Network Overconfidence with Logit Normalization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22d.html">Characterizing and Overcoming the Greedy Nature of Learning in Multi-modal Deep Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/wu22j.html">DAVINZ: Data Valuation using Deep Neural Networks at Initialization</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22h.html">Injecting Logical Constraints into Neural Networks via Straight-Through Estimators</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22i.html">Locally Sparse Neural Networks for Tabular Biomedical Data</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22l.html">Informed Learning by Wide Neural Networks: Convergence, Generalization and Sampling Complexity</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22n.html">A New Perspective on the Effects of Spectrum in Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yang22p.html">Estimating Instance-dependent Bayes-label Transition Matrix using a Deep Neural Network</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yashima22a.html">Feature Space Particle Inference for Neural Network Ensembles</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/you22a.html">ShiftAddNAS: Hardware-Inspired Search for More Accurate and Efficient Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22a.html">Molecular Representation Learning via Heterogeneous Motif Graph Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/yu22f.html">The Combinatorial Brain Surgeon: Pruning Weights That Cancel One Another in Neural Networks</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhang22q.html">Neural Network Weights Do Not Converge to Stationary Points: An Invariant Measure Perspective</a><br><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/zhi22a.html">Learning Efficient and Robust Ordinary Differential Equations via Invertible Neural Networks</a></p>
 <h4 id="待看"><a href="#待看" class="headerlink" title="待看"></a>待看</h4><p><a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/agarwal22a.html">Batched Dueling Bandits</a></p>
 <h4 id="不会"><a href="#不会" class="headerlink" title="不会"></a>不会</h4><p>|<a target="_blank" rel="noopener" href="https://proceedings.mlr.press/v162/frecon22a.html">Bregman Neural Networks</a>|ICML|2022|Jordan Frecon|Machine Learning|TODO|TODO|TODO|</p>
@@ -3116,7 +3350,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-June-6-2023-week8"><span class="toc-number">8.</span> <span class="toc-text">8. June 6, 2023(week8)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">9.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%85%E7%9C%8B"><span class="toc-number">10.</span> <span class="toc-text">待看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">11.</span> <span class="toc-text">不会</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-April-4-2023-week-1"><span class="toc-number">1.</span> <span class="toc-text">1. April 4, 2023(week 1)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-April-4-2023-week-2"><span class="toc-number">2.</span> <span class="toc-text">2. April 4, 2023(week 2)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-April-11-2023-week-3"><span class="toc-number">3.</span> <span class="toc-text">3. April 11, 2023(week 3)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-April-18-2023-week4"><span class="toc-number">4.</span> <span class="toc-text">4. April 18, 2023(week4)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-May-15-2023-week5"><span class="toc-number">5.</span> <span class="toc-text">5. May 15, 2023(week5)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-May-21-2023-week6"><span class="toc-number">6.</span> <span class="toc-text">6. May 21, 2023(week6)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-May-27-2023-week7"><span class="toc-number">7.</span> <span class="toc-text">7. May 27, 2023(week7)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-June-6-2023-week8"><span class="toc-number">8.</span> <span class="toc-text">8. June 6, 2023(week8)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-July-11-2023-week9"><span class="toc-number">9.</span> <span class="toc-text">9. July 11, 2023(week9)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Neural-Network%E6%9C%AA%E8%AF%BB"><span class="toc-number">10.</span> <span class="toc-text">Neural Network未读</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BE%85%E7%9C%8B"><span class="toc-number">11.</span> <span class="toc-text">待看</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%8D%E4%BC%9A"><span class="toc-number">12.</span> <span class="toc-text">不会</span></a></li></ol>
                     </div>
                 </span>
             </div>
