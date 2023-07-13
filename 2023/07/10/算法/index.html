@@ -16,7 +16,7 @@
 <meta property="og:description" content="要计算非加权图中的最短路径，可使用广度优先搜索。要计算加权图中的最短路径，可使用狄克斯特拉算法  如果有负权边，就不能使用狄克斯特拉算法.原因在于，已经处理过的结点，可能会由于负权边的原因，更新到它的最近距离.也就是说，狄克斯特拉算法假设：对于是处理过的节点，没有前往该节点的更短路径。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-10T07:37:48.000Z">
-<meta property="article:modified_time" content="2023-07-12T05:06:25.233Z">
+<meta property="article:modified_time" content="2023-07-13T03:20:44.589Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:199.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:200.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.1k字 | 预计阅读时长：7分钟
+    		字数：3k字 | 预计阅读时长：10分钟
 	</div>
         
   
@@ -301,7 +301,44 @@
 <li><strong>负载均衡</strong></li>
 </ul>
 </li>
-<li><p>有一种特殊的并行算法正越来越流行，它就是<strong>分布式算法</strong>。可让算法在多台计算机上运行。MapReduce</p>
+<li><p>有一种特殊的并行算法正越来越流行，它就是<strong>分布式算法</strong>。可让算法在多台计算机上运行。<strong>MapReduce是一种流行的分布式算法</strong>。分布式算法非常适用于在短时间内完成海量工作，<strong>其中MapReduce基于两个简单的理念：映射（map）函数和归并（reduce）函数</strong></p>
+<ul>
+<li><strong>map就是能够自动将工作分配给计算机，也就是说，映射时将一个数组转换为另一个数组</strong></li>
+<li><strong>归并是将一个数组转换为一个元素</strong></li>
+</ul>
+</li>
+<li><p>当要索引的东西过多时，散列表就稍显乏力。是因为此时的散列表非常大，需要占用大量的存储空间。面临海量数据，<strong>布隆过滤器</strong>提供了解决之道。<strong>布隆过滤器是一种概率性数据结构</strong>，他提供的答案有可能不对，但很可能是正确的。</p>
+</li>
+<li><p>使用散列表时，答案绝对可靠，而使用布隆过滤器时，答案却是很可能是正确的。</p>
+<ul>
+<li><strong>可能出现漏报的情况</strong>，即指出存储了某个数据，但实际上没有存储</li>
+<li><strong>不可能出现漏报的情况</strong>，即如果布隆过滤器说没有存储某个数据，就肯定没有存储</li>
+<li>布隆过滤器的<strong>优点在于占用的存储空间很少</strong>，非常适用于不要求答案绝对准确的情况</li>
+</ul>
+</li>
+<li><p>HyperLogLog是一种类似于布隆过滤器的算法</p>
+</li>
+<li><p>散列函数接受一个字符串，并返回一个索引号。<strong>另一种散列函数是安全散列算法（secure hash algorithm，SHA）函数，给定一个字符串，SHA返回其散列值</strong>.</p>
+<ul>
+<li><strong>可以使用SHA来判断两个文件是否相同</strong>，如果两个文件都很大，不需要一一对比，而可计算它们的SHA散列值，再对结果进行比较</li>
+<li>SHA也可以用来检查密码，可以将密码转换为散列值，但反过来不行。也就是说<strong>SHA是单向的</strong></li>
+</ul>
+</li>
+<li><p><strong>SHA-0 和 SHA-1 已被发现存在一些缺陷</strong>。如果要使用SHA算法来计算密码的散列值，应使用SHA-2 和SHA-3.当前，<strong>最安全的密码散列函数是bcrypt</strong>，但没有任何东西是万无一失的。</p>
+</li>
+<li><p>SHA 还有一个重要特征，那就是<strong>局部不敏感</strong>的。也就是说假设有一个字符串，并计算了其散列值。如果修改其中一个字符，再计算其散列值，结果将截然不同！</p>
+</li>
+<li><p><strong>如果希望散列函数是局部敏感的，可以使用Simhash</strong>，需要检查两项内容的相似程度时，Simhash很有用</p>
+</li>
+<li><p>Diffie-Hellman算法，它以优雅的方法解决了一个古老的问题：如何对消息进行加密，以便只有收件人才能看懂。Diffie-Hellman算法解决了如下两个问题：</p>
+<ul>
+<li><strong>双发无需知道加密算法</strong>。他们不必会面协商要使用的加密算法</li>
+<li><strong>要破解加密的消息比登天还难</strong></li>
+</ul>
+</li>
+<li><p>Diffie-Hellman使用两个密钥：公钥和私钥。Diffie-Hellman算法及其替代者<strong>RSA</strong>依然被广泛使用。</p>
+</li>
+<li><p><strong>线性规划用于在给定约束条件下最大限度地改善指定的指标</strong>。也就是说，最优化问题与线性规划关系密切。所有的图算法都可使用线性规划来实现。线性规划是一个宽泛得多的框架，图问题只是其中的一个子集。<strong>线性规划使用Simplex算法</strong>，很复杂。</p>
 </li>
 </ul>
 <blockquote>
