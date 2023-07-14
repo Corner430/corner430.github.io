@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. conda install jupyter notebook">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T10:53:13.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:02:53.705Z">
+<meta property="article:modified_time" content="2023-07-14T12:49:40.714Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:201.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:201.6k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：397字 | 预计阅读时长：2分钟
+    		字数：648字 | 预计阅读时长：3分钟
 	</div>
         
   
@@ -219,6 +219,29 @@
 <li><code>jupyter notebook list</code>可以查看登录URL和令牌。</li>
 <li><code>ps aux | grep jupyter</code>查找进程PID</li>
 </ul>
+<hr>
+<h1 id="配置自动补全"><a href="#配置自动补全" class="headerlink" title="配置自动补全"></a>配置自动补全</h1><p>在Jupyter Notebook中，可以通过以下步骤设置自动补全功能：</p>
+<ol>
+<li><p>安装 <code>jedi</code> 包：在Jupyter Notebook所在的环境中打开终端或命令提示符，执行以下命令来安装 <code>jedi</code> 包：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install jedi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启用自动补全功能：打开Jupyter Notebook，在一个代码单元格中输入以下代码并运行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">%config IPCompleter.greedy=<span class="literal">True</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<p>或者，在Jupyter Notebook的配置文件中进行设置。可以使用以下命令生成默认的配置文件：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jupyter notebook --generate-config</span><br></pre></td></tr></table></figure>
+
+<p>打开生成的配置文件（<code>jupyter_notebook_config.py</code>），搜索并找到以下行：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># c.Completer.use_jedi = True</span></span><br></pre></td></tr></table></figure>
+
+<p>将其修改为：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c.Completer.use_jedi = <span class="literal">True</span></span><br></pre></td></tr></table></figure>
+
+<p>保存并关闭配置文件。</p>
+<ol start="3">
+<li>重启Jupyter Notebook：关闭当前运行的Jupyter Notebook服务器，并重新启动。</li>
+</ol>
+<p>完成上述步骤后，如果在Jupyter Notebook中输入代码时，将会出现自动补全的建议列表。可以通过按下<code>Tab</code>键来选择建议中的某个选项进行补全。</p>
 
       
 	
@@ -393,7 +416,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-conda-install-jupyter-notebook"><span class="toc-number">1.</span> <span class="toc-text">1. conda install jupyter notebook</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-conda-install-c-conda-forge-jupyter-contrib-nbextensions"><span class="toc-number">2.</span> <span class="toc-text">2. conda install -c conda-forge jupyter_contrib_nbextensions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-generate-your-notebook-config-by-using-the-following-command"><span class="toc-number">3.</span> <span class="toc-text">3. generate your notebook config by using the following command:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-You-will-then-see-a-Python-file-in-jupyter-folder-Edit-them-using-your-favorite-text-editor"><span class="toc-number">4.</span> <span class="toc-text">4. You will then see a Python file in .jupyter folder. Edit them using your favorite text editor.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-Disable-launching-browser-by-redicect-file-by-changing-this-line-default-value-is-True"><span class="toc-number">5.</span> <span class="toc-text">5. Disable launching browser by redicect file by changing this line (default value is True):</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-jupyter-notebook"><span class="toc-number">6.</span> <span class="toc-text">6. jupyter notebook</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-jupyter-notebook-amp"><span class="toc-number">7.</span> <span class="toc-text">1. jupyter notebook &amp;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-You-should-see-output-similar-to-the-following"><span class="toc-number">8.</span> <span class="toc-text">2. You should see output similar to the following:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Close-the-terminal-or-command-prompt-window-Jupyter-Notebook-should-continue-to-run-in-the-background"><span class="toc-number">9.</span> <span class="toc-text">3. Close the terminal or command prompt window. Jupyter Notebook should continue to run in the background</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A9%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E8%AE%BE%E5%A4%87%E9%83%BD%E8%83%BD%E8%BF%9E%E6%8E%A5"><span class="toc-number"></span> <span class="toc-text">让局域网内设备都能连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%82%E5%85%A5%E5%90%8E%E5%8F%B0%EF%BC%8C%E5%85%B3%E9%97%AD%E7%BB%88%E7%AB%AF%E4%B9%9F%E8%83%BD%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">挂入后台，关闭终端也能用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number"></span> <span class="toc-text">注意事项</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-conda-install-jupyter-notebook"><span class="toc-number">1.</span> <span class="toc-text">1. conda install jupyter notebook</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-conda-install-c-conda-forge-jupyter-contrib-nbextensions"><span class="toc-number">2.</span> <span class="toc-text">2. conda install -c conda-forge jupyter_contrib_nbextensions</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-generate-your-notebook-config-by-using-the-following-command"><span class="toc-number">3.</span> <span class="toc-text">3. generate your notebook config by using the following command:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-You-will-then-see-a-Python-file-in-jupyter-folder-Edit-them-using-your-favorite-text-editor"><span class="toc-number">4.</span> <span class="toc-text">4. You will then see a Python file in .jupyter folder. Edit them using your favorite text editor.</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5-Disable-launching-browser-by-redicect-file-by-changing-this-line-default-value-is-True"><span class="toc-number">5.</span> <span class="toc-text">5. Disable launching browser by redicect file by changing this line (default value is True):</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-jupyter-notebook"><span class="toc-number">6.</span> <span class="toc-text">6. jupyter notebook</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-jupyter-notebook-amp"><span class="toc-number">7.</span> <span class="toc-text">1. jupyter notebook &amp;</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-You-should-see-output-similar-to-the-following"><span class="toc-number">8.</span> <span class="toc-text">2. You should see output similar to the following:</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-Close-the-terminal-or-command-prompt-window-Jupyter-Notebook-should-continue-to-run-in-the-background"><span class="toc-number">9.</span> <span class="toc-text">3. Close the terminal or command prompt window. Jupyter Notebook should continue to run in the background</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A9%E5%B1%80%E5%9F%9F%E7%BD%91%E5%86%85%E8%AE%BE%E5%A4%87%E9%83%BD%E8%83%BD%E8%BF%9E%E6%8E%A5"><span class="toc-number"></span> <span class="toc-text">让局域网内设备都能连接</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%82%E5%85%A5%E5%90%8E%E5%8F%B0%EF%BC%8C%E5%85%B3%E9%97%AD%E7%BB%88%E7%AB%AF%E4%B9%9F%E8%83%BD%E7%94%A8"><span class="toc-number"></span> <span class="toc-text">挂入后台，关闭终端也能用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-number"></span> <span class="toc-text">注意事项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number"></span> <span class="toc-text">配置自动补全</span></a>
                     </div>
                 </span>
             </div>
