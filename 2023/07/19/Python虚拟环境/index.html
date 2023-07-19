@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner430.github.io">
-  <title>Maximum Likelihood Estimation, Bayesian Estimation, and Maximum A Posteriori Estimation | Hexo</title>
+  <title>Python虚拟环境 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="极大似然估计和贝叶斯估计 贝叶斯估计、最大似然估计、最大后验概率估计">
+  <meta name="description" content="当开发Python项目时，使用虚拟环境是一种良好的实践，因为它可以让你在不同的项目中隔离Python环境和包依赖。这样可以避免因为不同项目之间的包版本冲突而导致的问题，并且使得项目更具可移植性和可维护性。下面我将进一步解释Python虚拟环境的实践知识，并举例说明。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Maximum Likelihood Estimation, Bayesian Estimation, and Maximum A Posteriori Estimation">
-<meta property="og:url" content="http://corner430.github.io/2023/04/03/Maximum-Likelihood-Estimation-Bayesian-Estimation-and-Maximum-A-Posteriori-Estimation/index.html">
+<meta property="og:title" content="Python虚拟环境">
+<meta property="og:url" content="http://corner430.github.io/2023/07/19/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="极大似然估计和贝叶斯估计 贝叶斯估计、最大似然估计、最大后验概率估计">
+<meta property="og:description" content="当开发Python项目时，使用虚拟环境是一种良好的实践，因为它可以让你在不同的项目中隔离Python环境和包依赖。这样可以避免因为不同项目之间的包版本冲突而导致的问题，并且使得项目更具可移植性和可维护性。下面我将进一步解释Python虚拟环境的实践知识，并举例说明。">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-03T13:49:59.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:02:53.785Z">
+<meta property="article:published_time" content="2023-07-19T15:38:07.000Z">
+<meta property="article:modified_time" content="2023-07-19T15:39:14.149Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -156,17 +156,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Maximum-Likelihood-Estimation-Bayesian-Estimation-and-Maximum-A-Posteriori-Estimation" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-Python虚拟环境" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：31字 | 预计阅读时长：1分钟
+    		字数：809字 | 预计阅读时长：2分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      Maximum Likelihood Estimation, Bayesian Estimation, and Maximum A Posteriori Estimation
+      Python虚拟环境
     </h1>
   
 
@@ -182,18 +182,70 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/04/03/Maximum-Likelihood-Estimation-Bayesian-Estimation-and-Maximum-A-Posteriori-Estimation/" class="archive-article-date">
-  	<time datetime="2023-04-03T13:49:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+        <a href="/2023/07/19/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" class="archive-article-date">
+  	<time datetime="2023-07-19T15:38:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ul>
-<li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/61593112">极大似然估计和贝叶斯估计</a></li>
-<li><a target="_blank" rel="noopener" href="http://noahsnail.com/2018/05/17/2018-05-17-%E8%B4%9D%E5%8F%B6%E6%96%AF%E4%BC%B0%E8%AE%A1%E3%80%81%E6%9C%80%E5%A4%A7%E4%BC%BC%E7%84%B6%E4%BC%B0%E8%AE%A1%E3%80%81%E6%9C%80%E5%A4%A7%E5%90%8E%E9%AA%8C%E6%A6%82%E7%8E%87%E4%BC%B0%E8%AE%A1/">贝叶斯估计、最大似然估计、最大后验概率估计</a></li>
-</ul>
+        <p>当开发Python项目时，使用虚拟环境是一种良好的实践，因为它可以让你在不同的项目中隔离Python环境和包依赖。这样可以避免因为不同项目之间的包版本冲突而导致的问题，并且使得项目更具可移植性和可维护性。下面我将进一步解释Python虚拟环境的实践知识，并举例说明。<span id="more"></span></p>
+<h2 id="为什么使用虚拟环境？"><a href="#为什么使用虚拟环境？" class="headerlink" title="为什么使用虚拟环境？"></a>为什么使用虚拟环境？</h2><p>在没有虚拟环境的情况下，所有的Python项目都共享同一个全局Python环境。这意味着，如果一个项目依赖于某个特定版本的库（比如Django的某个版本），而另一个项目依赖于同一库的不同版本，就会导致冲突。</p>
+<p>使用虚拟环境可以解决这个问题，因为每个虚拟环境都有自己的Python解释器和独立的包目录。这样，每个项目都可以在自己的虚拟环境中安装所需的依赖，而不会影响其他项目。</p>
+<h2 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h2><p>Python自带了一个名为<code>venv</code>的模块，用于创建虚拟环境。在命令行中，进入你想要创建虚拟环境的项目目录，并执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m venv my_env</span><br></pre></td></tr></table></figure>
+
+<p>这将在当前目录下创建一个名为<code>my_env</code>的虚拟环境。你可以用不同的名称替换<code>my_env</code>。</p>
+<h2 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h2><p>创建虚拟环境后，需要激活它才能在其中工作。在Windows上，激活虚拟环境的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">my_env\Scripts\activate</span><br></pre></td></tr></table></figure>
+
+<p>在类Unix系统（如Linux和macOS）上，激活虚拟环境的命令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> my_env/bin/activate</span><br></pre></td></tr></table></figure>
+
+<p>激活虚拟环境后，你将看到终端提示符前面多了虚拟环境的名称，表示你现在处于激活的虚拟环境中。</p>
+<h2 id="安装和管理依赖"><a href="#安装和管理依赖" class="headerlink" title="安装和管理依赖"></a>安装和管理依赖</h2><p>激活虚拟环境后，你可以使用<code>pip</code>命令安装项目所需的包依赖，而这些依赖将仅与当前虚拟环境相关联。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install package_name</span><br></pre></td></tr></table></figure>
+
+<p>如果你想将当前虚拟环境中已安装的包列表保存到文件中，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip freeze &gt; requirements.txt</span><br></pre></td></tr></table></figure>
+
+<p>要在另一个虚拟环境或计算机上重新创建相同的环境，可以使用以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+<h2 id="退出虚拟环境"><a href="#退出虚拟环境" class="headerlink" title="退出虚拟环境"></a>退出虚拟环境</h2><p>当你完成一个项目的开发或者需要切换到另一个项目时，可以通过以下命令退出虚拟环境：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><p>假设你有两个Python项目：ProjectA和ProjectB。它们都需要不同版本的某个库，比如Django。</p>
+<ol>
+<li>首先，进入ProjectA的目录，并创建一个虚拟环境：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ProjectA</span><br><span class="line">python -m venv <span class="built_in">env</span></span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>激活虚拟环境：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> <span class="built_in">env</span>/bin/activate  <span class="comment"># On Linux/macOS</span></span><br></pre></td></tr></table></figure>
+
+<p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">env</span>\Scripts\activate  <span class="comment"># On Windows</span></span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>安装ProjectA所需的库：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install Django==2.2</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>退出虚拟环境：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">deactivate</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>进入ProjectB的目录，重复步骤2和步骤3，但是这次安装另一个版本的Django：</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ProjectB</span><br><span class="line">python -m venv <span class="built_in">env</span></span><br><span class="line"><span class="built_in">source</span> <span class="built_in">env</span>/bin/activate  <span class="comment"># On Linux/macOS, or env\Scripts\activate on Windows</span></span><br><span class="line">pip install Django==3.0</span><br></pre></td></tr></table></figure>
+
+<p>这样，ProjectA和ProjectB就各自拥有了独立的Python环境和依赖库，互不干扰。这就是使用虚拟环境的好处。</p>
 
       
 	
@@ -219,7 +271,24 @@
 
 
 
-  <div class="declare" hidden="hidden"></div>
+  <div class="declare">
+    <strong>本文作者：</strong>
+    
+      Corner
+    
+    <br>
+    <strong>本文链接：</strong>
+    <a rel="license" href="http://corner430.github.io/2023/07/19/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/">http://corner430.github.io/2023/07/19/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</a>
+    <br>
+    <strong>版权声明：</strong>
+    本作品采用
+    <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">知识共享署名-非商业性使用-相同方式共享 4.0 国际许可协议</a>
+    进行许可。转载请注明出处！
+    
+      <br>
+      <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="知识共享许可协议" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png"/></a>
+    
+  </div>
 
 
 <!-- 增加版权声明结束 -->
@@ -299,7 +368,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/04/03/Maximum-Likelihood-Estimation-Bayesian-Estimation-and-Maximum-A-Posteriori-Estimation/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/07/19/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -313,18 +382,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/04/03/%E6%83%85%E7%BB%AA%E5%9E%83%E5%9C%BE/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          情绪垃圾
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/04/03/Fun-Linux-commands/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Fun Linux commands</div>
+    <a href="/2023/07/18/%E5%AF%B9%E6%AF%94%E5%AD%A6%E4%B9%A0%EF%BC%88Contrastive-Learning%EF%BC%89/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">对比学习（Contrastive Learning）</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -351,7 +411,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">为什么使用虚拟环境？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">2.</span> <span class="toc-text">创建虚拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">激活虚拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%92%8C%E7%AE%A1%E7%90%86%E4%BE%9D%E8%B5%96"><span class="toc-number">4.</span> <span class="toc-text">安装和管理依赖</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%80%E5%87%BA%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-number">5.</span> <span class="toc-text">退出虚拟环境</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">示例</span></a></li></ol>
                     </div>
                 </span>
             </div>
