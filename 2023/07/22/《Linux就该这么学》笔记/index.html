@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>《Linux就该这么学》笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
+  <meta name="description" content="1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:type" content="article">
 <meta property="og:title" content="《Linux就该这么学》笔记">
 <meta property="og:url" content="http://corner430.github.io/2023/07/22/%E3%80%8ALinux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
+<meta property="og:description" content="1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-22T12:29:38.000Z">
-<meta property="article:modified_time" content="2023-07-22T15:32:38.343Z">
+<meta property="article:modified_time" content="2023-07-22T15:40:42.233Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -190,16 +190,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
-<li>使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？<span id="more"></span></li>
-</ol>
-<ul>
+        <h4 id="1-使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL-7-系统镜像光盘？"><a href="#1-使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL-7-系统镜像光盘？" class="headerlink" title="1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？"></a>1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？<span id="more"></span></h4><ul>
 <li>在配置界面中若直接选择了 RHEL 7 系统镜像，则 VMware Workstation 虚拟机会使用内置得安装向导自动进行安装，最终安装出来的系统跟我们后续进行实验所需的系统环境会不一样。</li>
 </ul>
-<ol start="2">
-<li>安装RHEL 7 时，单击NETWORK &amp; HOSTNAME 选项后，将Hostname 字段设置成什么都代表什么意思？这个Hostname字段代表什么？</li>
-</ol>
-<ul>
+<h4 id="2-安装RHEL-7-时，单击NETWORK-amp-HOSTNAME-选项后，将Hostname-字段设置成什么都代表什么意思？这个Hostname字段代表什么？"><a href="#2-安装RHEL-7-时，单击NETWORK-amp-HOSTNAME-选项后，将Hostname-字段设置成什么都代表什么意思？这个Hostname字段代表什么？" class="headerlink" title="2. 安装RHEL 7 时，单击NETWORK &amp; HOSTNAME 选项后，将Hostname 字段设置成什么都代表什么意思？这个Hostname字段代表什么？"></a>2. 安装RHEL 7 时，单击NETWORK &amp; HOSTNAME 选项后，将Hostname 字段设置成什么都代表什么意思？这个Hostname字段代表什么？</h4><ul>
 <li>在安装RHEL 7（Red Hat Enterprise Linux 7）时，当你单击”NETWORK &amp; HOSTNAME”选项后，将Hostname字段设置为空白，通常意味着将使用默认主机名或空主机名。具体解释如下：<ol>
 <li>默认主机名：RHEL 7在安装过程中可能会生成一个默认的主机名，该主机名通常由系统根据硬件和网络配置生成。这样的主机名可能是类似于”localhost.localdomain”的形式。默认主机名不会是一个有意义的名称，而只是一个临时标识。</li>
 <li>空主机名：将Hostname字段完全留空也是可能的。这样做意味着你将得到一个没有特定名称的主机，仅由网络IP地址标识。在网络上，这被称为”无名主机”或”匿名主机”，它不会有特定的主机名与之相关联。<br>  无论是使用默认主机名还是空主机名，都不是推荐的做法，特别是在企业网络中。在生产环境中，为了更好地管理和识别主机，建议给主机分配有意义的名称。主机名是标识网络中计算机的方式之一，使得其他计算机和管理员更容易理解和管理网络拓扑。</li>
@@ -212,19 +206,19 @@
 </ul>
 </li>
 </ul>
-<ol start="3">
-<li>主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。<br>在计算机网络中，每台计算机都应该有一个唯一的主机名，类似于人类的名字。主机名有助于进行以下几项任务：</li>
+<h4 id="3-主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。"><a href="#3-主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。" class="headerlink" title="3. 主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。"></a>3. 主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。</h4><p>在计算机网络中，每台计算机都应该有一个唯一的主机名，类似于人类的名字。主机名有助于进行以下几项任务：</p>
+<ol>
 <li>网络标识：通过主机名，其他计算机可以直接访问指定的主机，而无需记住其IP地址。这使得网络通信更加方便和人性化。</li>
 <li>网络通信：在网络通信中，计算机可以使用主机名来向特定的目标主机发送数据和请求，而不需要手动输入目标IP地址。</li>
 <li>系统管理：在服务器和网络设备管理中，主机名用于识别和区分不同的计算机。这有助于管理员更轻松地识别和处理问题。</li>
 <li>安全性：主机名可以用于设置访问控制和安全策略，使得特定计算机只能与其他指定主机进行通信。<br>值得注意的是，主机名不是全局唯一的，它在特定的网络范围内必须是唯一的。例如，在局域网（LAN）中，每台计算机应该有唯一的主机名，但在不同的局域网中可以有相同的主机名。<br>主机名和域名有时会混淆。域名是一个更复杂的层次结构，用于在Internet上唯一标识网站和网络服务。主机名通常是域名的一部分，表示特定的计算机或服务器。例如，对于网站<a target="_blank" rel="noopener" href="http://www.example.com," www"是主机名,"example.com"是域名. ">www.example.com，&quot;www&quot;是主机名，&quot;example.com&quot;是域名。</a></li>
-<li>Kdump服务<br>Kdump是一种用于系统崩溃时捕获并保存内核转储（crash dump）信息的服务。在Linux系统中，Kdump是一种可靠的调试和故障排除工具，它可以帮助开发人员和系统管理员在系统崩溃或遇到严重问题时进行分析和诊断。</li>
 </ol>
+<h4 id="4-Kdump服务"><a href="#4-Kdump服务" class="headerlink" title="4. Kdump服务"></a>4. Kdump服务</h4><p>Kdump是一种用于系统崩溃时捕获并保存内核转储（crash dump）信息的服务。在Linux系统中，Kdump是一种可靠的调试和故障排除工具，它可以帮助开发人员和系统管理员在系统崩溃或遇到严重问题时进行分析和诊断。</p>
 <p>当Linux系统遇到严重错误导致崩溃时，通常会生成一个内核转储文件。内核转储文件包含了系统崩溃时内核内存空间的快照，其中包含了有关导致崩溃的信息，例如内核堆栈、寄存器状态、调用跟踪等。这些信息对于分析和定位导致崩溃的原因至关重要。</p>
 <p><strong>Kdump服务的主要功能是在系统崩溃时自动收集内核转储信息并保存到预定的位置，通常是一个特定的文件或网络位置</strong>。为了实现这个功能，Kdump服务需要一个用于保存转储信息的空间，通常是一个专门的分区。</p>
 <p>在安装Linux系统时，你可以选择是否启用Kdump服务。<strong>如果启用了Kdump</strong>，系统会在安装完成后自动配置该服务。如果系统在未来遇到严重的崩溃或故障，Kdump服务将捕获转储信息，并在重启后提供给管理员或开发人员进行分析。</p>
-<p>Kdump服务对于服务器和生产环境非常有用，特别是在面临严重问题时。它可以帮助减少故障排除的时间，快速定位问题，并提供有关系统状态的重要信息，有助于更快地恢复系统正常运行。<br>5. RPM(红帽软件包管理器)<strong>并非只有</strong>红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。<br>6. <strong>System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统</strong>，但它们在实现和功能上有一些重要的区别。</p>
-<ol>
+<p>Kdump服务对于服务器和生产环境非常有用，特别是在面临严重问题时。它可以帮助减少故障排除的时间，快速定位问题，并提供有关系统状态的重要信息，有助于更快地恢复系统正常运行。</p>
+<h4 id="5-RPM-红帽软件包管理器-并非只有红帽企业系统在使用，RPM-已经被-CentOS、Fedora、openSUSE-等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。"><a href="#5-RPM-红帽软件包管理器-并非只有红帽企业系统在使用，RPM-已经被-CentOS、Fedora、openSUSE-等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。" class="headerlink" title="5. RPM(红帽软件包管理器)并非只有红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。"></a>5. RPM(红帽软件包管理器)<strong>并非只有</strong>红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。</h4><h4 id="6-System-V-init（简称SysV-init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。"><a href="#6-System-V-init（简称SysV-init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。" class="headerlink" title="6. System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。"></a>6. <strong>System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统</strong>，但它们在实现和功能上有一些重要的区别。</h4><ol>
 <li>初始化脚本和启动过程：</li>
 </ol>
 <ul>
@@ -252,8 +246,8 @@
 <li>SysV init：SysV init的日志管理依赖于Syslog守护进程，而Syslog本身可能需要额外的配置和管理。</li>
 <li>systemd：systemd采用了日志管理工具”journalctl”，它可以直接查看和管理系统日志，提供了更强大的日志功能和过滤选项。</li>
 </ul>
-<p>总体来说，systemd相比SysV init在性能和功能方面都更为强大和现代化。它简化了系统管理，提高了启动速度，并引入了许多有用的特性。随着Linux发行版的发展，越来越多的系统选择采用systemd作为默认的初始化系统。<br>7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的<strong>命令行解释器（shell）</strong>。它是<strong>从Bourne Shell（sh）</strong>扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。</p>
-<p>Bash提供了一个命令行界面，用户可以在其中输入命令，并通过键入文本命令与操作系统进行交互。它是用户与操作系统进行交互的主要途径之一，也是系统管理员进行脚本编写和自动化管理任务的重要工具。</p>
+<p>总体来说，systemd相比SysV init在性能和功能方面都更为强大和现代化。它简化了系统管理，提高了启动速度，并引入了许多有用的特性。随着Linux发行版的发展，越来越多的系统选择采用systemd作为默认的初始化系统。</p>
+<h4 id="7-Bash（Bourne-Again-SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne-Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。"><a href="#7-Bash（Bourne-Again-SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne-Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。" class="headerlink" title="7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。"></a>7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的<strong>命令行解释器（shell）</strong>。它是<strong>从Bourne Shell（sh）</strong>扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。</h4><p>Bash提供了一个命令行界面，用户可以在其中输入命令，并通过键入文本命令与操作系统进行交互。它是用户与操作系统进行交互的主要途径之一，也是系统管理员进行脚本编写和自动化管理任务的重要工具。</p>
 <p>Bash的特性包括：</p>
 <ol>
 <li><p>命令行历史：Bash会记录用户在命令行中输入的历史命令，用户可以使用方向键或历史命令快捷键来浏览和重复以前执行过的命令。</p>
@@ -269,8 +263,8 @@
 <li><p>管道和重定向：Bash支持通过管道(|)将命令连接起来，使得多个命令可以一起协作处理数据。同时，还支持重定向标准输入、输出和错误，允许将命令的输入输出定向到文件或其他进程中。</p>
 </li>
 </ol>
-<p>Bash在Linux和其他Unix-like系统中具有广泛的应用，几乎所有Linux发行版都默认安装了Bash作为标准shell。它的功能强大且易于学习，成为了开发人员、系统管理员和普通用户的首选命令行解释器。<br>8. 在Linux和Unix系统中，许多命令都具有两种格式：<strong>长格式和短格式</strong>。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。</p>
-<ol>
+<p>Bash在Linux和其他Unix-like系统中具有广泛的应用，几乎所有Linux发行版都默认安装了Bash作为标准shell。它的功能强大且易于学习，成为了开发人员、系统管理员和普通用户的首选命令行解释器。</p>
+<h4 id="8-在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。"><a href="#8-在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。" class="headerlink" title="8. 在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。"></a>8. 在Linux和Unix系统中，许多命令都具有两种格式：<strong>长格式和短格式</strong>。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。</h4><ol>
 <li>命令长格式（Long Format）：</li>
 </ol>
 <ul>
@@ -290,8 +284,8 @@
 <li>举例：假设有一个命令”command”，它有一个短格式选项”o”，并且该选项需要一个参数，则短格式的命令用法可能如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o parameter</span><br></pre></td></tr></table></figure></li>
 </ul>
 <p>需要注意的是，并非所有命令都同时支持长格式和短格式的选项。一些命令只支持其中一种格式，而有些命令可能同时支持两种格式。</p>
-<p>在使用命令时，通常可以通过命令的帮助文档或手册（man page）来查看该命令支持的选项和使用方式，帮助用户了解如何正确地使用长格式和短格式选项。通常，使用长格式选项可以使命令更易读和易懂，而使用短格式选项可以使命令的输入更加简洁和迅速。<br>9. <strong>在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起</strong>。这样做有助于更有效地输入命令并实现更复杂的功能。</p>
-<p>举例来说，假设有一个名为”command”的命令，它有两个选项”option1”和”option2”，并且每个选项都需要一个参数。同时，这个命令还需要一个额外的参数”file”，来指定操作的文件名。</p>
+<p>在使用命令时，通常可以通过命令的帮助文档或手册（man page）来查看该命令支持的选项和使用方式，帮助用户了解如何正确地使用长格式和短格式选项。通常，使用长格式选项可以使命令更易读和易懂，而使用短格式选项可以使命令的输入更加简洁和迅速。</p>
+<h4 id="9-在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。"><a href="#9-在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。" class="headerlink" title="9. 在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。"></a>9. <strong>在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起</strong>。这样做有助于更有效地输入命令并实现更复杂的功能。</h4><p>举例来说，假设有一个名为”command”的命令，它有两个选项”option1”和”option2”，并且每个选项都需要一个参数。同时，这个命令还需要一个额外的参数”file”，来指定操作的文件名。</p>
 <ol>
 <li><p>使用长格式选项和参数复合：</p>
   <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option1=value1 --option2=value2 file</span><br></pre></td></tr></table></figure>
@@ -305,9 +299,9 @@
 <p>需要注意的是，不是所有命令都支持在长格式和短格式中复合使用选项和参数。某些命令可能只支持单个选项，或者将选项和参数的输入方式限定为特定的格式。因此，在使用命令时，最好查阅相关命令的帮助文档或手册（man page），了解该命令支持的选项和参数的正确使用方式。</p>
 <p>总体而言，长格式和短格式的选项和参数复合使用使得命令更加灵活和易用，有助于更高效地执行复杂的任务和指定多个选项。这种灵活性是Linux和Unix命令行工具的重要特性之一。</p>
 <blockquote>
-<p>但是长短格式不可以同时复合使用<br>10. 常用命令</p>
+<p>但是长短格式不可以同时复合使用</p>
 </blockquote>
-<ul>
+<h4 id="10-常用命令"><a href="#10-常用命令" class="headerlink" title="10. 常用命令"></a>10. 常用命令</h4><ul>
 <li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/echo.html">echo: 输出指定的字符串或者变量</a></p>
 </li>
 <li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/date.html">date: 显示或设置系统时间与日期</a></p>
@@ -444,8 +438,7 @@
 <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/grep.html">grep: 强大的文本搜索工具</a>，例如<code>-v</code></li>
 <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/find.html">find: 在指定目录下查找文件</a></li>
 </ul>
-<p>11. </p>
-
+<h4 id="11"><a href="#11" class="headerlink" title="11."></a>11.</h4>
       
 	
        
@@ -610,7 +603,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E4%BD%BF%E7%94%A8%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85Linux%E7%B3%BB%E7%BB%9F%E6%97%B6%EF%BC%8C%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%85%88%E9%80%89%E6%8B%A9%E7%A8%8D%E5%90%8E%E5%AE%89%E8%A3%85%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%98%AF%E5%8E%BB%E9%80%89%E6%8B%A9RHEL-7-%E7%B3%BB%E7%BB%9F%E9%95%9C%E5%83%8F%E5%85%89%E7%9B%98%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85RHEL-7-%E6%97%B6%EF%BC%8C%E5%8D%95%E5%87%BBNETWORK-amp-HOSTNAME-%E9%80%89%E9%A1%B9%E5%90%8E%EF%BC%8C%E5%B0%86Hostname-%E5%AD%97%E6%AE%B5%E8%AE%BE%E7%BD%AE%E6%88%90%E4%BB%80%E4%B9%88%E9%83%BD%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%E6%84%8F%E6%80%9D%EF%BC%9F%E8%BF%99%E4%B8%AAHostname%E5%AD%97%E6%AE%B5%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">2. 安装RHEL 7 时，单击NETWORK &amp; HOSTNAME 选项后，将Hostname 字段设置成什么都代表什么意思？这个Hostname字段代表什么？</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E4%B8%BB%E6%9C%BA%E5%90%8D%E6%98%AF%E7%94%A8%E4%BA%8E%E5%9C%A8%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E4%B8%AD%E6%A0%87%E8%AF%86%E7%89%B9%E5%AE%9A%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%90%8D%E7%A7%B0%E3%80%82%E5%AE%83%E6%98%AF%E4%B8%80%E4%B8%AA%E7%94%B1%E5%AD%97%E6%AF%8D%E3%80%81%E6%95%B0%E5%AD%97%E5%92%8C%E7%9F%AD%E6%A8%AA%E7%BA%BF%E7%BB%84%E6%88%90%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%EF%BC%8C%E7%94%A8%E4%BA%8E%E8%AF%86%E5%88%AB%E7%BD%91%E7%BB%9C%E4%B8%AD%E7%9A%84%E4%B8%8D%E5%90%8C%E8%AE%A1%E7%AE%97%E6%9C%BA%E3%80%82%E4%B8%BB%E6%9C%BA%E5%90%8D%E7%9A%84%E4%BD%9C%E7%94%A8%E6%98%AF%E8%AE%A9%E5%85%B6%E4%BB%96%E8%AE%A1%E7%AE%97%E6%9C%BA%E5%92%8C%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E6%9B%B4%E5%AE%B9%E6%98%93%E8%AF%86%E5%88%AB%E3%80%81%E8%AE%BF%E9%97%AE%E5%92%8C%E4%BA%A4%E4%BA%92%E3%80%82"><span class="toc-number">3.</span> <span class="toc-text">3. 主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-Kdump%E6%9C%8D%E5%8A%A1"><span class="toc-number">4.</span> <span class="toc-text">4. Kdump服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-RPM-%E7%BA%A2%E5%B8%BD%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%AE%A1%E7%90%86%E5%99%A8-%E5%B9%B6%E9%9D%9E%E5%8F%AA%E6%9C%89%E7%BA%A2%E5%B8%BD%E4%BC%81%E4%B8%9A%E7%B3%BB%E7%BB%9F%E5%9C%A8%E4%BD%BF%E7%94%A8%EF%BC%8CRPM-%E5%B7%B2%E7%BB%8F%E8%A2%AB-CentOS%E3%80%81Fedora%E3%80%81openSUSE-%E7%AD%89%E4%BC%97%E5%A4%9ALinux%E7%B3%BB%E7%BB%9F%E9%87%87%E7%94%A8%E3%80%82RPM%E6%98%AF%E4%B8%BA%E4%BA%86%E7%AE%80%E5%8C%96%E5%AE%89%E8%A3%85%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%8C%E8%80%8CYum%E8%BD%AF%E4%BB%B6%E4%BB%93%E5%BA%93%E6%98%AF%E4%B8%BA%E4%BA%86%E8%A7%A3%E5%86%B3%E8%BD%AF%E4%BB%B6%E5%8C%85%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB%E3%80%82"><span class="toc-number">5.</span> <span class="toc-text">5. RPM(红帽软件包管理器)并非只有红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-System-V-init%EF%BC%88%E7%AE%80%E7%A7%B0SysV-init%EF%BC%89%E5%92%8Csystemd%E9%83%BD%E6%98%AF%E7%94%A8%E4%BA%8E%E5%88%9D%E5%A7%8B%E5%8C%96Linux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%88%9D%E5%A7%8B%E5%8C%96%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%BD%86%E5%AE%83%E4%BB%AC%E5%9C%A8%E5%AE%9E%E7%8E%B0%E5%92%8C%E5%8A%9F%E8%83%BD%E4%B8%8A%E6%9C%89%E4%B8%80%E4%BA%9B%E9%87%8D%E8%A6%81%E7%9A%84%E5%8C%BA%E5%88%AB%E3%80%82"><span class="toc-number">6.</span> <span class="toc-text">6. System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-Bash%EF%BC%88Bourne-Again-SHell%EF%BC%89%E6%98%AF%E4%B8%80%E7%A7%8DUnix%E5%92%8CLinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E4%B8%8A%E5%B9%BF%E6%B3%9B%E4%BD%BF%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%A7%A3%E9%87%8A%E5%99%A8%EF%BC%88shell%EF%BC%89%E3%80%82%E5%AE%83%E6%98%AF%E4%BB%8EBourne-Shell%EF%BC%88sh%EF%BC%89%E6%89%A9%E5%B1%95%E5%92%8C%E6%94%B9%E8%BF%9B%E8%80%8C%E6%9D%A5%E7%9A%84%EF%BC%8C%E6%8F%90%E4%BE%9B%E4%BA%86%E8%AE%B8%E5%A4%9A%E5%A2%9E%E5%BC%BA%E5%8A%9F%E8%83%BD%E5%92%8C%E6%94%B9%E8%BF%9B%EF%BC%8C%E6%88%90%E4%B8%BA%E4%BA%86%E7%8E%B0%E4%BB%A3Unix-like%E7%B3%BB%E7%BB%9F%E4%B8%AD%E9%BB%98%E8%AE%A4%E7%9A%84shell%E3%80%82"><span class="toc-number">7.</span> <span class="toc-text">7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-%E5%9C%A8Linux%E5%92%8CUnix%E7%B3%BB%E7%BB%9F%E4%B8%AD%EF%BC%8C%E8%AE%B8%E5%A4%9A%E5%91%BD%E4%BB%A4%E9%83%BD%E5%85%B7%E6%9C%89%E4%B8%A4%E7%A7%8D%E6%A0%BC%E5%BC%8F%EF%BC%9A%E9%95%BF%E6%A0%BC%E5%BC%8F%E5%92%8C%E7%9F%AD%E6%A0%BC%E5%BC%8F%E3%80%82%E8%BF%99%E4%B8%A4%E7%A7%8D%E6%A0%BC%E5%BC%8F%E7%94%A8%E4%BA%8E%E6%8F%90%E4%BE%9B%E4%B8%8D%E5%90%8C%E7%9A%84%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0%E7%9A%84%E8%BE%93%E5%85%A5%E6%96%B9%E5%BC%8F%EF%BC%8C%E4%BD%BF%E5%BE%97%E7%94%A8%E6%88%B7%E5%8F%AF%E4%BB%A5%E6%A0%B9%E6%8D%AE%E5%AE%9E%E9%99%85%E9%9C%80%E6%B1%82%E9%80%89%E6%8B%A9%E6%9B%B4%E6%96%B9%E4%BE%BF%E7%9A%84%E6%96%B9%E5%BC%8F%E6%9D%A5%E6%89%A7%E8%A1%8C%E5%91%BD%E4%BB%A4%E3%80%82"><span class="toc-number">8.</span> <span class="toc-text">8. 在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-%E5%9C%A8%E5%A4%A7%E5%A4%9A%E6%95%B0%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E5%91%BD%E4%BB%A4%E9%80%89%E9%A1%B9%E5%92%8C%E5%8F%82%E6%95%B0%E5%8F%AF%E4%BB%A5%E5%9C%A8%E9%95%BF%E6%A0%BC%E5%BC%8F%E5%92%8C%E7%9F%AD%E6%A0%BC%E5%BC%8F%E4%B8%AD%E5%A4%8D%E5%90%88%E4%BD%BF%E7%94%A8%EF%BC%8C%E5%85%81%E8%AE%B8%E5%B0%86%E5%A4%9A%E4%B8%AA%E9%80%89%E9%A1%B9%E5%92%8C%E5%AE%83%E4%BB%AC%E7%9A%84%E5%8F%82%E6%95%B0%E7%BB%84%E5%90%88%E5%9C%A8%E4%B8%80%E8%B5%B7%E3%80%82%E8%BF%99%E6%A0%B7%E5%81%9A%E6%9C%89%E5%8A%A9%E4%BA%8E%E6%9B%B4%E6%9C%89%E6%95%88%E5%9C%B0%E8%BE%93%E5%85%A5%E5%91%BD%E4%BB%A4%E5%B9%B6%E5%AE%9E%E7%8E%B0%E6%9B%B4%E5%A4%8D%E6%9D%82%E7%9A%84%E5%8A%9F%E8%83%BD%E3%80%82"><span class="toc-number">9.</span> <span class="toc-text">9. 在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#10-%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">10.</span> <span class="toc-text">10. 常用命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11"><span class="toc-number">11.</span> <span class="toc-text">11.</span></a></li></ol>
                     </div>
                 </span>
             </div>
