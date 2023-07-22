@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-22T12:29:38.000Z">
-<meta property="article:modified_time" content="2023-07-22T15:40:42.233Z">
+<meta property="article:modified_time" content="2023-07-22T15:45:40.063Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -219,82 +219,34 @@
 <p>在安装Linux系统时，你可以选择是否启用Kdump服务。<strong>如果启用了Kdump</strong>，系统会在安装完成后自动配置该服务。如果系统在未来遇到严重的崩溃或故障，Kdump服务将捕获转储信息，并在重启后提供给管理员或开发人员进行分析。</p>
 <p>Kdump服务对于服务器和生产环境非常有用，特别是在面临严重问题时。它可以帮助减少故障排除的时间，快速定位问题，并提供有关系统状态的重要信息，有助于更快地恢复系统正常运行。</p>
 <h4 id="5-RPM-红帽软件包管理器-并非只有红帽企业系统在使用，RPM-已经被-CentOS、Fedora、openSUSE-等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。"><a href="#5-RPM-红帽软件包管理器-并非只有红帽企业系统在使用，RPM-已经被-CentOS、Fedora、openSUSE-等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。" class="headerlink" title="5. RPM(红帽软件包管理器)并非只有红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。"></a>5. RPM(红帽软件包管理器)<strong>并非只有</strong>红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。</h4><h4 id="6-System-V-init（简称SysV-init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。"><a href="#6-System-V-init（简称SysV-init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。" class="headerlink" title="6. System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统，但它们在实现和功能上有一些重要的区别。"></a>6. <strong>System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统</strong>，但它们在实现和功能上有一些重要的区别。</h4><ol>
-<li>初始化脚本和启动过程：</li>
+<li>初始化脚本和启动过程：<br>- SysV init：在SysV init系统中，启动和停止系统服务<strong>需要使用各种以”rc”开头的脚本</strong>（例如rc.d&#x2F;rc0.d、rc1.d、rc2.d等）。每个<strong>运行级别（runlevel）</strong>都有对应的目录，其中包含要在该运行级别下启动的服务脚本链接。这种脚本基于脚本级别的定义，过程较为繁琐。<br>- systemd：systemd引入了<strong>单元（unit）</strong>的概念，它以更加简化和现代化的方式管理系统服务。<strong>每个服务都由一个单元文件（.service）</strong>来定义，这些单元文件存储<strong>在”&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;“和”&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;“等目录中</strong>。通过systemd，启动和停止服务变得更加直观和高效。</li>
+<li>启动速度：<br>- SysV init：由于SysV init需要顺序执行一系列启动脚本，因此在启动过程中可能会引起较多的顺序等待，导致启动速度较慢。<br>- systemd：systemd采用<strong>并行</strong>启动机制，它可以同时启动一些无依赖关系的服务，从而加快整体启动速度。因此，相比SysV init，systemd通常启动更快。</li>
+<li>基础功能：<br>- SysV init：SysV init较为传统，功能相对有限。在以前的Linux发行版中广泛使用，但在功能和管理方面可能较为简单。<br>- systemd：systemd拥有更多的功能，<strong>它不仅可以管理系统服务，还可以处理设备挂载、用户登录会话等</strong>。systemd在许多Linux发行版中逐渐取代了SysV init，并成为现代Linux系统的标准初始化系统。</li>
+<li>日志管理：<br>- SysV init：SysV init的日志管理依赖于Syslog守护进程，而Syslog本身可能需要额外的配置和管理。<br>- systemd：systemd采用了日志管理工具”journalctl”，它可以直接查看和管理系统日志，提供了更强大的日志功能和过滤选项。<br>总体来说，systemd相比SysV init在性能和功能方面都更为强大和现代化。它简化了系统管理，提高了启动速度，并引入了许多有用的特性。随着Linux发行版的发展，越来越多的系统选择采用systemd作为默认的初始化系统。</li>
 </ol>
-<ul>
-<li>SysV init：在SysV init系统中，启动和停止系统服务<strong>需要使用各种以”rc”开头的脚本</strong>（例如rc.d&#x2F;rc0.d、rc1.d、rc2.d等）。每个<strong>运行级别（runlevel）</strong>都有对应的目录，其中包含要在该运行级别下启动的服务脚本链接。这种脚本基于脚本级别的定义，过程较为繁琐。</li>
-<li>systemd：systemd引入了<strong>单元（unit）</strong>的概念，它以更加简化和现代化的方式管理系统服务。<strong>每个服务都由一个单元文件（.service）</strong>来定义，这些单元文件存储<strong>在”&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;“和”&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;“等目录中</strong>。通过systemd，启动和停止服务变得更加直观和高效。</li>
-</ul>
-<ol start="2">
-<li>启动速度：</li>
-</ol>
-<ul>
-<li>SysV init：由于SysV init需要顺序执行一系列启动脚本，因此在启动过程中可能会引起较多的顺序等待，导致启动速度较慢。</li>
-<li>systemd：systemd采用<strong>并行</strong>启动机制，它可以同时启动一些无依赖关系的服务，从而加快整体启动速度。因此，相比SysV init，systemd通常启动更快。</li>
-</ul>
-<ol start="3">
-<li>基础功能：</li>
-</ol>
-<ul>
-<li>SysV init：SysV init较为传统，功能相对有限。在以前的Linux发行版中广泛使用，但在功能和管理方面可能较为简单。</li>
-<li>systemd：systemd拥有更多的功能，<strong>它不仅可以管理系统服务，还可以处理设备挂载、用户登录会话等</strong>。systemd在许多Linux发行版中逐渐取代了SysV init，并成为现代Linux系统的标准初始化系统。</li>
-</ul>
-<ol start="4">
-<li>日志管理：</li>
-</ol>
-<ul>
-<li>SysV init：SysV init的日志管理依赖于Syslog守护进程，而Syslog本身可能需要额外的配置和管理。</li>
-<li>systemd：systemd采用了日志管理工具”journalctl”，它可以直接查看和管理系统日志，提供了更强大的日志功能和过滤选项。</li>
-</ul>
-<p>总体来说，systemd相比SysV init在性能和功能方面都更为强大和现代化。它简化了系统管理，提高了启动速度，并引入了许多有用的特性。随着Linux发行版的发展，越来越多的系统选择采用systemd作为默认的初始化系统。</p>
 <h4 id="7-Bash（Bourne-Again-SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne-Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。"><a href="#7-Bash（Bourne-Again-SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne-Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。" class="headerlink" title="7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的命令行解释器（shell）。它是从Bourne Shell（sh）扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。"></a>7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的<strong>命令行解释器（shell）</strong>。它是<strong>从Bourne Shell（sh）</strong>扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。</h4><p>Bash提供了一个命令行界面，用户可以在其中输入命令，并通过键入文本命令与操作系统进行交互。它是用户与操作系统进行交互的主要途径之一，也是系统管理员进行脚本编写和自动化管理任务的重要工具。</p>
 <p>Bash的特性包括：</p>
 <ol>
-<li><p>命令行历史：Bash会记录用户在命令行中输入的历史命令，用户可以使用方向键或历史命令快捷键来浏览和重复以前执行过的命令。</p>
-</li>
-<li><p>自动补全：Bash支持命令、文件名、路径等的自动补全功能，当用户输入部分命令或路径时，按下Tab键可以自动完成或列出可能的选项。</p>
-</li>
-<li><p>通配符扩展：Bash支持使用通配符（如*和?）来扩展文件名，方便进行文件操作。</p>
-</li>
-<li><p>命令别名：Bash允许用户定义命令别名，将较长或复杂的命令用简单的别名代替，提高了工作效率。</p>
-</li>
-<li><p>脚本编程：Bash可以用于编写Shell脚本，这是一种用于自动化任务和批量处理的脚本语言。<strong>Shell脚本可以包含条件判断、循环、函数等控制结构</strong>，使得系统管理员能够轻松编写自动化任务和管理脚本。</p>
-</li>
-<li><p>管道和重定向：Bash支持通过管道(|)将命令连接起来，使得多个命令可以一起协作处理数据。同时，还支持重定向标准输入、输出和错误，允许将命令的输入输出定向到文件或其他进程中。</p>
-</li>
+<li>命令行历史：Bash会记录用户在命令行中输入的历史命令，用户可以使用方向键或历史命令快捷键来浏览和重复以前执行过的命令。</li>
+<li>自动补全：Bash支持命令、文件名、路径等的自动补全功能，当用户输入部分命令或路径时，按下Tab键可以自动完成或列出可能的选项。</li>
+<li>通配符扩展：Bash支持使用通配符（如*和?）来扩展文件名，方便进行文件操作。</li>
+<li>命令别名：Bash允许用户定义命令别名，将较长或复杂的命令用简单的别名代替，提高了工作效率。</li>
+<li>脚本编程：Bash可以用于编写Shell脚本，这是一种用于自动化任务和批量处理的脚本语言。<strong>Shell脚本可以包含条件判断、循环、函数等控制结构</strong>，使得系统管理员能够轻松编写自动化任务和管理脚本。</li>
+<li>管道和重定向：Bash支持通过管道(|)将命令连接起来，使得多个命令可以一起协作处理数据。同时，还支持重定向标准输入、输出和错误，允许将命令的输入输出定向到文件或其他进程中。</li>
 </ol>
 <p>Bash在Linux和其他Unix-like系统中具有广泛的应用，几乎所有Linux发行版都默认安装了Bash作为标准shell。它的功能强大且易于学习，成为了开发人员、系统管理员和普通用户的首选命令行解释器。</p>
 <h4 id="8-在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。"><a href="#8-在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。" class="headerlink" title="8. 在Linux和Unix系统中，许多命令都具有两种格式：长格式和短格式。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。"></a>8. 在Linux和Unix系统中，许多命令都具有两种格式：<strong>长格式和短格式</strong>。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。</h4><ol>
-<li>命令长格式（Long Format）：</li>
+<li>命令长格式（Long Format）：<br>- <strong>长格式通常以两个减号（–）开头</strong>，后跟完整的选项名称。<br>- 长格式的选项名称通常是有意义的单词或短语，更易于理解和记忆。<br>- 在长格式中，选项与其参数之间通常使用等号（&#x3D;）或空格分隔。<br>- 举例：假设有一个命令”command”，它有一个长格式选项”option”，并且该选项需要一个参数，则长格式的命令用法可能如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option=parameter</span><br></pre></td></tr></table></figure><br>或<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option parameter</span><br></pre></td></tr></table></figure></li>
+<li>命令短格式（Short Format）：<br>- <strong>短格式通常以一个减号（-）开头，后跟一个或多个字母</strong>，代表缩写或简写的选项名称。<br>- 短格式的选项名称通常是命令选项的简短表示，使用少量字符来标识选项，有助于快速输入。<br>- 在短格式中，选项与其参数之间通常紧密排列，<strong>不使用等号（&#x3D;）</strong>。<br>- 举例：假设有一个命令”command”，它有一个短格式选项”o”，并且该选项需要一个参数，则短格式的命令用法可能如下：<br><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o parameter</span><br></pre></td></tr></table></figure></li>
 </ol>
-<ul>
-<li><strong>长格式通常以两个减号（–）开头</strong>，后跟完整的选项名称。</li>
-<li>长格式的选项名称通常是有意义的单词或短语，更易于理解和记忆。</li>
-<li>在长格式中，选项与其参数之间通常使用等号（&#x3D;）或空格分隔。</li>
-<li>举例：假设有一个命令”command”，它有一个长格式选项”option”，并且该选项需要一个参数，则长格式的命令用法可能如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option=parameter</span><br></pre></td></tr></table></figure>
-或<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option parameter</span><br></pre></td></tr></table></figure></li>
-</ul>
-<ol start="2">
-<li>命令短格式（Short Format）：</li>
-</ol>
-<ul>
-<li><strong>短格式通常以一个减号（-）开头，后跟一个或多个字母</strong>，代表缩写或简写的选项名称。</li>
-<li>短格式的选项名称通常是命令选项的简短表示，使用少量字符来标识选项，有助于快速输入。</li>
-<li>在短格式中，选项与其参数之间通常紧密排列，<strong>不使用等号（&#x3D;）</strong>。</li>
-<li>举例：假设有一个命令”command”，它有一个短格式选项”o”，并且该选项需要一个参数，则短格式的命令用法可能如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o parameter</span><br></pre></td></tr></table></figure></li>
-</ul>
 <p>需要注意的是，并非所有命令都同时支持长格式和短格式的选项。一些命令只支持其中一种格式，而有些命令可能同时支持两种格式。</p>
 <p>在使用命令时，通常可以通过命令的帮助文档或手册（man page）来查看该命令支持的选项和使用方式，帮助用户了解如何正确地使用长格式和短格式选项。通常，使用长格式选项可以使命令更易读和易懂，而使用短格式选项可以使命令的输入更加简洁和迅速。</p>
 <h4 id="9-在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。"><a href="#9-在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。" class="headerlink" title="9. 在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起。这样做有助于更有效地输入命令并实现更复杂的功能。"></a>9. <strong>在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起</strong>。这样做有助于更有效地输入命令并实现更复杂的功能。</h4><p>举例来说，假设有一个名为”command”的命令，它有两个选项”option1”和”option2”，并且每个选项都需要一个参数。同时，这个命令还需要一个额外的参数”file”，来指定操作的文件名。</p>
 <ol>
-<li><p>使用长格式选项和参数复合：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option1=value1 --option2=value2 file</span><br></pre></td></tr></table></figure>
-<p>  在长格式中，每个选项与其参数之间<strong>使用等号（&#x3D;）</strong>连接。</p>
-</li>
-<li><p>使用短格式选项和参数复合：</p>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o value1 -p value2 file</span><br></pre></td></tr></table></figure>
-<p>  在短格式中，每个选项与其参数直接紧密排列，<strong>不使用等号（&#x3D;）</strong>。</p>
-</li>
+<li>使用长格式选项和参数复合：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option1=value1 --option2=value2 file</span><br></pre></td></tr></table></figure>
+  在长格式中，每个选项与其参数之间<strong>使用等号（&#x3D;）</strong>连接。</li>
+<li>使用短格式选项和参数复合：  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o value1 -p value2 file</span><br></pre></td></tr></table></figure>
+  在短格式中，每个选项与其参数直接紧密排列，<strong>不使用等号（&#x3D;）</strong>。</li>
 </ol>
 <p>需要注意的是，不是所有命令都支持在长格式和短格式中复合使用选项和参数。某些命令可能只支持单个选项，或者将选项和参数的输入方式限定为特定的格式。因此，在使用命令时，最好查阅相关命令的帮助文档或手册（man page），了解该命令支持的选项和参数的正确使用方式。</p>
 <p>总体而言，长格式和短格式的选项和参数复合使用使得命令更加灵活和易用，有助于更高效地执行复杂的任务和指定多个选项。这种灵活性是Linux和Unix命令行工具的重要特性之一。</p>
@@ -327,14 +279,10 @@
 <p>其中，<code>options</code> 是可选的参数，用于指定要发送的信号类型，<code>PID</code> 是一个或多个要终止的进程的进程ID（Process ID）。</p>
 <p>常用的 <code>kill</code> 命令选项和功能如下：</p>
 <ol>
-<li><p>终止进程：<code>kill PID</code> 或 <code>kill -15 PID</code> 或 <code>kill -TERM PID</code><br>这是 <code>kill</code> 命令的最常见用法，它发送 <code>SIGTERM</code> 信号给指定的进程，请求进程正常终止。进程接收到该信号后，会做一些清理工作，并自行终止运行。</p>
-</li>
-<li><p>强制终止进程：<code>kill -9 PID</code> 或 <code>kill -KILL PID</code><br>使用 <code>-9</code> 选项，也就是 <code>SIGKILL</code> 信号，可以强制终止指定的进程。这相当于强制关闭进程，通常在进程无法正常终止或存在问题时使用。但要注意，使用 <code>SIGKILL</code> 信号终止进程时，进程没有机会执行清理操作，可能会导致数据丢失或资源泄漏。</p>
-</li>
-<li><p>列出可用信号：<code>kill -l</code><br>使用 <code>-l</code> 选项，可以列出系统支持的所有信号及其对应的编号。这些信号可以在 <code>kill</code> 命令中作为选项来使用。</p>
-</li>
-<li><p>向多个进程发送信号：<code>kill PID1 PID2 ...</code><br>可以在一条 <code>kill</code> 命令中指定多个进程的进程ID，同时向它们发送同样的信号。</p>
-</li>
+<li>终止进程：<code>kill PID</code> 或 <code>kill -15 PID</code> 或 <code>kill -TERM PID</code><br>这是 <code>kill</code> 命令的最常见用法，它发送 <code>SIGTERM</code> 信号给指定的进程，请求进程正常终止。进程接收到该信号后，会做一些清理工作，并自行终止运行。</li>
+<li>强制终止进程：<code>kill -9 PID</code> 或 <code>kill -KILL PID</code><br>使用 <code>-9</code> 选项，也就是 <code>SIGKILL</code> 信号，可以强制终止指定的进程。这相当于强制关闭进程，通常在进程无法正常终止或存在问题时使用。但要注意，使用 <code>SIGKILL</code> 信号终止进程时，进程没有机会执行清理操作，可能会导致数据丢失或资源泄漏。</li>
+<li>列出可用信号：<code>kill -l</code><br>使用 <code>-l</code> 选项，可以列出系统支持的所有信号及其对应的编号。这些信号可以在 <code>kill</code> 命令中作为选项来使用。</li>
+<li>向多个进程发送信号：<code>kill PID1 PID2 ...</code><br>可以在一条 <code>kill</code> 命令中指定多个进程的进程ID，同时向它们发送同样的信号。</li>
 </ol>
 <p>需要注意的是，使用 <code>kill</code> 命令需要小心，特别是使用强制终止的 <code>SIGKILL</code> 信号。在正常情况下，应尽量使用 <code>SIGTERM</code> 信号，让进程有机会进行清理和保存工作。只有在进程无法响应或造成系统问题时，才考虑使用 <code>SIGKILL</code> 信号。同时，在终止进程前，最好先了解该进程的用途和对系统的影响，避免误终止重要进程。</p>
 </li>
@@ -372,23 +320,15 @@
 <p>其中，<code>options</code> 是可选参数，可以用于定制生成报告的内容和行为。</p>
 <p>常用的 <code>sosreport</code> 命令选项和功能如下：</p>
 <ol>
-<li><p>生成报告：默认情况下，运行 <code>sosreport</code> 命令会生成一个包含所有常用信息的完整报告，包括系统信息、内核参数、进程列表、网络配置、日志文件、存储信息、性能数据等。报告会被打包成一个压缩文件，并保存在当前用户的家目录下。</p>
-</li>
-<li><p>指定输出目录：使用 <code>--tmp-dir</code> 选项，可以指定生成报告的输出目录。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --tmp-dir /path/to/output</span><br></pre></td></tr></table></figure>
-<p>报告将会保存在指定的目录中。</p>
-</li>
-<li><p>压缩级别：使用 <code>--batch</code> 选项，可以指定生成报告的压缩级别。例如：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --batch=3</span><br></pre></td></tr></table></figure>
-<p>压缩级别范围从1到9，1表示最快的压缩速度和最低的压缩率，9表示最慢的压缩速度和最高的压缩率。</p>
-</li>
-<li><p>不收集特定信息：使用 <code>--skip</code> 选项，可以指定不收集某些信息。例如，不收集日志文件可以使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --skip-logs</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>收集特定信息：使用 <code>--only</code> 选项，可以只收集某些特定信息。例如，只收集网络配置和接口信息可以使用：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --only-network</span><br></pre></td></tr></table></figure></li>
+<li>生成报告：默认情况下，运行 <code>sosreport</code> 命令会生成一个包含所有常用信息的完整报告，包括系统信息、内核参数、进程列表、网络配置、日志文件、存储信息、性能数据等。报告会被打包成一个压缩文件，并保存在当前用户的家目录下。</li>
+<li>指定输出目录：使用 <code>--tmp-dir</code> 选项，可以指定生成报告的输出目录。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --tmp-dir /path/to/output</span><br></pre></td></tr></table></figure>
+报告将会保存在指定的目录中。</li>
+<li>压缩级别：使用 <code>--batch</code> 选项，可以指定生成报告的压缩级别。例如：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --batch=3</span><br></pre></td></tr></table></figure>
+压缩级别范围从1到9，1表示最快的压缩速度和最低的压缩率，9表示最慢的压缩速度和最高的压缩率。</li>
+<li>不收集特定信息：使用 <code>--skip</code> 选项，可以指定不收集某些信息。例如，不收集日志文件可以使用：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --skip-logs</span><br></pre></td></tr></table></figure></li>
+<li>收集特定信息：使用 <code>--only</code> 选项，可以只收集某些特定信息。例如，只收集网络配置和接口信息可以使用：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --only-network</span><br></pre></td></tr></table></figure>
+<code>sosreport</code> 命令会收集大量的信息，因此在运行时可能需要一些时间来生成报告。生成的报告可以被提交给技术支持团队或系统管理员，用于诊断系统问题、收集性能数据和进行系统调优。</li>
 </ol>
-<p><code>sosreport</code> 命令会收集大量的信息，因此在运行时可能需要一些时间来生成报告。生成的报告可以被提交给技术支持团队或系统管理员，用于诊断系统问题、收集性能数据和进行系统调优。</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/pwd.html">pwd: 显示当前工作目录的绝对路径</a></li>
 <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/cd.html">cd: 切换用户当前工作目录</a>，例如<code>cd -</code></li>
