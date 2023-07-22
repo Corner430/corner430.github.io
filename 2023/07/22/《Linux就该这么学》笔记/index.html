@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner430.github.io">
-  <title>windows远程桌面 | Hexo</title>
+  <title>《Linux就该这么学》笔记 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="使用query user命令查看当前用户。">
+  <meta name="description" content="使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:type" content="article">
-<meta property="og:title" content="windows远程桌面">
-<meta property="og:url" content="http://corner430.github.io/2023/05/11/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/index.html">
+<meta property="og:title" content="《Linux就该这么学》笔记">
+<meta property="og:url" content="http://corner430.github.io/2023/07/22/%E3%80%8ALinux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="使用query user命令查看当前用户。">
+<meta property="og:description" content="使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-05-11T14:27:20.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:02:54.365Z">
+<meta property="article:published_time" content="2023-07-22T12:29:38.000Z">
+<meta property="article:modified_time" content="2023-07-22T15:32:38.343Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -156,17 +156,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-windows远程桌面" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-《Linux就该这么学》笔记" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：12字 | 预计阅读时长：1分钟
+    		字数：6.6k字 | 预计阅读时长：23分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      windows远程桌面
+      《Linux就该这么学》笔记
     </h1>
   
 
@@ -182,15 +182,269 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/05/11/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" class="archive-article-date">
-  	<time datetime="2023-05-11T14:27:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-05-11</time>
+        <a href="/2023/07/22/%E3%80%8ALinux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" class="archive-article-date">
+  	<time datetime="2023-07-22T12:29:38.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-07-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>使用<code>query user</code>命令查看当前用户。</p>
+        <ol>
+<li>使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？<span id="more"></span></li>
+</ol>
+<ul>
+<li>在配置界面中若直接选择了 RHEL 7 系统镜像，则 VMware Workstation 虚拟机会使用内置得安装向导自动进行安装，最终安装出来的系统跟我们后续进行实验所需的系统环境会不一样。</li>
+</ul>
+<ol start="2">
+<li>安装RHEL 7 时，单击NETWORK &amp; HOSTNAME 选项后，将Hostname 字段设置成什么都代表什么意思？这个Hostname字段代表什么？</li>
+</ol>
+<ul>
+<li>在安装RHEL 7（Red Hat Enterprise Linux 7）时，当你单击”NETWORK &amp; HOSTNAME”选项后，将Hostname字段设置为空白，通常意味着将使用默认主机名或空主机名。具体解释如下：<ol>
+<li>默认主机名：RHEL 7在安装过程中可能会生成一个默认的主机名，该主机名通常由系统根据硬件和网络配置生成。这样的主机名可能是类似于”localhost.localdomain”的形式。默认主机名不会是一个有意义的名称，而只是一个临时标识。</li>
+<li>空主机名：将Hostname字段完全留空也是可能的。这样做意味着你将得到一个没有特定名称的主机，仅由网络IP地址标识。在网络上，这被称为”无名主机”或”匿名主机”，它不会有特定的主机名与之相关联。<br>  无论是使用默认主机名还是空主机名，都不是推荐的做法，特别是在企业网络中。在生产环境中，为了更好地管理和识别主机，建议给主机分配有意义的名称。主机名是标识网络中计算机的方式之一，使得其他计算机和管理员更容易理解和管理网络拓扑。</li>
+</ol>
+</li>
+<li>在设置主机名时，应该遵循一些最佳实践：<ul>
+<li>使用有意义的名称：为主机选择一个描述性的名称，可以体现其功能或用途，例如web-server01、db-server等。</li>
+<li>避免特殊字符：主机名应该只包含字母、数字和短横线，不要包含空格或其他特殊字符。</li>
+<li>符合命名规范：如果在企业中，最好遵循组织的命名规范，以便统一管理。<br>在RHEL 7安装过程中，你可以选择一个有意义的主机名，并确保在网络中唯一。这样可以提高网络的可维护性和管理效率。</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li>主机名是用于在计算机网络中标识特定计算机的名称。它是一个由字母、数字和短横线组成的字符串，用于识别网络中的不同计算机。主机名的作用是让其他计算机和网络设备更容易识别、访问和交互。<br>在计算机网络中，每台计算机都应该有一个唯一的主机名，类似于人类的名字。主机名有助于进行以下几项任务：</li>
+<li>网络标识：通过主机名，其他计算机可以直接访问指定的主机，而无需记住其IP地址。这使得网络通信更加方便和人性化。</li>
+<li>网络通信：在网络通信中，计算机可以使用主机名来向特定的目标主机发送数据和请求，而不需要手动输入目标IP地址。</li>
+<li>系统管理：在服务器和网络设备管理中，主机名用于识别和区分不同的计算机。这有助于管理员更轻松地识别和处理问题。</li>
+<li>安全性：主机名可以用于设置访问控制和安全策略，使得特定计算机只能与其他指定主机进行通信。<br>值得注意的是，主机名不是全局唯一的，它在特定的网络范围内必须是唯一的。例如，在局域网（LAN）中，每台计算机应该有唯一的主机名，但在不同的局域网中可以有相同的主机名。<br>主机名和域名有时会混淆。域名是一个更复杂的层次结构，用于在Internet上唯一标识网站和网络服务。主机名通常是域名的一部分，表示特定的计算机或服务器。例如，对于网站<a target="_blank" rel="noopener" href="http://www.example.com," www"是主机名,"example.com"是域名. ">www.example.com，&quot;www&quot;是主机名，&quot;example.com&quot;是域名。</a></li>
+<li>Kdump服务<br>Kdump是一种用于系统崩溃时捕获并保存内核转储（crash dump）信息的服务。在Linux系统中，Kdump是一种可靠的调试和故障排除工具，它可以帮助开发人员和系统管理员在系统崩溃或遇到严重问题时进行分析和诊断。</li>
+</ol>
+<p>当Linux系统遇到严重错误导致崩溃时，通常会生成一个内核转储文件。内核转储文件包含了系统崩溃时内核内存空间的快照，其中包含了有关导致崩溃的信息，例如内核堆栈、寄存器状态、调用跟踪等。这些信息对于分析和定位导致崩溃的原因至关重要。</p>
+<p><strong>Kdump服务的主要功能是在系统崩溃时自动收集内核转储信息并保存到预定的位置，通常是一个特定的文件或网络位置</strong>。为了实现这个功能，Kdump服务需要一个用于保存转储信息的空间，通常是一个专门的分区。</p>
+<p>在安装Linux系统时，你可以选择是否启用Kdump服务。<strong>如果启用了Kdump</strong>，系统会在安装完成后自动配置该服务。如果系统在未来遇到严重的崩溃或故障，Kdump服务将捕获转储信息，并在重启后提供给管理员或开发人员进行分析。</p>
+<p>Kdump服务对于服务器和生产环境非常有用，特别是在面临严重问题时。它可以帮助减少故障排除的时间，快速定位问题，并提供有关系统状态的重要信息，有助于更快地恢复系统正常运行。<br>5. RPM(红帽软件包管理器)<strong>并非只有</strong>红帽企业系统在使用，RPM 已经被 CentOS、Fedora、openSUSE 等众多Linux系统采用。RPM是为了简化安装的复杂度，而Yum软件仓库是为了解决软件包之间的依赖关系。<br>6. <strong>System V init（简称SysV init）和systemd都是用于初始化Linux操作系统的系统初始化系统</strong>，但它们在实现和功能上有一些重要的区别。</p>
+<ol>
+<li>初始化脚本和启动过程：</li>
+</ol>
+<ul>
+<li>SysV init：在SysV init系统中，启动和停止系统服务<strong>需要使用各种以”rc”开头的脚本</strong>（例如rc.d&#x2F;rc0.d、rc1.d、rc2.d等）。每个<strong>运行级别（runlevel）</strong>都有对应的目录，其中包含要在该运行级别下启动的服务脚本链接。这种脚本基于脚本级别的定义，过程较为繁琐。</li>
+<li>systemd：systemd引入了<strong>单元（unit）</strong>的概念，它以更加简化和现代化的方式管理系统服务。<strong>每个服务都由一个单元文件（.service）</strong>来定义，这些单元文件存储<strong>在”&#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;“和”&#x2F;etc&#x2F;systemd&#x2F;system&#x2F;“等目录中</strong>。通过systemd，启动和停止服务变得更加直观和高效。</li>
+</ul>
+<ol start="2">
+<li>启动速度：</li>
+</ol>
+<ul>
+<li>SysV init：由于SysV init需要顺序执行一系列启动脚本，因此在启动过程中可能会引起较多的顺序等待，导致启动速度较慢。</li>
+<li>systemd：systemd采用<strong>并行</strong>启动机制，它可以同时启动一些无依赖关系的服务，从而加快整体启动速度。因此，相比SysV init，systemd通常启动更快。</li>
+</ul>
+<ol start="3">
+<li>基础功能：</li>
+</ol>
+<ul>
+<li>SysV init：SysV init较为传统，功能相对有限。在以前的Linux发行版中广泛使用，但在功能和管理方面可能较为简单。</li>
+<li>systemd：systemd拥有更多的功能，<strong>它不仅可以管理系统服务，还可以处理设备挂载、用户登录会话等</strong>。systemd在许多Linux发行版中逐渐取代了SysV init，并成为现代Linux系统的标准初始化系统。</li>
+</ul>
+<ol start="4">
+<li>日志管理：</li>
+</ol>
+<ul>
+<li>SysV init：SysV init的日志管理依赖于Syslog守护进程，而Syslog本身可能需要额外的配置和管理。</li>
+<li>systemd：systemd采用了日志管理工具”journalctl”，它可以直接查看和管理系统日志，提供了更强大的日志功能和过滤选项。</li>
+</ul>
+<p>总体来说，systemd相比SysV init在性能和功能方面都更为强大和现代化。它简化了系统管理，提高了启动速度，并引入了许多有用的特性。随着Linux发行版的发展，越来越多的系统选择采用systemd作为默认的初始化系统。<br>7. Bash（Bourne-Again SHell）是一种Unix和Linux操作系统上广泛使用的<strong>命令行解释器（shell）</strong>。它是<strong>从Bourne Shell（sh）</strong>扩展和改进而来的，提供了许多增强功能和改进，成为了现代Unix-like系统中默认的shell。</p>
+<p>Bash提供了一个命令行界面，用户可以在其中输入命令，并通过键入文本命令与操作系统进行交互。它是用户与操作系统进行交互的主要途径之一，也是系统管理员进行脚本编写和自动化管理任务的重要工具。</p>
+<p>Bash的特性包括：</p>
+<ol>
+<li><p>命令行历史：Bash会记录用户在命令行中输入的历史命令，用户可以使用方向键或历史命令快捷键来浏览和重复以前执行过的命令。</p>
+</li>
+<li><p>自动补全：Bash支持命令、文件名、路径等的自动补全功能，当用户输入部分命令或路径时，按下Tab键可以自动完成或列出可能的选项。</p>
+</li>
+<li><p>通配符扩展：Bash支持使用通配符（如*和?）来扩展文件名，方便进行文件操作。</p>
+</li>
+<li><p>命令别名：Bash允许用户定义命令别名，将较长或复杂的命令用简单的别名代替，提高了工作效率。</p>
+</li>
+<li><p>脚本编程：Bash可以用于编写Shell脚本，这是一种用于自动化任务和批量处理的脚本语言。<strong>Shell脚本可以包含条件判断、循环、函数等控制结构</strong>，使得系统管理员能够轻松编写自动化任务和管理脚本。</p>
+</li>
+<li><p>管道和重定向：Bash支持通过管道(|)将命令连接起来，使得多个命令可以一起协作处理数据。同时，还支持重定向标准输入、输出和错误，允许将命令的输入输出定向到文件或其他进程中。</p>
+</li>
+</ol>
+<p>Bash在Linux和其他Unix-like系统中具有广泛的应用，几乎所有Linux发行版都默认安装了Bash作为标准shell。它的功能强大且易于学习，成为了开发人员、系统管理员和普通用户的首选命令行解释器。<br>8. 在Linux和Unix系统中，许多命令都具有两种格式：<strong>长格式和短格式</strong>。这两种格式用于提供不同的命令选项和参数的输入方式，使得用户可以根据实际需求选择更方便的方式来执行命令。</p>
+<ol>
+<li>命令长格式（Long Format）：</li>
+</ol>
+<ul>
+<li><strong>长格式通常以两个减号（–）开头</strong>，后跟完整的选项名称。</li>
+<li>长格式的选项名称通常是有意义的单词或短语，更易于理解和记忆。</li>
+<li>在长格式中，选项与其参数之间通常使用等号（&#x3D;）或空格分隔。</li>
+<li>举例：假设有一个命令”command”，它有一个长格式选项”option”，并且该选项需要一个参数，则长格式的命令用法可能如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option=parameter</span><br></pre></td></tr></table></figure>
+或<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option parameter</span><br></pre></td></tr></table></figure></li>
+</ul>
+<ol start="2">
+<li>命令短格式（Short Format）：</li>
+</ol>
+<ul>
+<li><strong>短格式通常以一个减号（-）开头，后跟一个或多个字母</strong>，代表缩写或简写的选项名称。</li>
+<li>短格式的选项名称通常是命令选项的简短表示，使用少量字符来标识选项，有助于快速输入。</li>
+<li>在短格式中，选项与其参数之间通常紧密排列，<strong>不使用等号（&#x3D;）</strong>。</li>
+<li>举例：假设有一个命令”command”，它有一个短格式选项”o”，并且该选项需要一个参数，则短格式的命令用法可能如下：<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o parameter</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p>需要注意的是，并非所有命令都同时支持长格式和短格式的选项。一些命令只支持其中一种格式，而有些命令可能同时支持两种格式。</p>
+<p>在使用命令时，通常可以通过命令的帮助文档或手册（man page）来查看该命令支持的选项和使用方式，帮助用户了解如何正确地使用长格式和短格式选项。通常，使用长格式选项可以使命令更易读和易懂，而使用短格式选项可以使命令的输入更加简洁和迅速。<br>9. <strong>在大多数情况下，命令选项和参数可以在长格式和短格式中复合使用，允许将多个选项和它们的参数组合在一起</strong>。这样做有助于更有效地输入命令并实现更复杂的功能。</p>
+<p>举例来说，假设有一个名为”command”的命令，它有两个选项”option1”和”option2”，并且每个选项都需要一个参数。同时，这个命令还需要一个额外的参数”file”，来指定操作的文件名。</p>
+<ol>
+<li><p>使用长格式选项和参数复合：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command --option1=value1 --option2=value2 file</span><br></pre></td></tr></table></figure>
+<p>  在长格式中，每个选项与其参数之间<strong>使用等号（&#x3D;）</strong>连接。</p>
+</li>
+<li><p>使用短格式选项和参数复合：</p>
+  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">command -o value1 -p value2 file</span><br></pre></td></tr></table></figure>
+<p>  在短格式中，每个选项与其参数直接紧密排列，<strong>不使用等号（&#x3D;）</strong>。</p>
+</li>
+</ol>
+<p>需要注意的是，不是所有命令都支持在长格式和短格式中复合使用选项和参数。某些命令可能只支持单个选项，或者将选项和参数的输入方式限定为特定的格式。因此，在使用命令时，最好查阅相关命令的帮助文档或手册（man page），了解该命令支持的选项和参数的正确使用方式。</p>
+<p>总体而言，长格式和短格式的选项和参数复合使用使得命令更加灵活和易用，有助于更高效地执行复杂的任务和指定多个选项。这种灵活性是Linux和Unix命令行工具的重要特性之一。</p>
+<blockquote>
+<p>但是长短格式不可以同时复合使用<br>10. 常用命令</p>
+</blockquote>
+<ul>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/echo.html">echo: 输出指定的字符串或者变量</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/date.html">date: 显示或设置系统时间与日期</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/wget.html">wget: Linux系统下载文件工具</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ps.html">ps: 报告当前系统的进程状态</a></p>
+<ul>
+<li><strong>ps命令</strong> 用于报告当前系统的进程状态。可以搭配kill指令随时中断、删除不必要的程序。ps命令是最基本同时也是非常强大的进程查看命令，使用该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多的资源等等，总之大部分信息都是可以通过执行该命令得到的。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/top.html">top: 显示或管理执行中的程序</a></p>
+<ul>
+<li><strong>top命令</strong> 可以<strong>实时动态</strong>地查看系统的整体运行情况，是一个综合了多方信息监测系统性能和运行信息的实用工具。<strong>通过top命令所提供的互动式界面，用热键可以管理</strong>。完全可以将它看作Linux 中的“强化版的Windows 任务管理器”</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/pidof.html">pidof: 查找指定名称的进程的进程号ID号</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/kill.html">kill: 用于终止某个指定PID的服务进程</a><br><code>kill</code> 命令是在Linux和Unix系统中用于终止（停止）正在运行的进程的命令。它通过发送信号（signal）给指定进程，从而让进程执行相应的操作，包括正常终止、重新加载配置文件、重启等。</p>
+<p><code>kill</code> 命令的基本语法是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kill [options] PID...</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>options</code> 是可选的参数，用于指定要发送的信号类型，<code>PID</code> 是一个或多个要终止的进程的进程ID（Process ID）。</p>
+<p>常用的 <code>kill</code> 命令选项和功能如下：</p>
+<ol>
+<li><p>终止进程：<code>kill PID</code> 或 <code>kill -15 PID</code> 或 <code>kill -TERM PID</code><br>这是 <code>kill</code> 命令的最常见用法，它发送 <code>SIGTERM</code> 信号给指定的进程，请求进程正常终止。进程接收到该信号后，会做一些清理工作，并自行终止运行。</p>
+</li>
+<li><p>强制终止进程：<code>kill -9 PID</code> 或 <code>kill -KILL PID</code><br>使用 <code>-9</code> 选项，也就是 <code>SIGKILL</code> 信号，可以强制终止指定的进程。这相当于强制关闭进程，通常在进程无法正常终止或存在问题时使用。但要注意，使用 <code>SIGKILL</code> 信号终止进程时，进程没有机会执行清理操作，可能会导致数据丢失或资源泄漏。</p>
+</li>
+<li><p>列出可用信号：<code>kill -l</code><br>使用 <code>-l</code> 选项，可以列出系统支持的所有信号及其对应的编号。这些信号可以在 <code>kill</code> 命令中作为选项来使用。</p>
+</li>
+<li><p>向多个进程发送信号：<code>kill PID1 PID2 ...</code><br>可以在一条 <code>kill</code> 命令中指定多个进程的进程ID，同时向它们发送同样的信号。</p>
+</li>
+</ol>
+<p>需要注意的是，使用 <code>kill</code> 命令需要小心，特别是使用强制终止的 <code>SIGKILL</code> 信号。在正常情况下，应尽量使用 <code>SIGTERM</code> 信号，让进程有机会进行清理和保存工作。只有在进程无法响应或造成系统问题时，才考虑使用 <code>SIGKILL</code> 信号。同时，在终止进程前，最好先了解该进程的用途和对系统的影响，避免误终止重要进程。</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/killall.html">killall: 使用进程的名称来杀死一组进程</a></p>
+<ul>
+<li><strong>killall命令</strong> 使用进程的名称来杀死进程，使用此指令可以杀死一组同名进程。我们可以使用kill命令杀死指定进程PID的进程，如果要找到我们需要杀死的进程，我们还需要在之前使用ps等命令再配合grep来查找进程，而killall把这两个过程合二为一，是一个很好用的命令。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ifconfig.html">ifconfig: 配置和显示Linux系统网卡的网络参数</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/uname.html">uname: 打印系统信息</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/uptime.html">uptime: 查看Linux系统负载信息</a></p>
+<ul>
+<li><strong>uptime命令</strong> 能够打印系统总共运行了多长时间和系统的平均负载。uptime命令可以显示的信息显示依次为：现在时间、系统已经运行了多长时间、目前有多少登陆用户、系统在过去的1分钟、5分钟和15分钟内的平均负载。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/free.html">free -h: 显示内存的使用情况</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/who.html">who: 显示当前所有登陆用户的信息</a></p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/last.html">last: 列出目前与过去登入系统的用户相关信息</a></p>
+<ul>
+<li><strong>last命令</strong> 用于显示用户最近登录信息。单独执行last命令，它会<strong>读取&#x2F;var&#x2F;log&#x2F;wtmp的文件</strong>，并把该给文件的内容记录的登入系统的用户名单全部显示出来。</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/history.html">history: 显示或操作历史列表</a>，例如<code>!数字</code></p>
+</li>
+<li><p><code>sosreport</code> 是一个在Linux系统上收集系统和应用程序信息的命令行工具。它通常用于故障排除、系统调优和技术支持等场景，能够生成一个包含系统配置、日志文件、性能数据和其他关键信息的压缩文件，以便进行问题诊断和分析。</p>
+</li>
+</ul>
+<p><code>sosreport</code> 命令的基本语法是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport [options]</span><br></pre></td></tr></table></figure>
+
+<p>其中，<code>options</code> 是可选参数，可以用于定制生成报告的内容和行为。</p>
+<p>常用的 <code>sosreport</code> 命令选项和功能如下：</p>
+<ol>
+<li><p>生成报告：默认情况下，运行 <code>sosreport</code> 命令会生成一个包含所有常用信息的完整报告，包括系统信息、内核参数、进程列表、网络配置、日志文件、存储信息、性能数据等。报告会被打包成一个压缩文件，并保存在当前用户的家目录下。</p>
+</li>
+<li><p>指定输出目录：使用 <code>--tmp-dir</code> 选项，可以指定生成报告的输出目录。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --tmp-dir /path/to/output</span><br></pre></td></tr></table></figure>
+<p>报告将会保存在指定的目录中。</p>
+</li>
+<li><p>压缩级别：使用 <code>--batch</code> 选项，可以指定生成报告的压缩级别。例如：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --batch=3</span><br></pre></td></tr></table></figure>
+<p>压缩级别范围从1到9，1表示最快的压缩速度和最低的压缩率，9表示最慢的压缩速度和最高的压缩率。</p>
+</li>
+<li><p>不收集特定信息：使用 <code>--skip</code> 选项，可以指定不收集某些信息。例如，不收集日志文件可以使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --skip-logs</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>收集特定信息：使用 <code>--only</code> 选项，可以只收集某些特定信息。例如，只收集网络配置和接口信息可以使用：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sosreport --only-network</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><code>sosreport</code> 命令会收集大量的信息，因此在运行时可能需要一些时间来生成报告。生成的报告可以被提交给技术支持团队或系统管理员，用于诊断系统问题、收集性能数据和进行系统调优。</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/pwd.html">pwd: 显示当前工作目录的绝对路径</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/cd.html">cd: 切换用户当前工作目录</a>，例如<code>cd -</code></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/ls.html">ls: 显示目录内容列表</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/cat.html">cat: 连接多个文件并打印到标准输出（适用于内容较少的）</a>，例如<code>cat -n</code></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/more.html">more: 显示文件内容，每次显示一屏（适用于内容较多的）</a><ul>
+<li><strong>more命令 是一个基于vi编辑器文本过滤器</strong>，它以全屏幕的方式按页显示文本文件的内容，支持vi中的关键字定位操作。more名单中内置了若干快捷键，常用的有H（获得帮助信息），Enter（向下翻滚一行），空格（向下滚动一屏），Q（退出命令）。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/head.html">head: 显示文件的开头部分</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/head.html">tail: 在屏幕上显示指定文件的末尾若干行</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/tr.html">tr: 将字符进行替换压缩和删除</a><ul>
+<li><strong>tr命令</strong> 可以对来自标准输入的字符进行替换、压缩和删除。它可以将一组字符变成另一组字符，经常用来编写优美的单行命令，作用很强大。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/wc.html">wc: 统计文件的字节数、字数、行数</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/stat.html">stat: 用于显示文件的状态信息</a><ul>
+<li><strong>stat命令</strong> 用于显示文件的状态信息。<strong>stat命令的输出信息比ls命令的输出信息要更详细</strong>。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/cut.html">cut: 连接文件并打印到标准输出设备上</a><ul>
+<li><strong>cut 命令 用来显示行中的指定部分，删除文件中指定字段</strong>。cut 经常用来显示文件的内容，类似于 type 命令。</li>
+<li>说明：该命令有两项功能，其一是用来显示文件的内容，它依次读取由参数 file 所指 明的文件，将它们的内容输出到标准输出上；其二是连接两个或多个文件，如cut fl f2 &gt; f3将把文件 fl 和 f2 的内容合并起来，然后通过输出重定向符“&gt;”的作用，将它们放入文件 f3 中。</li>
+<li>当文件较大时，文本在屏幕上迅速闪过（滚屏），用户往往看不清所显示的内容。因此，一般用 more 等命令分屏显示。为了控制滚屏，可以按 Ctrl+S 键，停止滚屏；按 Ctrl+Q 键可以恢复滚屏。按 Ctrl+C（中断）键可以终止该命令的执行，并且返回 Shell 提示符状态。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/diff.html">diff: 比较给定的两个文件的不同</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/touch.html">touch: 创建新的空文件</a><ul>
+<li><strong>touch命令 有两个功能</strong>：一是用于把已存在文件的时间标签更新为系统当前的时间（默认方式），它们的数据将原封不动地保留下来；二是用来创建新的空文件。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/mkdir.html">mkdir: 用来创建目录，可以递归的建立层级目录</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/cp.html">cp: 将源文件或目录复制到目标文件或目录中</a><ul>
+<li><strong>cp命令</strong> 用来将一个<strong>或多个</strong>源文件或者目录复制到指定的目的文件或目录。它可以将单个源文件复制成一个指定文件名的具体的文件或一个已经存在的目录下。<strong>cp命令还支持同时复制多个文件，当一次复制多个文件时，目标文件参数必须是一个已经存在的目录，否则将出现错误</strong>。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/mv.html">mv: 用来对文件或目录重新命名</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/rm.html">rm: 用于删除给定的文件或目录</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/dd.html">dd: 复制文件并对源文件的内容进行转换或格式化处理</a><ul>
+<li>dd命令 用于复制文件并对原文件的内容进行转换和格式化处理。dd命令功能很强大的，对于一些比较底层的问题，使用dd命令往往可以得到出人意料的效果。<strong>用的比较多的还是用dd来备份裸设备</strong>。但是不推荐，如果需要备份oracle裸设备，可以使用rman备份，或使用第三方软件备份，使用dd的话，管理起来不太方便。</li>
+<li><strong>可以使用<code>dd</code>命令来压制出光盘镜像文件，将它编程一个可立即使用的iso镜像</strong></li>
+<li>建议在有需要的时候使用dd 对物理磁盘操作，如果是文件系统的话还是使用tar backup cpio等其他命令更加方便。另外，使用dd对磁盘操作时，最好使用块设备文件。</li>
+</ul>
+</li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/file.html">file: 用来探测给定文件的类型</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/tar.html">tar: 将许多文件一起保存至一个单独的磁带或磁盘归档，并能从归档中单独还原所需文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/grep.html">grep: 强大的文本搜索工具</a>，例如<code>-v</code></li>
+<li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/find.html">find: 在指定目录下查找文件</a></li>
+</ul>
+<p>11. </p>
 
       
 	
@@ -223,7 +477,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner430.github.io/2023/05/11/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/">http://corner430.github.io/2023/05/11/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/</a>
+    <a rel="license" href="http://corner430.github.io/2023/07/22/%E3%80%8ALinux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/">http://corner430.github.io/2023/07/22/%E3%80%8ALinux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -313,7 +567,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/05/11/windows%E8%BF%9C%E7%A8%8B%E6%A1%8C%E9%9D%A2/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/07/22/%E3%80%8ALinux%E5%B0%B1%E8%AF%A5%E8%BF%99%E4%B9%88%E5%AD%A6%E3%80%8B%E7%AC%94%E8%AE%B0/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -327,18 +581,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/05/12/new-bing%E9%87%8D%E5%AE%9A%E5%90%91%E9%97%AE%E9%A2%98/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          new bing重定向问题
-        
-      </div>
-    </a>
   
-  
-    <a href="/2023/05/10/openwrt-ipv6-%E5%BC%80%E5%90%AF%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">openwrt ipv6 开启记录</div>
+    <a href="/2023/07/19/Python%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Python虚拟环境</div>
       <i class="icon-circle-right"></i>
     </a>
   
