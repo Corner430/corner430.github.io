@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-22T12:29:38.000Z">
-<meta property="article:modified_time" content="2023-07-23T07:46:34.002Z">
+<meta property="article:modified_time" content="2023-07-23T08:01:55.292Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:213.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:214.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：10.1k字 | 预计阅读时长：36分钟
+    		字数：10.7k字 | 预计阅读时长：37分钟
 	</div>
         
   
@@ -561,13 +561,27 @@
 <h4 id="17-vim"><a href="#17-vim" class="headerlink" title="17. vim"></a>17. vim</h4><p><a target="_blank" rel="noopener" href="https://blog.corner430.top/2023/06/08/vim%E5%AD%A6%E4%B9%A0%2f">vim学习</a></p>
 <h4 id="18-设备主机名存储在-x2F-etc-x2F-hostname中"><a href="#18-设备主机名存储在-x2F-etc-x2F-hostname中" class="headerlink" title="18. 设备主机名存储在&#x2F;etc&#x2F;hostname中"></a>18. 设备主机名存储在&#x2F;etc&#x2F;hostname中</h4><h4 id="19-网卡配置信息"><a href="#19-网卡配置信息" class="headerlink" title="19. 网卡配置信息"></a>19. 网卡配置信息</h4><p>在Linux系统中，网卡配置信息存储在多个地方，取决于不同的网络管理工具和发行版。以下是一些常见的网卡配置文件路径：</p>
 <ol>
-<li><code>/etc/network/interfaces</code>（Debian&#x2F;Ubuntu）：<br>在Debian和Ubuntu等使用<code>ifupdown</code>网络管理工具的发行版中，网卡配置信息通常存储在 <code>/etc/network/interfaces</code> 文件中。您可以在这个文件中设置网卡的IP地址、网关、DNS服务器等。</li>
+<li><code>/etc/network/interfaces</code>（Debian&#x2F;Ubuntu）：<br>在Debian和Ubuntu等使用<code>ifupdown</code>网络管理工具的发行版中，网卡配置信息通常存储在 <code>/etc/network/interfaces</code> 文件中。可以在这个文件中设置网卡的IP地址、网关、DNS服务器等。</li>
 <li><code>/etc/sysconfig/network-scripts/ifcfg-&lt;interface&gt;</code>（CentOS&#x2F;RHEL）：<br>在CentOS和RHEL等使用<code>NetworkManager</code>或<code>ifcfg</code>脚本管理网络的发行版中，每个网卡的配置信息存储在 <code>/etc/sysconfig/network-scripts/</code> 目录下的对应文件中，文件名的格式为 <code>ifcfg-&lt;interface&gt;</code>，其中 <code>&lt;interface&gt;</code> 是网卡的名称（如 <code>ifcfg-eth0</code>）。</li>
 <li><code>/etc/netplan/*.yaml</code>（Ubuntu 18.04及更高版本）：<br>在Ubuntu 18.04及更高版本中，默认使用Netplan进行网络配置。网卡配置信息存储在 <code>/etc/netplan/</code> 目录下的 YAML 格式配置文件中。例如，<code>/etc/netplan/01-netcfg.yaml</code>。</li>
 <li><code>/etc/network/interfaces.d/</code>（Debian&#x2F;Ubuntu）：<br>在某些较新的Debian和Ubuntu发行版中，网卡配置信息可以拆分为多个文件，存储在 <code>/etc/network/interfaces.d/</code> 目录下。每个文件代表一个网卡的配置，文件名通常以 <code>.cfg</code> 结尾，并通过 <code>/etc/network/interfaces</code> 文件进行引用。</li>
 </ol>
 <p>请注意，<strong>在不同的Linux发行版中，可能会使用不同的网络管理工具和配置文件</strong>。因此，为了正确配置网卡，请查阅所使用发行版的官方文档或相关指南，并根据具体情况找到适用的配置文件进行修改。<strong>在更改网络配置文件之前，请确保做好备份</strong>，并了解配置文件的语法和作用，以避免出现意外的网络问题。</p>
-<h4 id="20-配置Yum软件仓库"><a href="#20-配置Yum软件仓库" class="headerlink" title="20. 配置Yum软件仓库"></a>20. 配置Yum软件仓库</h4><h4 id="21-Shell脚本"><a href="#21-Shell脚本" class="headerlink" title="21. Shell脚本"></a>21. Shell脚本</h4>
+<h4 id="20-配置Yum软件仓库"><a href="#20-配置Yum软件仓库" class="headerlink" title="20. 配置Yum软件仓库"></a>20. 配置Yum软件仓库</h4><h4 id="21-Shell脚本"><a href="#21-Shell脚本" class="headerlink" title="21. Shell脚本"></a>21. Shell脚本</h4><p>编写Shell脚本是在Linux和Unix系统中自动化任务和批处理的常用方法。Shell脚本使用Shell编程语言，通常是Bash（Bourne-Again SHell），来编写一系列命令和逻辑来完成特定的任务。下面是编写Shell脚本的基本步骤：</p>
+<ol>
+<li>选择Shell：首先，需要选择要使用的Shell。在大多数Linux系统中，默认的Shell是Bash，因此大多数脚本都是Bash脚本。如果有特定需求，也可以使用其他Shell，如sh、zsh等。</li>
+<li>创建脚本文件：使用任何文本编辑器，比如<code>vi</code>或<code>nano</code>，创建一个新的脚本文件，文件名以 <code>.sh</code> 结尾，例如 <code>myscript.sh</code>。</li>
+<li>添加Shebang行：在脚本文件的第一行添加Shebang行，指定要用于解释执行脚本的Shell。对于Bash脚本，Shebang行应为：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br></pre></td></tr></table></figure></li>
+<li>编写脚本内容：在脚本文件中添加Shell脚本的内容。这些内容可以包括命令、变量、条件语句、循环等，以完成特定的任务。</li>
+<li>赋予执行权限：在保存完脚本文件后，需要赋予执行权限，以便可以运行脚本。使用以下命令为脚本文件添加执行权限：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">chmod</span> +x myscript.sh</span><br></pre></td></tr></table></figure></li>
+<li>运行脚本：现在，可以通过以下方式运行Shell脚本：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./myscript.sh</span><br></pre></td></tr></table></figure>
+或者使用<code>bash</code>命令运行：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash myscript.sh</span><br></pre></td></tr></table></figure>
+或者使用<code>source</code>命令运行（如果脚本中包含了需要在当前Shell中执行的命令）：<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> myscript.sh</span><br></pre></td></tr></table></figure>
+注意，<code>source</code>命令也可以用点号（<code>.</code>）来代替，例如：<code>. myscript.sh</code>。</li>
+<li>调试和测试：运行脚本后，可能需要进行调试和测试，确保脚本按预期工作。可以使用<code>echo</code>命令打印输出来调试脚本，或在需要时使用<code>set -x</code>来打开调试模式，使用<code>set +x</code>来关闭调试模式。</li>
+<li>完善和优化：根据实际需求和脚本的复杂性，可能需要继续完善和优化Shell脚本，使其更加高效和可靠。</li>
+</ol>
+
       
 	
        
