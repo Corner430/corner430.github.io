@@ -16,7 +16,7 @@
 <meta property="og:description" content="1. 使用虚拟机安装Linux系统时，为什么要先选择稍后安装操作系统，而不是去选择RHEL 7 系统镜像光盘？">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-07-22T12:29:38.000Z">
-<meta property="article:modified_time" content="2023-07-29T10:25:48.440Z">
+<meta property="article:modified_time" content="2023-07-29T10:29:52.526Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -762,7 +762,7 @@
 </li>
 <li>长期性计划任务：周期性执行的计划任务，执行完毕后不会自动删除<ul>
 <li><a target="_blank" rel="noopener" href="https://wangchujiang.com/linux-command/c/crontab.html">crontab: 定时执行任务</a><blockquote>
-<p>分、时、日、月、星期、命令<br>在crond服务的计划任务参数种，所有命令一定要用绝对路径的方式来写，如果不知道绝对路径，可以使用 <code>whereis</code> 或者 <code>which</code> 命令来查看<br>在crond服务的配置参数中，可以像Shell脚本那样以#开头添加注释，但是注释必须独占一行<br>计划任务中的“分”字段必须有数值，绝对不能为空或是星号（*），而“日”和“星期”字段不能同时使用，否则就会发生冲突<br>crond服务默认调用的是vim编辑器</p>
+<p>分、时、日、月、星期、命令<br>在crond服务的计划任务参数种，所有命令<strong>一定要用绝对路径</strong>的方式来写，如果不知道绝对路径，可以使用 <code>whereis</code> 或者 <code>which</code> 命令来查看<br>在crond服务的配置参数中，可以像Shell脚本那样以#开头添加注释，但是注释必须独占一行<br><strong>计划任务中的“分”字段必须有数值，绝对不能为空或是星号（*），而“日”和“星期”字段不能同时使用，否则就会发生冲突</strong><br>crond服务默认调用的是vim编辑器</p>
 </blockquote>
 </li>
 </ul>
