@@ -16,7 +16,7 @@
 <meta property="og:description" content="首先在所在themes&#x2F;_config.yml中找到mathjax，将其属性改为true。之后便可以使用数学公式了。">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2021-07-02T13:20:21.000Z">
-<meta property="article:modified_time" content="2023-06-11T05:02:53.715Z">
+<meta property="article:modified_time" content="2023-08-09T05:52:46.307Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:220.9k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:220.6k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.9k字 | 预计阅读时长：8分钟
+    		字数：1.6k字 | 预计阅读时长：7分钟
 	</div>
         
   
@@ -201,88 +201,83 @@
 <li>组合符号，符号：<code>&#123;&#125;</code>，如：${x}^{y}_{ij}$</li>
 </ul>
 <h4 id="汉字和字体格式"><a href="#汉字和字体格式" class="headerlink" title="汉字和字体格式"></a>汉字和字体格式</h4><ul>
-<li><p>汉字形式，符号：<code>\mbox&#123;&#125;</code>，如：$V_{\mbox{初始}}$</p>
+<li><p>文本：<code>\text&#123;&#125;</code>，如：$V_{\text{初始}}$</p>
 </li>
-<li><p>文字加深，<code>\boldsymbol&#123;&#125;</code>，如$\boldsymbol{x}$</p>
+<li><p>加粗：<code>\mathbf&#123;&#125;</code>，如：$\mathbf{A}$</p>
 </li>
-<li><p>特殊字形，</p>
-<ul>
-<li>符号： <code>\mathcal</code>，如$\mathcal{ABC}$</li>
-<li>符号： <code>\mathbb</code>，如$\mathbb{ABC}$</li>
-<li>符号： <code>\mathscr</code>，如$\mathscr{ABC}$</li>
-</ul>
+<li><p>数学手写体：<code>\mathcal&#123;&#125;</code>，如：$\mathcal{A}$</p>
 </li>
-<li><p>字体控制，符号：<code>\displaystyle</code>，如：$\displaystyle \frac{x+y}{y+z}$</p>
+<li><p>黑板粗体：<code>\mathbb&#123;&#125;</code>，如：$\mathbb{A}$</p>
 </li>
-<li><p>下划线符号，符号：<code>\underline</code>，如：$\underline{x+y}$</p>
+<li><p>花体：<code>\mathscr&#123;&#125;</code>，如：$\mathscr{A}$</p>
 </li>
-<li><p>标签，符号：<code>\tag&#123;数字&#125;</code>，如：$$\tag{3}$$</p>
+<li><p>罗马体：<code>\mathrm&#123;&#125;</code>，如：$\mathrm{A}$</p>
 </li>
-<li><p>自动添加后缀标签，符号：<code>\begin&#123;align&#125; \end&#123;align&#125;</code><br>如：$$\begin{align} x \end{align}$$</p>
+<li><p>下划线：<code>\underline&#123;&#125;</code>，如：$\underline{x+y}$</p>
 </li>
-<li><p>上大括号，符号：<code>\overbrace&#123;算式&#125;</code>，如：$\overbrace{a+b+c+d}^{2.0}$</p>
+<li><p>上划线：<code>\overline&#123;&#125;</code>，如：$\overline{x+y}$</p>
 </li>
-<li><p>下大括号，符号：<code>\underbrace&#123;算式&#125;</code>，如：$a+\underbrace{b+c}_{1.0}+d$</p>
+<li><p>标签：<code>\tag&#123;&#125;</code>，如：$$\tag{3}$$</p>
 </li>
-<li><p>上位符号，符号：<code>\stackrel&#123;上位符号&#125;&#123;基位符号&#125;</code>，如：$\vec{x}\stackrel{\mathrm{def}}{&#x3D;}{x_1,\dots,x_n}$</p>
+<li><p>自动添加标签：<code>\begin&#123;equation&#125; \end&#123;equation&#125;</code>，如：$$\begin{equation} x \end{equation}$$</p>
 </li>
-<li><p>上下标位置，符号:<code>\sideset控制四角上下标，\overset与\underset控制上下标居中</code>,如: $\sideset{^a_b}{^c_d}A$,$\overset{100}A$,$\underset{100}A$,$\overset{100}{\underset{200}A}$</p>
+<li><p>上大括号：<code>\overbrace&#123;&#125;</code>，如：$\overbrace{a+b+c+d}^{2.0}$</p>
 </li>
-<li><p>方程式，符号：<code>\begin&#123;cases&#125; \end&#123;cases&#125;</code>，如：$\begin{cases} a+b&#x3D;1 \ a-b&#x3D;0.5 \end{cases}$</p>
+<li><p>下大括号：<code>\underbrace&#123;&#125;</code>，如：$a+\underbrace{b+c}_{1.0}+d$</p>
+</li>
+<li><p>上位符号：<code>\stackrel&#123;上位符号&#125;&#123;基位符号&#125;</code>，如：$\vec{x}\stackrel{\mathrm{def}}{&#x3D;}{x_1,\dots,x_n}$</p>
+</li>
+<li><p>上下标位置：<code>\sideset控制四角上下标，\overset与\underset控制上下标居中</code>，如：$\sideset{^a_b}{^c_d}A$,$\overset{100}A$,$\underset{100}A$,$\overset{100}{\underset{200}A}$</p>
+</li>
+<li><p>分段函数：$$f(x) &#x3D; \begin{cases}<br>  0, &amp; \text{if } x &lt; 0 \<br>  x, &amp; \text{if } x \geq 0<br>\end{cases}$$</p>
 </li>
 </ul>
 <h4 id="占位符"><a href="#占位符" class="headerlink" title="占位符"></a>占位符</h4><ul>
 <li>两个quad空格，符号：<code>\qquad</code>，如：$x \qquad y$</li>
 <li>quad空格，符号：<code>\quad</code>，如：$x \quad y$</li>
-<li>大空格，符号：<code>\</code>，如：$x \ y$</li>
-<li>中空格，符号：<code>\:</code>，如：$x : y$</li>
-<li>小空格，符号：<code>\,</code>，如：$x , y$</li>
-<li>没有空格，符号：&#96;&#96;，如：$xy$</li>
-<li>紧贴，符号：<code>\!</code>，如：$x ! y$</li>
 </ul>
 <h4 id="定界符与组合"><a href="#定界符与组合" class="headerlink" title="定界符与组合"></a>定界符与组合</h4><ul>
-<li>括号，符号：<code>（）\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)</code>，如：$（）\big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)$</li>
-<li>中括号，符号：<code>[]</code>，如：$[x+y]$</li>
+<li>括号：<code>() \big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)</code>，如：$() \big(\big) \Big(\Big) \bigg(\bigg) \Bigg(\Bigg)$</li>
+<li>中括号：<code>\left[ \right]</code>，如：$\left[x+y\right]$</li>
+<li>大号的中括号：<code>\bigl[ \bigr]</code>，如：$\bigl[x+y\bigr]$</li>
 <li>大括号，符号：<code>\&#123; \&#125;</code>，如：${x+y}$</li>
 <li>自适应括号，符号：<code>\left \right</code>，如：$\left(x\right)$，$\left(x_{yz}\right)$</li>
 <li>组合公式，符号：<code>&#123;上位公式 \choose 下位公式&#125;</code>，如：${n+1 \choose k}&#x3D;{n \choose k}+{n \choose k-1}$</li>
-<li>组合公式，符号：<code>&#123;上位公式 \atop 下位公式&#125;</code>，如：$\sum_{k_0,k_1,\ldots&gt;0 \atop k_0+k_1+\cdots&#x3D;n}A_{k_0}A_{k_1}\cdots$</li>
-<li>多行大括号，符号：<code>\begin&#123;cases&#125;  \end&#123;cases&#125;</code>，如：$$f(x) &#x3D; \begin{cases} 0&amp; \text{x&#x3D;0} \ 1&amp; \text{x!&#x3D;0} \end{cases}$$</li>
 </ul>
 <h4 id="四则运算"><a href="#四则运算" class="headerlink" title="四则运算"></a>四则运算</h4><ul>
-<li>加法运算，符号：<code>+</code>，如：$x+y&#x3D;z$</li>
-<li>减法运算，符号：<code>-</code>，如：$x-y&#x3D;z$</li>
 <li>加减运算，符号：<code>\pm</code>，如：$x \pm y&#x3D;z$</li>
 <li>减加运算，符号：<code>\mp</code>，如：$x \mp y&#x3D;z$</li>
 <li>乘法运算，符号：<code>\times</code>，如：$x \times y&#x3D;z$</li>
 <li>点乘运算，符号：<code>\cdot</code>，如：$x \cdot y&#x3D;z$</li>
 <li>星乘运算，符号：<code>\ast</code>，如：$x \ast y&#x3D;z$</li>
 <li>除法运算，符号：<code>\div</code>，如：$x \div y&#x3D;z$</li>
-<li>斜法运算，符号：<code>/</code>，如：$x&#x2F;y&#x3D;z$</li>
 <li>分式表示，符号：<code>\frac&#123;分子&#125;&#123;分母&#125;</code>，如：$\frac{x+y}{y+z}$</li>
 <li>分式表示，符号：<code>&#123;分子&#125; \voer &#123;分母&#125;</code>，如：${x+y} \over {y+z}$</li>
 <li>绝对值表示，符号：<code>||</code>，如：$|x+y|$</li>
 </ul>
 <h4 id="高级运算"><a href="#高级运算" class="headerlink" title="高级运算"></a>高级运算</h4><ul>
-<li>平均数运算，符号：<code>\overline&#123;算式&#125;</code>，如：$\overline{xyz}$</li>
-<li>开二次方运算，符号：<code>\sqrt</code>，如：$\sqrt x$</li>
-<li>开方运算，符号：<code>\sqrt[开方数]&#123;被开方数&#125;</code>，如：$\sqrt[3]{x+y}$</li>
-<li>对数运算，符号：<code>\log</code>，如：$\log(x)$</li>
-<li>极限运算，符号：<code>\lim</code>，如：$\lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</li>
-<li>极限运算，符号：<code>\displaystyle \lim</code>，如：$\displaystyle \lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</li>
-<li>求和运算，符号：<code>\sum</code>，如：$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</li>
-<li>求和运算，符号：<code>\displaystyle \sum</code>，如：$\displaystyle \sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</li>
-<li>求积运算，符号：<code>\prod</code>, 如：$\prod^N_{i&#x3D;1}x_i$</li>
-<li>积分运算，符号：<code>\int</code>，如：$\int^{\infty}_{0}{xdx}$</li>
-<li>积分运算，符号：<code>\displaystyle \int</code>，如：$\displaystyle \int^{\infty}_{0}{xdx}$</li>
-<li>微分运算，符号：<code>\partial</code>，如：$\frac{\partial x}{\partial y}$</li>
-<li>矩阵表示，符号：<code>\begin&#123;bmatrix&#125; \end&#123;bmatrix&#125;</code>，如：$\begin{bmatrix} 1 &amp;2 &amp;\cdots &amp;4\ 5 &amp;6 &amp;\cdots &amp;8\ \vdots &amp;\vdots &amp;\ddots &amp;\vdots\ 13 &amp;14 &amp;\cdots &amp;16\end{bmatrix}$</li>
-<li>梯度算子，符号：<code>\nabla</code>，如$\nabla$</li>
+<li><p>开二次方运算，符号：<code>\sqrt</code>，如：$\sqrt x$</p>
+</li>
+<li><p>开方运算，符号：<code>\sqrt[开方数]&#123;被开方数&#125;</code>，如：$\sqrt[3]{x+y}$</p>
+</li>
+<li><p>对数运算，符号：<code>\log</code>，如：$\log(x)$</p>
+</li>
+<li><p>极限运算，符号：<code>\lim</code>，如：$\lim^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+</li>
+<li><p>求和运算，符号：<code>\sum</code>，如：$\sum^{x \to \infty}_{y \to 0}{\frac{x}{y}}$</p>
+</li>
+<li><p>求积运算，符号：<code>\prod</code>, 如：$\prod^N_{i&#x3D;1}x_i$</p>
+</li>
+<li><p>积分运算，符号：<code>\int</code>，如：$\int^{\infty}_{0}{xdx}$</p>
+</li>
+<li><p>微分运算，符号：<code>\partial</code>，如：$\frac{\partial x}{\partial y}$</p>
+</li>
+<li><p>矩阵表示，符号：<code>\begin&#123;bmatrix&#125; \end&#123;bmatrix&#125;</code>，如：$$\begin{bmatrix}<br>  a &amp; b &amp; c \<br>  d &amp; e &amp; f \<br>  g &amp; h &amp; i \<br>\end{bmatrix}$$</p>
+</li>
+<li><p>梯度算子，符号：<code>\nabla</code>，如$\nabla$</p>
+</li>
 </ul>
 <h4 id="逻辑运算"><a href="#逻辑运算" class="headerlink" title="逻辑运算"></a>逻辑运算</h4><ul>
-<li>等于运算，符号：<code>=</code>，如：$x+y&#x3D;z$</li>
-<li>大于运算，符号：<code>&gt;</code>，如：$x+y&gt;z$</li>
-<li>小于运算，符号：<code>&lt;</code>，如：$x+y&lt;z$</li>
 <li>大于等于运算，符号：<code>\geq</code>，如：$x+y \geq z$</li>
 <li>小于等于运算，符号：<code>\leq</code>，如：$x+y \leq z$</li>
 <li>不等于运算，符号：<code>\neq</code>，如：$x+y \neq z$</li>
@@ -310,8 +305,6 @@
 <li>差集运算，符号：<code>\setminus</code>，如：$x \setminus y$</li>
 <li>同或运算，符号：<code>\bigodot</code>，如：$x \bigodot y$</li>
 <li>同与运算，符号：<code>\bigotimes</code>，如：$x \bigotimes y$</li>
-<li>实数集合，符号：<code>\mathbb&#123;R&#125;</code>，如：$\mathbb{R}$</li>
-<li>自然数集合，符号：<code>\mathbb&#123;Z&#125;</code>，如：$\mathbb{Z}$</li>
 <li>空集，符号：<code>\emptyset</code>，如：$\emptyset$</li>
 <li>任意符号，符号：<code>\forall</code>，如：$\forall i$</li>
 <li>存在符号，符号：<code>\exists</code>，如$\exists i$</li>
