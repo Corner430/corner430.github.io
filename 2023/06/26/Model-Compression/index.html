@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>Model Compression | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Model Compression Network Pruning Knowledge Distillation Parameter Quantization Arichitecture Design Dynamic Network">
+  <meta name="description" content="Model Compression Network Pruning Knowledge Distillation">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Model Compression">
 <meta property="og:url" content="http://corner430.github.io/2023/06/26/Model-Compression/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Model Compression Network Pruning Knowledge Distillation Parameter Quantization Arichitecture Design Dynamic Network">
+<meta property="og:description" content="Model Compression Network Pruning Knowledge Distillation">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-26T02:19:41.000Z">
-<meta property="article:modified_time" content="2023-09-13T21:46:50.067Z">
+<meta property="article:modified_time" content="2023-09-14T00:05:24.410Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:170.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:171.1k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -165,7 +165,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：32字 | 预计阅读时长：1分钟
+    		字数：290字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -197,14 +197,54 @@
         <ul>
 <li><em>Model Compression</em><ul>
 <li><em>Network Pruning</em></li>
-<li><em>Knowledge Distillation</em></li>
+<li><em>Knowledge Distillation</em><span id="more"></span></li>
 <li><em>Parameter Quantization</em></li>
 <li><em>Arichitecture Design</em></li>
-<li><em>Dynamic Network</em><span id="more"></span></li>
+<li><em>Dynamic Network</em></li>
 </ul>
 </li>
 </ul>
-<h3 id="1-Network-Pruning"><a href="#1-Network-Pruning" class="headerlink" title="1. Network Pruning"></a><em>1. Network Pruning</em></h3><hr>
+<h3 id="1-Network-Pruning"><a href="#1-Network-Pruning" class="headerlink" title="1. Network Pruning"></a><em>1. Network Pruning</em></h3><p><em>Network can be pruned</em></p>
+<ul>
+<li><em>Networks are typecally over-parameterized(there is significant redundant <strong>weight or neurons</strong>)</em></li>
+</ul>
+<p><em><a target="_blank" rel="noopener" href="https://youtu.be/dPp8rCAnU_A?si=aiwzfHoFb99JyAxm&t=383">Network Pruning</a></em></p>
+<ul>
+<li><em>Importance of a weight</em></li>
+<li><em>Importance of a neuron: the number of times it wasn’t zero on a given data set…</em></li>
+<li><em>After pruning, the accuracy will drop(hopefully not too much)</em></li>
+<li><em>Fine-tuning on training data for recover</em></li>
+<li><em>Don’t prune too much at once, or the network won’t recover</em></li>
+</ul>
+<blockquote>
+<p><strong>要反复进行剪枝和微调，直到满足要求为止</strong></p>
+</blockquote>
+<p><em><strong><a target="_blank" rel="noopener" href="https://youtu.be/7B8Cx7woQk4?si=M-LSBjyhBL4hISer&t=218">Why Pruning?</a></strong></em></p>
+<ul>
+<li><em>How about simply train a smaller network?</em></li>
+<li><em>It is widely known that smaller networks is more difficult to learn successfully.</em><ul>
+<li><em>Larger network is easier to optimize?</em></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>这里有两篇观点完全相反的 *paper: <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1803.03635">The Lottery Ticket Hypothesis: Finding Sparse, Trainable Neural Networks</a> and <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1810.05270">Rethinking the Value of Network Pruning</a>*，进行探讨小模型是否可以直接 <em>train</em></p>
+</blockquote>
+<p><em><strong>Network Pruning-Practical Issue</strong></em></p>
+<ul>
+<li><p><em>Weight pruning</em></p>
+<ul>
+<li>*The network architecture becomes irregular. <strong>Hard to implement, hard to speedup(GPU不好加速)</strong>…*.(为解决这个问题，一般而言不会直接把 weight 剪掉，而是将其设置为 0，这样可以保持网络结构的完整性)</li>
+<li>详细可参考 <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1608.03665.pdf">Learning Structured Sparsity in Deep Neural Networks</a>，<strong>扔掉 95% 的 weight 都没关系</strong></li>
+</ul>
+</li>
+<li><p><em>Neuron pruning</em></p>
+<ul>
+<li><em>The network architecture is regular. Easy to implement, easy to speedup(GPU好加速)…</em></li>
+</ul>
+</li>
+</ul>
+<hr>
 <h3 id="2-Knowledge-Distillation"><a href="#2-Knowledge-Distillation" class="headerlink" title="2. Knowledge Distillation"></a><em>2. Knowledge Distillation</em></h3><ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/Corner430/Knowledge-Distillation">Knowledge Distillation</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/lhyfst/knowledge-distillation-papers">knowledge distillation papers</a></li>
