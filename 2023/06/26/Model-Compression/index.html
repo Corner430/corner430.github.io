@@ -15,10 +15,14 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Model Compression Network Pruning Knowledge Distillation">
 <meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914234233.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914221219.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914223043.png">
 <meta property="article:published_time" content="2023-06-26T02:19:41.000Z">
-<meta property="article:modified_time" content="2023-09-14T00:05:24.410Z">
+<meta property="article:modified_time" content="2023-09-14T03:09:05.839Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914234233.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -64,7 +68,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:171.1k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:171.5k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -165,7 +169,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：290字 | 预计阅读时长：1分钟
+    		字数：677字 | 预计阅读时长：3分钟
 	</div>
         
   
@@ -204,7 +208,10 @@
 </ul>
 </li>
 </ul>
-<h3 id="1-Network-Pruning"><a href="#1-Network-Pruning" class="headerlink" title="1. Network Pruning"></a><em>1. Network Pruning</em></h3><p><em>Network can be pruned</em></p>
+<h3 id="1-Network-Pruning"><a href="#1-Network-Pruning" class="headerlink" title="1. Network Pruning"></a><em>1. Network Pruning</em></h3><blockquote>
+<p>只要它是 NN 就 OK</p>
+</blockquote>
+<p><em>Network can be pruned</em></p>
 <ul>
 <li><em>Networks are typecally over-parameterized(there is significant redundant <strong>weight or neurons</strong>)</em></li>
 </ul>
@@ -244,15 +251,88 @@
 </ul>
 </li>
 </ul>
+<p><em><strong><a target="_blank" rel="noopener" href="https://youtu.be/AgezOkBTV90?si=KQj295FsSMItGArK">Pruning and Model Compression</a></strong></em></p>
+<ul>
+<li><em>A three-stage pipeline to reduce the storage requirement of neural nets</em></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914234233.png" alt="20230914234233"></p>
+<ul>
+<li><em>Showed a 35x decrease in size of AlexNet from 240MB to 6.9MB with no loss in accuracy</em></li>
+<li><em><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1510.00149">Deep Compression: Compressing Deep Neural Networks with Pruning, Trained Quantization and Huffman Coding</a></em></li>
+</ul>
 <hr>
-<h3 id="2-Knowledge-Distillation"><a href="#2-Knowledge-Distillation" class="headerlink" title="2. Knowledge Distillation"></a><em>2. Knowledge Distillation</em></h3><ul>
+<h3 id="2-Knowledge-Distillation"><a href="#2-Knowledge-Distillation" class="headerlink" title="2. Knowledge Distillation"></a><em>2. Knowledge Distillation</em></h3><blockquote>
+<p>目前限定在分类问题</p>
+</blockquote>
+<ul>
 <li><a target="_blank" rel="noopener" href="https://github.com/Corner430/Knowledge-Distillation">Knowledge Distillation</a></li>
 <li><a target="_blank" rel="noopener" href="https://github.com/lhyfst/knowledge-distillation-papers">knowledge distillation papers</a></li>
 </ul>
 <hr>
-<h3 id="3-Parameter-Quantization"><a href="#3-Parameter-Quantization" class="headerlink" title="3. Parameter Quantization"></a><em>3. Parameter Quantization</em></h3><hr>
-<h3 id="4-Arichitecture-Design"><a href="#4-Arichitecture-Design" class="headerlink" title="4. Arichitecture Design"></a><em>4. Arichitecture Design</em></h3><hr>
-<h3 id="5-Dynamic-Network"><a href="#5-Dynamic-Network" class="headerlink" title="5. Dynamic Network"></a><em>5. Dynamic Network</em></h3>
+<h3 id="3-Parameter-Quantization"><a href="#3-Parameter-Quantization" class="headerlink" title="3. Parameter Quantization"></a><em>3. Parameter Quantization</em></h3><ul>
+<li><em>1. Using less bits to represent a value</em></li>
+<li><em>2. Weight clustering</em><ul>
+<li><em>K-means clustering</em></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914221219.png" alt="20230914221219"></p>
+<ul>
+<li><em>3. Represent frequent clusters by less bits, represent rare clusters by more bits</em><ul>
+<li><em>e.g. Huffman encoding</em></li>
+</ul>
+</li>
+</ul>
+<p><em><strong><a target="_blank" rel="noopener" href="https://youtu.be/fMsNf0ufYnY?si=IkOm07D8yvhhdqnM&t=162">Binary Weights</a></strong></em></p>
+<blockquote>
+<p><em>BinaryConnect</em> 有时候效果反而更好，因为<strong>这本质上属于一种正则</strong></p>
+</blockquote>
+<hr>
+<h3 id="4-Arichitecture-Design"><a href="#4-Arichitecture-Design" class="headerlink" title="4. Arichitecture Design"></a><em>4. Arichitecture Design</em></h3><p><em><a target="_blank" rel="noopener" href="https://youtu.be/L0TOXlNpCJ8?si=rcPWVvlPtEAE_qJf">Low rank approximation</a></em></p>
+<ul>
+<li>对于 <em>FC</em>, 可以将其分解为两个 <em>FC</em>，这样可以减少参数量。<strong>本质上还是和矩阵分解有些关系</strong></li>
+<li>对于 CNN</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20230914223043.png" alt="20230914223043"></p>
+<p><em><strong><a target="_blank" rel="noopener" href="https://youtu.be/L0TOXlNpCJ8?si=VU8iu_qrtYfC05AQ&t=371">Depthwise Separable Convolution</a></strong></em><br><a target="_blank" rel="noopener" href="https://youtu.be/f0rOMyZSZi4?si=2lTmL5jp53GoCgIL">参数对比</a>，*<em>参数量可以降低 <em>kernel_size $\times$ kernel_size</em>，存在着参数复用</em>*</p>
+<p><em>Learn more …</em></p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1602.07360">SqueezeNet</a></li>
+<li>SqueezeDet: Fully Convolutional Network for fast object detection</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1704.04861">MobileNet</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1707.01083">ShuffleNet</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1610.02357">Xception</a></li>
+<li>SEP-Net: Transforming k × k convolution into binary patterns for reducing model size</li>
+</ul>
+<hr>
+<h3 id="5-Dynamic-Network"><a href="#5-Dynamic-Network" class="headerlink" title="5. Dynamic Network"></a><em>5. Dynamic Network</em></h3><p><em>Can network adjust the computation power it need?</em></p>
+<p><em>Possible solutions:</em></p>
+<ul>
+<li><em>1. Train multiple classifiers</em></li>
+<li><em>2. Classifier at the intermedia layer</em></li>
+</ul>
+<p>参考 <a target="_blank" rel="noopener" href="https://arxiv.org/abs/1703.09844">Multi-Scale Dense Networks for Resource Efficient Image Classification</a></p>
+<hr>
+<ul>
+<li>使用训练并剪枝之后的网络权重，去初始化一个更小的网络</li>
+<li><em>weight pruning</em> 置 0，保存非零权重，利用蒸馏的方法，将剪枝后的网络的知识蒸馏到更小的网络中</li>
+<li>家教 + 教授</li>
+<li>万能的 NiN</li>
+</ul>
+<p><em><strong>Further Studies</strong></em></p>
+<ul>
+<li><em>Can we find winning tickets early on in training?(You et al, 2020)</em></li>
+<li><em>Do wining tickets generalize across datasets and optimizer?(Morcos et al, 2019)</em></li>
+<li><em>Can this hypothesis hold in other domains like text processing&#x2F;NLP?(Yu et al, 2019)</em></li>
+</ul>
+<p><em><strong>Reading</strong></em></p>
+<ul>
+<li><em>Robert T. Lange, Lottery Ticket Hypothesis: A Survey, 2020</em></li>
+<li><em>Cheng et al., A Survey of Model Compression and Acceleration for Deep Neural Networks, 2017</em></li>
+</ul>
+<hr>
+<p><em><strong>Song Han, Lecture 10 - Knowledge Distillation | MIT 6.S965</strong></em></p>
+
       
 	
        
