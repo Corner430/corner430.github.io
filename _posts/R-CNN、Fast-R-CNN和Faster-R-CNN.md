@@ -27,6 +27,8 @@ R-CNN 的缺点是：
 * 候选区域的生成需要额外的计算。
 * SVM 分类和边界框回归需要额外的存储空间。
 
+-------------------------------------------
+
 **Fast R-CNN**
 
 ![20231028222749](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231028222749.png)
@@ -42,6 +44,8 @@ Fast R-CNN 的优点是：
 
 * 解决了候选区域生成和特征提取冗余的问题，提高了效率。
 * 可以与其他目标检测算法结合使用，提高性能。
+
+-------------------------------------------
 
 **Faster R-CNN**
 
@@ -72,6 +76,7 @@ R-CNN、Fast R-CNN 和 Faster R-CNN 的主要区别如下表所示：
 R-CNN、Fast R-CNN 和 Faster R-CNN 是目标检测领域的里程碑，它们在提高目标检测的准确性和效率方面做出了重要贡献。Faster R-CNN 是目前最常用的目标检测算法之一，它已经被广泛应用于各种视觉任务，如图像分类、物体检测、人脸识别等。
 
 ----------------------------------
+
 ### References
 - [Rich feature hierarchies for accurate object detection and semantic segmentation](https://arxiv.org/abs/1311.2524)
 - [Fast R-CNN](https://arxiv.org/abs/1504.08083)
