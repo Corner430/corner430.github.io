@@ -4,6 +4,7 @@ date: 2023-04-03 08:59:06
 declare: true
 tags:
 toc: 1
+password: ysyhl_9T
 ---
 ### 1 frp
 - 在[官方github](https://github.com/fatedier/frp)下载对应版本<!--more-->
@@ -116,7 +117,7 @@ frp的客户端就是我们想要真正进行访问的那台设备，大多数�
 [common]
 server_addr = 182.92.189.71
 server_port = 7000
-token= password
+token= meng123456
 
 [RDP]
 type = tcp
@@ -203,7 +204,7 @@ frpc程序不能直接双击运行！
 [common]
 server_addr = 150.158.17.239
 server_port = 80
-privilege_token = 88888888
+privilege_token = 11110000
 
 [RDP]
 type = tcp
@@ -348,5 +349,11 @@ sudo zerotier-cli join <NETWORK_ID>
 ```
 
 ### 3. 花生壳
+
+
+
+
+
+
 
 
