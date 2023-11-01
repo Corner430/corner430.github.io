@@ -25,10 +25,22 @@ declare: true
 ```bash
 # /etc/ssh/sshd_config
 Match Address 125.223.*,10.0.0.0/24   # 局域网或校内网地址
-Subsystem sftp /usr/lib/openssh/sftp-server
+    X11Forwarding yes
 
 Match Address 127.0.0.1,150.158.17.239  # frp连入地址
-Subsystem sftp /bin/false
+    X11Forwarding no
+    AllowTcpForwarding no
+    ForceCommand /bin/sh
 ```
 
 > 需要注意的是，这里学校的规则起到了决定性作用。学校禁用了校园网环境向外进行 ssh 连接，也就是说，能通过 frp 连接到服务器的，必然是在校外的 ip，必然是显示 127.0.0.1。对于这样的服务，我们拒绝其 sftp 服务。而校内的 ip 一定是 125.223 打头，我们允许其 sftp 服务。对于局域网的 ip，我们也允许其 sftp 服务。
+
+
+事实上，只需要添加如下内容就可以了：
+```bash
+# /etc/ssh/sshd_config
+Match Address 127.0.0.1  # frp连入地址
+    X11Forwarding no
+    AllowTcpForwarding no
+    ForceCommand /bin/sh
+```
