@@ -3,7 +3,6 @@ title: 对比学习（Contrastive Learning）
 date: 2023-07-18 13:28:05
 tags:
 declare: true
-top: 1
 ---
 1. 对于Max margin Contrastive loss的公式解读<!--more-->
   - 由于指示函数的作用，当两个样本属于同一分布的时候，最小化二者之间的距离。
