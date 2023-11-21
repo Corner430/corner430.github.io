@@ -1,10 +1,11 @@
 ---
-title: Ubuntu使用clash客户端
+title: Ubuntu科学上网
 date: 2023-04-11 17:48:36
 tags:
 declare: true
 doc: 1
 ---
+## clash
 ### 带桌面版本<!--more-->
 #### 1. 去[github](https://github.com/Fndroid/clash_for_windows_pkg/releases)下载Linux版本的clash for windows
 ![20230411191443](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230411191443.png)
@@ -134,3 +135,19 @@ alias stopclash="pkill -f '/home/corner/.local/opt/clash -f /home/corner/.local/
 
 ### References
 [最全Linux科学上网三种方式-长风分享](https://www.youtube.com/watch?v=VOlWdNZAq_o&list=WL&index=15&t=942s&ab_channel=%E9%95%BF%E9%A3%8E%E5%88%86%E4%BA%AB)
+
+## V2ray
+- 下载 [v2ray core](https://github.com/v2ray/v2ray-core)的Linux版本，例如 `v2ray-linux-64.zip`
+
+- `unzip`
+其中的 `v2ray` 为可执行文件，`config.json` 为配置文件，配置文件可以通过 `v2rayN` 的 **导出所选服务器为客户端配置** 进行导出。
+
+- `./v2ray -config config.json` 运行即可，回显如下：
+
+```bash
+V2Ray 4.28.2 (V2Fly, a community-driven edition of V2Ray.) Custom (go1.15.2 linux/amd64)
+A unified platform for anti-censorship.
+2023/11/21 07:15:11 [Info] v2ray.com/core/common/platform/ctlcmd: <v2ctl message>
+v2ctl> Read config:  config.json
+2023/11/21 07:15:11 [Warning] v2ray.com/core: V2Ray 4.28.2 started
+```
