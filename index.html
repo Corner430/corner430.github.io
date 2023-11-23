@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:177.7k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:111.2k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -332,7 +332,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：68.4k字 | 预计阅读时长：241分钟
+    		字数：1.9k字 | 预计阅读时长：7分钟
 	</div>
         
   
@@ -353,10 +353,136 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h4 id="1-April-4-2023-week-1"><a href="#1-April-4-2023-week-1" class="headerlink" title="1. April 4, 2023(week 1)"></a>1. April 4, 2023(week 1)</h4><p>Decision tree</p>
-        
-          <a class="article-more-a" href="/2023/05/14/paper/#more">more >></a>
-        
+        <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a> : Transformer</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer</li>
+</ol>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-Attention-Is-All-You-Need-Transformer"><a href="#1-Attention-Is-All-You-Need-Transformer" class="headerlink" title="1. Attention Is All You Need : Transformer"></a>1. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a> : Transformer</h3><h4 id="先修知识"><a href="#先修知识" class="headerlink" title="先修知识"></a>先修知识</h4><h5 id="BLUE（Bilingual-Evaluation-Understudy）"><a href="#BLUE（Bilingual-Evaluation-Understudy）" class="headerlink" title="BLUE（Bilingual Evaluation Understudy）"></a>BLUE（Bilingual Evaluation Understudy）</h5><p><strong>机器翻译中的BLEU是一种用于评估机器翻译质量的指标，它通过计算机器翻译的句子和人工翻译的参考句子之间的n-gram匹配程度，来衡量机器翻译的精确度</strong>。n-gram是指连续的n个词，例如，unigram是一个词，bigram是两个词，trigram是三个词，依此类推。<strong>BLEU的取值范围是0到1，越接近1表示机器翻译越好，越接近0表示机器翻译越差</strong>。BLEU的计算公式如下：</p>
+<p>$$BLEU &#x3D; BP \cdot exp(\sum_{n&#x3D;1}^N w_n \log p_n)$$</p>
+<p>其中，BP是简短惩罚因子，用于惩罚过短的机器翻译，防止机器翻译只输出少数几个词就获得高分。BP的计算公式如下：</p>
+<p>$$<br>BP &#x3D; \begin{cases}<br>1, &amp; \text{if } c &gt; r \<br>e^{(1-r&#x2F;c)}, &amp; \text{if } c \leq r<br>\end{cases}<br>$$</p>
+<p>其中，c是机器翻译的总长度，r是参考翻译的最佳匹配长度，即与机器翻译最接近的参考翻译的长度。</p>
+<p>$p_n$是基于n-gram的改进精确度，用于计算机器翻译中的n-gram和参考翻译中的n-gram的匹配比例。$p_n$的计算公式如下：</p>
+<p>$$<br>p_n &#x3D; \frac{\sum_{\text{n-gram} \in C} \text{Count}<em>{\text{clip}}(\text{n-gram})}{\sum</em>{\text{n-gram} \in C} \text{Count}(\text{n-gram})}<br>$$</p>
+<p>其中，C是机器翻译的句子，$\text{Count}(\text{n-gram})$是机器翻译中n-gram的出现次数，$\text{Count}_{\text{clip}}(\text{n-gram})$是机器翻译中n-gram的截断计数，即机器翻译中n-gram的出现次数与参考翻译中n-gram的最大出现次数的较小值。</p>
+<p>$w_n$是n-gram的权重，一般取均匀权重，即$w_n &#x3D; 1&#x2F;N$，其中N是n-gram的最大阶数，通常取4。</p>
+<h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>本文发表于 2017 年，提出了一种新的网络结构 Transformer，该结构完全基于 attention 机制，不再使用 CNN 和 RNN，因此可以并行计算，加快训练速度。Transformer 在机器翻译任务上取得了很好的效果，其后被广泛应用于其他任务中。</p>
+<ul>
+<li><p>数据集：</p>
+<ul>
+<li><p>WMT 2014 English-German： 包含了约 4.5 万对英德语句子，其中训练集包含 3.7 万对句子，开发集包含 0.5 万对句子，测试集包含 0.3 万对句子。句子来源于新闻、学术论文、书籍和网站等。</p>
+</li>
+<li><p>WMT 2014 English-French： 包含了约 35 万对英法语句子，其中训练集包含 29 万对句子，开发集包含 3 万对句子，测试集包含 3 万对句子。句子来源于新闻、学术论文、书籍和网站等。</p>
+</li>
+</ul>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/tensorflow/tensor2tensor">code</a></p>
+</li>
+</ul>
+<h4 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h4><ul>
+<li>前人做的 sequence transduction 都是基于 RNN 或者 CNN</li>
+<li>都用到了 encoder-decoder 结构</li>
+<li>本文仍然基于 encoder-decoder 结构，但是不再使用 RNN 和 CNN，而是使用 attention 机制，这可以更好的并行。</li>
+<li>所用指标为 BLUE，效果最好。</li>
+</ul>
+<h4 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h4><ul>
+<li>RNN 需要顺序的计算，无法并行。</li>
+<li>已经有人使用了 attention 机制，但大都是和 RNN 或者 CNN 结合使用的。</li>
+<li>在 8 个 P100 上训练了 12 个小时。</li>
+</ul>
+<h4 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h4><ul>
+<li>前人的方法还是没有解决长距离知识学习的问题，距离越长，所需要的计算越多。</li>
+<li>在 Transformer 中，我们会通过 embedding 来固定维度，这会带来不好的影响，但所幸有 multi-head attention 来抵消。</li>
+<li>self-attention</li>
+<li>前人已证，基于 recurrent attention mechanism 的效果更好，但还没有人仅用 attention 机制来做。</li>
+</ul>
+<h4 id="模型架构"><a href="#模型架构" class="headerlink" title="模型架构"></a>模型架构</h4><ul>
+<li>沿用 Encoder-Decoder 结构，<strong>注意这里的 Decoder 是自回归的。（就是当前输入依赖于前面的输出）</strong></li>
+<li><em>The Transformer - model architecture.</em></li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123172121.png" alt="20231123172121"></p>
+<ul>
+<li><p>Encoder</p>
+<ul>
+<li>N &#x3D; 6</li>
+<li>两层 sub-layer，分别是 multi-head self-attention 和 position-wise fully connected feed-forward network</li>
+<li>每层都有 residual connection，然后接 layer normalization</li>
+<li>为满足 residual connection，embedding 和 encoder 的输出维度都是 d_model &#x3D; 512</li>
+</ul>
+</li>
+<li><p>Decoder</p>
+<ul>
+<li>N &#x3D; 6</li>
+<li>三层 sub-layer，分别是 masked multi-head self-attention，multi-head self-attention 和 position-wise fully connected feed-forward network</li>
+<li>每层都有 residual connection，然后接 layer normalization</li>
+<li>对于编码器的输出执行多头注意力，K（键）和V（值）来自编码器的输出，而Q（查询）来自解码器的输出。这确保了解码器中的每个位置都可以访问编码器输出中的所有位置。</li>
+<li>masked multi-head self-attention 用于防止解码器中的位置访问后续位置。这是通过将查询掩码为负无穷来实现的。</li>
+</ul>
+</li>
+<li><p>Attention</p>
+<ul>
+<li>Scaled Dot-Product Attention</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123180055.png" alt="20231123180055"></p>
+<p>其中 queries 和 keys 的维度是 $d_k$，values 的维度是 $d_v$。<br>事实上， 这里是可以并行的，<strong>参见原文3.2.1</strong></p>
+<blockquote>
+<p>作者在这里指出，<strong>点积 要比 加性 效率高，具体谁更好，参见原文。</strong></p>
+</blockquote>
+<blockquote>
+<p>除以 $\sqrt{d_k}$ 是为了<strong>消除方差的影响，参见原文第四页页脚</strong></p>
+</blockquote>
+<ul>
+<li>Multi-Head Attention</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123180142.png" alt="20231123180142"></p>
+<p>作者认为，直接将 queries，keys 和 values 映射到 $d_{model}$ 维度的空间中，可能会导致信息损失，因此，作者将 queries，keys 和 values 分别映射到 $d_k$，$d_k$ 和 $d_v$ 维度的空间中，然后进行 Scaled Dot-Product Attention，最后将多个结果拼接起来，再次映射到 $d_{model}$ 维度的空间中。</p>
+<p>具体而言，文中设定 h &#x3D; 8，即将 queries，keys 和 values 分别映射到 $d_k$ &#x3D; $d_v$ &#x3D; $d_{model}$&#x2F;h &#x3D; 64 维度的空间中，然后进行 Scaled Dot-Product Attention，最后将多个结果拼接起来，再次映射到 $d_{model}$ 维度的空间中。<strong>参见原文3.2.2</strong></p>
+<hr>
+<ul>
+<li><p>Applications of Attention in our Model</p>
+<ul>
+<li>quiries 来自前一个 decoder layer，keys 和 values 来自 encoder 的输出</li>
+<li>encoder 包含 self-attention</li>
+<li>通过 mask 来防止 decoder 中的位置访问后续位置，<strong>具体而言，就是将 values 的后续位置 mask 为负无穷，这样过 softmax 之后，就会变成 0，即不会影响结果。</strong></li>
+</ul>
+</li>
+<li><p>Position-wise Feed-Forward Networks</p>
+</li>
+</ul>
+<p>$$\mathcal{FFN} (x) &#x3D; \mathbb{max} (0, x W_1 + b_1)W_2 + b_2$$</p>
+<p>其中输入和输出的维度都是 $d_{model}$ &#x3D; 512，而中间层的维度是 $d_{ff}$ &#x3D; 2048。</p>
+<ul>
+<li>embedding<br>作者将 input embedding 和 output embedding 共享参数，都是通过一个 <strong>线性层再加上一个softmax</strong> 来实现的。</li>
+</ul>
+<blockquote>
+<p>在 embedding 的时候，所有的权重乘以 $\sqrt{d_{model}}$，<strong>这样可以使得 embedding 的结果的方差为 1</strong>，具体原因参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/442509602">这篇帖子</a>。</p>
+</blockquote>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123195753.png" alt="20231123195753"></p>
+<ul>
+<li>Positional Encoding<ul>
+<li>attention 机制没有考虑到序列中词的位置信息。因此，作者在 embedding 后加入了位置编码，用于表示词的位置信息。</li>
+<li>维度为 $d_{model}$ &#x3D; 512，位置编码的维度也是 512。<strong>便于求和</strong></li>
+</ul>
+</li>
+</ul>
+<p>$$\begin{aligned}<br>\text{PE}<em>{(pos, 2i)} &amp;&#x3D; \sin(pos &#x2F; 10000^{2i&#x2F;d</em>{model}}) \<br>\text{PE}<em>{(pos, 2i+1)} &amp;&#x3D; \cos(pos &#x2F; 10000^{2i&#x2F;d</em>{model}})<br>\end{aligned}$$</p>
+<p>其中，pos 是词在句子中的位置，i 是位置编码的维度。</p>
+<h4 id="Why-Self-Attention"><a href="#Why-Self-Attention" class="headerlink" title="Why Self-Attention?"></a>Why Self-Attention?</h4><ul>
+<li>可并行</li>
+<li>距离远的词也可以相互影响</li>
+<li><strong>作者还提出了 局部注意力</strong></li>
+</ul>
+<h4 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h4><h4 id="Results"><a href="#Results" class="headerlink" title="Results"></a>Results</h4><p>其中大模型用 8 个 P100 GPU 训练了 3.5 天</p>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123222009.png" alt="20231123222009"></p>
+<h4 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h4><ul>
+<li>本文提出了一种新的网络结构 Transformer，该结构完全基于 attention 机制，不再使用 CNN 和 RNN，因此可以并行计算，加快训练速度。</li>
+<li>Transformer 在机器翻译任务上取得了很好的效果，其后被广泛应用于其他任务中。</li>
+<li>可以考虑 局部注意力</li>
+<li>可以试试在 图像或音频 上应用 Transformer</li>
+</ul>
+
       
 	
 
