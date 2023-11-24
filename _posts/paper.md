@@ -7,7 +7,7 @@ top : 1
 ---
 ## 目录
 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
-2. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer
+2. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
