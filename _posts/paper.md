@@ -7,7 +7,8 @@ top : 1
 ---
 ## 目录
 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
-2. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer<!--more-->
+2. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872): DETR
+3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -154,3 +155,111 @@ $$\begin{aligned}
 - Transformer 在机器翻译任务上取得了很好的效果，其后被广泛应用于其他任务中。
 - 可以考虑 局部注意力
 - 可以试试在 图像或音频 上应用 Transformer
+
+### 2. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872): DETR
+#### 先修知识
+1. [Hungarian algorithm](https://en.wikipedia.org/wiki/Hungarian_algorithm) : 匈牙利算法，用于解决指派问题
+#### 摘要
+- 将目标检测视为 set prediction 问题，使用 Transformer 来解决。去除了 NMS、anchor、poposals 等。**直接输出目标的位置和类别，真正的实现了端到端。**
+- 性能对标 Faster R-CNN，但速度更快。
+- 数据集：COCO
+- [code](https://github.com/facebookresearch/detr)
+
+#### 引言
+- 现在都不是端对端，都是先生成一些 proposals，然后再分类，最后再回归。**这样的结果受限于中间的这些操作。**
+- 虽然用到了 Transformer，**但是却是并行出结果，不需要自回归。**
+
+![20231126215613](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231126215613.png)
+
+- 用到了 bipartite matching loss
+- 在大物体上效果好，小物体上效果稍差
+- 消融实验做的很好
+- 很容易扩展到全景分割
+
+#### 相关工作
+- 之前都是需要一些知识给模型，也就是先验知识，比如 anchor，NMS，proposals 等。
+- 也有人通过 bipartite matching 来解决目标检测问题，但是是基于 RNN 的。
+
+#### 模型架构
+
+![20231126230443](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231126230443.png)
+
+![20231127012221](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127012221.png)
+
+- object queries 是一个固定的向量，用于表示目标的个数，这里是 100 个（也就是 100 个框，根据数据集设定就好）。
+- **Matching cost 同时考虑了 class 和 box 的信息**
+- 仅对类别为 **非空** 的进行计算损失。
+- 类别预测的损失，去除了 log，详见原文 3.1
+- 边界框预测的损失，详见原文 3.1，使用了广义 IoU
+- **positional encoding 也好，object queries 也好，都加入到了每一层 attention layer 的计算**，
+- 作者还加入了 Auxiliary decoding losses，也就是每一层的输出都会计算损失（但是所有的 FFN 共享参数），详见原文 3.2
+
+#### 实验
+- 详细探究了每个组件的作用
+- 全景分割的实验
+
+#### 结论
+- 本文提出了一种新的目标检测方法 DETR，该方法使用 Transformer 来解决目标检测问题，去除了 NMS、anchor、poposals 等，直接输出目标的位置和类别，真正的实现了端到端。
+
+#### 附录代码
+```python
+import torch
+from torch import nn
+from torchvision.models import resnet50
+
+class DETR(nn.Module):
+
+    def __init__(self, num_classes, hidden_dim, nheads, num_encoder_layer, num_decoder_layers):
+        super().__init__()
+
+        # Backbone: ResNet-50 without the last two layers (fully connected and pooling)
+        self.backbone = nn.Sequential(*list(resnet50(pretrained=True).children())[:-2])
+
+        # 1x1 Convolution to reduce channels from 2048 to hidden_dim
+        self.conv = nn.Conv2d(2048, hidden_dim, 1)
+
+        # Transformer layers
+        self.transformer = nn.Transformer(hidden_dim, nheads, num_encoder_layer, num_decoder_layers)
+
+        # Output layers
+        self.linear_class = nn.Linear(hidden_dim, num_classes + 1)  # Class prediction (plus background)
+        self.linear_bbox = nn.Linear(hidden_dim, 4)  # Bounding box prediction (4 coordinates)
+        
+        # Learnable positional embeddings
+        self.query_pos = nn.Parameter(torch.rand(100, hidden_dim))  # Query positional embedding
+        self.row_embed = nn.Parameter(torch.rand(50, hidden_dim // 2))  # Row positional embedding
+        self.col_embed = nn.Parameter(torch.rand(50, hidden_dim // 2))  # Column positional embedding
+
+    def forward(self, inputs):
+        # Backbone feature extraction
+        x = self.backbone(inputs)
+        # 1x1 Convolution
+        h = self.conv(x)
+        
+        # Get height (H) and width (W) of the feature map
+        H, W = h.shape[-2:]
+        
+        # Positional embeddings
+        pos = torch.cat([
+            self.col_embed[:W].unsqueeze(0).repeat(H, 1, 1),
+            self.row_embed[:H].unsqueeze(1).repeat(1, W, 1)
+        ], dim=-1).flatten(0, 1).unsqueeze(1)
+        
+        # Flatten and permute for transformer input
+        h = self.transformer(pos + h.flatten(2).permute(2, 0, 1), self.query_pos.unsqueeze(1))
+        
+        # Output predictions
+        return self.linear_class(h), self.linear_bbox(h).sigmoid()
+
+# Instantiate the model
+detr = DETR(num_classes=91, hidden_dim=256, nheads=8, num_encoder_layer=6, num_decoder_layers=6)
+
+# Set the model to evaluation mode
+detr.eval()
+
+# Generate random input tensor
+inputs = torch.rand(1, 3, 800, 1200)
+
+# Forward pass through the model
+logits, bboxes = detr(inputs)
+```
