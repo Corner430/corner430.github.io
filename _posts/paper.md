@@ -365,6 +365,7 @@ TODO
 2. 在 stage 1 的第二部分，进来一张图片，通过 selective search algorithm 生成一些 proposals，之后选择 top O 个 proposals，**要求这些 proposals 与 base class 的 ground truth bounding box 不重叠**。之后将这些 proposals 作为 pseudo ground truth，采用 DETR 的方式进行训练。也就是图中的 $b^`$，对应的类别是 $c^`$。
 
 - 找框：
+
 {% raw %}
 $$
 \hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)})
@@ -373,17 +374,24 @@ $$
 $$
 \mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)}) = - \mathbb{1}_{\{c_i \neq \emptyset\} } \hat{p}_{\sigma(i)}(c_i) + \mathbb{1}_{\{c_i = \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)})
 $$
+{% endraw %}
 
 
 - Hungarian loss：
 
+{% raw %}
 $$
 L_{hg}(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\hat \sigma(i)})]
 $$
 {% endraw %}
 
 - 在 stage 1 中的第二部分，损失为：
-$$\mathcal{L}^{base}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda^` \mathcal{L}_{hg}(y^`, \hat{y}^`)$$
+
+{% raw %}
+$$
+\mathcal{L}^{base}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda^` \mathcal{L}_{hg}(y^`, \hat{y}^`)
+$$
+{% endraw %}
 
 ##### Incremental Few-Shot Fine-Tuning
 
@@ -414,7 +422,11 @@ $$
 
 - stage 2 的损失为：
 
-$$\mathcal{L}^{novel}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda_{feat} \mathcal{L}^{kd}_{feat} + \lambda_{cls} \mathcal{L}^{kd}_{cls}$$
+{% raw %}
+$$
+\mathcal{L}^{novel}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda_{feat} \mathcal{L}^{kd}_{feat} + \lambda_{cls} \mathcal{L}^{kd}_{cls}
+$$
+{% endraw %}
 
 #### 实验
 #### 结论
