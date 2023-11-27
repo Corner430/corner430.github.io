@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>paper | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="目录 Attention Is All You Need : Transformer End-to-End Object Detection with Transformers: DETR AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer">
+  <meta name="description" content="目录 Attention Is All You Need : Transformer End-to-End Object Detection with Transformers: DETR AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer Incrementa">
 <meta property="og:type" content="article">
 <meta property="og:title" content="paper">
 <meta property="og:url" content="http://corner430.github.io/2023/05/14/paper/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="目录 Attention Is All You Need : Transformer End-to-End Object Detection with Transformers: DETR AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer">
+<meta property="og:description" content="目录 Attention Is All You Need : Transformer End-to-End Object Detection with Transformers: DETR AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer Incrementa">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123172121.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123180055.png">
@@ -23,8 +23,10 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231126215613.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231126230443.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127012221.png">
+<meta property="og:image" content="https://kikaben.com/detr-object-detection-with-transformers-2020/images/fig-10.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-11-26T17:23:07.955Z">
+<meta property="article:modified_time" content="2023-11-27T04:43:51.176Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123172121.png">
@@ -73,7 +75,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:112k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:112.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -174,7 +176,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.6k字 | 预计阅读时长：11分钟
+    		字数：3.3k字 | 预计阅读时长：14分钟
 	</div>
         
   
@@ -206,7 +208,8 @@
         <h2 id="目录"><a href="#目录" class="headerlink" title="目录"></a>目录</h2><ol>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a> : Transformer</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2005.12872">End-to-End Object Detection with Transformers</a>: DETR</li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer<span id="more"></span></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer</li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.04042">Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</a><span id="more"></span></li>
 </ol>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-Attention-Is-All-You-Need-Transformer"><a href="#1-Attention-Is-All-You-Need-Transformer" class="headerlink" title="1. Attention Is All You Need : Transformer"></a>1. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a> : Transformer</h3><h4 id="先修知识"><a href="#先修知识" class="headerlink" title="先修知识"></a>先修知识</h4><h5 id="BLUE（Bilingual-Evaluation-Understudy）"><a href="#BLUE（Bilingual-Evaluation-Understudy）" class="headerlink" title="BLUE（Bilingual Evaluation Understudy）"></a>BLUE（Bilingual Evaluation Understudy）</h5><p><strong>机器翻译中的BLEU是一种用于评估机器翻译质量的指标，它通过计算机器翻译的句子和人工翻译的参考句子之间的n-gram匹配程度，来衡量机器翻译的精确度</strong>。n-gram是指连续的n个词，例如，unigram是一个词，bigram是两个词，trigram是三个词，依此类推。<strong>BLEU的取值范围是0到1，越接近1表示机器翻译越好，越接近0表示机器翻译越差</strong>。BLEU的计算公式如下：</p>
 <p>$$BLEU &#x3D; BP \cdot exp(\sum_{n&#x3D;1}^N w_n \log p_n)$$</p>
@@ -214,8 +217,8 @@
 <p>$$<br>BP &#x3D; \begin{cases}<br>1, &amp; \text{if } c &gt; r \<br>e^{(1-r&#x2F;c)}, &amp; \text{if } c \leq r<br>\end{cases}<br>$$</p>
 <p>其中，c是机器翻译的总长度，r是参考翻译的最佳匹配长度，即与机器翻译最接近的参考翻译的长度。</p>
 <p>$p_n$是基于n-gram的改进精确度，用于计算机器翻译中的n-gram和参考翻译中的n-gram的匹配比例。$p_n$的计算公式如下：</p>
-<p>$$<br>p_n &#x3D; \frac{\sum_{\text{n-gram} \in C} \text{Count}<em>{\text{clip}}(\text{n-gram})}{\sum</em>{\text{n-gram} \in C} \text{Count}(\text{n-gram})}<br>$$</p>
-<p>其中，C是机器翻译的句子，$\text{Count}(\text{n-gram})$是机器翻译中n-gram的出现次数，$\text{Count}_{\text{clip}}(\text{n-gram})$是机器翻译中n-gram的截断计数，即机器翻译中n-gram的出现次数与参考翻译中n-gram的最大出现次数的较小值。</p>
+<p>$$<br>p_n &#x3D; \frac{\sum_{\text{n-gram} \in C} \text{Count}<em>{\text{clip} }(\text{n-gram})}{\sum</em>{\text{n-gram} \in C} \text{Count}(\text{n-gram})}<br>$$</p>
+<p>其中，C是机器翻译的句子，$\text{Count}(\text{n-gram})$是机器翻译中n-gram的出现次数，$\text{Count}_{\text{clip} }(\text{n-gram})$是机器翻译中n-gram的截断计数，即机器翻译中n-gram的出现次数与参考翻译中n-gram的最大出现次数的较小值。</p>
 <p>$w_n$是n-gram的权重，一般取均匀权重，即$w_n &#x3D; 1&#x2F;N$，其中N是n-gram的最大阶数，通常取4。</p>
 <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>本文发表于 2017 年，提出了一种新的网络结构 Transformer，该结构完全基于 attention 机制，不再使用 CNN 和 RNN，因此可以并行计算，加快训练速度。Transformer 在机器翻译任务上取得了很好的效果，其后被广泛应用于其他任务中。</p>
 <ul>
@@ -308,7 +311,7 @@
 <li>embedding<br>作者将 input embedding 和 output embedding 共享参数，都是通过一个 <strong>线性层再加上一个softmax</strong> 来实现的。</li>
 </ul>
 <blockquote>
-<p>在 embedding 的时候，所有的权重乘以 $\sqrt{d_{model}}$，<strong>这样可以使得 embedding 的结果的方差为 1</strong>，具体原因参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/442509602">这篇帖子</a>。</p>
+<p>在 embedding 的时候，所有的权重乘以 $\sqrt{d_{model} }$，<strong>这样可以使得 embedding 的结果的方差为 1</strong>，具体原因参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/442509602">这篇帖子</a>。</p>
 </blockquote>
 <p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123195753.png" alt="20231123195753"></p>
 <ul>
@@ -318,7 +321,7 @@
 </ul>
 </li>
 </ul>
-<p>$$\begin{aligned}<br>\text{PE}<em>{(pos, 2i)} &amp;&#x3D; \sin(pos &#x2F; 10000^{2i&#x2F;d</em>{model}}) \<br>\text{PE}<em>{(pos, 2i+1)} &amp;&#x3D; \cos(pos &#x2F; 10000^{2i&#x2F;d</em>{model}})<br>\end{aligned}$$</p>
+<p>$$\begin{aligned}<br>\text{PE}<em>{(pos, 2i)} &amp;&#x3D; \sin(pos &#x2F; 10000^{2i&#x2F;d</em>{model} }) \<br>\text{PE}<em>{(pos, 2i+1)} &amp;&#x3D; \cos(pos &#x2F; 10000^{2i&#x2F;d</em>{model} })<br>\end{aligned}$$</p>
 <p>其中，pos 是词在句子中的位置，i 是位置编码的维度。</p>
 <h4 id="Why-Self-Attention"><a href="#Why-Self-Attention" class="headerlink" title="Why Self-Attention?"></a>Why Self-Attention?</h4><ul>
 <li>可并行</li>
@@ -365,9 +368,57 @@
 <li>仅对类别为 <strong>非空</strong> 的进行计算损失。</li>
 <li>类别预测的损失，去除了 log，详见原文 3.1</li>
 <li>边界框预测的损失，详见原文 3.1，使用了广义 IoU</li>
+</ul>
+<hr>
+<p><strong>loss 的计算分为如下几个部分：</strong></p>
+<p><strong>首先通过 $\mathcal{L}_{match}$ 一对一的找到框，之后算损失：Hungarian loss + box loss + class loss</strong></p>
+
+$$
+\hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)})
+$$
+
+
+<ul>
+<li>$y_i &#x3D; (c_i, b_i)$ 是 ground truth</li>
+<li>$c_i$ 是 class label，可以是 $\emptyset$</li>
+<li>$b_i$ 是 bounding box，(center x, center y, height, and width relative to the image size).</li>
+<li>$\hat{y}_i$ 是预测的结果，可以 padded with $\emptyset$ (no object) when N &gt; the number of objects.</li>
+<li>$\hat{c_i}$ 是预测的类别</li>
+<li>$\hat{b_i}$ 是预测的 bounding box</li>
+<li>$\mathcal{\sigma(i)}$ is an index within a particular permutation of N elements.</li>
+</ul>
+
+$$
+\mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)}) = - \mathbb{1}_{\{c_i \neq \emptyset\} } \hat{p}_{\sigma(i)}(c_i) + \mathbb{1}_{\{c_i = \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)})
+$$
+
+- $\mathbb{1}_{\{c_i \neq \emptyset\} }$ 是指当 $c_i \neq \emptyset$ 时，取 1，否则取 0
+- $\hat{p}_{\sigma(i)}(c_i)$ 是指预测的类别为 $c_i$ 的概率
+- $\mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)})$ 是指预测的 bounding box 与 ground truth 的损失
+
+$$
+\mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)}) = \lambda_{iou} \mathcal{L}_{iou} (b_i, \hat{b}_{\sigma(i)}) + \lambda_{L_1} ||b_i - \hat{b}_{\sigma(i)}||_1
+$$
+
+
+<blockquote>
+<p>$L_1$ 损失较常用，但是对于小框和大框的损失处理有问题，因此作者加入了 $IoU$ 损失，详见原文</p>
+</blockquote>
+
+$$
+\mathcal{L}_{\text{Hungarian} }(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\hat \sigma(i)})]
+$$
+
+
+<blockquote>
+<p><strong>事实上，作者还加了超参系数做平衡。这里使用了对数，而上文没有，是因为二者考虑的问题不一样，一个是考虑数值相对平衡，一个是考虑梯度相对平衡。</strong></p>
+</blockquote>
+<hr>
+<ul>
 <li><strong>positional encoding 也好，object queries 也好，都加入到了每一层 attention layer 的计算</strong>，</li>
 <li>作者还加入了 Auxiliary decoding losses，也就是每一层的输出都会计算损失（但是所有的 FFN 共享参数），详见原文 3.2</li>
 </ul>
+<p><img src="https://kikaben.com/detr-object-detection-with-transformers-2020/images/fig-10.png" alt="paper 中 Fig.10"></p>
 <h4 id="实验"><a href="#实验" class="headerlink" title="实验"></a>实验</h4><ul>
 <li>详细探究了每个组件的作用</li>
 <li>全景分割的实验</li>
@@ -376,6 +427,30 @@
 <li>本文提出了一种新的目标检测方法 DETR，该方法使用 Transformer 来解决目标检测问题，去除了 NMS、anchor、poposals 等，直接输出目标的位置和类别，真正的实现了端到端。</li>
 </ul>
 <h4 id="附录代码"><a href="#附录代码" class="headerlink" title="附录代码"></a>附录代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> resnet50</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DETR</span>(nn.Module):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes, hidden_dim, nheads, num_encoder_layer, num_decoder_layers</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Backbone: ResNet-50 without the last two layers (fully connected and pooling)</span></span><br><span class="line">        self.backbone = nn.Sequential(*<span class="built_in">list</span>(resnet50(pretrained=<span class="literal">True</span>).children())[:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 1x1 Convolution to reduce channels from 2048 to hidden_dim</span></span><br><span class="line">        self.conv = nn.Conv2d(<span class="number">2048</span>, hidden_dim, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Transformer layers</span></span><br><span class="line">        self.transformer = nn.Transformer(hidden_dim, nheads, num_encoder_layer, num_decoder_layers)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Output layers</span></span><br><span class="line">        self.linear_class = nn.Linear(hidden_dim, num_classes + <span class="number">1</span>)  <span class="comment"># Class prediction (plus background)</span></span><br><span class="line">        self.linear_bbox = nn.Linear(hidden_dim, <span class="number">4</span>)  <span class="comment"># Bounding box prediction (4 coordinates)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Learnable positional embeddings</span></span><br><span class="line">        self.query_pos = nn.Parameter(torch.rand(<span class="number">100</span>, hidden_dim))  <span class="comment"># Query positional embedding</span></span><br><span class="line">        self.row_embed = nn.Parameter(torch.rand(<span class="number">50</span>, hidden_dim // <span class="number">2</span>))  <span class="comment"># Row positional embedding</span></span><br><span class="line">        self.col_embed = nn.Parameter(torch.rand(<span class="number">50</span>, hidden_dim // <span class="number">2</span>))  <span class="comment"># Column positional embedding</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="comment"># Backbone feature extraction</span></span><br><span class="line">        x = self.backbone(inputs)</span><br><span class="line">        <span class="comment"># 1x1 Convolution</span></span><br><span class="line">        h = self.conv(x)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Get height (H) and width (W) of the feature map</span></span><br><span class="line">        H, W = h.shape[-<span class="number">2</span>:]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Positional embeddings</span></span><br><span class="line">        pos = torch.cat([</span><br><span class="line">            self.col_embed[:W].unsqueeze(<span class="number">0</span>).repeat(H, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">            self.row_embed[:H].unsqueeze(<span class="number">1</span>).repeat(<span class="number">1</span>, W, <span class="number">1</span>)</span><br><span class="line">        ], dim=-<span class="number">1</span>).flatten(<span class="number">0</span>, <span class="number">1</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Flatten and permute for transformer input</span></span><br><span class="line">        h = self.transformer(pos + h.flatten(<span class="number">2</span>).permute(<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>), self.query_pos.unsqueeze(<span class="number">1</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Output predictions</span></span><br><span class="line">        <span class="keyword">return</span> self.linear_class(h), self.linear_bbox(h).sigmoid()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate the model</span></span><br><span class="line">detr = DETR(num_classes=<span class="number">91</span>, hidden_dim=<span class="number">256</span>, nheads=<span class="number">8</span>, num_encoder_layer=<span class="number">6</span>, num_decoder_layers=<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the model to evaluation mode</span></span><br><span class="line">detr.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate random input tensor</span></span><br><span class="line">inputs = torch.rand(<span class="number">1</span>, <span class="number">3</span>, <span class="number">800</span>, <span class="number">1200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Forward pass through the model</span></span><br><span class="line">logits, bboxes = detr(inputs)</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer"><a href="#3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer" class="headerlink" title="3. AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer"></a>3. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer</h3><p>TODO</p>
+<h3 id="4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning"><a href="#4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning" class="headerlink" title="4. Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning"></a>4. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.04042">Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</a></h3><h4 id="摘要-2"><a href="#摘要-2" class="headerlink" title="摘要"></a>摘要</h4><ul>
+<li>Incremental 旨在学习新类别的目标检测，而不会影响到已有类别的目标检测。</li>
+<li>通过在 DETR 上进行 fine-tune 和 self-supervised learning 来实现。</li>
+<li>实验效果好。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dongnana777/Incremental-DETR">code</a></li>
+</ul>
+<h4 id="引言-2"><a href="#引言-2" class="headerlink" title="引言"></a>引言</h4><ul>
+<li>增量学习一直都是一个难题，很容易出现 catastrophic forgetting。</li>
+<li>前人在 Faster R-CNN 做过类似的事情，第一阶段训练，第二阶段冻结<strong>类不可知提取器和 RPN</strong>，只对预测头进行 fine-tune。</li>
+<li><strong>作者解冻不同的DETR层进行微调，并根据经验确定投影层和分类头是特定于类的，DETR的CNN主干、变压器和回归头与类无关</strong></li>
+<li><strong>用到了 selective search algorithm 来进行 self-supervised learning。</strong></li>
+<li><strong>提出了 classification distillation loss 和 masked feature distillation loss</strong></li>
+<li>dataset：COCO、PASCAL VOC</li>
+</ul>
+<h4 id="相关工作-1"><a href="#相关工作-1" class="headerlink" title="相关工作"></a>相关工作</h4><ul>
+<li><strong>作者在 fine-tune 新类的时候，甚至可以不访问旧类的数据。</strong></li>
+</ul>
+<h4 id="问题定义"><a href="#问题定义" class="headerlink" title="问题定义"></a>问题定义</h4><ul>
+<li><strong>新类和旧类没有重叠</strong></li>
+<li><strong>新类仅有少量样本</strong></li>
+</ul>
+<h4 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h4><h5 id="Base-Model-Training"><a href="#Base-Model-Training" class="headerlink" title="Base Model Training"></a>Base Model Training</h5><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png" alt="20231127021733"></p>
 
       
 	
@@ -555,7 +630,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Attention-Is-All-You-Need-Transformer"><span class="toc-number">2.1.</span> <span class="toc-text">1. Attention Is All You Need : Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">先修知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BLUE%EF%BC%88Bilingual-Evaluation-Understudy%EF%BC%89"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">BLUE（Bilingual Evaluation Understudy）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.1.3.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.1.4.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.1.5.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.6.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-Self-Attention"><span class="toc-number">2.1.7.</span> <span class="toc-text">Why Self-Attention?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Training"><span class="toc-number">2.1.8.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Results"><span class="toc-number">2.1.9.</span> <span class="toc-text">Results</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion"><span class="toc-number">2.1.10.</span> <span class="toc-text">Conclusion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-End-to-End-Object-Detection-with-Transformers-DETR"><span class="toc-number">2.2.</span> <span class="toc-text">2. End-to-End Object Detection with Transformers: DETR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">先修知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.4.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84-1"><span class="toc-number">2.2.5.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.2.6.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">2.2.7.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.8.</span> <span class="toc-text">附录代码</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Attention-Is-All-You-Need-Transformer"><span class="toc-number">2.1.</span> <span class="toc-text">1. Attention Is All You Need : Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">先修知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BLUE%EF%BC%88Bilingual-Evaluation-Understudy%EF%BC%89"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">BLUE（Bilingual Evaluation Understudy）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.1.3.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.1.4.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.1.5.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.6.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-Self-Attention"><span class="toc-number">2.1.7.</span> <span class="toc-text">Why Self-Attention?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Training"><span class="toc-number">2.1.8.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Results"><span class="toc-number">2.1.9.</span> <span class="toc-text">Results</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion"><span class="toc-number">2.1.10.</span> <span class="toc-text">Conclusion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-End-to-End-Object-Detection-with-Transformers-DETR"><span class="toc-number">2.2.</span> <span class="toc-text">2. End-to-End Object Detection with Transformers: DETR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">先修知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.4.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84-1"><span class="toc-number">2.2.5.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.2.6.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">2.2.7.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.8.</span> <span class="toc-text">附录代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer"><span class="toc-number">2.3.</span> <span class="toc-text">3. AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning"><span class="toc-number">2.4.</span> <span class="toc-text">4. Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-2"><span class="toc-number">2.4.2.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C-1"><span class="toc-number">2.4.3.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">问题定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.5.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Base-Model-Training"><span class="toc-number">2.4.5.1.</span> <span class="toc-text">Base Model Training</span></a></li></ol></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
