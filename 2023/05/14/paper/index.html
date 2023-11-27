@@ -27,7 +27,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127192105.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-11-27T12:00:42.136Z">
+<meta property="article:modified_time" content="2023-11-27T13:00:19.586Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123172121.png">
@@ -477,7 +477,8 @@ $$
 <li>在 stage 1 的第二部分，进来一张图片，通过 selective search algorithm 生成一些 proposals，之后选择 top O 个 proposals，<strong>要求这些 proposals 与 base class 的 ground truth bounding box 不重叠</strong>。之后将这些 proposals 作为 pseudo ground truth，采用 DETR 的方式进行训练。也就是图中的 $b^<code>$，对应的类别是 $c^</code>$。</li>
 </ol>
 <ul>
-<li><p>找框：</p>
+<li>找框：</li>
+</ul>
 
 $$
 \hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)})
@@ -488,16 +489,25 @@ $$
 $$
 
 
-- Hungarian loss：
+
+<ul>
+<li>Hungarian loss：</li>
+</ul>
 
 $$
 L_{hg}(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\hat \sigma(i)})]
 $$
 
-</li>
-<li><p>在 stage 1 中的第二部分，损失为：<br>$$\mathcal{L}^{base}<em>{total} &#x3D; \mathcal{L}</em>{hg}(y, \hat{y}) + \lambda^<code> \mathcal&#123;L&#125;_&#123;hg&#125;(y^</code>, \hat{y}^&#96;)$$</p>
-</li>
+
+<ul>
+<li>在 stage 1 中的第二部分，损失为：</li>
 </ul>
+
+$$
+\mathcal{L}^{base}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda^` \mathcal{L}_{hg}(y^`, \hat{y}^`)
+$$
+
+
 <h5 id="Incremental-Few-Shot-Fine-Tuning"><a href="#Incremental-Few-Shot-Fine-Tuning" class="headerlink" title="Incremental Few-Shot Fine-Tuning"></a>Incremental Few-Shot Fine-Tuning</h5><p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127192105.png" alt="20231127192105"></p>
 <ul>
 <li>仅白色部分进行 fine-tune</li>
@@ -527,7 +537,12 @@ $$
 <ul>
 <li>stage 2 的损失为：</li>
 </ul>
-<p>$$\mathcal{L}^{novel}<em>{total} &#x3D; \mathcal{L}</em>{hg}(y, \hat{y}) + \lambda_{feat} \mathcal{L}^{kd}<em>{feat} + \lambda</em>{cls} \mathcal{L}^{kd}_{cls}$$</p>
+
+$$
+\mathcal{L}^{novel}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda_{feat} \mathcal{L}^{kd}_{feat} + \lambda_{cls} \mathcal{L}^{kd}_{cls}
+$$
+
+
 <h4 id="实验-1"><a href="#实验-1" class="headerlink" title="实验"></a>实验</h4><h4 id="结论-1"><a href="#结论-1" class="headerlink" title="结论"></a>结论</h4><ul>
 <li>通过蒸馏学习，做到了在学习新知识的同时不遗忘旧知识。</li>
 <li>提前通过 self-supervised 生成一些 新类标签，进行fine-tune，使得模型更容易接受新知识。</li>
