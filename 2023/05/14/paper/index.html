@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://kikaben.com/detr-object-detection-with-transformers-2020/images/fig-10.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-11-27T04:43:51.176Z">
+<meta property="article:modified_time" content="2023-11-27T04:50:47.606Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123172121.png">
@@ -214,10 +214,10 @@
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-Attention-Is-All-You-Need-Transformer"><a href="#1-Attention-Is-All-You-Need-Transformer" class="headerlink" title="1. Attention Is All You Need : Transformer"></a>1. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a> : Transformer</h3><h4 id="先修知识"><a href="#先修知识" class="headerlink" title="先修知识"></a>先修知识</h4><h5 id="BLUE（Bilingual-Evaluation-Understudy）"><a href="#BLUE（Bilingual-Evaluation-Understudy）" class="headerlink" title="BLUE（Bilingual Evaluation Understudy）"></a>BLUE（Bilingual Evaluation Understudy）</h5><p><strong>机器翻译中的BLEU是一种用于评估机器翻译质量的指标，它通过计算机器翻译的句子和人工翻译的参考句子之间的n-gram匹配程度，来衡量机器翻译的精确度</strong>。n-gram是指连续的n个词，例如，unigram是一个词，bigram是两个词，trigram是三个词，依此类推。<strong>BLEU的取值范围是0到1，越接近1表示机器翻译越好，越接近0表示机器翻译越差</strong>。BLEU的计算公式如下：</p>
 <p>$$BLEU &#x3D; BP \cdot exp(\sum_{n&#x3D;1}^N w_n \log p_n)$$</p>
 <p>其中，BP是简短惩罚因子，用于惩罚过短的机器翻译，防止机器翻译只输出少数几个词就获得高分。BP的计算公式如下：</p>
-<p>$$<br>BP &#x3D; \begin{cases}<br>1, &amp; \text{if } c &gt; r \<br>e^{(1-r&#x2F;c)}, &amp; \text{if } c \leq r<br>\end{cases}<br>$$</p>
+<p>$$BP &#x3D; \begin{cases}<br>1, &amp; \text{if } c &gt; r \<br>e^{(1-r&#x2F;c)}, &amp; \text{if } c \leq r<br>\end{cases}$$</p>
 <p>其中，c是机器翻译的总长度，r是参考翻译的最佳匹配长度，即与机器翻译最接近的参考翻译的长度。</p>
 <p>$p_n$是基于n-gram的改进精确度，用于计算机器翻译中的n-gram和参考翻译中的n-gram的匹配比例。$p_n$的计算公式如下：</p>
-<p>$$<br>p_n &#x3D; \frac{\sum_{\text{n-gram} \in C} \text{Count}<em>{\text{clip} }(\text{n-gram})}{\sum</em>{\text{n-gram} \in C} \text{Count}(\text{n-gram})}<br>$$</p>
+<p>$$p_n &#x3D; \frac{\sum_{\text{n-gram} \in C} \text{Count}<em>{\text{clip} }(\text{n-gram})}{\sum</em>{\text{n-gram} \in C} \text{Count}(\text{n-gram})}$$</p>
 <p>其中，C是机器翻译的句子，$\text{Count}(\text{n-gram})$是机器翻译中n-gram的出现次数，$\text{Count}_{\text{clip} }(\text{n-gram})$是机器翻译中n-gram的截断计数，即机器翻译中n-gram的出现次数与参考翻译中n-gram的最大出现次数的较小值。</p>
 <p>$w_n$是n-gram的权重，一般取均匀权重，即$w_n &#x3D; 1&#x2F;N$，其中N是n-gram的最大阶数，通常取4。</p>
 <h4 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h4><p>本文发表于 2017 年，提出了一种新的网络结构 Transformer，该结构完全基于 attention 机制，不再使用 CNN 和 RNN，因此可以并行计算，加快训练速度。Transformer 在机器翻译任务上取得了很好的效果，其后被广泛应用于其他任务中。</p>
