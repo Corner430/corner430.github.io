@@ -202,7 +202,7 @@ $$\begin{aligned}
 ----------------
 **loss 的计算分为如下几个部分：**
 
-**首先通过 $\mathcal{L}_{match}$ 一对一的找到框，之后算损失：Hungarian loss + box loss + class loss**
+**首先通过 $\mathcal{L}_{match}$ 一对一的找到框，之后算损失：box loss + class loss**
 
 {% raw %}
 $$

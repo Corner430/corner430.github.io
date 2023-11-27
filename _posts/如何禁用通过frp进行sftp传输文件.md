@@ -44,3 +44,5 @@ Match Address 127.0.0.1  # frp连入地址
     AllowTcpForwarding no
     ForceCommand /bin/sh
 ```
+
+> 发现出了一些问题，vscode 也无法通过 frp 进行连接了，还是要用方法一。
