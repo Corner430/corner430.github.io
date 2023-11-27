@@ -8,7 +8,8 @@ top : 1
 ## 目录
 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
 2. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872): DETR
-3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer<!--more-->
+3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer
+4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -191,8 +192,48 @@ $$\begin{aligned}
 - 仅对类别为 **非空** 的进行计算损失。
 - 类别预测的损失，去除了 log，详见原文 3.1
 - 边界框预测的损失，详见原文 3.1，使用了广义 IoU
+
+----------------
+**loss 的计算分为如下几个部分：**
+
+**首先通过 $\mathcal{L}_{match}$ 一对一的找到框，之后算损失：Hungarian loss + box loss + class loss**
+
+$$\hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match}}(y_i, \hat{y}_{\sigma(i)})$$
+
+- $y_i = (c_i, b_i)$ 是 ground truth
+
+- $c_i$ 是 class label，可以是 $\emptyset$
+
+- $b_i$ 是 bounding box，(center x, center y, height, and width relative to the image size).
+
+- $\hat{y}_i$ 是预测的结果，可以 padded with $\emptyset$ (no object) when N > the number of objects.
+
+- $\hat{c_i}$ 是预测的类别
+
+- $\hat{b_i}$ 是预测的 bounding box
+
+- $\mathcal{\sigma(i)}$ is an index within a particular permutation of N elements.
+
+$$\mathcal{L}_{\text{match}}(y_i, \hat{y}_{\sigma(i)}) = - \mathbb{1}_{\{c_i \neq \emptyset\}} \hat{p}_{\sigma(i)}(c_i) + \mathbb{1}_{\{c_i = \emptyset\}} \mathcal{L}_{\text{box}}(b_i, \hat{b}_{\sigma(i)})$$
+
+1. $\mathbb{1}_{\{c_i \neq \emptyset\}}$ 是指当 $c_i \neq \emptyset$ 时，取 1，否则取 0
+2. $\hat{p}_{\sigma(i)}(c_i)$ 是指预测的类别为 $c_i$ 的概率
+3. $\mathcal{L}_{\text{box}}(b_i, \hat{b}_{\sigma(i)})$ 是指预测的 bounding box 与 ground truth 的损失
+
+$$\mathcal{L}_{\text{box}}(b_i, \hat{b}_{\sigma(i)}) = \lambda_{iou} \mathcal{L}_{iou} (b_i, \hat{b}_{\sigma(i)}) + \lambda_{L_1} ||b_i - \hat{b}_{\sigma(i)}||_1$$
+
+> $L_1$ 损失较常用，但是对于小框和大框的损失处理有问题，因此作者加入了 $IoU$ 损失，详见原文
+
+$$\mathcal{L}_{\text{Hungarian}}(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\}} \mathcal{L}_{\text{box}}(b_i, \hat{b}_{\hat \sigma(i)})]$$
+
+> **事实上，作者还加了超参系数做平衡。这里使用了对数，而上文没有，是因为二者考虑的问题不一样，一个是考虑数值相对平衡，一个是考虑梯度相对平衡。**
+
+--------------------
+
 - **positional encoding 也好，object queries 也好，都加入到了每一层 attention layer 的计算**，
 - 作者还加入了 Auxiliary decoding losses，也就是每一层的输出都会计算损失（但是所有的 FFN 共享参数），详见原文 3.2
+
+![paper 中 Fig.10](https://kikaben.com/detr-object-detection-with-transformers-2020/images/fig-10.png)
 
 #### 实验
 - 详细探究了每个组件的作用
@@ -263,3 +304,35 @@ inputs = torch.rand(1, 3, 800, 1200)
 # Forward pass through the model
 logits, bboxes = detr(inputs)
 ```
+
+### 3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer
+TODO
+
+### 4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)
+
+#### 摘要
+- Incremental 旨在学习新类别的目标检测，而不会影响到已有类别的目标检测。
+- 通过在 DETR 上进行 fine-tune 和 self-supervised learning 来实现。
+- 实验效果好。
+- [code](https://github.com/dongnana777/Incremental-DETR)
+
+#### 引言
+- 增量学习一直都是一个难题，很容易出现 catastrophic forgetting。
+- 前人在 Faster R-CNN 做过类似的事情，第一阶段训练，第二阶段冻结**类不可知提取器和 RPN**，只对预测头进行 fine-tune。
+- **作者解冻不同的DETR层进行微调，并根据经验确定投影层和分类头是特定于类的，DETR的CNN主干、变压器和回归头与类无关**
+- **用到了 selective search algorithm 来进行 self-supervised learning。**
+- **提出了 classification distillation loss 和 masked feature distillation loss**
+- dataset：COCO、PASCAL VOC
+
+#### 相关工作
+- **作者在 fine-tune 新类的时候，甚至可以不访问旧类的数据。**
+
+#### 问题定义
+- **新类和旧类没有重叠**
+- **新类仅有少量样本**
+
+#### 方法
+##### Base Model Training
+
+![20231127021733](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png)
+
