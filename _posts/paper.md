@@ -18,7 +18,9 @@ top : 1
 
 **机器翻译中的BLEU是一种用于评估机器翻译质量的指标，它通过计算机器翻译的句子和人工翻译的参考句子之间的n-gram匹配程度，来衡量机器翻译的精确度**。n-gram是指连续的n个词，例如，unigram是一个词，bigram是两个词，trigram是三个词，依此类推。**BLEU的取值范围是0到1，越接近1表示机器翻译越好，越接近0表示机器翻译越差**。BLEU的计算公式如下：
 
-$$BLEU = BP \cdot exp(\sum_{n=1}^N w_n \log p_n)$$
+$$
+BLEU = BP \cdot exp(\sum_{n=1}^N w_n \log p_n)
+$$
 
 其中，BP是简短惩罚因子，用于惩罚过短的机器翻译，防止机器翻译只输出少数几个词就获得高分。BP的计算公式如下：
 
@@ -33,11 +35,13 @@ $$
 
 $p_n$是基于n-gram的改进精确度，用于计算机器翻译中的n-gram和参考翻译中的n-gram的匹配比例。$p_n$的计算公式如下：
 
+{% raw %}
 $$
-p_n = \frac{\sum_{\text{n-gram} \in C} \text{Count}_{\text{clip}}(\text{n-gram})}{\sum_{\text{n-gram} \in C} \text{Count}(\text{n-gram})}
+p_n = \frac{\sum_{\text{n-gram} \in C} \text{Count}_{\text{clip} }(\text{n-gram})}{\sum_{\text{n-gram} \in C} \text{Count}(\text{n-gram})}
 $$
+{% endraw %}
 
-其中，C是机器翻译的句子，$\text{Count}(\text{n-gram})$是机器翻译中n-gram的出现次数，$\text{Count}_{\text{clip}}(\text{n-gram})$是机器翻译中n-gram的截断计数，即机器翻译中n-gram的出现次数与参考翻译中n-gram的最大出现次数的较小值。
+其中，C是机器翻译的句子，$\text{Count}(\text{n-gram})$是机器翻译中n-gram的出现次数，$\text{Count}_{\text{clip} }(\text{n-gram})$是机器翻译中n-gram的截断计数，即机器翻译中n-gram的出现次数与参考翻译中n-gram的最大出现次数的较小值。
 
 $w_n$是n-gram的权重，一般取均匀权重，即$w_n = 1/N$，其中N是n-gram的最大阶数，通常取4。
 
@@ -124,7 +128,7 @@ $$\mathcal{FFN} (x) = \mathbb{max} (0, x W_1 + b_1)W_2 + b_2$$
 - embedding
 作者将 input embedding 和 output embedding 共享参数，都是通过一个 **线性层再加上一个softmax** 来实现的。
 
-> 在 embedding 的时候，所有的权重乘以 $\sqrt{d_{model}}$，**这样可以使得 embedding 的结果的方差为 1**，具体原因参考[这篇帖子](https://zhuanlan.zhihu.com/p/442509602)。
+> 在 embedding 的时候，所有的权重乘以 $\sqrt{d_{model} }$，**这样可以使得 embedding 的结果的方差为 1**，具体原因参考[这篇帖子](https://zhuanlan.zhihu.com/p/442509602)。
 
 ![20231123195753](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123195753.png)
 
@@ -132,10 +136,12 @@ $$\mathcal{FFN} (x) = \mathbb{max} (0, x W_1 + b_1)W_2 + b_2$$
   - attention 机制没有考虑到序列中词的位置信息。因此，作者在 embedding 后加入了位置编码，用于表示词的位置信息。
   - 维度为 $d_{model}$ = 512，位置编码的维度也是 512。**便于求和**
 
+{% raw %}
 $$\begin{aligned}
-\text{PE}_{(pos, 2i)} &= \sin(pos / 10000^{2i/d_{model}}) \\
-\text{PE}_{(pos, 2i+1)} &= \cos(pos / 10000^{2i/d_{model}})
+\text{PE}_{(pos, 2i)} &= \sin(pos / 10000^{2i/d_{model} }) \\
+\text{PE}_{(pos, 2i+1)} &= \cos(pos / 10000^{2i/d_{model} })
 \end{aligned}$$
+{% endraw %}
 
 其中，pos 是词在句子中的位置，i 是位置编码的维度。
 
@@ -198,33 +204,42 @@ $$\begin{aligned}
 
 **首先通过 $\mathcal{L}_{match}$ 一对一的找到框，之后算损失：Hungarian loss + box loss + class loss**
 
-$$\hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match}}(y_i, \hat{y}_{\sigma(i)})$$
+{% raw %}
+$$
+\hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)})
+$$
+{% endraw %}
 
 - $y_i = (c_i, b_i)$ 是 ground truth
-
 - $c_i$ 是 class label，可以是 $\emptyset$
-
 - $b_i$ 是 bounding box，(center x, center y, height, and width relative to the image size).
-
 - $\hat{y}_i$ 是预测的结果，可以 padded with $\emptyset$ (no object) when N > the number of objects.
-
 - $\hat{c_i}$ 是预测的类别
-
 - $\hat{b_i}$ 是预测的 bounding box
-
 - $\mathcal{\sigma(i)}$ is an index within a particular permutation of N elements.
 
-$$\mathcal{L}_{\text{match}}(y_i, \hat{y}_{\sigma(i)}) = - \mathbb{1}_{\{c_i \neq \emptyset\}} \hat{p}_{\sigma(i)}(c_i) + \mathbb{1}_{\{c_i = \emptyset\}} \mathcal{L}_{\text{box}}(b_i, \hat{b}_{\sigma(i)})$$
 
-1. $\mathbb{1}_{\{c_i \neq \emptyset\}}$ 是指当 $c_i \neq \emptyset$ 时，取 1，否则取 0
-2. $\hat{p}_{\sigma(i)}(c_i)$ 是指预测的类别为 $c_i$ 的概率
-3. $\mathcal{L}_{\text{box}}(b_i, \hat{b}_{\sigma(i)})$ 是指预测的 bounding box 与 ground truth 的损失
+{% raw %}
+$$
+\mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)}) = - \mathbb{1}_{\{c_i \neq \emptyset\} } \hat{p}_{\sigma(i)}(c_i) + \mathbb{1}_{\{c_i = \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)})
+$$
 
-$$\mathcal{L}_{\text{box}}(b_i, \hat{b}_{\sigma(i)}) = \lambda_{iou} \mathcal{L}_{iou} (b_i, \hat{b}_{\sigma(i)}) + \lambda_{L_1} ||b_i - \hat{b}_{\sigma(i)}||_1$$
+- $\mathbb{1}_{\{c_i \neq \emptyset\} }$ 是指当 $c_i \neq \emptyset$ 时，取 1，否则取 0
+- $\hat{p}_{\sigma(i)}(c_i)$ 是指预测的类别为 $c_i$ 的概率
+- $\mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)})$ 是指预测的 bounding box 与 ground truth 的损失
+
+$$
+\mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)}) = \lambda_{iou} \mathcal{L}_{iou} (b_i, \hat{b}_{\sigma(i)}) + \lambda_{L_1} ||b_i - \hat{b}_{\sigma(i)}||_1
+$$
+{% endraw %}
 
 > $L_1$ 损失较常用，但是对于小框和大框的损失处理有问题，因此作者加入了 $IoU$ 损失，详见原文
 
-$$\mathcal{L}_{\text{Hungarian}}(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\}} \mathcal{L}_{\text{box}}(b_i, \hat{b}_{\hat \sigma(i)})]$$
+{% raw %}
+$$
+\mathcal{L}_{\text{Hungarian} }(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\hat \sigma(i)})]
+$$
+{% endraw %}
 
 > **事实上，作者还加了超参系数做平衡。这里使用了对数，而上文没有，是因为二者考虑的问题不一样，一个是考虑数值相对平衡，一个是考虑梯度相对平衡。**
 
@@ -310,24 +325,34 @@ TODO
 
 ### 4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)
 
+作者是新加坡国立大学和哈尔滨工业大学的学生
+
 #### 摘要
 - Incremental 旨在学习新类别的目标检测，而不会影响到已有类别的目标检测。
+- novel class 数据量少
 - 通过在 DETR 上进行 fine-tune 和 self-supervised learning 来实现。
-- 实验效果好。
+- 用到了 selective search algorithm
+- 用到了 knowledge distillation
 - [code](https://github.com/dongnana777/Incremental-DETR)
 
 #### 引言
 - 增量学习一直都是一个难题，很容易出现 catastrophic forgetting。
-- 前人在 Faster R-CNN 做过类似的事情，第一阶段训练，第二阶段冻结**类不可知提取器和 RPN**，只对预测头进行 fine-tune。
+- **前人通过同时训练 base class 和 novel class 来解决**，但是如果我们**没有 base class 的数据**，方法就会受限。
+- 前人在 Faster R-CNN 做过类似的事情，第一阶段在 base class 上训练，第二阶段冻结**类无关提取器和 RPN**，只对预测头进行 fine-tune。**作者深受启发。**
 - **作者解冻不同的DETR层进行微调，并根据经验确定投影层和分类头是特定于类的，DETR的CNN主干、变压器和回归头与类无关**
-- **用到了 selective search algorithm 来进行 self-supervised learning。**
+- **假定在进行 incremental 的时候，base class 的数据是不可用的。**
+- 第一阶段：base model 预训练，之后进行 self-supervised fine-tune。第二阶段：在 novel class 上进行 incremental fine-tune。
+- 第一阶段用到了 slecetive search algorithm
 - **提出了 classification distillation loss 和 masked feature distillation loss**
 - dataset：COCO、PASCAL VOC
 
 #### 相关工作
-- **作者在 fine-tune 新类的时候，甚至可以不访问旧类的数据。**
+- Object Detection
+- Few-Shot Object Detection
+- Incrementa Few-Shot Object Detection
 
 #### 问题定义
+- $D_{novel}$ 用的时候 $D_{base}$ 不可用
 - **新类和旧类没有重叠**
 - **新类仅有少量样本**
 
@@ -336,3 +361,63 @@ TODO
 
 ![20231127021733](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png)
 
+1. 在 stage 1 的第一部分，采用正常的 DETR 训练策略在 $D_{base}$ 上进行训练。
+2. 在 stage 1 的第二部分，进来一张图片，通过 selective search algorithm 生成一些 proposals，之后选择 top O 个 proposals，**要求这些 proposals 与 base class 的 ground truth bounding box 不重叠**。之后将这些 proposals 作为 pseudo ground truth，采用 DETR 的方式进行训练。也就是图中的 $b^`$，对应的类别是 $c^`$。
+
+- 找框：
+{% raw %}
+$$
+\hat{\sigma} = \text{arg} \quad \text{min}_{\sigma \in \mathcal{\sigma}_N} \sum_{i=1}^N \mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)})
+$$
+
+$$
+\mathcal{L}_{\text{match} }(y_i, \hat{y}_{\sigma(i)}) = - \mathbb{1}_{\{c_i \neq \emptyset\} } \hat{p}_{\sigma(i)}(c_i) + \mathbb{1}_{\{c_i = \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\sigma(i)})
+$$
+
+
+- Hungarian loss：
+
+$$
+L_{hg}(y, \hat{y}) = \sum_{i=1}^N [- \log \hat{p}_{\hat \sigma(i)}(c_i) + \mathbb{1}_{\{c_i \neq \emptyset\} } \mathcal{L}_{\text{box} }(b_i, \hat{b}_{\hat \sigma(i)})]
+$$
+{% endraw %}
+
+- 在 stage 1 中的第二部分，损失为：
+$$\mathcal{L}^{base}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda^` \mathcal{L}_{hg}(y^`, \hat{y}^`)$$
+
+##### Incremental Few-Shot Fine-Tuning
+
+![20231127192105](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127192105.png)
+
+- 仅白色部分进行 fine-tune
+- 直接 fine-tune，会导致 catastrophic forgetting，因此作者提出了 knowledge distillation。直接 knowledge distillation 会和 novel class 的学习产生冲突，所以这里引入了 $\mathcal{mask}^{novel}$，（如果是 novel class ground truth boxes，则为 1，否则为 0）。具体而言：
+
+{% raw %}
+$$
+\mathcal{L}^{kd}_{feat} = \frac{1}{2 N^{novel}} \sum_{i=1}^{w} \sum_{j=1}^{h} \sum_{k=1}^{c} (1 - \mathcal{mask}^{novel}_{ij}) ||f_{ijk}^{novel} - f_{ijk}^{base}||^2
+$$
+
+其中，$N^{novel} = \sum_{i=1}^{w} \sum_{j=1}^{h} (1 - \mathcal{mask}^{novel}_{ij})$，$f^{base}$ 和 $f^{novel}$ 分别是 base model 和 novel model 的 feature map。$w$，$h$，$c$ 分别是 feature map 的宽、高和通道数。
+{% endraw %}
+
+> 直观理解，对于每一个像素点，对于它的所有通道，去看它是否是 novel class bounding box 的一部分，如果是，则不需要进行 knowledge distillation，否则，则需要进行 knowledge distillation。
+
+同样，对于分类器头，直接做 knowledge distillation 也不合适，为解决这个问题，如下：
+
+{% raw %}
+$$
+\mathcal{L}^{kd}_{cls} = \mathcal{L}_{kl\_div}(\log(q^{novel}), q^{base})
+$$
+{% endraw %}
+
+> 进来一张 novel image，通过 base model 进行预测，如果 class probability 大于 0.5，且 bounding box 与 novel class ground truth boxes 不重叠，则认为需要蒸馏，算 KL 散度。
+
+- stage 2 的损失为：
+
+$$\mathcal{L}^{novel}_{total} = \mathcal{L}_{hg}(y, \hat{y}) + \lambda_{feat} \mathcal{L}^{kd}_{feat} + \lambda_{cls} \mathcal{L}^{kd}_{cls}$$
+
+#### 实验
+#### 结论
+- 通过蒸馏学习，做到了在学习新知识的同时不遗忘旧知识。
+- 提前通过 self-supervised 生成一些 新类标签，进行fine-tune，使得模型更容易接受新知识。
+- 断定模型中的部分可以分为 class-specific 和 class-agnostic 两部分。
