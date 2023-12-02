@@ -19,6 +19,8 @@ declare: true
 2. build loader时候报错，参照[Error: zImage not Patched #27](https://github.com/fbelavenuto/arpl/issues/27)
 解决方案，无
 
+参考 [手把手教你安装自己的黑群晖DMS7.1.1NAS系统](https://www.youtube.com/watch?v=oxD0Qb_DClA&t=282s)
+
 # 方案二
 准备如下工具
 ![20230522003434](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230522003434.png)
