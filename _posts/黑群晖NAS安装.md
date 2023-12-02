@@ -6,6 +6,7 @@ declare: true
 ---
 [img下载](https://xpenology.club/downloads/)
 [pat下载](https://www.synology.com/en-global/support/download/DS918+?version=7.1#system)
+[pat旧版本下载](https://archive.synology.com/download/Os/DSM)
 [Win32 Disk Imager下载](https://sourceforge.net/projects/win32diskimager/)
 [芯片无忧ChipEasy](https://www.upan.cc/tools/test/ChipEasy.html)
 [芯片无忧ChipEasy英文版](https://www.upan.cc/tools/test/ChipEasy_EN.html)
