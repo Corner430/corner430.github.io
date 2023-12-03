@@ -24,20 +24,13 @@ toc: 1
    - `docker logs <container_id_or_name>`: 查看容器的日志。
 
 例如：`docker run -d -it --name kodbox -p 10080:80 -v /data/docker/kodbox:/var/www/html --restart=always tznb/kodbox:1.15`
-
-- `-d`: 这个选项表示在后台（detached mode）运行容器，即容器将在后台运行，而不会占用当前终端。
-
-- `-it`: 这两个选项结合在一起，表示为容器分配一个交互式的终端（pseudo-TTY）。即使在后台运行，也可以通过 `docker exec` 进入容器的终端。
-
-- `--name kodbox`: 用于指定容器的名称为 "kodbox"。
-
-- `-p 10080:80`: 这个选项指定将容器的 80 端口映射到主机的 10080 端口。这样，通过访问 `http://localhost:10080`，你就可以访问到容器内部的 Web 服务。
-
-- `-v /data/docker/kodbox:/var/www/html`: 这个选项用于将主机上的 `/data/docker/kodbox` 目录挂载到容器内的 `/var/www/html` 目录。这个挂载操作可以用来持久化存储容器内的数据。
-
-- `--restart=always`: 这个选项指定容器在退出时总是自动重新启动，即使手动停止容器，Docker 也会尝试重新启动它。
-
-- `tznb/kodbox:1.15`: 这是要运行的 Docker 镜像的名称及标签。在这里使用的是 `tznb/kodbox` 镜像的版本标签为 `1.15`。
+   - `-d`: 这个选项表示在后台（detached mode）运行容器，即容器将在后台运行，而不会占用当前终端。
+   - `-it`: 这两个选项结合在一起，表示为容器分配一个交互式的终端（pseudo-TTY）。即使在后台运行，也可以通过 `docker exec` 进入容器的终端。
+   - `--name kodbox`: 用于指定容器的名称为 "kodbox"。
+   - `-p 10080:80`: 这个选项指定将容器的 80 端口映射到主机的 10080 端口。这样，通过访问 `http://localhost:10080`，你就可以访问到容器内部的 Web 服务。
+   - `-v /data/docker/kodbox:/var/www/html`: 这个选项用于将主机上的 `/data/docker/kodbox` 目录挂载到容器内的 `/var/www/html` 目录。这个挂载操作可以用来持久化存储容器内的数据。
+   - `--restart=always`: 这个选项指定容器在退出时总是自动重新启动，即使手动停止容器，Docker 也会尝试重新启动它。
+   - `tznb/kodbox:1.15`: 这是要运行的 Docker 镜像的名称及标签。在这里使用的是 `tznb/kodbox` 镜像的版本标签为 `1.15`。
 
 总体而言，这个命令的目的是在 Docker 中以后台方式启动一个名为 "kodbox" 的容器，将容器的 80 端口映射到主机的 10080 端口，同时将主机上的 `/data/docker/kodbox` 目录挂载到容器内的 `/var/www/html` 目录，确保容器在退出时会自动重新启动。
 
@@ -78,7 +71,9 @@ toc: 1
 ---------------------
 若上述方案失败，如下：
 
+```bash
 sudo groupadd docker     #添加docker用户组
 sudo gpasswd -a $USER docker     #将登陆用户加入到docker用户组中
 newgrp docker     #更新用户组
 docker ps    #测试docker命令是否可以使用sudo正常使用
+```
