@@ -22,6 +22,8 @@ toc: 1
    - `docker restart <container_id_or_name>`: 重启容器。
    - `docker rm <container_id_or_name>`: 删除停止的容器。
    - `docker logs <container_id_or_name>`: 查看容器的日志。
+   - `docker stats`: 查看容器的资源占用情况。
+   - `docker stats <container_id_or_name>`: 查看指定容器的资源占用情况。
 
 例如：`docker run -d -it --name kodbox -p 10080:80 -v /data/docker/kodbox:/var/www/html --restart=always tznb/kodbox:1.15`
    - `-d`: 这个选项表示在后台（detached mode）运行容器，即容器将在后台运行，而不会占用当前终端。
