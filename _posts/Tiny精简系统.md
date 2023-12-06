@@ -28,3 +28,4 @@ Tiny11是一个可以将标准Windows 11安装缩小到大约8GB并且在只有2
 - [AtlasOS](https://atlasos.net/)，专为游戏而生的win10精简版系统。[github链接](https://github.com/Atlas-OS/Atlas)
   - [安装教程](https://docs.atlasos.net/getting-started/installation/#download-an-iso)
 - [ReviOS](https://revi.cc/) - 专为游戏优化的 Win11 / Win10 精简版系统！性能与稳定兼备 (类似 Atlas / LTSC)
+- [Windsys Project](https://windsys.win/)
