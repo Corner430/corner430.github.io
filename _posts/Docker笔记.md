@@ -5,14 +5,14 @@ tags:
 declare: true
 toc: 1
 ---
-1. **镜像相关命令：**
+- **镜像相关命令：**
    - `docker images`: 列出本地所有镜像。
    - `docker search <image_name>`: 在 Docker Hub 上搜索镜像。
    - `docker pull <image_name>`: 下载镜像到本地。
    - `docker rmi <image_name>`: 删除本地的镜像。
    - `docker build -t <image_name> <path_to_dockerfile>`: 根据 Dockerfile 构建镜像。
 
-2. **容器相关命令：**
+- **容器相关命令：**
    - `docker ps`: 列出正在运行的容器。
    - `docker ps -a`: 列出所有容器，包括停止的。
    - `docker run <options> <image_name>`: 运行一个容器。
@@ -37,25 +37,85 @@ toc: 1
 总体而言，这个命令的目的是在 Docker 中以后台方式启动一个名为 "kodbox" 的容器，将容器的 80 端口映射到主机的 10080 端口，同时将主机上的 `/data/docker/kodbox` 目录挂载到容器内的 `/var/www/html` 目录，确保容器在退出时会自动重新启动。
 
 
-3. **容器网络与端口相关命令：**
+- **容器网络与端口相关命令：**
    - `docker network ls`: 列出 Docker 网络。
    - `docker port <container_id_or_name>`: 显示容器的端口映射。
    - `docker inspect <container_id_or_name>`: 查看容器的详细信息，包括网络配置。
 
-4. **Docker Compose 相关命令：**
+- **Docker Compose 相关命令：**
    - `docker-compose up`: 启动容器组。
    - `docker-compose down`: 停止并删除容器组。
    - `docker-compose ps`: 列出容器组中的容器状态。
    - `docker-compose logs`: 查看容器组中所有容器的日志。
 
-5. **Docker 导入导出相关命令：**
+- **Docker 导入导出相关命令：**
    - `docker save <image_name> > <image_name>.tar`: 将镜像导出到文件。
    - `docker load < <image_name>.tar`: 从文件导入镜像。
    - `docker export <container_id_or_name> > <container_id_or_name>.tar`: 将容器导出到文件。
    - `docker import <container_id_or_name>.tar`: 从文件导入容器。
 
-6. 问题集
-- 安装完 docker 后，执行docker相关命令，出现：
+- **Dockerfile 的构建**
+
+构建一个简单的 Node.js 应用的 Docker 镜像时，以下是一个完整的 Dockerfile 示例，每个步骤都有注释：
+
+```dockerfile
+# 使用官方 Node.js 镜像作为基础镜像
+FROM node:14
+
+# 设置镜像作者信息
+LABEL maintainer="your_name@example.com"
+
+# 创建并设置工作目录
+WORKDIR /app
+
+# 将当前目录下的 package.json 和 package-lock.json 复制到工作目录
+COPY package*.json ./
+
+# 安装应用程序的依赖
+RUN npm install
+
+# 将当前目录下的所有文件复制到工作目录
+COPY . .
+
+# 暴露应用程序运行的端口
+EXPOSE 3000
+
+# 设置环境变量
+ENV NODE_ENV=production
+
+# 定义构建参数
+ARG user
+
+# 输出构建参数值
+RUN echo "Build argument 'user': $user"
+
+# 容器启动时执行的命令
+CMD ["npm", "start"]
+```
+
+在构建过程中，Dockerfile 会：
+
+1. 使用 Node.js 14 作为基础镜像。
+2. 设置镜像作者信息。
+3. 在 `/app` 目录下创建工作目录，并将当前目录下的 `package.json` 和 `package-lock.json` 复制到工作目录。
+4. 运行 `npm install` 安装应用程序的依赖。
+5. 将当前目录下的所有文件复制到工作目录。
+6. 暴露容器运行的端口为 3000。
+7. 设置环境变量 `NODE_ENV` 为 `production`。
+8. 定义构建参数 `user`，并在构建时输出其值。
+9. 在容器启动时执行 `npm start`。
+
+可以使用以下命令构建和运行这个 Docker 镜像：
+
+```bash
+docker build -t mynodeapp:latest --build-arg user=myuser .
+docker run -p 8080:3000 mynodeapp:latest
+```
+
+------------------------------------------------------
+
+- 问题集
+   - 安装完 docker 后，执行docker相关命令，出现：
 
 ```bash
 "Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/json: dial unix /var/run/docker.sock: connect: permission denied"
