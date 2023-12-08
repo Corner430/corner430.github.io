@@ -16,7 +16,7 @@
 <meta property="og:description" content="镜像相关命令：  docker images: 列出本地所有镜像。 docker search &lt;image_name&gt;: 在 Docker Hub 上搜索镜像。 docker pull &lt;image_name&gt;: 下载镜像到本地。 docker rmi &lt;image_name&gt;: 删除本地的镜像。 docker build -t &lt;image_name">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-12T16:04:40.000Z">
-<meta property="article:modified_time" content="2023-12-03T14:33:29.993Z">
+<meta property="article:modified_time" content="2023-12-08T02:36:54.510Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.1k字 | 预计阅读时长：4分钟
+    		字数：1.2k字 | 预计阅读时长：5分钟
 	</div>
         
   
@@ -241,6 +241,14 @@
 <li><code>docker-compose down</code>: 停止并删除容器组。</li>
 <li><code>docker-compose ps</code>: 列出容器组中的容器状态。</li>
 <li><code>docker-compose logs</code>: 查看容器组中所有容器的日志。</li>
+</ul>
+</li>
+<li><p><strong>Docker 导入导出相关命令：</strong></p>
+<ul>
+<li><code>docker save &lt;image_name&gt; &gt; &lt;image_name&gt;.tar</code>: 将镜像导出到文件。</li>
+<li><code>docker load &lt; &lt;image_name&gt;.tar</code>: 从文件导入镜像。</li>
+<li><code>docker export &lt;container_id_or_name&gt; &gt; &lt;container_id_or_name&gt;.tar</code>: 将容器导出到文件。</li>
+<li><code>docker import &lt;container_id_or_name&gt;.tar</code>: 从文件导入容器。</li>
 </ul>
 </li>
 <li><p>问题集</p>
