@@ -48,7 +48,13 @@ toc: 1
    - `docker-compose ps`: 列出容器组中的容器状态。
    - `docker-compose logs`: 查看容器组中所有容器的日志。
 
-5. 问题集
+5. **Docker 导入导出相关命令：**
+   - `docker save <image_name> > <image_name>.tar`: 将镜像导出到文件。
+   - `docker load < <image_name>.tar`: 从文件导入镜像。
+   - `docker export <container_id_or_name> > <container_id_or_name>.tar`: 将容器导出到文件。
+   - `docker import <container_id_or_name>.tar`: 从文件导入容器。
+
+6. 问题集
 - 安装完 docker 后，执行docker相关命令，出现：
 
 ```bash
