@@ -16,7 +16,7 @@
 <meta property="og:description" content="镜像相关命令：  docker images: 列出本地所有镜像。 docker search &lt;image_name&gt;: 在 Docker Hub 上搜索镜像。 docker pull &lt;image_name&gt;: 下载镜像到本地。 docker rmi &lt;image_name&gt;: 删除本地的镜像。 docker build -t &lt;image_name">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-12T16:04:40.000Z">
-<meta property="article:modified_time" content="2023-12-08T02:36:54.510Z">
+<meta property="article:modified_time" content="2023-12-08T11:31:28.281Z">
 <meta property="article:author" content="Corner">
 <meta name="twitter:card" content="summary">
   
@@ -64,7 +64,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:112.7k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:113.1k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -161,7 +161,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.2k字 | 预计阅读时长：5分钟
+    		字数：1.5k字 | 预计阅读时长：6分钟
 	</div>
         
   
@@ -190,7 +190,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <ol>
+        <ul>
 <li><p><strong>镜像相关命令：</strong></p>
 <ul>
 <li><code>docker images</code>: 列出本地所有镜像。</li>
@@ -215,7 +215,7 @@
 <li><code>docker stats &lt;container_id_or_name&gt;</code>: 查看指定容器的资源占用情况。</li>
 </ul>
 </li>
-</ol>
+</ul>
 <p>例如：<code>docker run -d -it --name kodbox -p 10080:80 -v /data/docker/kodbox:/var/www/html --restart=always tznb/kodbox:1.15</code></p>
 <ul>
 <li><code>-d</code>: 这个选项表示在后台（detached mode）运行容器，即容器将在后台运行，而不会占用当前终端。</li>
@@ -227,7 +227,7 @@
 <li><code>tznb/kodbox:1.15</code>: 这是要运行的 Docker 镜像的名称及标签。在这里使用的是 <code>tznb/kodbox</code> 镜像的版本标签为 <code>1.15</code>。</li>
 </ul>
 <p>总体而言，这个命令的目的是在 Docker 中以后台方式启动一个名为 “kodbox” 的容器，将容器的 80 端口映射到主机的 10080 端口，同时将主机上的 <code>/data/docker/kodbox</code> 目录挂载到容器内的 <code>/var/www/html</code> 目录，确保容器在退出时会自动重新启动。</p>
-<ol start="3">
+<ul>
 <li><p><strong>容器网络与端口相关命令：</strong></p>
 <ul>
 <li><code>docker network ls</code>: 列出 Docker 网络。</li>
@@ -251,11 +251,33 @@
 <li><code>docker import &lt;container_id_or_name&gt;.tar</code>: 从文件导入容器。</li>
 </ul>
 </li>
-<li><p>问题集</p>
+<li><p><strong>Dockerfile 的构建</strong></p>
 </li>
+</ul>
+<p>构建一个简单的 Node.js 应用的 Docker 镜像时，以下是一个完整的 Dockerfile 示例，每个步骤都有注释：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用官方 Node.js 镜像作为基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置镜像作者信息</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;your_name@example.com&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并设置工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录下的 package.json 和 package-lock.json 复制到工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装应用程序的依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录下的所有文件复制到工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 暴露应用程序运行的端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> NODE_ENV=production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义构建参数</span></span><br><span class="line"><span class="keyword">ARG</span> <span class="keyword">user</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出构建参数值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;Build argument &#x27;user&#x27;: <span class="variable">$user</span>&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器启动时执行的命令</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;npm&quot;</span>, <span class="string">&quot;start&quot;</span>]</span></span><br></pre></td></tr></table></figure>
+
+<p>在构建过程中，Dockerfile 会：</p>
+<ol>
+<li>使用 Node.js 14 作为基础镜像。</li>
+<li>设置镜像作者信息。</li>
+<li>在 <code>/app</code> 目录下创建工作目录，并将当前目录下的 <code>package.json</code> 和 <code>package-lock.json</code> 复制到工作目录。</li>
+<li>运行 <code>npm install</code> 安装应用程序的依赖。</li>
+<li>将当前目录下的所有文件复制到工作目录。</li>
+<li>暴露容器运行的端口为 3000。</li>
+<li>设置环境变量 <code>NODE_ENV</code> 为 <code>production</code>。</li>
+<li>定义构建参数 <code>user</code>，并在构建时输出其值。</li>
+<li>在容器启动时执行 <code>npm start</code>。</li>
 </ol>
+<p>可以使用以下命令构建和运行这个 Docker 镜像：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t mynodeapp:latest --build-arg user=myuser .</span><br><span class="line">docker run -p 8080:3000 mynodeapp:latest</span><br></pre></td></tr></table></figure>
+
+<hr>
 <ul>
+<li>问题集<ul>
 <li>安装完 docker 后，执行docker相关命令，出现：</li>
+</ul>
+</li>
 </ul>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/json: dial unix /var/run/docker.sock: connect: permission denied&quot;</span></span><br></pre></td></tr></table></figure>
 
