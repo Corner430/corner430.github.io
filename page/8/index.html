@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:113.1k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:113.8k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -238,7 +238,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.5k字 | 预计阅读时长：6分钟
+    		字数：2.3k字 | 预计阅读时长：9分钟
 	</div>
         
   
@@ -341,6 +341,56 @@
 <p>可以使用以下命令构建和运行这个 Docker 镜像：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t mynodeapp:latest --build-arg user=myuser .</span><br><span class="line">docker run -p 8080:3000 mynodeapp:latest</span><br></pre></td></tr></table></figure>
 
+<hr>
+<ul>
+<li><strong>Docker Compose 的常用命令</strong><ul>
+<li><code>docker-compose up</code>: 构建并启动容器组。</li>
+<li><code>docker-compose down</code>: 停止并移除容器组。</li>
+<li><code>docker-compose ps</code>: 显示容器组中容器的状态。</li>
+<li><code>docker-compose logs</code>: 查看容器组的日志输出。</li>
+<li><code>docker-compose exec</code>: 在容器中执行命令。</li>
+<li>例如：<code>docker-compose exec [service_name] [command]</code></li>
+<li><code>docker-compose build</code>: 仅构建服务，不启动容器。</li>
+<li><code>docker-compose pull</code>: 从仓库拉取服务的镜像，但不启动容器。</li>
+<li><code>docker-compose restart</code>: 重启容器组。</li>
+<li><code>docker-compose stop</code>: 停止容器组，但不移除容器。</li>
+<li><code>docker-compose start</code>: 启动已经停止的容器组。</li>
+<li><code>docker-compose pause</code>: 暂停容器组。</li>
+<li><code>docker-compose unpause</code>: 恢复暂停的容器组。</li>
+<li><code>docker-compose rm</code>: 移除已经停止的容器组。</li>
+<li><code>docker-compose kill</code>: 强制停止容器组。</li>
+<li><code>docker-compose images</code>: 显示容器组的镜像列表。</li>
+<li><code>docker-compose config</code>: 验证 docker-compose.yml 文件配置。</li>
+</ul>
+</li>
+</ul>
+<hr>
+<ul>
+<li><strong>Docker Compose 的使用</strong><br>Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，可以使用 YAML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YAML 文件配置中创建并启动所有服务。</li>
+</ul>
+<p>Docker Compose 的使用步骤如下：</p>
+<ol>
+<li>使用 Dockerfile 定义应用程序的环境。</li>
+<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
+<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
+</ol>
+<p><strong>使用 Dockerfile 定义应用程序的环境</strong></p>
+<p>Dockerfile 是用于定义 Docker 镜像的文件。在 Dockerfile 中，可以指定镜像的依赖项、环境变量和其他配置。</p>
+<p>例如，以下 Dockerfile 定义了一个简单的 Node.js 应用程序的镜像：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FROM node:16-alpine</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line">COPY package.json .</span><br><span class="line"></span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line">EXPOSE 3000</span><br><span class="line"></span><br><span class="line">CMD [&quot;npm&quot;, &quot;start&quot;]</span><br></pre></td></tr></table></figure>
+
+<p><strong>使用 docker-compose.yml 定义服务</strong></p>
+<p>docker-compose.yml 文件是用于定义 Docker Compose 应用程序的文件。在 docker-compose.yml 文件中，可以指定应用程序中的每个服务的名称、镜像、端口映射、网络连接等。</p>
+<p>以下 docker-compose.yml 文件定义了一个由两个服务组成的应用程序：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    image: node:16-alpine</span><br><span class="line">    container_name: web</span><br><span class="line">    build:</span><br><span class="line">      context: .</span><br><span class="line">      dockerfile: Dockerfile</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;3000:3000&quot;</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">    container_name: redis</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;6379:6379&quot;</span><br></pre></td></tr></table></figure>
+
+<p>在该文件中，<code>web</code> 服务是基于 <code>node:16-alpine</code> 镜像构建的。它映射了主机端口 3000 到容器端口 3000。<code>redis</code> 服务是基于 <code>redis</code> 镜像构建的。它映射了主机端口 6379 到容器端口 6379。</p>
+<p><strong>使用 docker-compose up 命令启动应用程序</strong></p>
+<p>要启动 Docker Compose 应用程序，请使用 docker-compose up 命令。该命令将从 docker-compose.yml 文件中创建和启动所有服务。</p>
+<p>例如，要启动上述应用程序，请执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
+
+<p>该命令将启动两个容器：一个运行 Node.js 应用程序，另一个运行 Redis 数据库。</p>
 <hr>
 <ul>
 <li>问题集<ul>
