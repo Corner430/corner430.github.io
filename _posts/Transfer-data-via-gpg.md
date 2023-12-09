@@ -2,6 +2,8 @@
 title: Transfer data via gpg
 date: 2023-04-03 19:14:18
 tags:
+    - gpg 加密
+    - Linux
 declare: true
 ---
 Here are the steps to encrypt data with GPG on CentOS 7 and transfer it with friends:

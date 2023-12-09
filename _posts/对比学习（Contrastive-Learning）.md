@@ -2,6 +2,7 @@
 title: 对比学习（Contrastive Learning）
 date: 2023-07-18 13:28:05
 tags:
+  - 科研
 declare: true
 ---
 1. 对于Max margin Contrastive loss的公式解读<!--more-->

@@ -2,6 +2,7 @@
 title: Windows font
 date: 2023-04-03 18:25:28
 tags:
+    - Windows
 declare: true
 ---
 Original font: **msyh.ttc**<!--more-->

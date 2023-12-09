@@ -2,6 +2,7 @@
 title: Delete the host key record for the specified IP address
 date: 2023-04-03 19:11:02
 tags:
+    - ssh
 ---
 - Deletes the host key record for the specified IP address from the SSH client's "known_hosts" file.
 `ssh-keygen -f "~/.ssh/known_hosts" -R "172.17.0.158"`

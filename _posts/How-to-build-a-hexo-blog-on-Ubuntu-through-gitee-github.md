@@ -2,6 +2,8 @@
 title: How to build a hexo blog on Ubuntu through gitee\github?
 date: 2021-05-29 22:44:03
 tags:
+  - hexo
+  - Ubuntu
 declare: true
 toc: 1
 ---

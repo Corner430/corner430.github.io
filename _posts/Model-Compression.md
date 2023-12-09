@@ -2,6 +2,7 @@
 title: Model Compression
 date: 2023-06-26 10:19:41
 tags:
+  - 科研
 declare: true
 top: 1
 ---

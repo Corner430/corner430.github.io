@@ -2,6 +2,7 @@
 title: 《Linux就该这么学》笔记
 date: 2023-07-22 20:29:38
 tags:
+   - Linux
 declare: true
 ---
 # Notes on Learning Linux the Right Way

@@ -2,6 +2,7 @@
 title: Ubuntu设置网络唤醒
 date: 2023-05-24 18:55:57
 tags:
+    - Ubuntu
 declare: true
 ---
 1. 确保计算机的BIOS设置中已启用唤醒功能。<!--more-->

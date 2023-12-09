@@ -2,6 +2,8 @@
 title: gdb调试C语言
 date: 2023-04-22 22:17:15
 tags:
+    - gdb
+    - C/C++
 declare: true
 ---
 GDB是一种功能强大的命令行调试器，可以帮助程序员调试C语言程序。以下是一些基本的GDB调试命令：<!--more-->

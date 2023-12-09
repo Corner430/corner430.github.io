@@ -2,6 +2,8 @@
 title: openwrt ipv6 开启记录
 date: 2023-05-10 20:06:43
 tags:
+    - openwrt
+    - 路由器
 declare: true
 ---
 1. 删除原有的wan,wan6口。

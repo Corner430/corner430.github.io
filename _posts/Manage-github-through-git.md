@@ -2,6 +2,7 @@
 title: Manage github through git
 date: 2023-04-08 14:51:45
 tags:
+  - git
 declare: true
 ---
 - `git clone <GitHub仓库的URL>`<!--more-->

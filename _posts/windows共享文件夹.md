@@ -2,6 +2,7 @@
 title: windows共享文件夹
 date: 2023-05-16 17:57:06
 tags:
+    - windows
 declare: true
 ---
 1. 先将网络调整为专用网络<!--more-->

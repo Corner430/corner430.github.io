@@ -2,6 +2,9 @@
 title: How do I use clash proxy wsl in windows?
 date: 2023-04-05 19:42:16
 tags:
+  - clash
+  - wsl
+  - 科学上网
 toc: 1
 declare: true
 ---

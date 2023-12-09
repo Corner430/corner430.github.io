@@ -2,6 +2,8 @@
 title: Ubuntu NAT
 date: 2023-04-03 18:17:31
 tags:
+    - Ubuntu
+    - 网络
 declare: true
 ---
 

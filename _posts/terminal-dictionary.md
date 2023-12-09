@@ -2,6 +2,7 @@
 title: terminal dictionary
 date: 2023-04-03 16:39:18
 tags:
+    - Linux
 declare: true
 ---
 ##### 1. [Wudao-dict](https://github.com/ChestnutHeng/Wudao-dict)

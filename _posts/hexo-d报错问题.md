@@ -2,6 +2,8 @@
 title: hexo d报错问题
 date: 2023-04-23 19:51:52
 tags:
+    - hexo
+    - ssh
 declare: true
 ---
 `hexo d` 和 `ssh -T git@github.com`报错

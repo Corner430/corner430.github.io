@@ -2,6 +2,8 @@
 title: openwrt单臂路由之单线多拨
 date: 2023-06-01 14:48:16
 tags:
+    - openwrt
+    - 路由器
 declare: true
 ---
 # 1. 单臂路由拨号上网设置

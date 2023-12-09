@@ -2,6 +2,8 @@
 title: 将openwrt刷入电脑
 date: 2023-05-30 23:07:44
 tags:
+  - 路由器
+  - openwrt
 declare: true
 ---
 > x86 设备刷openwrt

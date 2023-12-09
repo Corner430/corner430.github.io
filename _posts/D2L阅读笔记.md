@@ -2,6 +2,7 @@
 title: D2L阅读笔记
 date: 2023-07-13 12:51:05
 tags:
+  - 科研
 delcare: true
 ---
 [动手学深度学习（Dive into Deep Learning，D2L.ai）Github](https://github.com/d2l-ai/d2l-zh)

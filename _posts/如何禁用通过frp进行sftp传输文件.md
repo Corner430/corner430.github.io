@@ -2,6 +2,7 @@
 title: 如何禁用通过frp进行sftp传输文件
 date: 2023-10-31 21:10:46
 tags:
+    - Linux
 declare: true
 ---
 [如何禁用通过frp进行sftp传输文件？](https://github.com/fatedier/frp/issues/3736)<!--more-->

@@ -2,6 +2,7 @@
 title: windows11安装安卓子系统
 date: 2023-05-18 11:55:37
 tags:
+    - windows
 declare: true
 ---
 1. 将Hyper-v和虚拟机平台打上勾<!--more-->

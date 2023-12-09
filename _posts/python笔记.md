@@ -2,6 +2,8 @@
 title: python笔记
 date: 2022-04-04 16:32:45
 tags:
+    - python
+    - 笔记
 declare: true
 toc: 1
 ---

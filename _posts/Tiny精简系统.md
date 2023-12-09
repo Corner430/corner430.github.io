@@ -2,6 +2,7 @@
 title: Tiny精简系统
 date: 2023-04-22 21:48:54
 tags:
+  - windows
 declare: true
 ---
 [Tiny10 下载地址](https://archive.org/details/tiny-10-NTDEV)

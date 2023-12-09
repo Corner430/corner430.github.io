@@ -2,6 +2,7 @@
 title: wsl supports systemd
 date: 2023-04-03 16:09:51
 tags:
+    - wsl
 ---
 - Add these lines to the */etc/wsl.conf* (note you will need to run your editor with sudo privileges, e.g: sudo vim */etc/wsl.conf*):
 ```shell

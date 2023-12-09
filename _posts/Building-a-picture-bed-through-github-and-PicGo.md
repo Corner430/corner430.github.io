@@ -2,6 +2,9 @@
 title: Building a picture bed through github and PicGo
 date: 2023-04-05 17:24:17
 tags:
+    - Picture bed
+    - PicGo
+    - 图床
 declare: true
 ---
 1. Create a new repository on github, select **setting->Developer settings->Personal access tokens (classic)** to create a tokens.<!--more-->

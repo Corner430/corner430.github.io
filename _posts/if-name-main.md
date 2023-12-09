@@ -2,6 +2,7 @@
 title: if __name__ == '__main__'
 date: 2023-07-14 20:15:28
 tags:
+    - Python
 declare: true
 ---
 在Python中，`if __name__ == "__main__"`的作用是判断当前模块是否作为主程序直接运行，而不是作为被导入的模块。<!--more-->

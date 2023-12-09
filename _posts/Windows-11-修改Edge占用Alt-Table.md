@@ -2,6 +2,7 @@
 title: Windows 11 修改Edge占用Alt + Table
 date: 2023-07-24 12:58:42
 tags:
+    - windows
 declare: true
 ---
 搜索alt<!--more-->

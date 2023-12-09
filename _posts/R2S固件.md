@@ -2,6 +2,8 @@
 title: R2S固件
 date: 2023-06-02 20:10:57
 tags:
+    - openwrt
+    - 路由器
 declare: true
 ---
 - [Openwrt for Nanopi R1S R2S R4S R5S 香橙派 R1 Plus 固件编译 纯净版与大杂烩](https://github.com/stupidloud/nanopi-openwrt)

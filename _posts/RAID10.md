@@ -2,6 +2,8 @@
 title: RAID10
 date: 2023-04-03 18:28:37
 tags:
+   - Linux
+   - RAID
 declare: true
 ---
 ##### 1. RAID

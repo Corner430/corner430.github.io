@@ -2,6 +2,7 @@
 title: paper
 date: 2023-05-14 20:32:31
 tags:
+  - 科研
 declare: true
 top : 1
 ---
@@ -321,7 +322,18 @@ logits, bboxes = detr(inputs)
 ```
 
 ### 3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer
-TODO
+作者是 Google Research 的人
+- [code](https://github.com/google-research/vision_transformer)
+
+将一个不修改的 transformer 应用于图像分类，是有一定困难的。因为 transformer 的输入是一个序列，而图像是一个二维的矩阵，我们可以将图像转换为序列，但是这样会导致序列过长，计算量过大。
+
+因此，作者提出了一种新的 transformer，叫做 Vision Transformer（ViT），该 transformer 仍然是基于 attention 机制的，但是在输入的时候，作者将图像分为了一个个 patch，然后将每个 patch 作为一个 token，这样就可以将图像转换为序列，而且序列的长度不会太长。**这样的 transformer 也可以用于目标检测和语义分割。**
+
+**架构图如下：**
+
+![20231209141514](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231209141514.png)
+
+将图像分为了 $N$ 个 patch，每个 patch 的维度是 $P$，这样就可以将图像转换为一个序列，序列的长度是 $N$，维度是 $P$。需要单独再加一个 class token，用于表示图像的类别。
 
 ### 4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)
 

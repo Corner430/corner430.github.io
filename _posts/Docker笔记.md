@@ -2,6 +2,8 @@
 title: Docker笔记
 date: 2023-04-13 00:04:40
 tags:
+   - Docker
+   - 笔记
 declare: true
 toc: 1
 ---
@@ -10,7 +12,7 @@ toc: 1
    - `docker search <image_name>`: 在 Docker Hub 上搜索镜像。
    - `docker pull <image_name>`: 下载镜像到本地。
    - `docker rmi <image_name>`: 删除本地的镜像。
-   - `docker build -t <image_name> <path_to_dockerfile>`: 根据 Dockerfile 构建镜像。
+   - `docker build -t <image_name> <path_to_dockerfile>`: 根据 Dockerfile 构建镜像。<!--more-->
 
 - **容器相关命令：**
    - `docker ps`: 列出正在运行的容器。

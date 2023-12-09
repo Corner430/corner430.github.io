@@ -2,6 +2,8 @@
 title: 域名解析以及怎么给hexo绑定域名
 date: 2021-05-30 19:11:41
 tags:
+    - 域名
+    - hexo
 declare: true
 ---
 > temp email

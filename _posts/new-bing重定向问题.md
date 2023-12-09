@@ -2,6 +2,9 @@
 title: new bing重定向问题
 date: 2023-05-12 13:48:17
 tags:
+    - bing
+    - openwrt
+    - 路由器
 declare: true
 ---
 修改hosts文件，添加如下内容：<!--more-->

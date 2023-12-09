@@ -2,6 +2,8 @@
 title: WSL modify the default installation directory to another disk
 date: 2023-04-03 16:13:30
 tags:
+    - windows
+    - WSL
 ---
 - Check out the WSL distribution
 Enter the following command in Windows PowerShell:

@@ -2,6 +2,8 @@
 title: vscode显示类似Visual Studio的内存窗口
 date: 2023-04-17 14:48:40
 tags:
+    - vscode
+    - C/C++
 declare: true
 toc: 1
 ---

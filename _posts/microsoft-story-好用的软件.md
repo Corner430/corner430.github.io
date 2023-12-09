@@ -2,6 +2,7 @@
 title: microsoft story 好用的软件
 date: 2023-06-05 15:53:12
 tags:
+    - microsoft
 declare: true
 ---
 - 清理君

@@ -2,6 +2,8 @@
 title: Ubuntu科学上网
 date: 2023-04-11 17:48:36
 tags:
+    - Ubuntu
+    - 科学上网
 declare: true
 doc: 1
 ---

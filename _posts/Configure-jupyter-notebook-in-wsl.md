@@ -2,6 +2,8 @@
 title: Configure jupyter notebook in wsl
 date: 2023-04-03 18:53:13
 tags:
+    - wsl
+    - jupyter notebook
 declare: true
 ---
 ##### 1. `conda install jupyter notebook`

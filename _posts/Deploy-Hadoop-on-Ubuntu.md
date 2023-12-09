@@ -2,6 +2,8 @@
 title: Deploy Hadoop on Ubuntu
 date: 2023-04-03 18:04:34
 tags:
+    - Ubuntu
+    - Hadoop
 declare: true
 ---
 - [Hadoop-3.3.1 Installation guide for Ubuntu](https://blog.devgenius.io/install-configure-and-setup-hadoop-in-ubuntu-a3cdd6305a0e)<!--more-->

@@ -2,6 +2,9 @@
 title: AdGuard Home 设置
 date: 2023-06-04 01:59:53
 tags:
+    - 路由器
+    - 网络
+    - AdGuard Home
 declare: true
 ---
 ![20230604014941](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230604014941.png)

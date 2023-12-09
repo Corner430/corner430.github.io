@@ -2,6 +2,9 @@
 title: vim学习
 date: 2023-06-08 10:07:14
 tags:
+    - Linux
+    - vim
+    - 笔记
 declare: true
 ---
 ## 教程

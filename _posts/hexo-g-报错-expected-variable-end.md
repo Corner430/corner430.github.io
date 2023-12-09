@@ -2,6 +2,7 @@
 title: hexo g 报错 expected variable end
 date: 2023-11-27 22:53:40
 tags:
+    - hexo
 declare: true
 ---
 - [Troubleshooting](https://hexo.io/docs/troubleshooting.html)<!--more-->

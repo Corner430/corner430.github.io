@@ -2,6 +2,7 @@
 title: migration of hexo
 date: 2023-04-03 16:34:34
 tags:
+    - hexo
 declare: true
 ---
 - Just pass the entire directory directly through sftp<!--more-->

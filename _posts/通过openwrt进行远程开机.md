@@ -2,6 +2,8 @@
 title: 通过openwrt进行远程开机
 date: 2023-05-18 08:35:19
 tags:
+    - openwrt
+    - 路由器
 declare: true
 ---
 1. 防火墙->端口转发，开启openwrt的外网访问。<!--more-->

@@ -2,6 +2,8 @@
 title: PAT刷题
 date: 2022-03-05 11:32:10
 tags:
+    - C/C++
+    - 考研
 declare: true
 toc: 1
 ---

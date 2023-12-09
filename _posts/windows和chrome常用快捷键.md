@@ -2,6 +2,8 @@
 title: windows和chrome常用快捷键
 date: 2023-06-08 10:09:06
 tags:
+    - windows
+    - 快捷键
 declare: true
 ---
 1. 打开新标签页：Ctrl + T (Windows) 或 Command + T (Mac)

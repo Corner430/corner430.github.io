@@ -2,6 +2,9 @@
 title: 用markdown书写数学公式
 date: 2021-07-02 21:20:21
 tags:
+    - markdown
+    - mathjax
+    - 数学公式
 toc: 1
 declare: true
 ---

@@ -2,6 +2,10 @@
 title: Configure oh-my-zsh
 date: 2023-04-03 17:56:08
 tags:
+    - oh-my-zsh
+    - zsh
+    - shell
+    - bash
 ---
 - Install ZSH<!--more-->
 `sudo apt install zsh-autosuggestions zsh-syntax-highlighting zsh`

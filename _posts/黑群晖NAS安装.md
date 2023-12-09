@@ -2,6 +2,7 @@
 title: 黑群晖NAS安装
 date: 2023-05-22 00:29:46
 tags:
+    - NAS
 declare: true
 ---
 [img下载](https://xpenology.club/downloads/)

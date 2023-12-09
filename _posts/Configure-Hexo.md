@@ -2,6 +2,7 @@
 title: Configure Hexo
 date: 2021-06-01 01:18:44
 tags:
+    - Hexo
 declare: true
 toc: 1
 ---

@@ -2,6 +2,8 @@
 title: pytorch学习路线
 date: 2023-08-31 12:06:16
 tags:
+    - 科研
+    - pytorch
 declare: true
 ---
 

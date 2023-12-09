@@ -2,6 +2,8 @@
 title: Pytorch of Machine Learning
 date: 2023-06-08 10:53:14
 tags:
+    - 科研
+    - pytorch
 declare: true
 ---
 [Github Repository](https://github.com/Corner430/Pytorch-of-Machine-Learning)

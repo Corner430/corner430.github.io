@@ -2,6 +2,7 @@
 title: Ubuntu安全防护
 date: 2023-05-07 20:27:38
 tags:
+   - Ubuntu
 declare: true
 ---
 ClamAV是一个开源的杀毒软件，可以通过命令行进行使用。<!--more-->

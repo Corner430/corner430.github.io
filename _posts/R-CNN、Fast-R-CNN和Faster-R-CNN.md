@@ -2,6 +2,7 @@
 title: R-CNN、Fast_R-CNN和Faster_R-CNN
 date: 2023-10-28 22:03:55
 tags:
+    - 科研
 declare: true
 ---
 ### R-CNN、Fast R-CNN 和 Faster R-CNN

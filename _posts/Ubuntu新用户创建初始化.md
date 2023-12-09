@@ -2,6 +2,7 @@
 title: Ubuntu新用户创建初始化
 date: 2023-05-09 19:26:51
 tags:
+    - Ubuntu
 declare: true
 ---
 ## 在Ubuntu中创建新用户并允许其使用sudo命令，您可以按照以下步骤进行操作：

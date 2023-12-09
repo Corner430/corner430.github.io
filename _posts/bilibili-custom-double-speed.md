@@ -2,6 +2,7 @@
 title: bilibili custom double speed
 date: 2022-04-24 18:02:05
 tags:
+    - bilibili
 ---
 - On the playback page of station b, **press f12 to open the console**
 - Copy the following code in the console, change 1.75 to the playback speed you want

@@ -2,6 +2,7 @@
 title: chatgpt 一直转圈圈问题
 date: 2023-05-12 16:01:27
 tags:
+    - chatgpt
 declare: true
 ---
 - 去[ip111](http://www.ip111.cn/)查ip

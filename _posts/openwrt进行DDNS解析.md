@@ -2,6 +2,9 @@
 title: openwrt进行DDNS解析
 date: 2023-05-19 13:03:15
 tags:
+    - 域名解析
+    - openwrt
+    - 路由器
 declare: true
 ---
 1. 在cloudflare添加一条A记录<!--more-->

@@ -2,6 +2,9 @@
 title: Windows安装Docker并集成到wsl
 date: 2023-04-12 09:18:50
 tags:
+    - docker
+    - wsl
+    - windows
 ---
 - 在wsl安装docker：
 ```shell

@@ -2,6 +2,8 @@
 title: Ubuntu挂载NAS网络驱动器
 date: 2023-07-23 14:13:38
 tags:
+    - NAS
+    - Ubuntu
 delcare: true
 ---
 校外向校内服务器传输数据极为不便，唯有NAS可完美解决问题，并实现**储算分离**<!--more-->

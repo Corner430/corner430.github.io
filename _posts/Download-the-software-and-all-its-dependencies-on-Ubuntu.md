@@ -2,6 +2,8 @@
 title: Download the software and all its dependencies on Ubuntu
 date: 2023-04-03 19:06:58
 tags:
+    - Ubuntu
+    - dpkg
 declare: true
 ---
 

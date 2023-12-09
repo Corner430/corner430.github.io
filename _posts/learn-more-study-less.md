@@ -2,6 +2,7 @@
 title: learn more study less
 date: 2023-04-08 23:02:28
 tags:
+    - 其它
 ---
 1. 每周休息一天
 2. 对于难点90分钟专注专项解决

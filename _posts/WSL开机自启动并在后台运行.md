@@ -2,6 +2,8 @@
 title: WSL开机自启动并在后台运行
 date: 2023-05-25 15:07:30
 tags:
+    - windows
+    - WSL
 declare: true
 ---
 - 在Windows中创建一个vbs脚本文件，例如wsl.vbs，该文件包含以下内容：

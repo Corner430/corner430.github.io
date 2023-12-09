@@ -2,6 +2,9 @@
 title: manjaro初始化
 date: 2023-05-08 12:51:44
 tags:
+    - manjaro
+    - Arch
+    - Linux
 declare: true
 ---
 1. 更新系统：打开终端并运行以下命令以更新系统并安装最新的软件包。`sudo pacman -Syu`<!--more-->

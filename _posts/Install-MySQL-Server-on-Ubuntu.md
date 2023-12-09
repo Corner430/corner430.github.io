@@ -2,6 +2,8 @@
 title: Install MySQL Server on Ubuntu
 date: 2023-04-03 18:57:39
 tags:
+    - MySQL
+    - Ubuntu
 declare: true
 ---
 ##### 1. Install MySQL Server on Ubuntu
