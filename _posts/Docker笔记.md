@@ -112,6 +112,100 @@ docker build -t mynodeapp:latest --build-arg user=myuser .
 docker run -p 8080:3000 mynodeapp:latest
 ```
 
+----------------------------------------------------
+
+- **Docker Compose 的常用命令**
+   - `docker-compose up`: 构建并启动容器组。
+   - `docker-compose down`: 停止并移除容器组。
+   - `docker-compose ps`: 显示容器组中容器的状态。
+   - `docker-compose logs`: 查看容器组的日志输出。
+   - `docker-compose exec`: 在容器中执行命令。
+   - 例如：`docker-compose exec [service_name] [command]`
+   - `docker-compose build`: 仅构建服务，不启动容器。
+   - `docker-compose pull`: 从仓库拉取服务的镜像，但不启动容器。
+   - `docker-compose restart`: 重启容器组。
+   - `docker-compose stop`: 停止容器组，但不移除容器。
+   - `docker-compose start`: 启动已经停止的容器组。
+   - `docker-compose pause`: 暂停容器组。
+   - `docker-compose unpause`: 恢复暂停的容器组。
+   - `docker-compose rm`: 移除已经停止的容器组。
+   - `docker-compose kill`: 强制停止容器组。
+   - `docker-compose images`: 显示容器组的镜像列表。
+   - `docker-compose config`: 验证 docker-compose.yml 文件配置。
+
+---------------------------------------------
+
+- **Docker Compose 的使用**
+Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，可以使用 YAML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YAML 文件配置中创建并启动所有服务。
+
+Docker Compose 的使用步骤如下：
+
+1. 使用 Dockerfile 定义应用程序的环境。
+2. 使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。
+3. 最后，执行 docker-compose up 命令来启动并运行整个应用程序。
+
+**使用 Dockerfile 定义应用程序的环境**
+
+Dockerfile 是用于定义 Docker 镜像的文件。在 Dockerfile 中，可以指定镜像的依赖项、环境变量和其他配置。
+
+例如，以下 Dockerfile 定义了一个简单的 Node.js 应用程序的镜像：
+
+```
+FROM node:16-alpine
+
+WORKDIR /app
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
+```
+
+**使用 docker-compose.yml 定义服务**
+
+docker-compose.yml 文件是用于定义 Docker Compose 应用程序的文件。在 docker-compose.yml 文件中，可以指定应用程序中的每个服务的名称、镜像、端口映射、网络连接等。
+
+以下 docker-compose.yml 文件定义了一个由两个服务组成的应用程序：
+
+```
+version: '3'
+
+services:
+  web:
+    image: node:16-alpine
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+
+  redis:
+    image: redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+```
+
+在该文件中，`web` 服务是基于 `node:16-alpine` 镜像构建的。它映射了主机端口 3000 到容器端口 3000。`redis` 服务是基于 `redis` 镜像构建的。它映射了主机端口 6379 到容器端口 6379。
+
+**使用 docker-compose up 命令启动应用程序**
+
+要启动 Docker Compose 应用程序，请使用 docker-compose up 命令。该命令将从 docker-compose.yml 文件中创建和启动所有服务。
+
+例如，要启动上述应用程序，请执行以下命令：
+
+```
+docker-compose up
+```
+
+该命令将启动两个容器：一个运行 Node.js 应用程序，另一个运行 Redis 数据库。
+
 ------------------------------------------------------
 
 - 问题集
