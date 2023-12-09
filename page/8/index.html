@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:113.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:111.4k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -153,86 +153,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-vscode显示类似Visual-Studio的内存窗口" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：1.1k字 | 预计阅读时长：4分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/04/17/vscode%E6%98%BE%E7%A4%BA%E7%B1%BB%E4%BC%BCVisual-Studio%E7%9A%84%E5%86%85%E5%AD%98%E7%AA%97%E5%8F%A3/">vscode显示类似Visual Studio的内存窗口</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/04/17/vscode%E6%98%BE%E7%A4%BA%E7%B1%BB%E4%BC%BCVisual-Studio%E7%9A%84%E5%86%85%E5%AD%98%E7%AA%97%E5%8F%A3/" class="archive-article-date">
-  	<time datetime="2023-04-17T06:48:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Visual Studio有着这样的内存窗口显示</p>
-        
-          <a class="article-more-a" href="/2023/04/17/vscode%E6%98%BE%E7%A4%BA%E7%B1%BB%E4%BC%BCVisual-Studio%E7%9A%84%E5%86%85%E5%AD%98%E7%AA%97%E5%8F%A3/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/04/17/vscode%E6%98%BE%E7%A4%BA%E7%B1%BB%E4%BC%BCVisual-Studio%E7%9A%84%E5%86%85%E5%AD%98%E7%AA%97%E5%8F%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-Docker笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -266,159 +186,10 @@
 <li><code>docker search &lt;image_name&gt;</code>: 在 Docker Hub 上搜索镜像。</li>
 <li><code>docker pull &lt;image_name&gt;</code>: 下载镜像到本地。</li>
 <li><code>docker rmi &lt;image_name&gt;</code>: 删除本地的镜像。</li>
-<li><code>docker build -t &lt;image_name&gt; &lt;path_to_dockerfile&gt;</code>: 根据 Dockerfile 构建镜像。</li>
-</ul>
-</li>
-<li><p><strong>容器相关命令：</strong></p>
-<ul>
-<li><code>docker ps</code>: 列出正在运行的容器。</li>
-<li><code>docker ps -a</code>: 列出所有容器，包括停止的。</li>
-<li><code>docker run &lt;options&gt; &lt;image_name&gt;</code>: 运行一个容器。</li>
-<li><code>docker exec -it &lt;container_id_or_name&gt; &lt;command&gt;</code>: 在运行中的容器中执行命令。</li>
-<li><code>docker stop &lt;container_id_or_name&gt;</code>: 停止运行中的容器。</li>
-<li><code>docker start &lt;container_id_or_name&gt;</code>: 启动已经停止的容器。</li>
-<li><code>docker restart &lt;container_id_or_name&gt;</code>: 重启容器。</li>
-<li><code>docker rm &lt;container_id_or_name&gt;</code>: 删除停止的容器。</li>
-<li><code>docker logs &lt;container_id_or_name&gt;</code>: 查看容器的日志。</li>
-<li><code>docker stats</code>: 查看容器的资源占用情况。</li>
-<li><code>docker stats &lt;container_id_or_name&gt;</code>: 查看指定容器的资源占用情况。</li>
-</ul>
-</li>
-</ul>
-<p>例如：<code>docker run -d -it --name kodbox -p 10080:80 -v /data/docker/kodbox:/var/www/html --restart=always tznb/kodbox:1.15</code></p>
-<ul>
-<li><code>-d</code>: 这个选项表示在后台（detached mode）运行容器，即容器将在后台运行，而不会占用当前终端。</li>
-<li><code>-it</code>: 这两个选项结合在一起，表示为容器分配一个交互式的终端（pseudo-TTY）。即使在后台运行，也可以通过 <code>docker exec</code> 进入容器的终端。</li>
-<li><code>--name kodbox</code>: 用于指定容器的名称为 “kodbox”。</li>
-<li><code>-p 10080:80</code>: 这个选项指定将容器的 80 端口映射到主机的 10080 端口。这样，通过访问 <code>http://localhost:10080</code>，你就可以访问到容器内部的 Web 服务。</li>
-<li><code>-v /data/docker/kodbox:/var/www/html</code>: 这个选项用于将主机上的 <code>/data/docker/kodbox</code> 目录挂载到容器内的 <code>/var/www/html</code> 目录。这个挂载操作可以用来持久化存储容器内的数据。</li>
-<li><code>--restart=always</code>: 这个选项指定容器在退出时总是自动重新启动，即使手动停止容器，Docker 也会尝试重新启动它。</li>
-<li><code>tznb/kodbox:1.15</code>: 这是要运行的 Docker 镜像的名称及标签。在这里使用的是 <code>tznb/kodbox</code> 镜像的版本标签为 <code>1.15</code>。</li>
-</ul>
-<p>总体而言，这个命令的目的是在 Docker 中以后台方式启动一个名为 “kodbox” 的容器，将容器的 80 端口映射到主机的 10080 端口，同时将主机上的 <code>/data/docker/kodbox</code> 目录挂载到容器内的 <code>/var/www/html</code> 目录，确保容器在退出时会自动重新启动。</p>
-<ul>
-<li><p><strong>容器网络与端口相关命令：</strong></p>
-<ul>
-<li><code>docker network ls</code>: 列出 Docker 网络。</li>
-<li><code>docker port &lt;container_id_or_name&gt;</code>: 显示容器的端口映射。</li>
-<li><code>docker inspect &lt;container_id_or_name&gt;</code>: 查看容器的详细信息，包括网络配置。</li>
-</ul>
-</li>
-<li><p><strong>Docker Compose 相关命令：</strong></p>
-<ul>
-<li><code>docker-compose up</code>: 启动容器组。</li>
-<li><code>docker-compose down</code>: 停止并删除容器组。</li>
-<li><code>docker-compose ps</code>: 列出容器组中的容器状态。</li>
-<li><code>docker-compose logs</code>: 查看容器组中所有容器的日志。</li>
-</ul>
-</li>
-<li><p><strong>Docker 导入导出相关命令：</strong></p>
-<ul>
-<li><code>docker save &lt;image_name&gt; &gt; &lt;image_name&gt;.tar</code>: 将镜像导出到文件。</li>
-<li><code>docker load &lt; &lt;image_name&gt;.tar</code>: 从文件导入镜像。</li>
-<li><code>docker export &lt;container_id_or_name&gt; &gt; &lt;container_id_or_name&gt;.tar</code>: 将容器导出到文件。</li>
-<li><code>docker import &lt;container_id_or_name&gt;.tar</code>: 从文件导入容器。</li>
-</ul>
-</li>
-<li><p><strong>Dockerfile 的构建</strong></p>
-</li>
-</ul>
-<p>构建一个简单的 Node.js 应用的 Docker 镜像时，以下是一个完整的 Dockerfile 示例，每个步骤都有注释：</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用官方 Node.js 镜像作为基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置镜像作者信息</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;your_name@example.com&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并设置工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录下的 package.json 和 package-lock.json 复制到工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装应用程序的依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录下的所有文件复制到工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 暴露应用程序运行的端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> NODE_ENV=production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义构建参数</span></span><br><span class="line"><span class="keyword">ARG</span> <span class="keyword">user</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出构建参数值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;Build argument &#x27;user&#x27;: <span class="variable">$user</span>&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器启动时执行的命令</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;npm&quot;</span>, <span class="string">&quot;start&quot;</span>]</span></span><br></pre></td></tr></table></figure>
-
-<p>在构建过程中，Dockerfile 会：</p>
-<ol>
-<li>使用 Node.js 14 作为基础镜像。</li>
-<li>设置镜像作者信息。</li>
-<li>在 <code>/app</code> 目录下创建工作目录，并将当前目录下的 <code>package.json</code> 和 <code>package-lock.json</code> 复制到工作目录。</li>
-<li>运行 <code>npm install</code> 安装应用程序的依赖。</li>
-<li>将当前目录下的所有文件复制到工作目录。</li>
-<li>暴露容器运行的端口为 3000。</li>
-<li>设置环境变量 <code>NODE_ENV</code> 为 <code>production</code>。</li>
-<li>定义构建参数 <code>user</code>，并在构建时输出其值。</li>
-<li>在容器启动时执行 <code>npm start</code>。</li>
-</ol>
-<p>可以使用以下命令构建和运行这个 Docker 镜像：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t mynodeapp:latest --build-arg user=myuser .</span><br><span class="line">docker run -p 8080:3000 mynodeapp:latest</span><br></pre></td></tr></table></figure>
-
-<hr>
-<ul>
-<li><strong>Docker Compose 的常用命令</strong><ul>
-<li><code>docker-compose up</code>: 构建并启动容器组。</li>
-<li><code>docker-compose down</code>: 停止并移除容器组。</li>
-<li><code>docker-compose ps</code>: 显示容器组中容器的状态。</li>
-<li><code>docker-compose logs</code>: 查看容器组的日志输出。</li>
-<li><code>docker-compose exec</code>: 在容器中执行命令。</li>
-<li>例如：<code>docker-compose exec [service_name] [command]</code></li>
-<li><code>docker-compose build</code>: 仅构建服务，不启动容器。</li>
-<li><code>docker-compose pull</code>: 从仓库拉取服务的镜像，但不启动容器。</li>
-<li><code>docker-compose restart</code>: 重启容器组。</li>
-<li><code>docker-compose stop</code>: 停止容器组，但不移除容器。</li>
-<li><code>docker-compose start</code>: 启动已经停止的容器组。</li>
-<li><code>docker-compose pause</code>: 暂停容器组。</li>
-<li><code>docker-compose unpause</code>: 恢复暂停的容器组。</li>
-<li><code>docker-compose rm</code>: 移除已经停止的容器组。</li>
-<li><code>docker-compose kill</code>: 强制停止容器组。</li>
-<li><code>docker-compose images</code>: 显示容器组的镜像列表。</li>
-<li><code>docker-compose config</code>: 验证 docker-compose.yml 文件配置。</li>
-</ul>
-</li>
-</ul>
-<hr>
-<ul>
-<li><strong>Docker Compose 的使用</strong><br>Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，可以使用 YAML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YAML 文件配置中创建并启动所有服务。</li>
-</ul>
-<p>Docker Compose 的使用步骤如下：</p>
-<ol>
-<li>使用 Dockerfile 定义应用程序的环境。</li>
-<li>使用 docker-compose.yml 定义构成应用程序的服务，这样它们可以在隔离环境中一起运行。</li>
-<li>最后，执行 docker-compose up 命令来启动并运行整个应用程序。</li>
-</ol>
-<p><strong>使用 Dockerfile 定义应用程序的环境</strong></p>
-<p>Dockerfile 是用于定义 Docker 镜像的文件。在 Dockerfile 中，可以指定镜像的依赖项、环境变量和其他配置。</p>
-<p>例如，以下 Dockerfile 定义了一个简单的 Node.js 应用程序的镜像：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">FROM node:16-alpine</span><br><span class="line"></span><br><span class="line">WORKDIR /app</span><br><span class="line"></span><br><span class="line">COPY package.json .</span><br><span class="line"></span><br><span class="line">RUN npm install</span><br><span class="line"></span><br><span class="line">COPY . .</span><br><span class="line"></span><br><span class="line">EXPOSE 3000</span><br><span class="line"></span><br><span class="line">CMD [&quot;npm&quot;, &quot;start&quot;]</span><br></pre></td></tr></table></figure>
-
-<p><strong>使用 docker-compose.yml 定义服务</strong></p>
-<p>docker-compose.yml 文件是用于定义 Docker Compose 应用程序的文件。在 docker-compose.yml 文件中，可以指定应用程序中的每个服务的名称、镜像、端口映射、网络连接等。</p>
-<p>以下 docker-compose.yml 文件定义了一个由两个服务组成的应用程序：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">version: &#x27;3&#x27;</span><br><span class="line"></span><br><span class="line">services:</span><br><span class="line">  web:</span><br><span class="line">    image: node:16-alpine</span><br><span class="line">    container_name: web</span><br><span class="line">    build:</span><br><span class="line">      context: .</span><br><span class="line">      dockerfile: Dockerfile</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;3000:3000&quot;</span><br><span class="line"></span><br><span class="line">  redis:</span><br><span class="line">    image: redis</span><br><span class="line">    container_name: redis</span><br><span class="line">    ports:</span><br><span class="line">      - &quot;6379:6379&quot;</span><br></pre></td></tr></table></figure>
-
-<p>在该文件中，<code>web</code> 服务是基于 <code>node:16-alpine</code> 镜像构建的。它映射了主机端口 3000 到容器端口 3000。<code>redis</code> 服务是基于 <code>redis</code> 镜像构建的。它映射了主机端口 6379 到容器端口 6379。</p>
-<p><strong>使用 docker-compose up 命令启动应用程序</strong></p>
-<p>要启动 Docker Compose 应用程序，请使用 docker-compose up 命令。该命令将从 docker-compose.yml 文件中创建和启动所有服务。</p>
-<p>例如，要启动上述应用程序，请执行以下命令：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up</span><br></pre></td></tr></table></figure>
-
-<p>该命令将启动两个容器：一个运行 Node.js 应用程序，另一个运行 Redis 数据库。</p>
-<hr>
-<ul>
-<li>问题集<ul>
-<li>安装完 docker 后，执行docker相关命令，出现：</li>
-</ul>
-</li>
-</ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Get http://%2Fvar%2Frun%2Fdocker.sock/v1.26/images/json: dial unix /var/run/docker.sock: connect: permission denied&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>原因如下：</p>
-<blockquote>
-<p>Manage Docker as a non-root user</p>
-</blockquote>
-<blockquote>
-<p>The docker daemon binds to a Unix socket instead of a TCP port. By default that Unix socket is owned by the user root and other users can only access it using sudo. The docker daemon always runs as the root user.</p>
-</blockquote>
-<blockquote>
-<p>If you don’t want to use sudo when you use the docker command, create a Unix group called docker and add users to it. When the docker daemon starts, it makes the ownership of the Unix socket read&#x2F;writable by the docker group</p>
-</blockquote>
-<p>大概的意思就是：docker进程使用Unix Socket而不是TCP端口。而默认情况下，Unix socket属于root用户，需要root权限才能访问。</p>
-<ul>
-<li>方案一：使用sudo获取管理员权限，运行docker命令</li>
-<li>方案二<br>  docker守护进程启动的时候，会默认赋予名字为docker的用户组读写Unix socket的权限，因此只要创建docker用户组，并将当前用户加入到docker用户组中，那么当前用户就有权限访问Unix socket了，进而也就可以执行docker相关命令</li>
-</ul>
-<p><code>sudo usermod -aG docker your-user   #Add the user to the docker group to avoid permission issues</code></p>
-<hr>
-<p>若上述方案失败，如下：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo groupadd docker     <span class="comment">#添加docker用户组</span></span><br><span class="line">sudo gpasswd -a <span class="variable">$USER</span> docker     <span class="comment">#将登陆用户加入到docker用户组中</span></span><br><span class="line">newgrp docker     <span class="comment">#更新用户组</span></span><br><span class="line">docker ps    <span class="comment">#测试docker命令是否可以使用sudo正常使用</span></span><br></pre></td></tr></table></figure>
+<li><code>docker build -t &lt;image_name&gt; &lt;path_to_dockerfile&gt;</code>: 根据 Dockerfile 构建镜像。</li></ul></li></ul>
+        
+          <a class="article-more-a" href="/2023/04/13/Docker%E7%AC%94%E8%AE%B0/#more">more >></a>
+        
       
 	
 
@@ -1114,6 +885,87 @@
 
 
   
+    <article id="post-Building-a-picture-bed-through-github-and-PicGo" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：54字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/04/05/Building-a-picture-bed-through-github-and-PicGo/">Building a picture bed through github and PicGo</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/04/05/Building-a-picture-bed-through-github-and-PicGo/" class="archive-article-date">
+  	<time datetime="2023-04-05T09:24:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>Create a new repository on github, select <strong>setting-&gt;Developer settings-&gt;Personal access tokens (classic)</strong> to create a tokens.</li></ol>
+        
+          <a class="article-more-a" href="/2023/04/05/Building-a-picture-bed-through-github-and-PicGo/#more">more >></a>
+        
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/04/05/Building-a-picture-bed-through-github-and-PicGo/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
     <nav id="page-nav">
       <a class="extend prev" rel="prev" href="/page/7/">&amp;laquo; Prev</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="page-number" href="/page/10/">10</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/9/">Next &amp;raquo;</a>
@@ -1248,6 +1100,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
             
             <div class="clearfix"></div>

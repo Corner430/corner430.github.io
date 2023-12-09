@@ -24,11 +24,13 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231126230443.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127012221.png">
 <meta property="og:image" content="https://kikaben.com/detr-object-detection-with-transformers-2020/images/fig-10.png">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231209141514.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127021733.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231127192105.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-11-27T13:55:03.196Z">
+<meta property="article:modified_time" content="2023-12-09T06:17:07.290Z">
 <meta property="article:author" content="Corner">
+<meta property="article:tag" content="paper">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231123172121.png">
   
@@ -76,7 +78,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:113.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:111.4k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -177,7 +179,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：4.1k字 | 预计阅读时长：18分钟
+    		字数：4.4k字 | 预计阅读时长：18分钟
 	</div>
         
   
@@ -440,7 +442,15 @@ $$
 </ul>
 <h4 id="附录代码"><a href="#附录代码" class="headerlink" title="附录代码"></a>附录代码</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torch</span><br><span class="line"><span class="keyword">from</span> torch <span class="keyword">import</span> nn</span><br><span class="line"><span class="keyword">from</span> torchvision.models <span class="keyword">import</span> resnet50</span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">DETR</span>(nn.Module):</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self, num_classes, hidden_dim, nheads, num_encoder_layer, num_decoder_layers</span>):</span><br><span class="line">        <span class="built_in">super</span>().__init__()</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Backbone: ResNet-50 without the last two layers (fully connected and pooling)</span></span><br><span class="line">        self.backbone = nn.Sequential(*<span class="built_in">list</span>(resnet50(pretrained=<span class="literal">True</span>).children())[:-<span class="number">2</span>])</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 1x1 Convolution to reduce channels from 2048 to hidden_dim</span></span><br><span class="line">        self.conv = nn.Conv2d(<span class="number">2048</span>, hidden_dim, <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Transformer layers</span></span><br><span class="line">        self.transformer = nn.Transformer(hidden_dim, nheads, num_encoder_layer, num_decoder_layers)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># Output layers</span></span><br><span class="line">        self.linear_class = nn.Linear(hidden_dim, num_classes + <span class="number">1</span>)  <span class="comment"># Class prediction (plus background)</span></span><br><span class="line">        self.linear_bbox = nn.Linear(hidden_dim, <span class="number">4</span>)  <span class="comment"># Bounding box prediction (4 coordinates)</span></span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Learnable positional embeddings</span></span><br><span class="line">        self.query_pos = nn.Parameter(torch.rand(<span class="number">100</span>, hidden_dim))  <span class="comment"># Query positional embedding</span></span><br><span class="line">        self.row_embed = nn.Parameter(torch.rand(<span class="number">50</span>, hidden_dim // <span class="number">2</span>))  <span class="comment"># Row positional embedding</span></span><br><span class="line">        self.col_embed = nn.Parameter(torch.rand(<span class="number">50</span>, hidden_dim // <span class="number">2</span>))  <span class="comment"># Column positional embedding</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">forward</span>(<span class="params">self, inputs</span>):</span><br><span class="line">        <span class="comment"># Backbone feature extraction</span></span><br><span class="line">        x = self.backbone(inputs)</span><br><span class="line">        <span class="comment"># 1x1 Convolution</span></span><br><span class="line">        h = self.conv(x)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Get height (H) and width (W) of the feature map</span></span><br><span class="line">        H, W = h.shape[-<span class="number">2</span>:]</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Positional embeddings</span></span><br><span class="line">        pos = torch.cat([</span><br><span class="line">            self.col_embed[:W].unsqueeze(<span class="number">0</span>).repeat(H, <span class="number">1</span>, <span class="number">1</span>),</span><br><span class="line">            self.row_embed[:H].unsqueeze(<span class="number">1</span>).repeat(<span class="number">1</span>, W, <span class="number">1</span>)</span><br><span class="line">        ], dim=-<span class="number">1</span>).flatten(<span class="number">0</span>, <span class="number">1</span>).unsqueeze(<span class="number">1</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Flatten and permute for transformer input</span></span><br><span class="line">        h = self.transformer(pos + h.flatten(<span class="number">2</span>).permute(<span class="number">2</span>, <span class="number">0</span>, <span class="number">1</span>), self.query_pos.unsqueeze(<span class="number">1</span>))</span><br><span class="line">        </span><br><span class="line">        <span class="comment"># Output predictions</span></span><br><span class="line">        <span class="keyword">return</span> self.linear_class(h), self.linear_bbox(h).sigmoid()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Instantiate the model</span></span><br><span class="line">detr = DETR(num_classes=<span class="number">91</span>, hidden_dim=<span class="number">256</span>, nheads=<span class="number">8</span>, num_encoder_layer=<span class="number">6</span>, num_decoder_layers=<span class="number">6</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set the model to evaluation mode</span></span><br><span class="line">detr.<span class="built_in">eval</span>()</span><br><span class="line"></span><br><span class="line"><span class="comment"># Generate random input tensor</span></span><br><span class="line">inputs = torch.rand(<span class="number">1</span>, <span class="number">3</span>, <span class="number">800</span>, <span class="number">1200</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Forward pass through the model</span></span><br><span class="line">logits, bboxes = detr(inputs)</span><br></pre></td></tr></table></figure>
 
-<h3 id="3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer"><a href="#3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer" class="headerlink" title="3. AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer"></a>3. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer</h3><p>TODO</p>
+<h3 id="3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer"><a href="#3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer" class="headerlink" title="3. AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer"></a>3. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer</h3><p>作者是 Google Research 的人</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/google-research/vision_transformer">code</a></li>
+</ul>
+<p>将一个不修改的 transformer 应用于图像分类，是有一定困难的。因为 transformer 的输入是一个序列，而图像是一个二维的矩阵，我们可以将图像转换为序列，但是这样会导致序列过长，计算量过大。</p>
+<p>因此，作者提出了一种新的 transformer，叫做 Vision Transformer（ViT），该 transformer 仍然是基于 attention 机制的，但是在输入的时候，作者将图像分为了一个个 patch，然后将每个 patch 作为一个 token，这样就可以将图像转换为序列，而且序列的长度不会太长。<strong>这样的 transformer 也可以用于目标检测和语义分割。</strong></p>
+<p><strong>架构图如下：</strong></p>
+<p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231209141514.png" alt="20231209141514"></p>
+<p>将图像分为了 $N$ 个 patch，每个 patch 的维度是 $P$，这样就可以将图像转换为一个序列，序列的长度是 $N$，维度是 $P$。需要单独再加一个 class token，用于表示图像的类别。</p>
 <h3 id="4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning"><a href="#4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning" class="headerlink" title="4. Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning"></a>4. <a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.04042">Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</a></h3><p>作者是新加坡国立大学和哈尔滨工业大学的学生</p>
 <h4 id="摘要-2"><a href="#摘要-2" class="headerlink" title="摘要"></a>摘要</h4><ul>
 <li>Incremental 旨在学习新类别的目标检测，而不会影响到已有类别的目标检测。</li>
@@ -625,6 +635,17 @@ $$
         </div>
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">paper</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -877,6 +898,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">C</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">paper</a>
               </li>
             
             <div class="clearfix"></div>
