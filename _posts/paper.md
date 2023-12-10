@@ -554,3 +554,16 @@ $$
 -----------------------
 
 > SLA 仅增加了标签的数量，对于模型的参数基本上没有影响。
+> SLA 可以弱化为 Data Augmentation，也可以弱化为 Multi-task Learning。但是 Multi-task Learning 约束太强（强制 label 不变），难以优化。
+
+------------------------------
+
+![20231210173513](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210173513.png)
+
+由于预测的结果变为了以前的 M 倍，所以先做 Aggregation，也就是把对应的 M 个条件概率加起来，然后再进行 softmax。之后和原来的标签进行交叉熵计算蒸馏损失。
+
+{% raw %}
+$$
+\mathcal{L}_{SLA}(x,y;\theta,\omega,\mu) = \mathcal{L}_{SLA}(x,y; \theta, \omega) + \mathcal{D}_{KL}(P_{aggregated}(·|x)|| \sigma(z;\mu)) + \beta \mathcal{L}_{CE}(\sigma(z;\mu), y)
+$$
+{% endraw %}
