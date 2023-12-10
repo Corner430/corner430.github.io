@@ -10,7 +10,9 @@ top : 1
 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
 2. [End-to-End Object Detection with Transformers](https://arxiv.org/abs/2005.12872): DETR
 3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer
-4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)<!--more-->
+4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)
+5. [Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/26946)
+6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -445,3 +447,110 @@ $$
 - 通过蒸馏学习，做到了在学习新知识的同时不遗忘旧知识。
 - 提前通过 self-supervised 生成一些 新类标签，进行fine-tune，使得模型更容易接受新知识。
 - 断定模型中的部分可以分为 class-specific 和 class-agnostic 两部分。
+
+### 5. [Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/26946)
+
+#### 先修知识
+
+**融合算子（Fusion Operator）**是指一种将多个输入数据源合并为一个输出的操作。在计算机科学和机器学习领域，融合算子通常用于整合不同来源的信息，以获取更全面、更有用的表示。这种整合可以在多个层面和应用中发生，以下是一些融合算子的常见类型和应用：
+
+1. **加法融合（Addition Fusion）**：
+   - **定义**：将多个输入相加，生成一个输出。
+   - **应用**：常用于模型的残差连接（Residual Connections），集成不同层次的特征。
+
+2. **乘法融合（Multiplicative Fusion）**：
+   - **定义**：将多个输入相乘，生成一个输出。
+   - **应用**：在注意力机制中经常使用，其中某些输入的权重由模型自动学习。
+
+3. **拼接融合（Concatenation Fusion）**：
+   - **定义**：将多个输入在某个维度上拼接成一个张量。
+   - **应用**：用于将多个特征图连接在一起，创建更丰富的特征表示。
+
+4. **加权融合（Weighted Fusion）**：
+   - **定义**：将每个输入乘以一个权重，然后相加。
+   - **应用**：允许模型学习不同输入的重要性，根据任务的需要动态调整权重。
+
+5. **投影融合（Projection Fusion）**：
+   - **定义**：通过线性投影将输入映射到一个共同的空间，然后进行元素级的操作。
+   - **应用**：用于将不同模态（例如文本和图像）的信息投影到共享的表示空间。
+
+6. **注意力融合（Attention Fusion）**：
+   - **定义**：通过学习的权重对不同输入进行加权，以便模型可以在融合中关注特定输入的重要性。
+   - **应用**：广泛用于自然语言处理、计算机视觉等任务，允许模型在融合过程中动态关注输入的不同部分。
+
+--------------------------------------------
+
+Poolformer-based fusion operator 是一种用于多模态目标检测的融合操作符。它由 Yu et al. (2022) 提出，旨在解决传统的多模态目标检测方法在参数量和计算时间上的缺点。
+
+传统的多模态目标检测方法通常使用自注意力机制来融合来自不同模态的特征图。然而，自注意力机制的计算复杂度为 O(N^2)，其中 N 是特征图的大小。这会导致模型参数量和计算时间的增加。
+
+**Poolformer-based fusion operator 使用池化操作代替自注意力机制**。池化操作是一种参数量为 0 的操作，计算复杂度为 O(N)。这使得 Poolformer-based fusion operator 可以有效地降低模型参数量和计算时间。
+
+Poolformer-based fusion operator 的工作原理如下：
+
+1. 首先，将来自不同模态的特征图进行连接。
+2. 然后，对连接后的特征图进行 patch 嵌入。
+3. 最后，使用权重分配器分配权重。权重分配器由两个归一化层、一个注意力分配器和一个前馈网络组成。
+
+Poolformer-based fusion operator 在多模态目标检测任务上取得了良好的效果。在 COCO 数据集上，使用 Poolformer-based fusion operator 的 Faster RCNN 模型的 AP 比使用传统的融合操作符提高了 1.5%。
+
+以下是 Poolformer-based fusion operator 的一些优点：
+
+* 参数量小，计算时间短。
+* 可以有效地融合来自不同模态的特征图。
+* 在多模态目标检测任务上取得了良好的效果。
+
+#### 一言以蔽之
+多模态时候经常会用到融合算子，比如将文本和图像融合，将图像和语音融合等等。本文采用了 **Poolformer-based (Yu et al. 2022) fusion operator**，也就是消除 attention 的 transformer，使用了 pooling 来代替 attention。效果反而更好。
+
+一图胜千言
+
+![20231210112104](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210112104.png)
+
+### 6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)
+
+一言以蔽之，通过**数据增强**的方式来增强原始标签，**不仅仅对于无监督、半监督学习有效，对于全监督学习也能带来效果的提升。将共享底层特征改成了 unified task**
+
+**共享底层特征**：先前的工作通常为原始任务和自监督任务维护两个独立的分类器（但共享公共特征表示），并同时优化它们的目标。**也就是，不论你图像怎么变（增强），特征表示不能变**。
+
+- [code](https://github.com/hankook/SLA)
+
+> **有效地利用基于 transformation 的自我监督进行全监督的分类任务。对于 few-shot and imbalanced classification scenarios 也有效果**
+
+***Difference with previous approaches:***
+
+![20231210143836](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210143836.png)
+
+- 单纯的 Data Augmentation，只是对输入进行了变换，但却强行使得标签不变的一种方案，这种方案有一定弊端，比如：6 和 9，详见原文
+
+{% raw %}
+$$
+\mathcal{L}_{DA}(x,y;\theta,\mu) = \frac{1}{M} \sum_{j=1}^M \mathcal{L}_{CE}(\theta(\hat{z_j}; \mu), y)
+$$
+{% endraw %}
+
+- Multi-task Learning 同时学习两个任务，同时优化它们。**但是，当数据集是全标签时，这种方法通常不会带来效果的提升。**
+
+{% raw %}
+$$
+\mathcal{L}_{MT}(x,y;\theta,u,v) = \frac{1}{M} \sum_{j=1}^{M} \mathcal{L}_{CE}(\theta(\hat{z_j};\mu), y) + \mathcal{L}_{CE}(\theta(\hat{z_j};v),j)
+$$
+{% endraw %}
+
+- 本文所提出的SLA(Self-supervised Label Augmentation)方法直接学习**联合概率分布**。效果最好，也最通用。
+
+{% raw %}
+$$
+\mathcal{L}_{SLA}(x,y;\theta,\omega) = \frac{1}{M} \sum_{j=1}^{M} \mathcal{L}_{CE}(p(\hat{z_j};\omega), (y,j))
+$$
+{% endraw %}
+
+> 此处损失详见原文。
+
+**对比效果如下：**
+
+![20231210144438](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210144438.png)
+
+-----------------------
+
+> SLA 仅增加了标签的数量，对于模型的参数基本上没有影响。
