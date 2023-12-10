@@ -16,8 +16,10 @@
 <meta property="og:description" content="在windows上是可以直接通过注册表进行键位映射的，巧妙的利用 Scancode Map 就可将普通键盘改造成随心随意的个性化键盘接下来以要将Caps Lock键映射为Fn键为例">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-06T18:11:58.000Z">
-<meta property="article:modified_time" content="2023-12-09T12:01:59.261Z">
+<meta property="article:modified_time" content="2023-12-10T01:38:06.154Z">
 <meta property="article:author" content="Corner">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="windows">
 <meta property="article:tag" content="键位映射">
 <meta name="twitter:card" content="summary">
   
@@ -65,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:111.4k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:111.8k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -162,7 +164,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：649字 | 预计阅读时长：2分钟
+    		字数：689字 | 预计阅读时长：2分钟
 	</div>
         
   
@@ -226,6 +228,8 @@
 <ul>
 <li>参考<a target="_blank" rel="noopener" href="https://flyzto.com/windows-scancode-map.html">Windows 上借助注册表来修改键盘按键的映射</a></li>
 </ul>
+<hr>
+<p>Ubuntu上就比较简单了<br>打开 <code>/usr/share/X11/xkb/keycodes/evdev</code> 文件，找到 <code>&lt;CAPS&gt; = 66</code>; 和 <code>&lt;LCTL&gt;=37</code>; 这两行进行修改就可以了。</p>
 
       
 	
@@ -302,6 +306,14 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
+        		</li>
+      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">键位映射</a>
         		</li>
