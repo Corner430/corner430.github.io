@@ -14,6 +14,8 @@ sudo apt install nvidia-driver-xxx  #安装Nvidia驱动
 sudo reboot  #重启
 ```
 
+> 关闭 bios 中的安全启动，否则会掉驱动
+
 2. 检测到窗口系统采用wayland协议,腾讯会议暂不兼容,程序即将退出!
 
 ```bash
@@ -30,3 +32,21 @@ sudo service gdm restart
 设置中点击**键盘**，在**输入源**中添加**中文（智能拼音）**，重启后生效。
 
 4. 可执行软件装在 `/usr/local/bin` 下
+
+5. 科学上网 `docker pull mzz2017/v2raya`
+
+```bash
+docker run -d \
+  --restart=always \
+  --privileged \
+  --network=host \
+  --name v2raya \
+  -e V2RAYA_LOG_FILE=/tmp/v2raya.log \
+  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \
+  -e V2RAYA_NETABLES_SUPPORT=off \
+  -v /lib/modules:/lib/modules:ro \
+  -v /etc/resolv.conf:/etc/resolv.conf \
+  -v /etc/v2raya:/etc/v2raya \
+  mzz2017/v2raya
+```
+之后去 web 界面的 `http://127.0.0.1:2017` 设置
