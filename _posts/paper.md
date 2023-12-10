@@ -12,7 +12,8 @@ top : 1
 3. [AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE](https://arxiv.org/pdf/2010.11929.pdf): Vision Transformer
 4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)
 5. [Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/26946)
-6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)<!--more-->
+6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)
+7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -567,3 +568,19 @@ $$
 \mathcal{L}_{SLA}(x,y;\theta,\omega,\mu) = \mathcal{L}_{SLA}(x,y; \theta, \omega) + \mathcal{D}_{KL}(P_{aggregated}(·|x)|| \sigma(z;\mu)) + \beta \mathcal{L}_{CE}(\sigma(z;\mu), y)
 $$
 {% endraw %}
+
+### 7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)
+
+- 面临的问题：
+
+食品识别一直是一个比较困难的任务，因为这是一个比较细粒度的任务。例如对于鸟的识别，找到鸟头、爪子就好了，但是食品可能是各种水果、蔬菜堆叠在一起构成沙拉，这比较困难。传统的方法是先用弱监督的方式做很多位置的定位，之后聚合并抽取特征，最后分类。**但这样一来，性能就会被位置定位所限制。我们很难把每一部分区域都学好。**
+
+- 解决方案：
+
+作者提出了 PSD（Progressive Self-Distillation），用于去挖掘图像中更有用的区域。teacher model 和 student model 共享相同的 embeding。最后 inference 阶段，仅保留 teacher model。仍然属于 self-supervised 的范畴。
+
+**embedding 可以用 CNN，也可以用 transformer(e.g.,Swin Transformer)。**
+
+- dataset：
+
+![20231210235852](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210235852.png)
