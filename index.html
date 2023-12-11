@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:113.5k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:114.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -257,7 +257,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：5.9k字 | 预计阅读时长：24分钟
+    		字数：6.5k字 | 预计阅读时长：27分钟
 	</div>
         
   
@@ -284,7 +284,8 @@
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/pdf/2010.11929.pdf">AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE</a>: Vision Transformer</li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.04042">Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</a></li>
 <li><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/26946">Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.05872">Self-supervised Label Augmentation via Input Transformations</a></li></ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.05872">Self-supervised Label Augmentation via Input Transformations</a></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.05073">Learn More for Food Recognition via Progressive Self-Distillation</a></li></ol>
         
           <a class="article-more-a" href="/2023/05/14/paper/#more">more >></a>
         
@@ -416,6 +417,107 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/12/10/firewalld%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-Linux通过davfs2挂载WebDav网盘" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：112字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/12/10/Linux%E9%80%9A%E8%BF%87davfs2%E6%8C%82%E8%BD%BDWebDav%E7%BD%91%E7%9B%98/">Linux通过davfs2挂载WebDav网盘</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2023/12/10/Linux%E9%80%9A%E8%BF%87davfs2%E6%8C%82%E8%BD%BDWebDav%E7%BD%91%E7%9B%98/" class="archive-article-date">
+  	<time datetime="2023-12-10T04:43:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-12-10</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install davfs2</span><br><span class="line"></span><br><span class="line"><span class="built_in">mkdir</span> /mnt/alist/</span><br><span class="line">sudo mount.davfs http://locaohost:8080/dav/ /mnt/alist/</span><br><span class="line"><span class="comment"># 输入账号密码并手动连接</span></span><br></pre></td></tr></table></figure>
+
+<hr>
+<ol>
+<li>编辑 <code>/etc/davfs2/davfs2.conf</code>，找到其中的 <code>use_lock</code> 取消注释，并修改值为 <code>0</code>。（用于修正复制剪切文件错误）</li>
+<li>修改 <code>/etc/davfs2/secrets</code>，在末尾添加 <code>http://localhost:8080/dav/ admin password</code></li>
+<li>编辑 <code>/etc/fstab</code>，在最后一行添加以下内容 <code>http://localhost:8080/dav/ /mnt/alist/ davfs defaults 0 0</code></li>
+<li>映射文件夹 <code>ln -s /mnt/alist/ /home/alist/</code></li>
+</ol>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">WebDav</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/12/10/Linux%E9%80%9A%E8%BF%87davfs2%E6%8C%82%E8%BD%BDWebDav%E7%BD%91%E7%9B%98/">展开全文 >></a>
         </p>
       
 
@@ -1064,97 +1166,6 @@
 
 
   
-    <article id="post-windows-terminal-关闭提示音" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：18字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/03/windows-terminal-%E5%85%B3%E9%97%AD%E6%8F%90%E7%A4%BA%E9%9F%B3/">windows terminal 关闭提示音</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/11/03/windows-terminal-%E5%85%B3%E9%97%AD%E6%8F%90%E7%A4%BA%E9%9F%B3/" class="archive-article-date">
-  	<time datetime="2023-11-02T19:03:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-03</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>打开JSON配置文件，在默认的profile中添加”bellSytle”配置：</p>
-        
-          <a class="article-more-a" href="/2023/11/03/windows-terminal-%E5%85%B3%E9%97%AD%E6%8F%90%E7%A4%BA%E9%9F%B3/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">windows</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/11/03/windows-terminal-%E5%85%B3%E9%97%AD%E6%8F%90%E7%A4%BA%E9%9F%B3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/13/">13</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1577,6 +1588,10 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">阿里云盘</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">WebDav</a>
               </li>
             
             <div class="clearfix"></div>
