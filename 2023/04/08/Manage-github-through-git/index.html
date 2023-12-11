@@ -16,7 +16,7 @@
 <meta property="og:description" content="git clone &lt;GitHub仓库的URL&gt;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-08T06:51:45.000Z">
-<meta property="article:modified_time" content="2023-12-09T12:11:37.251Z">
+<meta property="article:modified_time" content="2023-12-11T02:24:36.561Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="git">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:114.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:114.5k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -162,7 +162,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.9k字 | 预计阅读时长：11分钟
+    		字数：3.1k字 | 预计阅读时长：12分钟
 	</div>
         
   
@@ -278,6 +278,16 @@
 <p><strong>强制更新本地分支</strong>： 执行以下命令，将远端的内容强制拉取到本地并更新本地分支：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git fetch origin master</span><br><span class="line">git reset --hard origin/master</span><br></pre></td></tr></table></figure>
 
+<hr>
+<p>在本地有未提交的修改，而Git在合并时发现这些修改会被覆盖。为了解决这个问题，有以下几个选项：</p>
+<h3 id="选项-1-提交本地修改"><a href="#选项-1-提交本地修改" class="headerlink" title="选项 1: 提交本地修改"></a>选项 1: 提交本地修改</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 提交本地修改</span></span><br><span class="line">git add _posts/paper.md</span><br><span class="line">git commit -m <span class="string">&quot;Committing local changes to paper.md&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并远程分支到本地</span></span><br><span class="line">git pull origin source_backup</span><br></pre></td></tr></table></figure>
+
+<p>这样本地修改就被提交了，然后再进行合并操作。</p>
+<h3 id="选项-2-暂存本地修改"><a href="#选项-2-暂存本地修改" class="headerlink" title="选项 2: 暂存本地修改"></a>选项 2: 暂存本地修改</h3><p>如果不想提交本地修改，可以使用<code>git stash</code>命令将它们暂存起来，执行合并后再恢复这些修改。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 暂存本地修改</span></span><br><span class="line">git stash</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并远程分支到本地</span></span><br><span class="line">git pull origin source_backup</span><br><span class="line"></span><br><span class="line"><span class="comment"># 恢复本地修改</span></span><br><span class="line">git stash apply</span><br></pre></td></tr></table></figure>
+
+<h3 id="选项-3-丢弃本地修改"><a href="#选项-3-丢弃本地修改" class="headerlink" title="选项 3: 丢弃本地修改"></a>选项 3: 丢弃本地修改</h3><p>如果不关心本地的修改，可以直接丢弃它们。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 丢弃本地修改</span></span><br><span class="line">git checkout -- _posts/paper.md</span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并远程分支到本地</span></span><br><span class="line">git pull origin source_backup</span><br></pre></td></tr></table></figure>
 
 
 <p>Reference<br><a target="_blank" rel="noopener" href="https://gist.github.com/guweigang/9848271">guweigang&#x2F;git_toturial</a><br><a target="_blank" rel="noopener" href="https://gist.github.com/Corner430/89b71c356d7129ee174dc9b6609f8a36">Corner430&#x2F;git_toturial</a></p>
@@ -466,7 +476,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9C%A8-GitHub-%E8%B4%A6%E6%88%B7%E4%B8%AD%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C%E3%80%82%E8%AF%B7%E6%8C%89%E7%85%A7%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1. 在 GitHub 账户中生成一个访问令牌。请按照以下步骤进行操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%9C%A8%E6%9C%AC%E5%9C%B0-Git-%E5%AD%98%E5%82%A8%E5%BA%93%E4%B8%AD%E6%9B%B4%E6%96%B0%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF%E3%80%82%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2. 在本地 Git 存储库中更新身份验证信息。执行以下命令：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%8E%B0%E5%9C%A8%EF%BC%8C%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%E5%B0%86%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C%E6%B7%BB%E5%8A%A0%E5%88%B0-Git-%E5%AD%98%E5%82%A8%E5%BA%93%E4%B8%AD%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">3. 现在，执行以下命令将访问令牌添加到 Git 存储库中：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9C%80%E5%90%8E%EF%BC%8C%E9%87%8D%E6%96%B0%E6%89%A7%E8%A1%8C-push-%E5%91%BD%E4%BB%A4%E3%80%82Git-%E5%BA%94%E8%AF%A5%E4%BC%9A%E6%8F%90%E7%A4%BA%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E3%80%82%E6%AD%A4%E6%97%B6%EF%BC%8C%E6%AD%A4%E6%97%B6%E5%BA%94%E8%AF%A5%E8%BE%93%E5%85%A5%E5%88%9A%E6%89%8D%E7%94%9F%E6%88%90%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C%E4%BD%9C%E4%B8%BA%E5%AF%86%E7%A0%81%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">4. 最后，重新执行 push 命令。Git 应该会提示输入用户名和密码。此时，此时应该输入刚才生成的访问令牌作为密码。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%A6%82%E6%9E%9C%E6%83%B3%E6%92%A4%E6%B6%88%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE%E5%B9%B6%E5%B0%86%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E6%9B%B4%E6%94%B9%E5%9B%9E%E9%BB%98%E8%AE%A4%E8%AE%BE%E7%BD%AE%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">5. 如果想撤消全局设置并将存储方式更改回默认设置，可以使用以下命令：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E8%BF%9C%E7%AB%AF%E5%92%8C%E6%9C%AC%E7%AB%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6"><span class="toc-number"></span> <span class="toc-text">当远端和本端不一致时</span></a>
+                    <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E5%9C%A8-GitHub-%E8%B4%A6%E6%88%B7%E4%B8%AD%E7%94%9F%E6%88%90%E4%B8%80%E4%B8%AA%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C%E3%80%82%E8%AF%B7%E6%8C%89%E7%85%A7%E4%BB%A5%E4%B8%8B%E6%AD%A5%E9%AA%A4%E8%BF%9B%E8%A1%8C%E6%93%8D%E4%BD%9C%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">1. 在 GitHub 账户中生成一个访问令牌。请按照以下步骤进行操作：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E5%9C%A8%E6%9C%AC%E5%9C%B0-Git-%E5%AD%98%E5%82%A8%E5%BA%93%E4%B8%AD%E6%9B%B4%E6%96%B0%E8%BA%AB%E4%BB%BD%E9%AA%8C%E8%AF%81%E4%BF%A1%E6%81%AF%E3%80%82%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">2.</span> <span class="toc-text">2. 在本地 Git 存储库中更新身份验证信息。执行以下命令：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E7%8E%B0%E5%9C%A8%EF%BC%8C%E6%89%A7%E8%A1%8C%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%E5%B0%86%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C%E6%B7%BB%E5%8A%A0%E5%88%B0-Git-%E5%AD%98%E5%82%A8%E5%BA%93%E4%B8%AD%EF%BC%9A"><span class="toc-number">3.</span> <span class="toc-text">3. 现在，执行以下命令将访问令牌添加到 Git 存储库中：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-%E6%9C%80%E5%90%8E%EF%BC%8C%E9%87%8D%E6%96%B0%E6%89%A7%E8%A1%8C-push-%E5%91%BD%E4%BB%A4%E3%80%82Git-%E5%BA%94%E8%AF%A5%E4%BC%9A%E6%8F%90%E7%A4%BA%E8%BE%93%E5%85%A5%E7%94%A8%E6%88%B7%E5%90%8D%E5%92%8C%E5%AF%86%E7%A0%81%E3%80%82%E6%AD%A4%E6%97%B6%EF%BC%8C%E6%AD%A4%E6%97%B6%E5%BA%94%E8%AF%A5%E8%BE%93%E5%85%A5%E5%88%9A%E6%89%8D%E7%94%9F%E6%88%90%E7%9A%84%E8%AE%BF%E9%97%AE%E4%BB%A4%E7%89%8C%E4%BD%9C%E4%B8%BA%E5%AF%86%E7%A0%81%E3%80%82"><span class="toc-number">4.</span> <span class="toc-text">4. 最后，重新执行 push 命令。Git 应该会提示输入用户名和密码。此时，此时应该输入刚才生成的访问令牌作为密码。</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5-%E5%A6%82%E6%9E%9C%E6%83%B3%E6%92%A4%E6%B6%88%E5%85%A8%E5%B1%80%E8%AE%BE%E7%BD%AE%E5%B9%B6%E5%B0%86%E5%AD%98%E5%82%A8%E6%96%B9%E5%BC%8F%E6%9B%B4%E6%94%B9%E5%9B%9E%E9%BB%98%E8%AE%A4%E8%AE%BE%E7%BD%AE%EF%BC%8C%E5%8F%AF%E4%BB%A5%E4%BD%BF%E7%94%A8%E4%BB%A5%E4%B8%8B%E5%91%BD%E4%BB%A4%EF%BC%9A"><span class="toc-number">5.</span> <span class="toc-text">5. 如果想撤消全局设置并将存储方式更改回默认设置，可以使用以下命令：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BD%93%E8%BF%9C%E7%AB%AF%E5%92%8C%E6%9C%AC%E7%AB%AF%E4%B8%8D%E4%B8%80%E8%87%B4%E6%97%B6"><span class="toc-number"></span> <span class="toc-text">当远端和本端不一致时</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-1-%E6%8F%90%E4%BA%A4%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="toc-number"></span> <span class="toc-text">选项 1: 提交本地修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-2-%E6%9A%82%E5%AD%98%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="toc-number"></span> <span class="toc-text">选项 2: 暂存本地修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%89%E9%A1%B9-3-%E4%B8%A2%E5%BC%83%E6%9C%AC%E5%9C%B0%E4%BF%AE%E6%94%B9"><span class="toc-number"></span> <span class="toc-text">选项 3: 丢弃本地修改</span></a>
                     </div>
                 </span>
             </div>
