@@ -203,6 +203,49 @@ git fetch origin master
 git reset --hard origin/master
 ```
 
+-------------------------------------------
+
+在本地有未提交的修改，而Git在合并时发现这些修改会被覆盖。为了解决这个问题，有以下几个选项：
+
+### 选项 1: 提交本地修改
+
+```bash
+# 提交本地修改
+git add _posts/paper.md
+git commit -m "Committing local changes to paper.md"
+
+# 合并远程分支到本地
+git pull origin source_backup
+```
+
+这样本地修改就被提交了，然后再进行合并操作。
+
+### 选项 2: 暂存本地修改
+
+如果不想提交本地修改，可以使用`git stash`命令将它们暂存起来，执行合并后再恢复这些修改。
+
+```bash
+# 暂存本地修改
+git stash
+
+# 合并远程分支到本地
+git pull origin source_backup
+
+# 恢复本地修改
+git stash apply
+```
+
+### 选项 3: 丢弃本地修改
+
+如果不关心本地的修改，可以直接丢弃它们。
+
+```bash
+# 丢弃本地修改
+git checkout -- _posts/paper.md
+
+# 合并远程分支到本地
+git pull origin source_backup
+```
 
 
 Reference
