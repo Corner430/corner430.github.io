@@ -581,6 +581,46 @@ $$
 
 **embedding 可以用 CNN，也可以用 transformer(e.g.,Swin Transformer)。**
 
-- dataset：
+- dataset：ETHZ Food-101、Vireo Food-172、ISIA Food-500
+- code: 无
 
 ![20231210235852](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210235852.png)
+
+student model 和 teacher model 共享同一个 Embeding Network，但是有不同的分类器。输入**原始图片**给 teacher model，经过一个 ViT 得到一个 T x D 的 tokens，reshape 成 H x W x D 的 feature map，之后经过全局平均池化，得到一个 D 维的向量，之后经过一个全连接层，得到一个 C 维的向量，之后送入 Class Response Module。根据 Threshold，得到一个 mask，之后将 mask 与原始图片相乘，得到一个新的图片，送入 student model。如法炮制，进得到了很多的 student model。蒸馏阶段，使用 teacher model 的输出作为 ground truth，student model 的输出作为预测值，计算 KL 散度。
+
+损失如下：
+
+{% raw %}
+$$
+\mathcal{L} = \mathcal{L}_{g}(x,y) + \sum_{i=1}^{m}(\omega_l \mathcal{L}_{l}(\hat{x}_{i-1}, y) + \omega_d \mathcal{L}_{d}(x, \hat{x}_{i}))
+$$
+
+其中 $\mathcal{L}_{g}(x,y)$ 是原始的分类损失，$\mathcal{L}_{l}$ 是 locating loss，$\mathcal{L}_{d}$ 是 distillation loss。
+
+$$
+\mathcal{L}_{g}(x,y) = \mathcal{L}_{CE}(h(f(x;\theta); \phi_t), y)
+$$
+
+$$
+L_{l}(x,y) = \mathcal{L}_{ce}(GAP(f(x;\theta); \Theta), y)
+$$
+
+$$
+\mathcal{L}_d(x, \hat{x}) = \mathcal{D}_{KL}(h(f(x;\theta); \phi_t), h(f(\hat{x};\theta); \phi_s))
+$$
+
+{% endraw %}
+
+所谓渐进，是依靠$\omega_l$ 和 $\omega_d$ 来控制的。
+
+{% raw %}
+$$
+\omega_d = 
+\begin{cases}
+    \alpha \cdot \exp(-5(1 - \frac{e}{\beta})^2), & e < \beta \\
+    \alpha, & e \geq \beta
+\end{cases}
+$$
+{% endraw %}
+
+> 垃圾文章，没有代码，作者邮件不回。$L_l$也没有讲清楚。Class Response Module 出来之后怎么进行 Threshold？怎么得到 mask？这些都没有讲清楚。**或许需要一些食物识别的先验知识。**
