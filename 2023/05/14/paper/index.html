@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210173513.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210235852.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-12-11T01:59:06.061Z">
+<meta property="article:modified_time" content="2023-12-11T16:04:34.776Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="科研">
 <meta name="twitter:card" content="summary">
@@ -83,7 +83,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:114.5k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:115.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -184,7 +184,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：6.5k字 | 预计阅读时长：27分钟
+    		字数：7.3k字 | 预计阅读时长：31分钟
 	</div>
         
   
@@ -220,7 +220,8 @@
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2205.04042">Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</a></li>
 <li><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/26946">Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)</a></li>
 <li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1910.05872">Self-supervised Label Augmentation via Input Transformations</a></li>
-<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.05073">Learn More for Food Recognition via Progressive Self-Distillation</a><span id="more"></span></li>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/2303.05073">Learn More for Food Recognition via Progressive Self-Distillation</a></li>
+<li><a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/26896">Solving Math Word Problems concerning Systems of Equations with GPT-3</a><span id="more"></span></li>
 </ol>
 <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><h3 id="1-Attention-Is-All-You-Need-Transformer"><a href="#1-Attention-Is-All-You-Need-Transformer" class="headerlink" title="1. Attention Is All You Need : Transformer"></a>1. <a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1706.03762.pdf">Attention Is All You Need</a> : Transformer</h3><h4 id="先修知识"><a href="#先修知识" class="headerlink" title="先修知识"></a>先修知识</h4><h5 id="BLUE（Bilingual-Evaluation-Understudy）"><a href="#BLUE（Bilingual-Evaluation-Understudy）" class="headerlink" title="BLUE（Bilingual Evaluation Understudy）"></a>BLUE（Bilingual Evaluation Understudy）</h5><p><strong>机器翻译中的BLEU是一种用于评估机器翻译质量的指标，它通过计算机器翻译的句子和人工翻译的参考句子之间的n-gram匹配程度，来衡量机器翻译的精确度</strong>。n-gram是指连续的n个词，例如，unigram是一个词，bigram是两个词，trigram是三个词，依此类推。<strong>BLEU的取值范围是0到1，越接近1表示机器翻译越好，越接近0表示机器翻译越差</strong>。BLEU的计算公式如下：</p>
 <p>$$<br>BLEU &#x3D; BP \cdot exp(\sum_{n&#x3D;1}^N w_n \log p_n)<br>$$</p>
@@ -725,6 +726,104 @@ $$
 <blockquote>
 <p>垃圾文章，没有代码，作者邮件不回。$L_l$也没有讲清楚。Class Response Module 出来之后怎么进行 Threshold？怎么得到 mask？这些都没有讲清楚。<strong>或许需要一些食物识别的先验知识。</strong></p>
 </blockquote>
+<h3 id="8-Solving-Math-Word-Problems-concerning-Systems-of-Equations-with-GPT-3"><a href="#8-Solving-Math-Word-Problems-concerning-Systems-of-Equations-with-GPT-3" class="headerlink" title="8. Solving Math Word Problems concerning Systems of Equations with GPT-3"></a>8. <a target="_blank" rel="noopener" href="https://ojs.aaai.org/index.php/AAAI/article/view/26896">Solving Math Word Problems concerning Systems of Equations with GPT-3</a></h3><h4 id="摘要-3"><a href="#摘要-3" class="headerlink" title="摘要"></a>摘要</h4><p>本文解决了一个专业领域的问题，就是<strong>数学方程式的提取和求解问题</strong>。作者将其归到了 NLP 的范畴，使用了 GPT-3 来解决这个问题。<br>问题分三步：</p>
+<ol>
+<li>对问题进行 <strong>分类</strong>，是几元方程式。这个问题目前 GPT-3 能够达到 80%-100% 的准确率。</li>
+<li>提取方程式，这个问题的精度随着给定模型的例子数量的增加而增加。one-shot 的精度为 31%，3-shot 的精度为 69%。之后再进一步进行 fine-tune，精度可以达到 80%。</li>
+<li>生成新的问题，GPT-3 的精度在 33%-93%，具体取决于问题类型。</li>
+</ol>
+<h4 id="引言-3"><a href="#引言-3" class="headerlink" title="引言"></a>引言</h4><p>本文聚焦的问题是 <strong>二元一次线性方程组，也就是两个变量，两个方程式</strong>。如上所述，解决问题如下：</p>
+<ul>
+<li><p>Q1: How good  is GPT-3 at classifying problems into different themes?</p>
+</li>
+<li><p>Q2: How good is GPT-3 at extracting a system of linear equations directly from problem descriptions?</p>
+</li>
+<li><p>Q3: How good is GPT-3 at creatively generating valid problems?</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://github.com/anrgusc/MWP2L">dataset</a></p>
+</li>
+</ul>
+<p><strong>如下为 Q1</strong>. Table1: Instance problem from each category</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Sum and Difference (S&amp;D)</strong></td>
+<td><em>The sum of half of a number, x, and another number, y, is -28. The difference of x and y is 7. Find x and y.</em></td>
+</tr>
+<tr>
+<td><strong>Item and Property (I&amp;P)</strong></td>
+<td><em>Three apples and four bananas cost $4.85. Three apples and ten bananas cost $8.75. Find the cost of an apple.</em></td>
+</tr>
+<tr>
+<td><strong>Perimeter of Rectangle (PoR)</strong></td>
+<td><em>The length of a rectangle is 3 cm less than double the width, and the perimeter is 53 cm. Find its dimensions.</em></td>
+</tr>
+<tr>
+<td><strong>Motion (MO)</strong></td>
+<td><em>Joey and Natasha start from the same point and walk in opposite directions. Joey walks 4 km&#x2F;h faster than Natasha. After 2 hours, they are 31 kilometers apart. How fast did each walk?</em></td>
+</tr>
+<tr>
+<td><strong>Mixture (MI)</strong></td>
+<td><em>Twelve gallons of a 31% acid mixture is obtained by mixing a 23% solution with a 48% solution. How much of each must be used?</em></td>
+</tr>
+</tbody></table>
+<p><strong>生成表达式的时候，前缀、中缀和后缀的进度不同。</strong></p>
+<p>已经有人通过 Transformer 来解决这个问题，但是作者说泛化性不好。详见文章的 <em>Prior Applications of Transformers to MWP</em>。<strong>还有人通过 BERT 来解决这个问题。</strong></p>
+<p>目前关注的问题是以下五个，作者仅考虑了其中的三个：</p>
+<ul>
+<li>identify the type of problem</li>
+<li>output step-by-step instructions</li>
+<li>extract the correct system of linear equations</li>
+<li>successfully solve the equations</li>
+<li>generate similar problems for users to practice.</li>
+</ul>
+<p>Table 2: Extraction task example.</p>
+<table>
+<thead>
+<tr>
+<th align="center">Problem</th>
+<th align="center">How many gallons of a 20% antifreeze solution and a 10% antifreeze solution must be mixed to obtain 40 gallons of a 16% antifreeze solution?</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Valid Response</td>
+<td align="center">0.2<em>x+0.1</em>y&#x3D;0.16*(x+y);x+y&#x3D;40</td>
+</tr>
+<tr>
+<td align="center">Invalid Response</td>
+<td align="center">20x+10y&#x3D;16*40 (only one equation is derived)</td>
+</tr>
+<tr>
+<td align="center">Invalid Response</td>
+<td align="center">20x+10(40-x)&#x3D;16(40) (failed to use required variable y)</td>
+</tr>
+<tr>
+<td align="center">Invalid Response</td>
+<td align="center">2<em>x+1</em>y&#x3D;40;0.2<em>x+0.1</em>y&#x3D;0.16 (incorrect interpretation)</td>
+</tr>
+</tbody></table>
+<p>Table 3: Problem generation.</p>
+<table>
+<thead>
+<tr>
+<th align="center">problem given in prompt</th>
+<th align="center">The larger of two numbers is 10 more than twice the smaller. If the smaller is subtracted from the larger, the result is 26. Find the numbers.</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">within-topic generation outcome</td>
+<td align="center">The larger of two numbers is 15 more than twice the smaller. If the smaller is subtracted from the larger, the result is 33. Find the numbers.</td>
+</tr>
+<tr>
+<td align="center">cross-topic generation outcome</td>
+<td align="center">The larger of two angles is 10 more than twice the smaller. If the smaller is subtracted from the larger, the result is 26. Find the angles.</td>
+</tr>
+</tbody></table>
 
       
 	
@@ -915,7 +1014,7 @@ $$
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Attention-Is-All-You-Need-Transformer"><span class="toc-number">2.1.</span> <span class="toc-text">1. Attention Is All You Need : Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">先修知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BLUE%EF%BC%88Bilingual-Evaluation-Understudy%EF%BC%89"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">BLUE（Bilingual Evaluation Understudy）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.1.3.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.1.4.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.1.5.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.6.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-Self-Attention"><span class="toc-number">2.1.7.</span> <span class="toc-text">Why Self-Attention?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Training"><span class="toc-number">2.1.8.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Results"><span class="toc-number">2.1.9.</span> <span class="toc-text">Results</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion"><span class="toc-number">2.1.10.</span> <span class="toc-text">Conclusion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-End-to-End-Object-Detection-with-Transformers-DETR"><span class="toc-number">2.2.</span> <span class="toc-text">2. End-to-End Object Detection with Transformers: DETR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">先修知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.4.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84-1"><span class="toc-number">2.2.5.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.2.6.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">2.2.7.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.8.</span> <span class="toc-text">附录代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer"><span class="toc-number">2.3.</span> <span class="toc-text">3. AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning"><span class="toc-number">2.4.</span> <span class="toc-text">4. Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-2"><span class="toc-number">2.4.2.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C-1"><span class="toc-number">2.4.3.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">问题定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.5.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Base-Model-Training"><span class="toc-number">2.4.5.1.</span> <span class="toc-text">Base Model Training</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Incremental-Few-Shot-Fine-Tuning"><span class="toc-number">2.4.5.2.</span> <span class="toc-text">Incremental Few-Shot Fine-Tuning</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-1"><span class="toc-number">2.4.6.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-number">2.4.7.</span> <span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Lightweight-Transformer-for-Multi-Modal-Object-Detection-Student-Abstract"><span class="toc-number">2.5.</span> <span class="toc-text">5. Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-2"><span class="toc-number">2.5.1.</span> <span class="toc-text">先修知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%A8%80%E4%BB%A5%E8%94%BD%E4%B9%8B"><span class="toc-number">2.5.2.</span> <span class="toc-text">一言以蔽之</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Self-supervised-Label-Augmentation-via-Input-Transformations"><span class="toc-number">2.6.</span> <span class="toc-text">6. Self-supervised Label Augmentation via Input Transformations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Learn-More-for-Food-Recognition-via-Progressive-Self-Distillation"><span class="toc-number">2.7.</span> <span class="toc-text">7. Learn More for Food Recognition via Progressive Self-Distillation</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">1.</span> <span class="toc-text">目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AD%A3%E6%96%87"><span class="toc-number">2.</span> <span class="toc-text">正文</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Attention-Is-All-You-Need-Transformer"><span class="toc-number">2.1.</span> <span class="toc-text">1. Attention Is All You Need : Transformer</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86"><span class="toc-number">2.1.1.</span> <span class="toc-text">先修知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#BLUE%EF%BC%88Bilingual-Evaluation-Understudy%EF%BC%89"><span class="toc-number">2.1.1.1.</span> <span class="toc-text">BLUE（Bilingual Evaluation Understudy）</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.1.2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">2.1.3.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80"><span class="toc-number">2.1.4.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.1.5.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84"><span class="toc-number">2.1.6.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Why-Self-Attention"><span class="toc-number">2.1.7.</span> <span class="toc-text">Why Self-Attention?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Training"><span class="toc-number">2.1.8.</span> <span class="toc-text">Training</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Results"><span class="toc-number">2.1.9.</span> <span class="toc-text">Results</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Conclusion"><span class="toc-number">2.1.10.</span> <span class="toc-text">Conclusion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-End-to-End-Object-Detection-with-Transformers-DETR"><span class="toc-number">2.2.</span> <span class="toc-text">2. End-to-End Object Detection with Transformers: DETR</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-1"><span class="toc-number">2.2.1.</span> <span class="toc-text">先修知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-1"><span class="toc-number">2.2.2.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-1"><span class="toc-number">2.2.3.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C"><span class="toc-number">2.2.4.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%9E%B6%E6%9E%84-1"><span class="toc-number">2.2.5.</span> <span class="toc-text">模型架构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C"><span class="toc-number">2.2.6.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA"><span class="toc-number">2.2.7.</span> <span class="toc-text">结论</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%84%E5%BD%95%E4%BB%A3%E7%A0%81"><span class="toc-number">2.2.8.</span> <span class="toc-text">附录代码</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-AN-IMAGE-IS-WORTH-16X16-WORDS-TRANSFORMERS-FOR-IMAGE-RECOGNITION-AT-SCALE-Vision-Transformer"><span class="toc-number">2.3.</span> <span class="toc-text">3. AN IMAGE IS WORTH 16X16 WORDS: TRANSFORMERS FOR IMAGE RECOGNITION AT SCALE: Vision Transformer</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Incremental-DETR-Incremental-Few-Shot-Object-Detection-via-Self-Supervised-Learning"><span class="toc-number">2.4.</span> <span class="toc-text">4. Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-2"><span class="toc-number">2.4.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-2"><span class="toc-number">2.4.2.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E5%B7%A5%E4%BD%9C-1"><span class="toc-number">2.4.3.</span> <span class="toc-text">相关工作</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E5%AE%9A%E4%B9%89"><span class="toc-number">2.4.4.</span> <span class="toc-text">问题定义</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%96%B9%E6%B3%95"><span class="toc-number">2.4.5.</span> <span class="toc-text">方法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#Base-Model-Training"><span class="toc-number">2.4.5.1.</span> <span class="toc-text">Base Model Training</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#Incremental-Few-Shot-Fine-Tuning"><span class="toc-number">2.4.5.2.</span> <span class="toc-text">Incremental Few-Shot Fine-Tuning</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E9%AA%8C-1"><span class="toc-number">2.4.6.</span> <span class="toc-text">实验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA-1"><span class="toc-number">2.4.7.</span> <span class="toc-text">结论</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Lightweight-Transformer-for-Multi-Modal-Object-Detection-Student-Abstract"><span class="toc-number">2.5.</span> <span class="toc-text">5. Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%88%E4%BF%AE%E7%9F%A5%E8%AF%86-2"><span class="toc-number">2.5.1.</span> <span class="toc-text">先修知识</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E8%A8%80%E4%BB%A5%E8%94%BD%E4%B9%8B"><span class="toc-number">2.5.2.</span> <span class="toc-text">一言以蔽之</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Self-supervised-Label-Augmentation-via-Input-Transformations"><span class="toc-number">2.6.</span> <span class="toc-text">6. Self-supervised Label Augmentation via Input Transformations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-Learn-More-for-Food-Recognition-via-Progressive-Self-Distillation"><span class="toc-number">2.7.</span> <span class="toc-text">7. Learn More for Food Recognition via Progressive Self-Distillation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-Solving-Math-Word-Problems-concerning-Systems-of-Equations-with-GPT-3"><span class="toc-number">2.8.</span> <span class="toc-text">8. Solving Math Word Problems concerning Systems of Equations with GPT-3</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%91%98%E8%A6%81-3"><span class="toc-number">2.8.1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BC%95%E8%A8%80-3"><span class="toc-number">2.8.2.</span> <span class="toc-text">引言</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
