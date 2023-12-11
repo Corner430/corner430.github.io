@@ -483,23 +483,17 @@ $$
 
 Poolformer-based fusion operator 是一种用于多模态目标检测的融合操作符。它由 Yu et al. (2022) 提出，旨在解决传统的多模态目标检测方法在参数量和计算时间上的缺点。
 
-传统的多模态目标检测方法通常使用自注意力机制来融合来自不同模态的特征图。然而，自注意力机制的计算复杂度为 O(N^2)，其中 N 是特征图的大小。这会导致模型参数量和计算时间的增加。
+传统的多模态目标检测方法通常使用自注意力机制来融合来自不同模态的特征图。然而，自注意力机制的计算复杂度为 $O(N^2)$，其中 N 是特征图的大小。这会导致模型参数量和计算时间的增加。
 
 **Poolformer-based fusion operator 使用池化操作代替自注意力机制**。池化操作是一种参数量为 0 的操作，计算复杂度为 O(N)。这使得 Poolformer-based fusion operator 可以有效地降低模型参数量和计算时间。
 
-Poolformer-based fusion operator 的工作原理如下：
+具体来说，Poolformer-based fusion operator 的计算流程如下：
 
-1. 首先，将来自不同模态的特征图进行连接。
-2. 然后，对连接后的特征图进行 patch 嵌入。
-3. 最后，使用权重分配器分配权重。权重分配器由两个归一化层、一个注意力分配器和一个前馈网络组成。
+1. 首先，将来自不同模态的输入特征进行空间池化（该操作将每个 token 的值与其周围的 tokens 的值进行平均，从而实现 token 之间的信息交换）。
+2. 然后，将池化后的特征进行融合。
+3. 最后，将融合后的特征作为输出。
 
-Poolformer-based fusion operator 在多模态目标检测任务上取得了良好的效果。在 COCO 数据集上，使用 Poolformer-based fusion operator 的 Faster RCNN 模型的 AP 比使用传统的融合操作符提高了 1.5%。
-
-以下是 Poolformer-based fusion operator 的一些优点：
-
-* 参数量小，计算时间短。
-* 可以有效地融合来自不同模态的特征图。
-* 在多模态目标检测任务上取得了良好的效果。
+在 Yu et al. (2022) 的论文中，作者采用了自适应注意力池化 (Adaptive Attention Pool) 的方法。自适应注意力池化可以根据特征的不同分布，选择合适的池化方法。Poolformer-based fusion operator 的 Faster RCNN 模型的 AP 比使用传统的融合操作符提高了 1.5%。
 
 #### 一言以蔽之
 多模态时候经常会用到融合算子，比如将文本和图像融合，将图像和语音融合等等。本文采用了 **Poolformer-based (Yu et al. 2022) fusion operator**，也就是消除 attention 的 transformer，使用了 pooling 来代替 attention。效果反而更好。
