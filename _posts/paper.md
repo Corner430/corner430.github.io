@@ -13,7 +13,8 @@ top : 1
 4. [Incremental-DETR: Incremental Few-Shot Object Detection via Self-Supervised Learning](https://arxiv.org/abs/2205.04042)
 5. [Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/26946)
 6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)
-7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)<!--more-->
+7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)
+8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -618,3 +619,55 @@ $$
 {% endraw %}
 
 > 垃圾文章，没有代码，作者邮件不回。$L_l$也没有讲清楚。Class Response Module 出来之后怎么进行 Threshold？怎么得到 mask？这些都没有讲清楚。**或许需要一些食物识别的先验知识。**
+
+### 8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)
+
+#### 摘要
+本文解决了一个专业领域的问题，就是**数学方程式的提取和求解问题**。作者将其归到了 NLP 的范畴，使用了 GPT-3 来解决这个问题。
+问题分三步：
+1. 对问题进行 **分类**，是几元方程式。这个问题目前 GPT-3 能够达到 80%-100% 的准确率。
+2. 提取方程式，这个问题的精度随着给定模型的例子数量的增加而增加。one-shot 的精度为 31%，3-shot 的精度为 69%。之后再进一步进行 fine-tune，精度可以达到 80%。
+3. 生成新的问题，GPT-3 的精度在 33%-93%，具体取决于问题类型。
+
+#### 引言
+本文聚焦的问题是 **二元一次线性方程组，也就是两个变量，两个方程式**。如上所述，解决问题如下：
+- Q1: How good  is GPT-3 at classifying problems into different themes?
+- Q2: How good is GPT-3 at extracting a system of linear equations directly from problem descriptions?
+- Q3: How good is GPT-3 at creatively generating valid problems?
+
+- [dataset](https://github.com/anrgusc/MWP2L)
+
+**如下为 Q1**. Table1: Instance problem from each category
+| 类别 | 问题 |
+| --- | --- |
+| **Sum and Difference (S&D)** | *The sum of half of a number, x, and another number, y, is -28. The difference of x and y is 7. Find x and y.* |
+| **Item and Property (I&P)** | *Three apples and four bananas cost $4.85. Three apples and ten bananas cost $8.75. Find the cost of an apple.* |
+| **Perimeter of Rectangle (PoR)** | *The length of a rectangle is 3 cm less than double the width, and the perimeter is 53 cm. Find its dimensions.* |
+| **Motion (MO)** | *Joey and Natasha start from the same point and walk in opposite directions. Joey walks 4 km/h faster than Natasha. After 2 hours, they are 31 kilometers apart. How fast did each walk?* |
+| **Mixture (MI)** | *Twelve gallons of a 31% acid mixture is obtained by mixing a 23% solution with a 48% solution. How much of each must be used?* |
+
+**生成表达式的时候，前缀、中缀和后缀的进度不同。**
+
+已经有人通过 Transformer 来解决这个问题，但是作者说泛化性不好。详见文章的 *Prior Applications of Transformers to MWP*。**还有人通过 BERT 来解决这个问题。**
+
+目前关注的问题是以下五个，作者仅考虑了其中的三个：
+- identify the type of problem
+- output step-by-step instructions
+- extract the correct system of linear equations
+- successfully solve the equations
+- generate similar problems for users to practice.
+
+Table 2: Extraction task example.
+
+| Problem | How many gallons of a 20% antifreeze solution and a 10% antifreeze solution must be mixed to obtain 40 gallons of a 16% antifreeze solution? |
+| :---: | :---: |
+| Valid Response | 0.2*x+0.1*y=0.16*(x+y);x+y=40 |
+| Invalid Response | 20x+10y=16*40 (only one equation is derived) |
+| Invalid Response | 20x+10(40-x)=16(40) (failed to use required variable y) |
+| Invalid Response | 2*x+1*y=40;0.2*x+0.1*y=0.16 (incorrect interpretation) |
+
+Table 3: Problem generation.
+| problem given in prompt | The larger of two numbers is 10 more than twice the smaller. If the smaller is subtracted from the larger, the result is 26. Find the numbers. |
+| :---: | :---: |
+| within-topic generation outcome | The larger of two numbers is 15 more than twice the smaller. If the smaller is subtracted from the larger, the result is 33. Find the numbers. |
+| cross-topic generation outcome | The larger of two angles is 10 more than twice the smaller. If the smaller is subtracted from the larger, the result is 26. Find the angles. |
