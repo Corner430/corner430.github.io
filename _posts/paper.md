@@ -14,7 +14,8 @@ top : 1
 5. [Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/26946)
 6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)
 7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)
-8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)<!--more-->
+8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)
+9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -671,3 +672,9 @@ Table 3: Problem generation.
 | :---: | :---: |
 | within-topic generation outcome | The larger of two numbers is 15 more than twice the smaller. If the smaller is subtracted from the larger, the result is 33. Find the numbers. |
 | cross-topic generation outcome | The larger of two angles is 10 more than twice the smaller. If the smaller is subtracted from the larger, the result is 26. Find the angles. |
+
+-----------------------------------
+### 9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)
+- [code](https://github.com/zhengli97/CTKD?tab=readme-ov-file)
+- [Project Page](https://zhengli97.github.io/CTKD/)
+- [中文解读](https://zhengli97.github.io/CTKD/chinese_interpertation.html)
