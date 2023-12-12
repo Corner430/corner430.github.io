@@ -678,3 +678,9 @@ Table 3: Problem generation.
 - [code](https://github.com/zhengli97/CTKD?tab=readme-ov-file)
 - [Project Page](https://zhengli97.github.io/CTKD/)
 - [中文解读](https://zhengli97.github.io/CTKD/chinese_interpertation.html)
+
+- 引言中指出：MKD (Liu et al. 2022) 比较重视 **数据增强**。
+- 相关工作中指出：
+  - *This training strategy has been widely applied in various domains, such as computer vision (Wu et al. 2018; Sinha, Garg, and Larochelle 2020) and natural language processing (Platanios et al. 2019; Tay et al. 2019).*
+  - Curriculum Dropout (Morerio et al. 2017)
+
