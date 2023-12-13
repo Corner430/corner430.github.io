@@ -16,7 +16,7 @@
 <meta property="og:description" content="镜像相关命令：  docker images: 列出本地所有镜像。 docker search &lt;image_name&gt;: 在 Docker Hub 上搜索镜像。 docker pull &lt;image_name&gt;: 下载镜像到本地。 docker rmi &lt;image_name&gt;: 删除本地的镜像。 docker build -t &lt;image_name">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-12T16:04:40.000Z">
-<meta property="article:modified_time" content="2023-12-10T02:38:42.164Z">
+<meta property="article:modified_time" content="2023-12-13T15:16:55.688Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="Docker">
 <meta property="article:tag" content="笔记">
@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:115.3k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:115.6k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -163,7 +163,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.3k字 | 预计阅读时长：9分钟
+    		字数：2.5k字 | 预计阅读时长：11分钟
 	</div>
         
   
@@ -259,45 +259,31 @@
 <p>构建一个简单的 Node.js 应用的 Docker 镜像时，以下是一个完整的 Dockerfile 示例，每个步骤都有注释：</p>
 <figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用官方 Node.js 镜像作为基础镜像</span></span><br><span class="line"><span class="keyword">FROM</span> node:<span class="number">14</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置镜像作者信息</span></span><br><span class="line"><span class="keyword">LABEL</span><span class="language-bash"> maintainer=<span class="string">&quot;your_name@example.com&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建并设置工作目录</span></span><br><span class="line"><span class="keyword">WORKDIR</span><span class="language-bash"> /app</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录下的 package.json 和 package-lock.json 复制到工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> package*.json ./</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 安装应用程序的依赖</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> npm install</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 将当前目录下的所有文件复制到工作目录</span></span><br><span class="line"><span class="keyword">COPY</span><span class="language-bash"> . .</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 暴露应用程序运行的端口</span></span><br><span class="line"><span class="keyword">EXPOSE</span> <span class="number">3000</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line"><span class="keyword">ENV</span> NODE_ENV=production</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义构建参数</span></span><br><span class="line"><span class="keyword">ARG</span> <span class="keyword">user</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 输出构建参数值</span></span><br><span class="line"><span class="keyword">RUN</span><span class="language-bash"> <span class="built_in">echo</span> <span class="string">&quot;Build argument &#x27;user&#x27;: <span class="variable">$user</span>&quot;</span></span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 容器启动时执行的命令</span></span><br><span class="line"><span class="keyword">CMD</span><span class="language-bash"> [<span class="string">&quot;npm&quot;</span>, <span class="string">&quot;start&quot;</span>]</span></span><br></pre></td></tr></table></figure>
 
-<p>在构建过程中，Dockerfile 会：</p>
-<ol>
-<li>使用 Node.js 14 作为基础镜像。</li>
-<li>设置镜像作者信息。</li>
-<li>在 <code>/app</code> 目录下创建工作目录，并将当前目录下的 <code>package.json</code> 和 <code>package-lock.json</code> 复制到工作目录。</li>
-<li>运行 <code>npm install</code> 安装应用程序的依赖。</li>
-<li>将当前目录下的所有文件复制到工作目录。</li>
-<li>暴露容器运行的端口为 3000。</li>
-<li>设置环境变量 <code>NODE_ENV</code> 为 <code>production</code>。</li>
-<li>定义构建参数 <code>user</code>，并在构建时输出其值。</li>
-<li>在容器启动时执行 <code>npm start</code>。</li>
-</ol>
 <p>可以使用以下命令构建和运行这个 Docker 镜像：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker build -t mynodeapp:latest --build-arg user=myuser .</span><br><span class="line">docker run -p 8080:3000 mynodeapp:latest</span><br></pre></td></tr></table></figure>
 
 <hr>
 <ul>
 <li><strong>Docker Compose 的常用命令</strong><ul>
-<li><code>docker-compose up</code>: 构建并启动容器组。</li>
-<li><code>docker-compose down</code>: 停止并移除容器组。</li>
-<li><code>docker-compose ps</code>: 显示容器组中容器的状态。</li>
-<li><code>docker-compose logs</code>: 查看容器组的日志输出。</li>
-<li><code>docker-compose exec</code>: 在容器中执行命令。</li>
-<li>例如：<code>docker-compose exec [service_name] [command]</code></li>
-<li><code>docker-compose build</code>: 仅构建服务，不启动容器。</li>
-<li><code>docker-compose pull</code>: 从仓库拉取服务的镜像，但不启动容器。</li>
-<li><code>docker-compose restart</code>: 重启容器组。</li>
-<li><code>docker-compose stop</code>: 停止容器组，但不移除容器。</li>
-<li><code>docker-compose start</code>: 启动已经停止的容器组。</li>
-<li><code>docker-compose pause</code>: 暂停容器组。</li>
-<li><code>docker-compose unpause</code>: 恢复暂停的容器组。</li>
-<li><code>docker-compose rm</code>: 移除已经停止的容器组。</li>
-<li><code>docker-compose kill</code>: 强制停止容器组。</li>
-<li><code>docker-compose images</code>: 显示容器组的镜像列表。</li>
-<li><code>docker-compose config</code>: 验证 docker-compose.yml 文件配置。</li>
+<li><code>docker compose -f aria2-pro.yml up -d</code>: 启动容器组。</li>
+<li><code>docker compose -f aria2-pro.yml down</code>: 停止并删除容器组。</li>
+<li><code>docker compose -f aria2-pro.yml ps</code>: 列出容器组中的容器状态。</li>
+<li><code>docker compose -f aria2-pro.yml logs</code>: 查看容器组中所有容器的日志。</li>
+<li><code>docker compose -f aria2-pro.yml exec aria2-pro bash</code>: 进入容器组中的某个容器。</li>
+<li><code>docker compose -f aria2-pro.yml exec -d aria2-pro bash -c &quot;echo &#39;Hello World!&#39; &gt; /root/hello.txt&quot;</code>: 在容器组中的某个容器中执行命令。</li>
+<li><code>docker compose -f aria2-pro.yml stop</code>: 停止容器组中的所有容器。</li>
+<li><code>docker compose -f aria2-pro.yml start</code>: 启动容器组中的所有容器。</li>
+<li><code>docker compose -f aria2-pro.yml restart</code>: 重启容器组中的所有容器。</li>
+<li><code>docker compose -f aria2-pro.yml rm</code>: 删除容器组中的所有容器。</li>
+<li><code>docker compose -f aria2-pro.yml stop aria2-pro</code>: 停止容器组中的某个容器。</li>
+<li><code>docker compose -f aria2-pro.yml start aria2-pro</code>: 启动容器组中的某个容器。</li>
 </ul>
 </li>
 </ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">Usage:  docker compose [OPTIONS] COMMAND</span><br><span class="line"></span><br><span class="line">Define and run multi-container applications with Docker.</span><br><span class="line"></span><br><span class="line">Options:</span><br><span class="line">      --ansi string                Control when to <span class="built_in">print</span> ANSI control characters (<span class="string">&quot;never&quot;</span>|<span class="string">&quot;always&quot;</span>|<span class="string">&quot;auto&quot;</span>)</span><br><span class="line">                                   (default <span class="string">&quot;auto&quot;</span>)</span><br><span class="line">      --compatibility              Run compose <span class="keyword">in</span> backward compatibility mode</span><br><span class="line">      --dry-run                    Execute <span class="built_in">command</span> <span class="keyword">in</span> dry run mode</span><br><span class="line">      --env-file stringArray       Specify an alternate environment file.</span><br><span class="line">  -f, --file stringArray           Compose configuration files</span><br><span class="line">      --parallel int               Control max parallelism, -1 <span class="keyword">for</span> unlimited (default -1)</span><br><span class="line">      --profile stringArray        Specify a profile to <span class="built_in">enable</span></span><br><span class="line">      --progress string            Set <span class="built_in">type</span> of progress output (auto, <span class="built_in">tty</span>, plain, quiet) (default <span class="string">&quot;auto&quot;</span>)</span><br><span class="line">      --project-directory string   Specify an alternate working directory</span><br><span class="line">                                   (default: the path of the, first specified, Compose file)</span><br><span class="line">  -p, --project-name string        Project name</span><br><span class="line"></span><br><span class="line">Commands:</span><br><span class="line">  build       Build or rebuild services</span><br><span class="line">  config      Parse, resolve and render compose file <span class="keyword">in</span> canonical format</span><br><span class="line">  <span class="built_in">cp</span>          Copy files/folders between a service container and the <span class="built_in">local</span> filesystem</span><br><span class="line">  create      Creates containers <span class="keyword">for</span> a service.</span><br><span class="line">  down        Stop and remove containers, networks</span><br><span class="line">  events      Receive real time events from containers.</span><br><span class="line">  <span class="built_in">exec</span>        Execute a <span class="built_in">command</span> <span class="keyword">in</span> a running container.</span><br><span class="line">  images      List images used by the created containers</span><br><span class="line">  <span class="built_in">kill</span>        Force stop service containers.</span><br><span class="line">  logs        View output from containers</span><br><span class="line">  <span class="built_in">ls</span>          List running compose projects</span><br><span class="line">  pause       Pause services</span><br><span class="line">  port        Print the public port <span class="keyword">for</span> a port binding.</span><br><span class="line">  ps          List containers</span><br><span class="line">  pull        Pull service images</span><br><span class="line">  push        Push service images</span><br><span class="line">  restart     Restart service containers</span><br><span class="line">  <span class="built_in">rm</span>          Removes stopped service containers</span><br><span class="line">  run         Run a one-off <span class="built_in">command</span> on a service.</span><br><span class="line">  start       Start services</span><br><span class="line">  stop        Stop services</span><br><span class="line">  top         Display the running processes</span><br><span class="line">  unpause     Unpause services</span><br><span class="line">  up          Create and start containers</span><br><span class="line">  version     Show the Docker Compose version information</span><br><span class="line">  <span class="built_in">wait</span>        Block until the first service container stops</span><br><span class="line"></span><br><span class="line">Run <span class="string">&#x27;docker compose COMMAND --help&#x27;</span> <span class="keyword">for</span> more information on a <span class="built_in">command</span>.</span><br></pre></td></tr></table></figure>
+
 <hr>
+<p><a target="_blank" rel="noopener" href="https://docs.docker.com/compose/install/linux/">Compose V1 和 V2 的区别</a></p>
 <ul>
 <li><strong>Docker Compose 的使用</strong><br>Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，可以使用 YAML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YAML 文件配置中创建并启动所有服务。</li>
 </ul>
