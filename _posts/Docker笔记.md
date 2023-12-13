@@ -95,18 +95,6 @@ RUN echo "Build argument 'user': $user"
 CMD ["npm", "start"]
 ```
 
-在构建过程中，Dockerfile 会：
-
-1. 使用 Node.js 14 作为基础镜像。
-2. 设置镜像作者信息。
-3. 在 `/app` 目录下创建工作目录，并将当前目录下的 `package.json` 和 `package-lock.json` 复制到工作目录。
-4. 运行 `npm install` 安装应用程序的依赖。
-5. 将当前目录下的所有文件复制到工作目录。
-6. 暴露容器运行的端口为 3000。
-7. 设置环境变量 `NODE_ENV` 为 `production`。
-8. 定义构建参数 `user`，并在构建时输出其值。
-9. 在容器启动时执行 `npm start`。
-
 可以使用以下命令构建和运行这个 Docker 镜像：
 
 ```bash
@@ -117,25 +105,72 @@ docker run -p 8080:3000 mynodeapp:latest
 ----------------------------------------------------
 
 - **Docker Compose 的常用命令**
-   - `docker-compose up`: 构建并启动容器组。
-   - `docker-compose down`: 停止并移除容器组。
-   - `docker-compose ps`: 显示容器组中容器的状态。
-   - `docker-compose logs`: 查看容器组的日志输出。
-   - `docker-compose exec`: 在容器中执行命令。
-   - 例如：`docker-compose exec [service_name] [command]`
-   - `docker-compose build`: 仅构建服务，不启动容器。
-   - `docker-compose pull`: 从仓库拉取服务的镜像，但不启动容器。
-   - `docker-compose restart`: 重启容器组。
-   - `docker-compose stop`: 停止容器组，但不移除容器。
-   - `docker-compose start`: 启动已经停止的容器组。
-   - `docker-compose pause`: 暂停容器组。
-   - `docker-compose unpause`: 恢复暂停的容器组。
-   - `docker-compose rm`: 移除已经停止的容器组。
-   - `docker-compose kill`: 强制停止容器组。
-   - `docker-compose images`: 显示容器组的镜像列表。
-   - `docker-compose config`: 验证 docker-compose.yml 文件配置。
+   - `docker compose -f aria2-pro.yml up -d`: 启动容器组。
+   - `docker compose -f aria2-pro.yml down`: 停止并删除容器组。
+   - `docker compose -f aria2-pro.yml ps`: 列出容器组中的容器状态。
+   - `docker compose -f aria2-pro.yml logs`: 查看容器组中所有容器的日志。
+   - `docker compose -f aria2-pro.yml exec aria2-pro bash`: 进入容器组中的某个容器。
+   - `docker compose -f aria2-pro.yml exec -d aria2-pro bash -c "echo 'Hello World!' > /root/hello.txt"`: 在容器组中的某个容器中执行命令。
+   - `docker compose -f aria2-pro.yml stop`: 停止容器组中的所有容器。
+   - `docker compose -f aria2-pro.yml start`: 启动容器组中的所有容器。
+   - `docker compose -f aria2-pro.yml restart`: 重启容器组中的所有容器。
+   - `docker compose -f aria2-pro.yml rm`: 删除容器组中的所有容器。
+   - `docker compose -f aria2-pro.yml stop aria2-pro`: 停止容器组中的某个容器。
+   - `docker compose -f aria2-pro.yml start aria2-pro`: 启动容器组中的某个容器。
+
+```bash
+Usage:  docker compose [OPTIONS] COMMAND
+
+Define and run multi-container applications with Docker.
+
+Options:
+      --ansi string                Control when to print ANSI control characters ("never"|"always"|"auto")
+                                   (default "auto")
+      --compatibility              Run compose in backward compatibility mode
+      --dry-run                    Execute command in dry run mode
+      --env-file stringArray       Specify an alternate environment file.
+  -f, --file stringArray           Compose configuration files
+      --parallel int               Control max parallelism, -1 for unlimited (default -1)
+      --profile stringArray        Specify a profile to enable
+      --progress string            Set type of progress output (auto, tty, plain, quiet) (default "auto")
+      --project-directory string   Specify an alternate working directory
+                                   (default: the path of the, first specified, Compose file)
+  -p, --project-name string        Project name
+
+Commands:
+  build       Build or rebuild services
+  config      Parse, resolve and render compose file in canonical format
+  cp          Copy files/folders between a service container and the local filesystem
+  create      Creates containers for a service.
+  down        Stop and remove containers, networks
+  events      Receive real time events from containers.
+  exec        Execute a command in a running container.
+  images      List images used by the created containers
+  kill        Force stop service containers.
+  logs        View output from containers
+  ls          List running compose projects
+  pause       Pause services
+  port        Print the public port for a port binding.
+  ps          List containers
+  pull        Pull service images
+  push        Push service images
+  restart     Restart service containers
+  rm          Removes stopped service containers
+  run         Run a one-off command on a service.
+  start       Start services
+  stop        Stop services
+  top         Display the running processes
+  unpause     Unpause services
+  up          Create and start containers
+  version     Show the Docker Compose version information
+  wait        Block until the first service container stops
+
+Run 'docker compose COMMAND --help' for more information on a command.
+```
 
 ---------------------------------------------
+
+[Compose V1 和 V2 的区别](https://docs.docker.com/compose/install/linux/)
 
 - **Docker Compose 的使用**
 Docker Compose 是一个用于定义和运行多容器 Docker 应用程序的工具。通过 Compose，可以使用 YAML 文件来配置应用程序需要的所有服务。然后，使用一个命令，就可以从 YAML 文件配置中创建并启动所有服务。
