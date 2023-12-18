@@ -15,7 +15,8 @@ top : 1
 6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)
 7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)
 8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)
-9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)<!--more-->
+9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)
+10. [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLYIMPROVING GENERALIZATION](https://arxiv.org/abs/2010.01412)<!--more-->
 
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
@@ -684,3 +685,48 @@ Table 3: Problem generation.
   - *This training strategy has been widely applied in various domains, such as computer vision (Wu et al. 2018; Sinha, Garg, and Larochelle 2020) and natural language processing (Platanios et al. 2019; Tay et al. 2019).*
   - Curriculum Dropout (Morerio et al. 2017)
 
+
+### 10. [Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)
+
+- [code](https://github.com/google-research/sam)
+- [Third-party library](https://github.com/davda54/sam)
+
+cifar100 的结果：Percentage correct 96.08，最强结果。
+
+作者认为：现在模型的参数都特别多，单单靠 loss function 去做优化，不足以支撑起整个任务，这会导致太多不同的解。因此，作者提出了 SAM（Sharpness-Aware Minimization），通过优化 sharpness 来提高泛化性能。
+
+一言以蔽之：不仅仅要优化模型的 loss，还要优化 loss 最小值附近的 平滑度。**可以将其视为一种学习算法，经测试，相当多的模型和任务，套用上这个算法，效果都会有所提升。**
+
+![20231218094309](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231218094309.png)
+
+**Theorem (stated informally) 1.** For any $\rho$ > 0, with high probability over training set $S$ generated from distribution $\mathcal{D}$,
+
+{% raw %}
+$$
+\mathcal{D}(\omega) \leq \text{max}_{|| \epsilon ||_2 \leq \rho} \mathcal{L}_{S}(\omega + \epsilon) + \mathcal{h}(|| \omega ||_2^2 / \rho^2)
+$$
+{% endraw %}
+
+where $h : R_+ → R_+$ is a strictly increasing function (under some technical conditions on $L_D (w)$).
+
+事实上，上述公式的右侧可以写为：
+
+{% raw %}
+$$
+[\text{max}_{|| \epsilon ||_2 \leq \rho} \mathcal{L}_{S}(\omega + \epsilon) - \mathcal{L}_{S}(\omega)] - \mathcal{L}_{S}(\omega) + \mathcal{h}(|| \omega ||_2^2 / \rho^2)
+$$
+{% endraw %}
+
+其中最后一项可以看成是一个正则项，可以用$\lambda || \omega ||_2^2$来代替。[]内的代表锐度，也就是 sharpness。中间那一项是 loss。
+
+故而，SAM 的损失函数为：
+
+{% raw %}
+$$
+\text{min}_{\omega} \mathcal{L}_{S}^{SAM}(\omega) + \lambda || \omega ||_2^2 \quad
+
+\text{where} \quad \mathcal{L}_{S}^{SAM}(\omega) \stackrel{\triangle}{=} \text{max}_{|| \epsilon ||_p \leq \rho} \mathcal{L}_{S}(\omega + \epsilon)
+$$
+{% endraw %}
+
+就是一个最大最小化问题，详细推导见原文。
