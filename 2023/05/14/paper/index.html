@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210235852.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231218094309.png">
 <meta property="article:published_time" content="2023-05-14T12:32:31.000Z">
-<meta property="article:modified_time" content="2023-12-18T02:10:44.097Z">
+<meta property="article:modified_time" content="2023-12-18T03:02:14.577Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="科研">
 <meta name="twitter:card" content="summary">
@@ -84,7 +84,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:115.9k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:116k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -849,7 +849,7 @@ $$
 <li><a target="_blank" rel="noopener" href="https://github.com/davda54/sam">Third-party library</a></li>
 </ul>
 <p>cifar100 的结果：Percentage correct 96.08，最强结果。</p>
-<p>作者认为：现在模型的参数都特别多，单单靠 loss function 去做优化，不足以支撑起整个任务，这会导致太多不同的解。因此，作者提出了 SAM（Sharpness-Aware Minimization），通过优化 sharpness 来提高泛化性能。</p>
+<p>作者认为：现在模型的参数都特别多，单单靠 loss function 去做优化，不足以支撑起整个任务，这会导致太多不同的解。因此，作者提出了 SAM（Sharpness-Aware Minimization），通过优化 sharpness 来提高泛化性能，<strong>也就是优化曲率</strong>。</p>
 <p>一言以蔽之：不仅仅要优化模型的 loss，还要优化 loss 最小值附近的 平滑度。<strong>可以将其视为一种学习算法，经测试，相当多的模型和任务，套用上这个算法，效果都会有所提升。</strong></p>
 <p><img src="https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231218094309.png" alt="20231218094309"></p>
 <p><strong>Theorem (stated informally) 1.</strong> For any $\rho$ &gt; 0, with high probability over training set $S$ generated from distribution $\mathcal{D}$,</p>
