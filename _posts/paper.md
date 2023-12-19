@@ -693,7 +693,7 @@ Table 3: Problem generation.
 
 cifar100 的结果：Percentage correct 96.08，最强结果。
 
-作者认为：现在模型的参数都特别多，单单靠 loss function 去做优化，不足以支撑起整个任务，这会导致太多不同的解。因此，作者提出了 SAM（Sharpness-Aware Minimization），通过优化 sharpness 来提高泛化性能。
+作者认为：现在模型的参数都特别多，单单靠 loss function 去做优化，不足以支撑起整个任务，这会导致太多不同的解。因此，作者提出了 SAM（Sharpness-Aware Minimization），通过优化 sharpness 来提高泛化性能，**也就是优化曲率**。
 
 一言以蔽之：不仅仅要优化模型的 loss，还要优化 loss 最小值附近的 平滑度。**可以将其视为一种学习算法，经测试，相当多的模型和任务，套用上这个算法，效果都会有所提升。**
 
@@ -730,3 +730,5 @@ $$
 {% endraw %}
 
 就是一个最大最小化问题，详细推导见原文。
+
+> Because SAM's performance is amplified by not syncing the perturbations, data parallelism is highly recommended to leverage SAM's full potential (see Section 4 for more details).就是数据并行，效果更好。
