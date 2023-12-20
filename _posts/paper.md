@@ -713,7 +713,7 @@ where $h : R_+ → R_+$ is a strictly increasing function (under some technical 
 
 {% raw %}
 $$
-[\text{max}_{|| \epsilon ||_2 \leq \rho} \mathcal{L}_{S}(\omega + \epsilon) - \mathcal{L}_{S}(\omega)] - \mathcal{L}_{S}(\omega) + \mathcal{h}(|| \omega ||_2^2 / \rho^2)
+[\text{max}_{|| \epsilon ||_2 \leq \rho} \mathcal{L}_{S}(\omega + \epsilon) - \mathcal{L}_{S}(\omega)] + \mathcal{L}_{S}(\omega) + \mathcal{h}(|| \omega ||_2^2 / \rho^2)
 $$
 {% endraw %}
 
