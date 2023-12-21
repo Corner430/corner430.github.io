@@ -16,7 +16,7 @@
 <meta property="og:description" content="开机黑屏">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-09T13:26:42.000Z">
-<meta property="article:modified_time" content="2023-12-10T01:38:06.154Z">
+<meta property="article:modified_time" content="2023-12-21T02:32:12.485Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：305字 | 预计阅读时长：1分钟
+    		字数：314字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -192,7 +192,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ol>
-<li>开机黑屏<span id="more"></span><br>显卡驱动问题，安装显卡驱动。<br>点击 <code>ctrl+alt+F2</code> 进入命令行模式，输入用户名和密码，然后执行以下命令：</li>
+<li>开机黑屏<span id="more"></span><br>显卡驱动问题，安装显卡驱动。<br>点击 <code>ctrl+alt+F2</code> 进入命令行模式，输入用户名和密码，<strong>直接更新重启</strong>，如果还不行。执行以下命令：</li>
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ubuntu-drivers devices  <span class="comment">#查看系统推荐的Nvidia版本，带有 recommended 标签的是推荐版本</span></span><br><span class="line">sudo apt install nvidia-driver-xxx  <span class="comment">#安装Nvidia驱动</span></span><br><span class="line">sudo reboot  <span class="comment">#重启</span></span><br></pre></td></tr></table></figure>
 
