@@ -16,7 +16,7 @@
 <meta property="og:description" content="开机黑屏">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-09T13:26:42.000Z">
-<meta property="article:modified_time" content="2023-12-21T02:32:12.485Z">
+<meta property="article:modified_time" content="2023-12-21T04:25:48.305Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:115.7k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:115.8k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -162,7 +162,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：314字 | 预计阅读时长：1分钟
+    		字数：420字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -217,6 +217,28 @@
 </ol>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">docker run -d \</span><br><span class="line">  --restart=always \</span><br><span class="line">  --privileged \</span><br><span class="line">  --network=host \</span><br><span class="line">  --name v2raya \</span><br><span class="line">  -e V2RAYA_LOG_FILE=/tmp/v2raya.<span class="built_in">log</span> \</span><br><span class="line">  -e V2RAYA_V2RAY_BIN=/usr/local/bin/v2ray \</span><br><span class="line">  -e V2RAYA_NETABLES_SUPPORT=off \</span><br><span class="line">  -v /lib/modules:/lib/modules:ro \</span><br><span class="line">  -v /etc/resolv.conf:/etc/resolv.conf \</span><br><span class="line">  -v /etc/v2raya:/etc/v2raya \</span><br><span class="line">  mzz2017/v2raya</span><br></pre></td></tr></table></figure>
 <p>之后去 web 界面的 <code>http://127.0.0.1:2017</code> 设置</p>
+<hr>
+<p>tweaks<br><a target="_blank" rel="noopener" href="https://extensions.gnome.org/">gnome extensions</a><br><a target="_blank" rel="noopener" href="https://www.gnome-look.org/browse/">gnome look</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install gnome-tweaks</span><br><span class="line">sudo apt install chrome-gnome-shell</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Netspeed： 网速</li>
+<li>Dash to Dock： 底部栏</li>
+<li>Coverflow Alt-Tab： 切换窗口</li>
+<li>Applications menu： 应用菜单</li>
+<li>Extension List： 扩展列表</li>
+<li>Vitals： 系统监控</li>
+<li>Removable Drive Menu： 可移动设备菜单</li>
+<li>Clipboard Indicator： 剪贴板</li>
+<li>OpenWeather： 天气</li>
+<li>User Themes： 主题</li>
+<li>Burn My Windows： 窗口特效</li>
+<li>Application Volume Mixer： 音量控制</li>
+<li>Simple Timer： 计时器</li>
+<li>Unite(optional): 窗口控制</li>
+<li>Glasa(optional)：顶栏之眼</li>
+<li>Fly-Pie(optional)： 鼠标手势</li>
+</ul>
 
       
 	
