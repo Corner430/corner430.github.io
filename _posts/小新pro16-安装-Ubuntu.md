@@ -50,3 +50,30 @@ docker run -d \
   mzz2017/v2raya
 ```
 之后去 web 界面的 `http://127.0.0.1:2017` 设置
+
+------------------------------
+tweaks
+[gnome extensions](https://extensions.gnome.org/)
+[gnome look](https://www.gnome-look.org/browse/)
+
+```bash
+sudo apt install gnome-tweaks
+sudo apt install chrome-gnome-shell
+```
+
+- Netspeed： 网速
+- Dash to Dock： 底部栏
+- Coverflow Alt-Tab： 切换窗口
+- Applications menu： 应用菜单
+- Extension List： 扩展列表
+- Vitals： 系统监控
+- Removable Drive Menu： 可移动设备菜单
+- Clipboard Indicator： 剪贴板
+- OpenWeather： 天气
+- User Themes： 主题
+- Burn My Windows： 窗口特效
+- Application Volume Mixer： 音量控制
+- Simple Timer： 计时器
+- Unite(optional): 窗口控制
+- Glasa(optional)：顶栏之眼
+- Fly-Pie(optional)： 鼠标手势
