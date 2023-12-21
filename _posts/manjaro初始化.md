@@ -8,6 +8,9 @@ tags:
 declare: true
 ---
 1. 更新系统：`sudo pacman -Syu`<!--more-->
+
+> 报错`Failed to prepare transaction`，解决方法：`sudo pamac updata`
+
 2. 安装输入法：`sudo pacman -S fcitx-im fcitx-configtool`
 3. 更改镜像源：
 ```shell
@@ -19,6 +22,7 @@ sudo pacman -Syyu
 sudo pacman -S vim
 sudo pacman -S yay
 sudo pacman -S debtap
+sudo pacman -S docker
 yay -S google-chrome
 yay  -S  wemeet
 ```
