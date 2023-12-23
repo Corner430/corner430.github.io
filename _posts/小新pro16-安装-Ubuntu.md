@@ -83,3 +83,6 @@ sudo apt install chrome-gnome-shell
 - Unite(optional): 窗口控制
 - Glasa(optional)：顶栏之眼
 - Fly-Pie(optional)： 鼠标手势
+
+------------------------------
+

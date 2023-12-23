@@ -325,7 +325,7 @@ If you need to disable automatic startup on boot, you can use the following comm
 Official website: https://www.zerotier.com/
 Account: sikes60407@loongwin.com
 Password: yFKjXv46JT@.43d
-Network ID: c7c8172af125f9c1
+Network ID: 
 - Linux install ZeroTier
 `curl -s https://install.zerotier.com | sudo bash`
 
@@ -350,4 +350,9 @@ sudo zerotier-cli join <NETWORK_ID>
 
 ### 3. 花生壳
 
+### 4. tailscale
+国内目前测试比 zerotier 好用一些
+
+### 5. [moonlight](https://github.com/moonlight-stream/moonlight-qt) + [sunshine](https://github.com/LizardByte/Sunshine)
+服务端 sunshine，客户端 moonlight
 
