@@ -86,3 +86,4 @@ sudo apt install chrome-gnome-shell
 
 ------------------------------
 
+![desktop](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/desktop.png)

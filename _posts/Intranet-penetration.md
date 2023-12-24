@@ -195,6 +195,13 @@ frpc程序不能直接双击运行！
 之后打开任务管理器，服务，打开服务，找到这个服务
 将其设置为**失败但不断重复**，之后启动就好，大功告成！
 
+> 现在可以通过 vbs 脚本来启动服务，这样就可以在开机后自动启动了
+
+```vbs
+set ws=wscript.createobject("wscript.shell")
+ws.run "cmd /c C:\frp_0.51.3_windows_amd64\frpc -c C:\frp_0.51.3_windows_amd64\frpc.ini",0
+```
+
 -----------------
 
 - Boot up
