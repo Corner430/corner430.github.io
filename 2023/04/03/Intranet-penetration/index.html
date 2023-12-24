@@ -16,7 +16,7 @@
 <meta property="og:description" content="1 frp 在官方github下载对应版本">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T00:59:06.000Z">
-<meta property="article:modified_time" content="2023-12-09T12:11:21.971Z">
+<meta property="article:modified_time" content="2023-12-24T07:29:29.249Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:115.9k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:116.2k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -249,6 +249,11 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;service&gt;</span><br><span class="line">	&lt;!-- 该服务的唯一标识 --&gt;</span><br><span class="line">    &lt;id&gt;frpc&lt;/id&gt;</span><br><span class="line">    &lt;!-- 该服务的名称 --&gt;</span><br><span class="line">    &lt;name&gt;frp&lt;/name&gt;</span><br><span class="line">    &lt;!-- 该服务的描述 --&gt;</span><br><span class="line">    &lt;description&gt;frpc客户端 这个服务用 frpc 实现内网穿透&lt;/description&gt;</span><br><span class="line">    &lt;!-- 要运行的程序路径 --&gt;</span><br><span class="line">    &lt;executable&gt;frpc.exe&lt;/executable&gt;</span><br><span class="line">    &lt;!-- 携带的参数 --&gt;</span><br><span class="line">    &lt;arguments&gt;-c frpc.ini&lt;/arguments&gt;</span><br><span class="line">    &lt;!-- 日志模式 --&gt;</span><br><span class="line">    &lt;logmode&gt;none&lt;/logmode&gt;</span><br><span class="line">&lt;/service&gt;</span><br></pre></td></tr></table></figure>
 
 <p>用cmd进入这一切的目录下<br>在命令框输入<code>winsw.exe install</code><br>显示 <code>INFO -Installing the servics with id &quot;***&quot;</code><br>即为成功<br>之后打开任务管理器，服务，打开服务，找到这个服务<br>将其设置为<strong>失败但不断重复</strong>，之后启动就好，大功告成！</p>
+<blockquote>
+<p>现在可以通过 vbs 脚本来启动服务，这样就可以在开机后自动启动了</p>
+</blockquote>
+<figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> ws=wscript.<span class="built_in">createobject</span>(<span class="string">&quot;wscript.shell&quot;</span>)</span><br><span class="line">ws.run <span class="string">&quot;cmd /c C:\frp_0.51.3_windows_amd64\frpc -c C:\frp_0.51.3_windows_amd64\frpc.ini&quot;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
 <hr>
 <ul>
 <li>Boot up<br><code>frpc.ini</code></li>
@@ -285,7 +290,7 @@
 </ol>
 <p>Now, the frpc service has been configured to start automatically at boot and run in the background. The service can be stopped with the following command:<br><code>sudo systemctl stop frpc</code></p>
 <p>If you need to disable automatic startup on boot, you can use the following command:<br><code>sudo systemctl disable frpc</code></p>
-<h3 id="2-Zerotier"><a href="#2-Zerotier" class="headerlink" title="2. Zerotier"></a>2. Zerotier</h3><p>Official website: <a target="_blank" rel="noopener" href="https://www.zerotier.com/">https://www.zerotier.com/</a><br>Account: <a href="mailto:&#115;&#105;&#107;&#x65;&#115;&#x36;&#x30;&#52;&#48;&#x37;&#64;&#108;&#x6f;&#111;&#110;&#x67;&#x77;&#105;&#110;&#46;&#99;&#x6f;&#109;">&#115;&#105;&#107;&#x65;&#115;&#x36;&#x30;&#52;&#48;&#x37;&#64;&#108;&#x6f;&#111;&#110;&#x67;&#x77;&#105;&#110;&#46;&#99;&#x6f;&#109;</a><br>Password: yFKjXv46JT@.43d<br>Network ID: c7c8172af125f9c1</p>
+<h3 id="2-Zerotier"><a href="#2-Zerotier" class="headerlink" title="2. Zerotier"></a>2. Zerotier</h3><p>Official website: <a target="_blank" rel="noopener" href="https://www.zerotier.com/">https://www.zerotier.com/</a><br>Account: <a href="mailto:&#x73;&#105;&#x6b;&#101;&#115;&#x36;&#x30;&#x34;&#x30;&#55;&#64;&#x6c;&#111;&#x6f;&#x6e;&#103;&#119;&#x69;&#110;&#x2e;&#99;&#111;&#x6d;">&#x73;&#105;&#x6b;&#101;&#115;&#x36;&#x30;&#x34;&#x30;&#55;&#64;&#x6c;&#111;&#x6f;&#x6e;&#103;&#119;&#x69;&#110;&#x2e;&#99;&#111;&#x6d;</a><br>Password: yFKjXv46JT@.43d<br>Network ID: </p>
 <ul>
 <li><p>Linux install ZeroTier<br><code>curl -s https://install.zerotier.com | sudo bash</code></p>
 </li>
@@ -298,7 +303,9 @@
 <li><p>Addition</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zerotier-cli leave Network ID   <span class="comment">#leave the network</span></span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> zerotier-one.service</span><br><span class="line"></span><br><span class="line">sudo systemctl start zerotier-one.service</span><br><span class="line"></span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> &lt;NETWORK_ID&gt;</span><br></pre></td></tr></table></figure></li>
 </ul>
-<h3 id="3-花生壳"><a href="#3-花生壳" class="headerlink" title="3. 花生壳"></a>3. 花生壳</h3>
+<h3 id="3-花生壳"><a href="#3-花生壳" class="headerlink" title="3. 花生壳"></a>3. 花生壳</h3><h3 id="4-tailscale"><a href="#4-tailscale" class="headerlink" title="4. tailscale"></a>4. tailscale</h3><p>国内目前测试比 zerotier 好用一些</p>
+<h3 id="5-moonlight-sunshine"><a href="#5-moonlight-sunshine" class="headerlink" title="5. moonlight + sunshine"></a>5. <a target="_blank" rel="noopener" href="https://github.com/moonlight-stream/moonlight-qt">moonlight</a> + <a target="_blank" rel="noopener" href="https://github.com/LizardByte/Sunshine">sunshine</a></h3><p>服务端 sunshine，客户端 moonlight</p>
+
       
 	
        
@@ -483,7 +490,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">3.</span> <span class="toc-text">3. 花生壳</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">3.</span> <span class="toc-text">3. 花生壳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-tailscale"><span class="toc-number">4.</span> <span class="toc-text">4. tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-moonlight-sunshine"><span class="toc-number">5.</span> <span class="toc-text">5. moonlight + sunshine</span></a></li></ol>
                     </div>
                 </span>
             </div>
