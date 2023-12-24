@@ -54,3 +54,8 @@ declare: true
 5. 如果在本地进行了修改并想要将更改推送到 GitHub 上的仓库，可以使用 git push 命令将本地更改推送到远程仓库。
 
 > 对于theme文件夹，可以单独建立一个分支。
+
+---------------------
+
+通过 docker 部署 [taskbjorn/hexo](https://hub.docker.com/r/taskbjorn/hexo)，之后将 hexo 中的所有文件覆盖就好了。
+`alias="docker exec -it hexo hexo"`
