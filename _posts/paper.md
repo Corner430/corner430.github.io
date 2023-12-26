@@ -18,6 +18,53 @@ top : 1
 9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)
 10. [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLYIMPROVING GENERALIZATION](https://arxiv.org/abs/2010.01412)<!--more-->
 
+-----------------------------------
+## 泛读文章
+1. [De-biased Teacher: Rethinking IoU Matching for Semi-supervised Object Detection](https://ojs.aaai.org/index.php/AAAI/article/view/25355)
+
+[code](https://github.com/wkfdb/De-biased-Teracher)
+
+本文提出了一种新的方法，**称为 De-biased Teacher**，用于半监督目标检测。**该方法通过直接生成有利于弱/强增强图像对之间的一致性正则化的训练提议来消除基于伪标签的IoU匹配产生的偏差。此外，还设计了一种基于分布的细化方案，以消除显著低值的分散类别预测，以提高效率。**
+
+一言以蔽之：作者认为无监督中的 IOU 匹配带来了偏差，所以找了一个 teacher model 专门进行消除这种偏差。**所谓细化方案，可以理解为将预测的结果进行一些处理，比如将预测的结果中的低值去掉，这样可以提高效率。**
+
+可借鉴点 <table><tr><td bgcolor=#FF00FF>细化方案，即去掉不太重要的值，如下图。</td></tr></table>
+
+![20231225202053](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225202053.png)
+
+------------------------
+
+2. [Grouped Knowledge Distillation for Deep Face Recognition](https://ojs.aaai.org/index.php/AAAI/article/view/25472)
+
+无 code.
+
+作者指出，feature-based knowledge distillation 会强人所难，要求 student model 和 teacher model 学到一致的表示空间，这有些困难；而 logit-based knowledge distillation 会导致 student model 学到一些无用的知识，比如学到了一些无关的类别，从而导致效果不好。因此，作者提出了一种新的方法，称为 Grouped Knowledge Distillation，**
+
+一言以蔽之，作者将 logit 按照阈值进行分组。分别是 Primary-KD, Secondary-KD, and Binary-KD。**Primary-KD 用于学习主要的知识，Secondary-KD 用于学习次要的知识，Binary-KD 用于确保教师和学生之间的知识分布的一致性。**作者表示，Primary-KD 和 Binary-KD 是重要的，Secondary-KD 是可选的。
+
+可借鉴点 <table><tr><td bgcolor=#FF00FF>分组，即将 logit 按照阈值进行分组，分别学习。本质上和上文相同，去掉不重要的部分。</td></tr></table>
+
+![20231225210830](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225210830.png)
+
+> Binary-KD 参见原文公式 6，实际上就是一个二分类问题，用于确定分类是 Primary-KD 还是 Secondary-KD。
+
+-----------------------------------
+
+3. [Can Bad Teaching Induce Forgetting? Unlearning in Deep Networks Using an Incompetent Teacher](https://ojs.aaai.org/index.php/AAAI/article/view/25879)
+
+本文角度清奇，利用知识蒸馏使得模型变弱，有意忘记某些知识。比如某些公司的授权到期，需要忘记相关知识，两种方法，其一是重新训练，其二就是本文（知识蒸馏）。
+
+-----------------------------------
+
+4. [SKDBERT: Compressing BERT via Stochastic Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25902)
+
+- 正如题目所言，本文采用了一种随机知识蒸馏的方法，具体来说，每次迭代中从很多老师中挑选一个老师，然后进行知识蒸馏。（老师们具有不同的容量层级）在能力基本没有损失的情况下，模型的大小减少了 40%。
+
+![20231226095033](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231226095033.png)
+
+<table><tr><td bgcolor=#FF00FF>本文提到了很多知识蒸馏的方法，可以参考。</td></tr></table>
+
+
 ## 正文
 ### 1. [Attention Is All You Need](https://arxiv.org/pdf/1706.03762.pdf) : Transformer
 #### 先修知识
