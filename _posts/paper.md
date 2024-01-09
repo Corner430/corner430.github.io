@@ -16,7 +16,8 @@ top : 1
 7. [Learn More for Food Recognition via Progressive Self-Distillation](https://arxiv.org/abs/2303.05073)
 8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)
 9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)
-10. [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLYIMPROVING GENERALIZATION](https://arxiv.org/abs/2010.01412)<!--more-->
+10. [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLYIMPROVING GENERALIZATION](https://arxiv.org/abs/2010.01412)
+11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)<!--more-->
 
 -----------------------------------
 ## 泛读文章
@@ -732,6 +733,7 @@ Table 3: Problem generation.
   - *This training strategy has been widely applied in various domains, such as computer vision (Wu et al. 2018; Sinha, Garg, and Larochelle 2020) and natural language processing (Platanios et al. 2019; Tay et al. 2019).*
   - Curriculum Dropout (Morerio et al. 2017)
 
+---------------------------------
 
 ### 10. [Sharpness-Aware Minimization for Efficiently Improving Generalization](https://arxiv.org/abs/2010.01412)
 
@@ -779,3 +781,6 @@ $$
 就是一个最大最小化问题，详细推导见原文。
 
 > Because SAM's performance is amplified by not syncing the perturbations, data parallelism is highly recommended to leverage SAM's full potential (see Section 4 for more details).就是数据并行，效果更好。
+
+### 11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)
+
