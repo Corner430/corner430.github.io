@@ -17,7 +17,8 @@ top : 1
 8. [Solving Math Word Problems concerning Systems of Equations with GPT-3](https://ojs.aaai.org/index.php/AAAI/article/view/26896)
 9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)
 10. [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLYIMPROVING GENERALIZATION](https://arxiv.org/abs/2010.01412)
-11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)<!--more-->
+11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)
+12. [Peeling the Onion: Hierarchical Reduction of Data Redundancy for Efficient Vision Transformer Training](https://ojs.aaai.org/index.php/AAAI/article/view/26008)<!--more-->
 
 -----------------------------------
 ## 泛读文章
@@ -64,6 +65,23 @@ top : 1
 ![20231226095033](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231226095033.png)
 
 <table><tr><td bgcolor=#FF00FF>本文提到了很多知识蒸馏的方法，可以参考。</td></tr></table>
+
+--------------------------------------
+
+5. [Boosting Graph Neural Networks via Adaptive Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25944)
+
+- 这篇论文是关于如何利用多个图神经网络（GNNs）的互补知识来提高一个学生GNN的性能。它提出了一个自适应的知识蒸馏（KD）框架，叫做BGNN，它可以顺序地将不同GNNs的知识转移到学生GNN中。**它还引入了一个自适应温度模块和一个权重提升模块**，来指导学生GNN有效地学习。这篇论文在节点分类和图分类任务上都取得了很好的效果，相比于原始的GNNs，分别提升了3.05%和6.35%。
+
+作者认为，对于同一个GNN，采用不同的聚合方式，会学到不同的知识，现在希望互补的掌握这些知识，怎么办呢？**采用知识蒸馏最好。**
+但这会有如下难点：
+1. 传统的 KD teacher 要比 student 大，而本次任务中，两者相同容量
+2. GNN 一般都比较浅
+
+作者的创新在于，提出了这种构想，并引入了 **自适应温度模块和权重提升模块**
+- 自适应温度模块，根据 teacher model 对于节点的 logits 分布，进行设计。**具体依据是针对不同节点的梯度值。**
+- 权重提升模块，哪个节点对应的分类错误率高，就给哪个节点的权重提升。
+
+![20240110124950](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20240110124950.png)
 
 
 ## 正文
