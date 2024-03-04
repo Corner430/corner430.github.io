@@ -18,7 +18,9 @@ top : 1
 9. [Curriculum Temperature for Knowledge Distillation](https://arxiv.org/abs/2211.16231)
 10. [SHARPNESS-AWARE MINIMIZATION FOR EFFICIENTLYIMPROVING GENERALIZATION](https://arxiv.org/abs/2010.01412)
 11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)
-12. [Peeling the Onion: Hierarchical Reduction of Data Redundancy for Efficient Vision Transformer Training](https://ojs.aaai.org/index.php/AAAI/article/view/26008)<!--more-->
+12. [Peeling the Onion: Hierarchical Reduction of Data Redundancy for Efficient Vision Transformer Training](https://ojs.aaai.org/index.php/AAAI/article/view/26008)
+13. [Class Incremental Learning for Task-Oriented Dialogue System with Contrastive Distillation on Internal Representations (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/27044)
+14. [Improving Training and Inference of Face Recognition Models via Random Temperature Scaling](https://ojs.aaai.org/index.php/AAAI/article/view/26760)<!--more-->
 
 -----------------------------------
 ## 泛读文章
@@ -520,56 +522,16 @@ $$
 
 ### 5. [Lightweight Transformer for Multi-Modal Object Detection (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/26946)
 
-#### 先修知识
-
-**融合算子（Fusion Operator）**是指一种将多个输入数据源合并为一个输出的操作。在计算机科学和机器学习领域，融合算子通常用于整合不同来源的信息，以获取更全面、更有用的表示。这种整合可以在多个层面和应用中发生，以下是一些融合算子的常见类型和应用：
-
-1. **加法融合（Addition Fusion）**：
-   - **定义**：将多个输入相加，生成一个输出。
-   - **应用**：常用于模型的残差连接（Residual Connections），集成不同层次的特征。
-
-2. **乘法融合（Multiplicative Fusion）**：
-   - **定义**：将多个输入相乘，生成一个输出。
-   - **应用**：在注意力机制中经常使用，其中某些输入的权重由模型自动学习。
-
-3. **拼接融合（Concatenation Fusion）**：
-   - **定义**：将多个输入在某个维度上拼接成一个张量。
-   - **应用**：用于将多个特征图连接在一起，创建更丰富的特征表示。
-
-4. **加权融合（Weighted Fusion）**：
-   - **定义**：将每个输入乘以一个权重，然后相加。
-   - **应用**：允许模型学习不同输入的重要性，根据任务的需要动态调整权重。
-
-5. **投影融合（Projection Fusion）**：
-   - **定义**：通过线性投影将输入映射到一个共同的空间，然后进行元素级的操作。
-   - **应用**：用于将不同模态（例如文本和图像）的信息投影到共享的表示空间。
-
-6. **注意力融合（Attention Fusion）**：
-   - **定义**：通过学习的权重对不同输入进行加权，以便模型可以在融合中关注特定输入的重要性。
-   - **应用**：广泛用于自然语言处理、计算机视觉等任务，允许模型在融合过程中动态关注输入的不同部分。
-
---------------------------------------------
-
-Poolformer-based fusion operator 是一种用于多模态目标检测的融合操作符。它由 Yu et al. (2022) 提出，旨在解决传统的多模态目标检测方法在参数量和计算时间上的缺点。
-
-传统的多模态目标检测方法通常使用自注意力机制来融合来自不同模态的特征图。然而，自注意力机制的计算复杂度为 $O(N^2)$，其中 N 是特征图的大小。这会导致模型参数量和计算时间的增加。
-
-**Poolformer-based fusion operator 使用池化操作代替自注意力机制**。池化操作是一种参数量为 0 的操作，计算复杂度为 O(N)。这使得 Poolformer-based fusion operator 可以有效地降低模型参数量和计算时间。
-
-具体来说，Poolformer-based fusion operator 的计算流程如下：
-
-1. 首先，将来自不同模态的输入特征进行空间池化（该操作将每个 token 的值与其周围的 tokens 的值进行平均，从而实现 token 之间的信息交换）。
-2. 然后，将池化后的特征进行融合。
-3. 最后，将融合后的特征作为输出。
-
-在 Yu et al. (2022) 的论文中，作者采用了自适应注意力池化 (Adaptive Attention Pool) 的方法。自适应注意力池化可以根据特征的不同分布，选择合适的池化方法。Poolformer-based fusion operator 的 Faster RCNN 模型的 AP 比使用传统的融合操作符提高了 1.5%。
-
-#### 一言以蔽之
-多模态时候经常会用到融合算子，比如将文本和图像融合，将图像和语音融合等等。本文采用了 **Poolformer-based (Yu et al. 2022) fusion operator**，也就是消除 attention 的 transformer，使用了 pooling 来代替 attention。效果反而更好。
-
-一图胜千言
-
 ![20231210112104](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231210112104.png)
+
+模型训练时，可以从多个角度进行训练，角度越多越准确，但却更慢。
+
+比如**自动驾驶**，仅有一个传感器肯定没有多个传感器的结果准确，但是多个传感器的结果又太慢。
+
+那么能不能又快又准呢？那就要从模态融合入手。**作者提出了一种新的融合操作符，叫做 Poolformer-based fusion operator。**
+
+> 本质上来讲，本文更换了权重分配的方式，用 pooling 来进行替代，这样可以减少参数量，提高速度，但效果却不差。文章没有提供代码，但是作者[回复邮件推荐了一份代码](https://github.com/autonomousvision/transfuser)
+
 
 ### 6. [Self-supervised Label Augmentation via Input Transformations](https://arxiv.org/abs/1910.05872)
 
@@ -802,3 +764,28 @@ $$
 
 ### 11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)
 
+
+### 13. [Class Incremental Learning for Task-Oriented Dialogue System with Contrastive Distillation on Internal Representations (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/27044)
+
+本文通过对比、蒸馏等技术来实现增量学习，用于对话系统。
+
+通过以下几种方式来保证增量学习的效果：
+- 仅更新部分相关新任务的参数
+- **对比学习：新任务中的数据作为 anchors，原数据作为负样本。上一阶段模型和新阶段模型对于新任务数据的输出作为正样本对。简而言之，学习新任务的时候，不仅仅学习新任务的知识，还要学习新任务和原任务的区别。**
+- 复杂的损失函数：包括对比损失、交叉熵损失、蒸馏损失等。**相互协调，妄想达到最好的效果。**
+- 动量更新：**保证模型的稳定性。**
+
+> 作者并未提供代码，也无邮件回复。一言以蔽之，将各种东西混合在一起构成一套灌水垃圾。
+
+
+14. [Improving Training and Inference of Face Recognition Models via Random Temperature Scaling](https://ojs.aaai.org/index.php/AAAI/article/view/26760)
+
+本文针对人脸识别，介绍了**不确定**的问题。
+
+模型对于无效的输入，仍然会以高置信度做出预测，这是不合理的。对于人脸识别，同样的人但是不同的照片，应该被映射到同一个 latent space，但这很难做到。
+
+作者提出了 RTS（Random Temperature Scaling），将温度与不确定性相关联，通过随机温度缩放来影响模型的不确定性。
+
+上述皆为论文中内容，**实际上，如文中 Eqn.4 和 Eqn.5 以及 Fig.2 所示，作者提出了一种新的损失函数（类似softmax）,并引入了 Gumbel 分布**。详见原文。
+
+> 无代码，垃圾文章。
