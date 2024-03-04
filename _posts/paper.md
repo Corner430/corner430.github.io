@@ -777,8 +777,9 @@ $$
 
 > 作者并未提供代码，也无邮件回复。一言以蔽之，将各种东西混合在一起构成一套灌水垃圾。
 
+----------------------------------------
 
-14. [Improving Training and Inference of Face Recognition Models via Random Temperature Scaling](https://ojs.aaai.org/index.php/AAAI/article/view/26760)
+### 14. [Improving Training and Inference of Face Recognition Models via Random Temperature Scaling](https://ojs.aaai.org/index.php/AAAI/article/view/26760)
 
 本文针对人脸识别，介绍了**不确定**的问题。
 
