@@ -20,39 +20,13 @@ top : 1
 11. [Adaptive Hierarchy-Branch Fusion for Online Knowledge Distillation](https://ojs.aaai.org/index.php/AAAI/article/view/25937)
 12. [Peeling the Onion: Hierarchical Reduction of Data Redundancy for Efficient Vision Transformer Training](https://ojs.aaai.org/index.php/AAAI/article/view/26008)
 13. [Class Incremental Learning for Task-Oriented Dialogue System with Contrastive Distillation on Internal Representations (Student Abstract)](https://ojs.aaai.org/index.php/AAAI/article/view/27044)
-14. [Improving Training and Inference of Face Recognition Models via Random Temperature Scaling](https://ojs.aaai.org/index.php/AAAI/article/view/26760)<!--more-->
+14. [Improving Training and Inference of Face Recognition Models via Random Temperature Scaling](https://ojs.aaai.org/index.php/AAAI/article/view/26760)
+15. [De-biased Teacher: Rethinking IoU Matching for Semi-supervised Object Detection](https://ojs.aaai.org/index.php/AAAI/article/view/25355)
+16. [Grouped Knowledge Distillation for Deep Face Recognition](https://ojs.aaai.org/index.php/AAAI/article/view/25472)<!--more-->
 
 -----------------------------------
 ## 泛读文章
-1. [De-biased Teacher: Rethinking IoU Matching for Semi-supervised Object Detection](https://ojs.aaai.org/index.php/AAAI/article/view/25355)
 
-[code](https://github.com/wkfdb/De-biased-Teracher)
-
-本文提出了一种新的方法，**称为 De-biased Teacher**，用于半监督目标检测。**该方法通过直接生成有利于弱/强增强图像对之间的一致性正则化的训练提议来消除基于伪标签的IoU匹配产生的偏差。此外，还设计了一种基于分布的细化方案，以消除显著低值的分散类别预测，以提高效率。**
-
-一言以蔽之：作者认为无监督中的 IOU 匹配带来了偏差，所以找了一个 teacher model 专门进行消除这种偏差。**所谓细化方案，可以理解为将预测的结果进行一些处理，比如将预测的结果中的低值去掉，这样可以提高效率。**
-
-可借鉴点 <table><tr><td bgcolor=#FF00FF>细化方案，即去掉不太重要的值，如下图。</td></tr></table>
-
-![20231225202053](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225202053.png)
-
-------------------------
-
-2. [Grouped Knowledge Distillation for Deep Face Recognition](https://ojs.aaai.org/index.php/AAAI/article/view/25472)
-
-无 code.
-
-作者指出，feature-based knowledge distillation 会强人所难，要求 student model 和 teacher model 学到一致的表示空间，这有些困难；而 logit-based knowledge distillation 会导致 student model 学到一些无用的知识，比如学到了一些无关的类别，从而导致效果不好。因此，作者提出了一种新的方法，称为 Grouped Knowledge Distillation，**
-
-一言以蔽之，作者将 logit 按照阈值进行分组。分别是 Primary-KD, Secondary-KD, and Binary-KD。**Primary-KD 用于学习主要的知识，Secondary-KD 用于学习次要的知识，Binary-KD 用于确保教师和学生之间的知识分布的一致性。**作者表示，Primary-KD 和 Binary-KD 是重要的，Secondary-KD 是可选的。
-
-可借鉴点 <table><tr><td bgcolor=#FF00FF>分组，即将 logit 按照阈值进行分组，分别学习。本质上和上文相同，去掉不重要的部分。</td></tr></table>
-
-![20231225210830](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225210830.png)
-
-> Binary-KD 参见原文公式 6，实际上就是一个二分类问题，用于确定分类是 Primary-KD 还是 Secondary-KD。
-
------------------------------------
 
 3. [Can Bad Teaching Induce Forgetting? Unlearning in Deep Networks Using an Incompetent Teacher](https://ojs.aaai.org/index.php/AAAI/article/view/25879)
 
@@ -790,3 +764,45 @@ $$
 上述皆为论文中内容，**实际上，如文中 Eqn.4 和 Eqn.5 以及 Fig.2 所示，作者提出了一种新的损失函数（类似softmax）,并引入了 Gumbel 分布**。详见原文。
 
 > 无代码，垃圾文章。
+
+------------------------------------
+
+### 15. [De-biased Teacher: Rethinking IoU Matching for Semi-supervised Object Detection](https://ojs.aaai.org/index.php/AAAI/article/view/25355)
+
+[假code](https://github.com/wkfdb/De-biased-Teracher)
+
+本文提出了一种新的方法，**称为 De-biased Teacher**，用于半监督目标检测。**该方法通过直接生成有利于弱/强增强图像对之间的一致性正则化的训练提议来消除基于伪标签的IoU匹配产生的偏差。此外，还设计了一种基于分布的细化方案，以消除显著低值的分散类别预测，以提高效率。**
+
+一言以蔽之：作者认为无监督中的 IOU 匹配带来了偏差，所以找了一个 teacher model 专门进行消除这种偏差。**所谓细化方案，可以理解为将预测的结果进行一些处理，比如将预测的结果中的低值去掉，这样可以提高效率。**
+
+可借鉴点 <table><tr><td bgcolor=#FF00FF>细化方案，即去掉不太重要的值，如下图。</td></tr></table>
+
+![20231225202053](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225202053.png)
+
+------------------------
+
+### 16. [Grouped Knowledge Distillation for Deep Face Recognition](https://ojs.aaai.org/index.php/AAAI/article/view/25472)
+
+无 code.
+
+$$L = \mathcal{L}_{cls} + \mathcal{L}_{kd}$$
+
+其中 $\mathcal{L}_{cls}$ 是一个专门针对于人脸识别的损失函数。
+
+
+一言以蔽之，作者将 logit 按照阈值进行分组。分别是 Primary-KD, Secondary-KD, and Binary-KD。**Primary-KD 用于学习主要的知识，Secondary-KD 用于学习次要的知识，Binary-KD 用于确保教师和学生之间的知识分布的一致性。**作者表示，Primary-KD 和 Binary-KD 是重要的，Secondary-KD 是累赘。
+
+![20231225210830](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225210830.png)
+
+> Binary-KD 参见原文公式 6，实际上就是一个二分类问题，用于确定分类是 Primary-KD 还是 Secondary-KD。
+
+**注意 Fig.2 中的文字描述，作者指出根据 student 的输出进行 rank，之后开始累加，直到累加的值达到了 阈值，这部分就是 Primary-KD。teacher也排序。**此处有两个问题：
+
+1. 这样排序，岂不是会出现类别不匹配的问题？
+2. 根据 student 进行 rank 有什么用？不是应该根据 teacher？
+
+**作者还在 Method 文字的上面指出 feature distillation 优于 logit distillation。不敢苟同。**
+
+作者测试最好的阈值为 0.93，但作者的理论是错误的，所以也并无太多参考价值。
+
+**作者 Equ.3 的绝对值加的很好，值得借鉴，根据 teacher 进行排序的话，应该确实是可行的，可以做到自适应调整 Primary-KD 和 Secondary-KD 的比例，但要想做到类型匹配，需要存原来的索引，这样会造成计算成本的增加。**
