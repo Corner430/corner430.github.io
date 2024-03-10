@@ -771,19 +771,28 @@ $$
 
 [假code](https://github.com/wkfdb/De-biased-Teracher)
 
-本文提出了一种新的方法，**称为 De-biased Teacher**，用于半监督目标检测。**该方法通过直接生成有利于弱/强增强图像对之间的一致性正则化的训练提议来消除基于伪标签的IoU匹配产生的偏差。此外，还设计了一种基于分布的细化方案，以消除显著低值的分散类别预测，以提高效率。**
+![20240311001350](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20240311001350.png)
 
-一言以蔽之：作者认为无监督中的 IOU 匹配带来了偏差，所以找了一个 teacher model 专门进行消除这种偏差。**所谓细化方案，可以理解为将预测的结果进行一些处理，比如将预测的结果中的低值去掉，这样可以提高效率。**
+- 从 $D_{labeled}$ 和 $D_{unlabeled}$ 中采样 input。
+  - labeled images 直接通过 weakly augmented 来训练 student model。
+  - unlabeled images，Teacher 通过 weakly augmented 来生成 pseudo labels，之后通过 strong augmented 来训练 student model。**作者称之为 一致性正则化。**
 
-可借鉴点 <table><tr><td bgcolor=#FF00FF>细化方案，即去掉不太重要的值，如下图。</td></tr></table>
+- student model 通过 loss 进行训练更新，teacher model 通过自身和 student model 进行动量更新，详见 Eqn.1。
+
+也就是说，本文三个贡献：
+1. 一致性正则，和蒸馏的区别在于，teacher 和 student 都动。
+2. teacher 通过 student 来进行动量更新。
+3. 截断 softmax 的尾部，阈值为 0.05。（推测没有使用温度系数T）
 
 ![20231225202053](https://cdn.jsdelivr.net/gh/Corner430/Picture1/images/20231225202053.png)
+
+> 什么时候阶段？如何阶段？TODO
 
 ------------------------
 
 ### 16. [Grouped Knowledge Distillation for Deep Face Recognition](https://ojs.aaai.org/index.php/AAAI/article/view/25472)
 
-无 code.
+无 code. **已发邮件，未回。**
 
 $$L = \mathcal{L}_{cls} + \mathcal{L}_{kd}$$
 
@@ -806,3 +815,5 @@ $$L = \mathcal{L}_{cls} + \mathcal{L}_{kd}$$
 作者测试最好的阈值为 0.93，但作者的理论是错误的，所以也并无太多参考价值。
 
 **作者 Equ.3 的绝对值加的很好，值得借鉴，根据 teacher 进行排序的话，应该确实是可行的，可以做到自适应调整 Primary-KD 和 Secondary-KD 的比例，但要想做到类型匹配，需要存原来的索引，这样会造成计算成本的增加。**
+
+**作者最后做了一个 masked face recognition 的实验，这手操作值得学习。**
