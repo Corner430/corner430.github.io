@@ -817,3 +817,5 @@ $$L = \mathcal{L}_{cls} + \mathcal{L}_{kd}$$
 **作者 Equ.3 的绝对值加的很好，值得借鉴，根据 teacher 进行排序的话，应该确实是可行的，可以做到自适应调整 Primary-KD 和 Secondary-KD 的比例，但要想做到类型匹配，需要存原来的索引，这样会造成计算成本的增加。**
 
 **作者最后做了一个 masked face recognition 的实验，这手操作值得学习。**
+
+<table><tr><td bgcolor=#FF00FF>作者已回邮件，rank 时对 index 重新组织，并且代码中是根据 teacher 进行 rank.</td></tr></table>
