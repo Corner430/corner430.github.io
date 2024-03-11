@@ -818,4 +818,4 @@ $$L = \mathcal{L}_{cls} + \mathcal{L}_{kd}$$
 
 **作者最后做了一个 masked face recognition 的实验，这手操作值得学习。**
 
-<table><tr><td bgcolor=#FF00FF>作者已回邮件，rank 时对 index 重新组织，并且代码中是根据 teacher 进行 rank.</td></tr></table>
+<table><tr><td bgcolor=#FF00FF>作者已回邮件，rank 时对 index 重新组织，并且代码中是根据 teacher 进行 rank. 但匪夷所思的是，作者说最后通过 student 进行 rank 反而会取得更好的结果。</td></tr></table>
