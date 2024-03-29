@@ -16,7 +16,7 @@
 <meta property="og:description" content="教程Vimtutor_1.5vimtutor：有一些书籍进行推荐，还有电子版VIM无废话极简入门《Vim实用技巧》《精通vim》lazyvimVimiumVimium-c  下载最新中文版本的vimtutorvim --clean -c &#39;e $VIMRUNTIME&#x2F;tutor&#x2F;tutor.zh_cn.utf-8&#39; -c &#39;w! TUTORCOPY&#39; -c &amp;#39">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-08T02:07:14.000Z">
-<meta property="article:modified_time" content="2023-12-09T12:20:26.561Z">
+<meta property="article:modified_time" content="2024-03-29T15:36:42.652Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Linux">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:117.2k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:117.6k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -164,7 +164,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.3k字 | 预计阅读时长：8分钟
+    		字数：2.7k字 | 预计阅读时长：10分钟
 	</div>
         
   
@@ -207,6 +207,8 @@
 <li><code>T</code>或<code>F</code> 在行内查找上一指定字符</li>
 <li><code>di</code> 删除范围内的字符</li>
 <li><code>da</code> 删除范围内的字符(包括范围字符)</li>
+<li><code>daw</code> 删除一个单词</li>
+<li><code>dap</code> 删除一个段落</li>
 <li><code>zz</code> 回到文本中部</li>
 <li><code>:num</code> 等同于 <code>num G</code></li>
 <li><code>:+num</code> 向下移动 num 行</li>
@@ -230,6 +232,8 @@
 <li><code>V</code> 行可视化</li>
 <li><code>Ctrl + v</code> (矩形)块可视化</li>
 <li><code>Ctrl + G</code> 显示当前行号、列号及文件信息</li>
+<li><code>Ctrl + a</code> 增加数字，例如：<code>10&lt;C-a&gt;</code> 将数字增加 10。<strong>如果当前光标所在位置不是数字，那么会在当前行正向查找一个数字，然后增加。</strong></li>
+<li><code>Ctrl + x</code> 减少数字，同上。<strong>Vim 把以 0 开头的数字当作八进制处理。可以通过 <code>set nrformats=</code> 来进行设置。</strong></li>
 <li><code>;</code> 快速跳转到下一个与当前光标位置处的字符匹配的位置的命令。</li>
 <li><code>,</code> 快速跳转到上一个与当前光标位置处的字符匹配的位置的命令。</li>
 <li><code>/</code> 向下查找</li>
@@ -285,7 +289,62 @@
 <p>这些命令的共同点：都会从普通模式切换到插入模式，这将会对<code>.</code>命令产生影响。</p>
 </blockquote>
 <hr>
+<h3 id="操作符-动作命令-x3D-操作"><a href="#操作符-动作命令-x3D-操作" class="headerlink" title="操作符 + 动作命令 &#x3D; 操作"></a>操作符 + 动作命令 &#x3D; 操作</h3><p>此处相当精彩，参见 技巧 12 双剑合璧，天下无敌</p>
+<p>例如知道 <code>daw</code> 删除一个单词，那么 <code>gUaw</code> 就可以把当前单词转换成大写形式，这就是所谓 <code>d&#123;motion&#125;</code></p>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="center">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>c</code></td>
+<td align="center">修改</td>
+</tr>
+<tr>
+<td align="left"><code>d</code></td>
+<td align="center">删除</td>
+</tr>
+<tr>
+<td align="left"><code>y</code></td>
+<td align="center">复制</td>
+</tr>
+<tr>
+<td align="left"><code>g~</code></td>
+<td align="center">反转大小写</td>
+</tr>
+<tr>
+<td align="left"><code>gu</code></td>
+<td align="center">转换为小写</td>
+</tr>
+<tr>
+<td align="left"><code>gU</code></td>
+<td align="center">转换为大写</td>
+</tr>
+<tr>
+<td align="left"><code>&gt;</code></td>
+<td align="center">增加缩进</td>
+</tr>
+<tr>
+<td align="left"><code>&lt;</code></td>
+<td align="center">减少缩进</td>
+</tr>
+<tr>
+<td align="left"><code>=</code></td>
+<td align="center">自动缩进</td>
+</tr>
+<tr>
+<td align="left"><code>!</code></td>
+<td align="center">运行外部过滤器过滤{motion}所跨越的行</td>
+</tr>
+</tbody></table>
+<hr>
 <h3 id="Vim-使用技巧-1"><a href="#Vim-使用技巧-1" class="headerlink" title="Vim 使用技巧"></a>Vim 使用技巧</h3><p><code>.</code> 命令是一个微型的宏，Vim可以录制任意数目的按键操作，然后在以后重复执行它们。这让我们可以把最常重复的工作流程录制下来，并用一个按键重放它们。</p>
+<p>控制好对 <code>&lt;Esc&gt;</code> 键的使用，就可以 <code>u</code> 控制撤销的粒度。<strong>如果再插入模式中使用了 <code>&lt;Up&gt;</code>、<code>&lt;Down&gt;</code>、<code>&lt;Left&gt;</code>、<code>&lt;Right&gt;</code> 这些光标键，将会产生一个新的撤销块。等同于先切换到了普通模式，然后用 <code>h</code>、<code>j</code>、<code>k</code>、<code>l</code> 移动光标。</strong></p>
+<p>如果必要，请使用次数，例如：<code>c3w</code>、<code>b3w</code>。</p>
+<p>当一个操作符命令被连续调用两次时，它会作用于当前行，例如：<code>dd</code>，<code>&gt;&gt;</code></p>
+<p>the end is night 007<br>3. hello<br>4. world<br>5. hello<br>I have a couple of questions</p>
 <hr>
 <h3 id="Vim-宏"><a href="#Vim-宏" class="headerlink" title="Vim 宏"></a>Vim 宏</h3><p><code>qx&#123;changes&#125;q</code> 是一个 Vim 中用于记录和执行宏的命令序列。这个命令由以下三部分组成：</p>
 <ol>
@@ -574,7 +633,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">2.</span> <span class="toc-text">Vim 使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%AE%AD%E5%8F%8C%E9%9B%95"><span class="toc-number">2.2.</span> <span class="toc-text">一箭双雕</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-1"><span class="toc-number">2.3.</span> <span class="toc-text">Vim 使用技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-%E5%AE%8F"><span class="toc-number">2.4.</span> <span class="toc-text">Vim 宏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-8-%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%AE%9E%E6%88%98"><span class="toc-number">3.</span> <span class="toc-text">Vim 8 文本处理实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vimrc-%E9%85%8D%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">.vimrc 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="toc-number">3.2.</span> <span class="toc-text">撤销历史记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3"><span class="toc-number">3.3.</span> <span class="toc-text">查看帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6"><span class="toc-number">3.4.</span> <span class="toc-text">插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-number">3.5.</span> <span class="toc-text">缓冲区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3"><span class="toc-number">3.6.</span> <span class="toc-text">窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.6.1.</span> <span class="toc-text">窗口的移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%B9%E5%8F%98%E7%AA%97%E5%8F%A3%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-number">3.6.2.</span> <span class="toc-text">改变窗口的大小</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E5%8F%A0"><span class="toc-number">3.7.</span> <span class="toc-text">折叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%A0%91"><span class="toc-number">3.8.</span> <span class="toc-text">文件树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88%E5%99%A8-Netrw"><span class="toc-number">3.8.1.</span> <span class="toc-text">目录浏览器 Netrw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E6%96%87%E4%BB%B6%E8%8F%9C%E5%8D%95%E7%9A%84-e-%E5%91%BD%E4%BB%A4"><span class="toc-number">3.8.2.</span> <span class="toc-text">支持文件菜单的 :e 命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-NERDTree"><span class="toc-number">3.8.3.</span> <span class="toc-text">插件 NERDTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-Vinegar"><span class="toc-number">3.8.4.</span> <span class="toc-text">插件 Vinegar</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-CtrlP"><span class="toc-number">3.8.5.</span> <span class="toc-text">插件 CtrlP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">3.9.</span> <span class="toc-text">搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-EasyMotion"><span class="toc-number">3.9.1.</span> <span class="toc-text">插件 EasyMotion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">3.10.</span> <span class="toc-text">寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E5%A4%96%E9%83%A8%E5%A4%8D%E5%88%B6%E6%96%87%E6%9C%AC%E5%88%B0vim%E4%B8%AD"><span class="toc-number">3.10.1.</span> <span class="toc-text">从外部复制文本到vim中</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">3.11.</span> <span class="toc-text">插件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8-vim-plug"><span class="toc-number">3.11.1.</span> <span class="toc-text">插件管理器 vim-plug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vundle"><span class="toc-number">3.11.2.</span> <span class="toc-text">Vundle</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">3.12.</span> <span class="toc-text">自动补全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">3.12.1.</span> <span class="toc-text">内置自动补全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YouCompleteMe-%E6%8F%92%E4%BB%B6"><span class="toc-number">3.12.2.</span> <span class="toc-text">YouCompleteMe 插件</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text">教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="toc-number">2.</span> <span class="toc-text">Vim 使用技巧</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">2.1.</span> <span class="toc-text">常用命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E7%AE%AD%E5%8F%8C%E9%9B%95"><span class="toc-number">2.2.</span> <span class="toc-text">一箭双雕</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%93%8D%E4%BD%9C%E7%AC%A6-%E5%8A%A8%E4%BD%9C%E5%91%BD%E4%BB%A4-x3D-%E6%93%8D%E4%BD%9C"><span class="toc-number">2.3.</span> <span class="toc-text">操作符 + 动作命令 &#x3D; 操作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7-1"><span class="toc-number">2.4.</span> <span class="toc-text">Vim 使用技巧</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Vim-%E5%AE%8F"><span class="toc-number">2.5.</span> <span class="toc-text">Vim 宏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Vim-8-%E6%96%87%E6%9C%AC%E5%A4%84%E7%90%86%E5%AE%9E%E6%88%98"><span class="toc-number">3.</span> <span class="toc-text">Vim 8 文本处理实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#vimrc-%E9%85%8D%E7%BD%AE"><span class="toc-number">3.1.</span> <span class="toc-text">.vimrc 配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%92%A4%E9%94%80%E5%8E%86%E5%8F%B2%E8%AE%B0%E5%BD%95"><span class="toc-number">3.2.</span> <span class="toc-text">撤销历史记录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%B8%AE%E5%8A%A9%E6%96%87%E6%A1%A3"><span class="toc-number">3.3.</span> <span class="toc-text">查看帮助文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6"><span class="toc-number">3.4.</span> <span class="toc-text">插件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BC%93%E5%86%B2%E5%8C%BA"><span class="toc-number">3.5.</span> <span class="toc-text">缓冲区</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3"><span class="toc-number">3.6.</span> <span class="toc-text">窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AA%97%E5%8F%A3%E7%9A%84%E7%A7%BB%E5%8A%A8"><span class="toc-number">3.6.1.</span> <span class="toc-text">窗口的移动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%B9%E5%8F%98%E7%AA%97%E5%8F%A3%E7%9A%84%E5%A4%A7%E5%B0%8F"><span class="toc-number">3.6.2.</span> <span class="toc-text">改变窗口的大小</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%98%E5%8F%A0"><span class="toc-number">3.7.</span> <span class="toc-text">折叠</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E6%A0%91"><span class="toc-number">3.8.</span> <span class="toc-text">文件树</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95%E6%B5%8F%E8%A7%88%E5%99%A8-Netrw"><span class="toc-number">3.8.1.</span> <span class="toc-text">目录浏览器 Netrw</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%94%AF%E6%8C%81%E6%96%87%E4%BB%B6%E8%8F%9C%E5%8D%95%E7%9A%84-e-%E5%91%BD%E4%BB%A4"><span class="toc-number">3.8.2.</span> <span class="toc-text">支持文件菜单的 :e 命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-NERDTree"><span class="toc-number">3.8.3.</span> <span class="toc-text">插件 NERDTree</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-Vinegar"><span class="toc-number">3.8.4.</span> <span class="toc-text">插件 Vinegar</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-CtrlP"><span class="toc-number">3.8.5.</span> <span class="toc-text">插件 CtrlP</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2"><span class="toc-number">3.9.</span> <span class="toc-text">搜索</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6-EasyMotion"><span class="toc-number">3.9.1.</span> <span class="toc-text">插件 EasyMotion</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%84%E5%AD%98%E5%99%A8"><span class="toc-number">3.10.</span> <span class="toc-text">寄存器</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E5%A4%96%E9%83%A8%E5%A4%8D%E5%88%B6%E6%96%87%E6%9C%AC%E5%88%B0vim%E4%B8%AD"><span class="toc-number">3.10.1.</span> <span class="toc-text">从外部复制文本到vim中</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86"><span class="toc-number">3.11.</span> <span class="toc-text">插件管理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%8F%92%E4%BB%B6%E7%AE%A1%E7%90%86%E5%99%A8-vim-plug"><span class="toc-number">3.11.1.</span> <span class="toc-text">插件管理器 vim-plug</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Vundle"><span class="toc-number">3.11.2.</span> <span class="toc-text">Vundle</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">3.12.</span> <span class="toc-text">自动补全</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%85%E7%BD%AE%E8%87%AA%E5%8A%A8%E8%A1%A5%E5%85%A8"><span class="toc-number">3.12.1.</span> <span class="toc-text">内置自动补全</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#YouCompleteMe-%E6%8F%92%E4%BB%B6"><span class="toc-number">3.12.2.</span> <span class="toc-text">YouCompleteMe 插件</span></a></li></ol></li></ol></li></ol>
                     </div>
                 </span>
             </div>
