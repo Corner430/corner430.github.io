@@ -133,92 +133,6 @@ declare: true
 当一个操作符命令被连续调用两次时，它会作用于当前行，例如：`dd`，`>>`
 
 
---------------------------------
-### Vim 宏
-
-`qx{changes}q` 是一个 Vim 中用于记录和执行宏的命令序列。这个命令由以下三部分组成：
-
-1. `qx`：这是开始记录宏的命令。`q` 是录制宏的起始命令，后面的 `x` 是宏的名称，你可以使用任何字母来表示宏的名称。例如，你可以使用 `qa`、`qb` 等来表示不同的宏。
-
-2. `{changes}`：这是你要录制的一系列文本编辑操作，包括移动光标、删除、插入、替换等。你可以在这个部分中执行任何你希望录制的编辑操作。
-
-3. `q`：这是结束宏录制的命令。当你完成了要录制的编辑操作后，按下 `q` 来停止录制。
-
-一旦你录制了宏，你可以使用 `@x` 来执行宏，其中 `x` 是你为宏指定的名称。例如，如果你录制了一个名为 `q` 的宏，你可以使用 `@q` 来执行宏中包含的操作，这将重复宏中的所有编辑操作。
-
-以下是一个示例：
-
-1. 打开一个文本文件并将光标移动到要编辑的文本位置。
-
-2. 输入 `qx` 开始录制一个宏，然后执行一系列编辑操作，例如删除一行、插入文本、替换文本等。
-
-3. 输入 `q` 来停止录制宏。
-
-4. 现在，你可以使用 `@x` 来执行宏，其中 `x` 是你为宏指定的名称（在这个示例中是 `q`）。执行宏将重复你录制的所有编辑操作。
-
-这是 Vim 中非常强大的功能，因为它允许你自动执行一系列复杂的编辑操作，而不必手动重复这些操作。这对于批量编辑和自动化编辑任务非常有用。
-
-------------------------------------
-## Vim 8 文本处理实战
-### .vimrc 配置
-
-```vim
-syntax on                   " 支持语法高亮显示
-filetype plugin indent on   " 启用根据文件类型自动缩进
-
-set autoindent              " 开始新行时处理缩进
-set expandtab               " 将制表符 Tab 展开为空格，这对于 Python 尤其有用
-set tabstop=4               " 要计算的空格数
-set shiftwidth=4            " 用于自动缩进的空格数
-
-set backspace=2             " 在多数终端上修正退格键 Backspace 的行为
-
-colorscheme murphy          " 修改配色
-
-set number                  " 显示行号
-```
-
-`set relativenumber` 设置相对行号
-
-------------------------------------
-### 撤销历史记录
-
-set undofile                " 启用撤销文件，这样即使在关闭 Vim 后也可以撤销
-不过，这会在系统中为每个被编辑过的文件保留一个撤销历史记录文件，显得有些混乱。也可以将这些文件保存在同一个目录中，配置如下所示：
-    
-    ```vim
-    set undofile
-    if !isdirectory("$HOME/.vim/undodir")
-        call mkdir("$HOME/.vim/undodir", "p")
-    endif
-    set undodir="$HOME/.vim/undodir"
-    ```
-
--------------------------------------
-### 查看帮助文档
-
-`:h cc` 查看 `cc` 命令的帮助文档
-
------------------------------------
-### 插件
-
-- 创建一个存储插件的目录 `mkdir -p ~/.vim/pack/plugins/start`
-- 使 Vim 能够自动加载每个插件的文档（Vim 默认不会这么做）。在 `~/.vim/vimrc` 中添加以下内容：
-    ```vim
-    packloadall             " 加载所有插件
-    silent! helptags ALL    " 为所有插件加载帮助文档
-    ```
-
-`unimpaired` 插件，它为很多内置命令（以及一些新的命令）添加映射
-
---------------------------------------
-### 缓冲区
-`:ls` 或 `buffers` 或 `files` 查看缓冲区列表
-`:e example.txt` 打开一个新文件或者切换到一个已存在的文件
-`:b [number]/[filename]` 切换到指定的缓冲区（空格可省略，tab可用于补全）
-`:bn(:bnext)` 和 `bp(:bprevious)` 循环遍历缓冲区
-`:bd` 关闭当前缓冲区
-
 --------------------------------------
 ### 窗口
 `:sp[lit] filename` 水平分割窗口
@@ -235,48 +149,34 @@ set undofile                " 启用撤销文件，这样即使在关闭 Vim 后
 
 > **窗口编号顺序为由由上至下、由左至右递增**
 
-#### 改变窗口的大小
-
 ------------------------------------------
 ### 折叠
-- 在 .vimrc 文件中将 `foldmethod` 设置为 `indent`：`set foldmethod=indent`
 - `zo` 打开当前行折叠
 - `zc` 关闭当前折叠块
 - `za` 打开或关闭当前折叠块
 - `zR` 打开所有折叠块
 - `zM` 关闭所有折叠块
 
-> vim支持多种折叠方式
+-----------------------------------
+### 插件
+`mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged`
 
-----------------------------------
+- `vim-plug`
+- `NERDTree`
+  - `t`: Open the selected file in a new tab
+  - `i`: Open the selected file in a horizontal split window
+  - `s`: Open the selected file in a vertical split window
+  - `I`: Toggle hidden files
+  - `m`: Show the NERD Tree menu
+  - `R`: Refresh the tree, useful if files change outside of Vim
+  - `?`: Toggle NERD Tree's quick help
+- `ale`
 
-### 文件树
-#### 目录浏览器 Netrw
-Netrw 是 Vim 自带的一个插件，支持对目录和文件的浏览，使用方法为 `:EX[plore]` 或 `:e`
-
-#### 支持文件菜单的 `:e` 命令
-首先在 .vimrc 中添加以下配置：
-
-```vim
-    set wildmenu                        " 启用增强的 Tab 自动补全
-    set wildmode=list:longest,full      " 补全为允许的最长字符串，然后打开 wildmenu
-```
-
-#### 插件 NERDTree
-偏图形化
-
-#### 插件 Vinegar
-**用于解决项目侧边栏与分割窗口无法同时工作的问题。**
-
-#### 插件 CtrlP
-**CtrlP 是一个模糊补全插件**，可帮助读者在只知道部分关键字时快速打开所需文件。
 
 ------------------------------------
 ### 搜索
 - `:grep` 和 `:vimgrep`
 - `ack`
-
-#### 插件 EasyMotion
 
 --------------------------------------
 ### 寄存器
@@ -293,17 +193,261 @@ set clipboard=unnamedplus           " 复制到系统寄存器(+)
 set clipboard=unnamed,unnamedplus   " 复制到系统寄存器(*, +)
 ```
 
-------------------------------------
-### 插件管理
-#### 插件管理器 vim-plug
-#### Vundle
+----------------------------------------
+### vimrc
+[rfc](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
 
-> 分析运行慢的插件
+```vim
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
+"               
+"               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
+"               ██║   ██║██║████╗ ████║██╔══██╗██╔════╝
+"               ██║   ██║██║██╔████╔██║██████╔╝██║     
+"               ╚██╗ ██╔╝██║██║╚██╔╝██║██╔══██╗██║     
+"                ╚████╔╝ ██║██║ ╚═╝ ██║██║  ██║╚██████╗
+"                 ╚═══╝  ╚═╝╚═╝     ╚═╝╚═╝  ╚═╝ ╚═════╝
+"               
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
 
--------------------------
-### 自动补全
-#### 内置自动补全
-- `Ctrl + n` 和 `Ctrl + p`：在当前文件中搜索匹配的单词。
-- 插入补全模式
+" Disable compatibility with vi which can cause unexpected issues.
+set nocompatible
 
-#### YouCompleteMe 插件
+" Enable type file detection. Vim will be able to try to detect the type of file is use.
+filetype on
+
+" Enable plugins and load plugin for the detected file type.
+filetype plugin on
+
+" Load an indent file for the detected file type.
+filetype indent on
+
+" Turn syntax highlighting on.
+syntax on
+
+" Add numbers to the file.
+set number
+
+" Highlight cursor line underneath the cursor horizontally.
+set cursorline
+
+" Highlight cursor line underneath the cursor vertically.
+set cursorcolumn
+
+" Set shift width to 4 spaces.
+set shiftwidth=4
+
+" Set tab width to 4 columns.
+set tabstop=4
+
+" Use space characters instead of tabs.
+set expandtab
+
+" Do not save backup files.
+set nobackup
+
+" Do not let cursor scroll below or above N number of lines when scrolling.
+set scrolloff=10
+
+" Do not wrap lines. Allow long lines to extend as far as the line goes.
+set nowrap
+
+" While searching though a file incrementally highlight matching characters as you type.
+set incsearch
+
+" Ignore capital letters during search.
+set ignorecase
+
+" Override the ignorecase option if searching for capital letters.
+" This will allow you to search specifically for capital letters.
+set smartcase
+
+" Show partial command you type in the last line of the screen.
+set showcmd
+
+" Show the mode you are on the last line.
+set showmode
+
+" Show matching words during a search.
+set showmatch
+
+" Use highlighting when doing a search.
+set hlsearch
+
+" Set the commands to save in history default number is 20.
+set history=1000
+
+" Enable auto completion menu after pressing TAB.
+" Use <C+n> or <C+p> take effect
+" Supports `:e` command
+set wildmenu
+
+" Make wildmenu behave like similar to Bash completion.
+set wildmode=list:longest
+
+" There are certain files that we would never want to edit with Vim.
+" Wildmenu will ignore files with these extensions.
+set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" PLUGINS ---------------------------------------------------------------- {{{
+
+call plug#begin('~/.vim/plugged')
+
+  Plug 'dense-analysis/ale'
+
+  Plug 'preservim/nerdtree'
+
+call plug#end()
+
+" }}}
+
+" MAPPINGS --------------------------------------------------------------- {{{
+
+" Set the backslash as the leader key.
+let mapleader = "\"
+
+" Press \\ to jump back to the last cursor position.
+nnoremap <leader>\ ``
+
+" Press \p to print the current file to the default printer from a Linux operating system.
+" View available printers:   lpstat -v
+" Set default printer:       lpoptions -d <printer_name>
+" <silent> means do not display output.
+nnoremap <silent> <leader>p :%w !lp<CR>
+
+" Type jj to exit insert mode quickly.
+inoremap jj <Esc>
+
+" Press the space bar to type the : character in command mode.
+nnoremap <space> :
+
+" Pressing the letter o will open a new line below the current one.
+" Exit insert mode after creating a new line above or below the current line.
+nnoremap o o<esc>
+nnoremap O O<esc>
+
+" Center the cursor vertically when moving to the next word during a search.
+nnoremap n nzz
+nnoremap N Nzz
+
+" Yank from cursor to the end of line.
+nnoremap Y y$
+
+" Map the F5 key to run a Python script inside Vim.
+" We map F5 to a chain of commands here.
+" :w saves the file.
+" <CR> (carriage return) is like pressing the enter key.
+" !clear runs the external clear screen command.
+" !python3 % executes the current file with Python.
+nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+
+" You can split the window in Vim by typing :split or :vsplit.
+" Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-h> <c-w>h
+nnoremap <c-l> <c-w>l
+
+" Resize split windows using arrow keys by pressing:
+" CTRL+UP, CTRL+DOWN, CTRL+LEFT, or CTRL+RIGHT.
+noremap <c-up> <c-w>+
+noremap <c-down> <c-w>-
+noremap <c-left> <c-w>>
+noremap <c-right> <c-w><
+
+" NERDTree specific mappings.
+" Map the F3 key to toggle NERDTree open and close.
+nnoremap <F3> :NERDTreeToggle<cr>
+
+" Have nerdtree ignore certain files and directories.
+let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', '\.pyc$', '\.odt$', '\.png$', '\.gif$', '\.db$']
+
+" }}}
+
+" VIMSCRIPT -------------------------------------------------------------- {{{
+
+" Enable the marker method of folding.
+augroup filetype_vim
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker
+augroup END
+
+" If the current file type is HTML, set indentation to 2 spaces.
+autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
+
+" If Vim version is equal to or greater than 7.3 enable undofile.
+" This allows you to undo changes to a file even after saving it.
+if version >= 703
+    set undodir=~/.vim/backup
+    set undofile
+    set undoreload=10000
+endif
+
+" You can split a window into sections by typing `:split` or `:vsplit`.
+" Display cursorline and cursorcolumn ONLY in active window.
+augroup cursor_off
+    autocmd!
+    autocmd WinLeave * set nocursorline nocursorcolumn
+    autocmd WinEnter * set cursorline cursorcolumn
+augroup END
+
+" If GUI version of Vim is running set these options.
+if has('gui_running')
+
+    " Set the background tone.
+    set background=dark
+
+    " Set the color scheme.
+    colorscheme molokai
+
+    " Set a custom font you have installed on your computer.
+    " Syntax: <font_name>\ <weight>\ <size>
+    set guifont=Monospace\ Regular\ 12
+
+    " Display more of the file by default.
+    " Hide the toolbar.
+    set guioptions-=T
+
+    " Hide the the left-side scroll bar.
+    set guioptions-=L
+
+    " Hide the the left-side scroll bar.
+    set guioptions-=r
+
+    " Hide the the menu bar.
+    set guioptions-=m
+
+    " Hide the the bottom scroll bar.
+    set guioptions-=b
+
+    " Map the F4 key to toggle the menu, toolbar, and scroll bar.
+    " <Bar> is the pipe character.
+    " <CR> is the enter key.
+    nnoremap <F4> :if &guioptions=~#'mTr'<Bar>
+        \set guioptions-=mTr<Bar>
+        \else<Bar>
+        \set guioptions+=mTr<Bar>
+        \endif<CR>
+
+endif
+
+" }}}
+
+" STATUS LINE ------------------------------------------------------------ {{{
+
+" Clear status line when vimrc is reloaded.
+set statusline=
+
+" Status line left side.
+set statusline+=\ %F\ %M\ %Y\ %R
+
+" Use a divider to separate the left side from the right side.
+set statusline+=%=
+
+" Status line right side.
+"set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+
+" Show the status on the second to last line.
+set laststatus=2
+
+" }}}
+```
