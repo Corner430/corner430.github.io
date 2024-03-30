@@ -133,22 +133,6 @@ declare: true
 当一个操作符命令被连续调用两次时，它会作用于当前行，例如：`dd`，`>>`
 
 
---------------------------------------
-### 窗口
-`:sp[lit] filename` 水平分割窗口
-`:vs[plit] filename` 垂直分割窗口
-`:q` 关闭当前窗口
-`:on[ly]` 关闭所有窗口，只保留当前窗口
-
-> 通过组合 `:split` 和 `:vsplit`，可以生成任意多个窗口。
-
-**使用 `Ctrl + w` + `h/j/k/l` 在窗口之间移动**
-
-#### 窗口的移动
-`Ctrl + w` + `H/J/K/L` 将当前窗口移动到屏幕的左/下/上/右侧
-
-> **窗口编号顺序为由由上至下、由左至右递增**
-
 ------------------------------------------
 ### 折叠
 - `zo` 打开当前行折叠
@@ -296,17 +280,23 @@ call plug#begin('~/.vim/plugged')
 
   Plug 'preservim/nerdtree'
 
+  Plug 'itchyny/lightline.vim'
+
+  Plug 'preservim/nerdcommenter'
+
+  Plug 'jiangmiao/auto-pairs'
+
 call plug#end()
 
 " }}}
 
 " MAPPINGS --------------------------------------------------------------- {{{
 
-" Set the backslash as the leader key.
-let mapleader = "\"
+" Set the ","  as the leader key.
+let mapleader = ","
 
-" Press \\ to jump back to the last cursor position.
-nnoremap <leader>\ ``
+" Press ,, to jump back to the last cursor position.
+nnoremap <leader>, ``
 
 " Press \p to print the current file to the default printer from a Linux operating system.
 " View available printers:   lpstat -v
