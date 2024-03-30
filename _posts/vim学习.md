@@ -497,6 +497,73 @@ colo seoul256-light
 set background=light
 ```
 
+" ----------------LeaderF----------------------------
+" Don't display LeaderF help in normal mode
+let g:Lf_HideHelp = 1
+
+" Disable caching, regenerate results each time
+let g:Lf_UseCache = 0
+
+" Turn off version control tool, disregard version-controlled files
+let g:Lf_UseVersionControlTool = 0
+
+" Ignore current buffer's file name, exclude it from search scope
+let g:Lf_IgnoreCurrentBufferName = 1
+
+" Set LeaderF window position to popup
+let g:Lf_WindowPosition = 'popup'
+
+" Define LeaderF window separators and font
+let g:Lf_StlSeparator = { 'left': "\ue0b0", 'right': "\ue0b2", 'font': "DejaVu Sans Mono for Powerline" }
+
+" Disable preview feature, search results won't display preview info
+let g:Lf_PreviewResult = {'Function': 0, 'BufTag': 0 }
+
+" Mappings: Define actions for pressing specific keys in LeaderF
+" Search for files
+let g:Lf_ShortcutF = "<leader>ff"
+
+" Search for buffers
+noremap <leader>fb :<C-U><C-R>=printf("Leaderf buffer %s", "")<CR><CR>
+
+" Search for most recently used files
+noremap <leader>fm :<C-U><C-R>=printf("Leaderf mru %s", "")<CR><CR>
+
+" Search for tags
+noremap <leader>ft :<C-U><C-R>=printf("Leaderf bufTag %s", "")<CR><CR>
+
+" Search for current word in current buffer
+noremap <C-B> :<C-U><C-R>=printf("Leaderf! rg --current-buffer -e %s ", expand("<cword>"))<CR>
+
+" Search for current word globally
+noremap <C-F> :<C-U><C-R>=printf("Leaderf! rg -e %s ", expand("<cword>"))<CR>
+
+" Search for visually selected text
+xnoremap gf :<C-U><C-R>=printf("Leaderf! rg -F -e %s ", leaderf#Rg#visual())<CR>
+
+" Use LeaderF to search recall history
+noremap go :<C-U>Leaderf! rg --recall<CR>
+
+" Operations related to gtags
+" Must execute `Leaderf gtags --update` first
+let g:Lf_GtagsAutoGenerate = 0
+let g:Lf_Gtagslabel = 'native-pygments'
+
+" Search for references
+noremap <leader>fr :<C-U><C-R>=printf("Leaderf! gtags -r %s --auto-jump", expand("<cword>"))<CR><CR>
+
+" Search for definitions
+noremap <leader>fd :<C-U><C-R>=printf("Leaderf! gtags -d %s --auto-jump", expand("<cword>"))<CR><CR>
+
+" Search recall history
+noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
+
+" Show next gtags search result
+noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
+
+" Show previous gtags search result
+noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
 --------------------------------------------------
 ## Vim 重编译
 ```bash
