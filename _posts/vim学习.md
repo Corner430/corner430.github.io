@@ -346,9 +346,14 @@ call plug#begin('~/.vim/plugged')
   " cpp syntax highlight
   Plug 'octol/vim-cpp-enhanced-highlight'
 
-  " 模糊搜索
-  "Plug 'Yggdroot/LeaderF'
+  " clang-format
+  Plug 'rhysd/vim-clang-format'
 
+  " 模糊搜索
+  Plug 'Yggdroot/LeaderF'
+
+  " leetcode
+  "Plug 'ianding1/leetcode.vim'
 
 call plug#end()
 
@@ -453,8 +458,6 @@ set laststatus=2
 " }}}
 
 
-
-
 " -----------nerdcommenter--------------
 
 " Create default mappings
@@ -495,7 +498,7 @@ colo seoul256-light
 " Switch
 " set background=dark
 set background=light
-```
+
 
 " ----------------LeaderF----------------------------
 " Don't display LeaderF help in normal mode
@@ -563,6 +566,24 @@ noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 
 " Show previous gtags search result
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+
+" ----------------------clang-format-------------------------------------
+
+let g:clang_format#style_options = {
+            \ "AccessModifierOffset" : -4,
+            \ "AllowShortIfStatementsOnASingleLine" : "true",
+            \ "AlwaysBreakTemplateDeclarations" : "true",
+            \ "Standard" : "C++11"}
+
+" map to <Leader>cf in C++ code
+autocmd FileType c,cpp,objc nnoremap <buffer><Leader>cf :<C-u>ClangFormat<CR>
+autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
+" if you install vim-operator-user
+autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
+" Toggle auto formatting:
+nmap <Leader>C :ClangFormatAutoToggle<CR>
+```
 
 --------------------------------------------------
 ## Vim 重编译
