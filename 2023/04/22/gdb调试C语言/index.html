@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>gdb调试C语言 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="GDB是一种功能强大的命令行调试器，可以帮助程序员调试C语言程序。以下是一些基本的GDB调试命令：">
+  <meta name="description" content="编译 gcc -std&#x3D;c11 -g test.cpp -o test -g 选项是为了生成调试信息。 .&#x2F;test 运行程序 gdb test 进入调试模式 &lt;–!more–&gt;     命令 描述    (r)un 运行程序   (b)reak 设置断点   disable b 禁用断点   enable 启用断点   (n)ext 执行下一行代码   step 执行下一条指令，进">
 <meta property="og:type" content="article">
 <meta property="og:title" content="gdb调试C语言">
 <meta property="og:url" content="http://corner430.github.io/2023/04/22/gdb%E8%B0%83%E8%AF%95C%E8%AF%AD%E8%A8%80/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="GDB是一种功能强大的命令行调试器，可以帮助程序员调试C语言程序。以下是一些基本的GDB调试命令：">
+<meta property="og:description" content="编译 gcc -std&#x3D;c11 -g test.cpp -o test -g 选项是为了生成调试信息。 .&#x2F;test 运行程序 gdb test 进入调试模式 &lt;–!more–&gt;     命令 描述    (r)un 运行程序   (b)reak 设置断点   disable b 禁用断点   enable 启用断点   (n)ext 执行下一行代码   step 执行下一条指令，进">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-22T14:17:15.000Z">
-<meta property="article:modified_time" content="2023-12-09T12:09:25.211Z">
+<meta property="article:modified_time" content="2024-03-30T15:53:12.519Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="gdb">
@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:119k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:118.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -163,7 +163,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：433字 | 预计阅读时长：1分钟
+    		字数：128字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -192,42 +192,67 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>GDB是一种功能强大的命令行调试器，可以帮助程序员调试C语言程序。以下是一些基本的GDB调试命令：<span id="more"></span></p>
-<ol>
-<li><p>编译你的C程序时需要包含-g选项以生成调试信息。例如：<br><code>gcc -g -o myprogram myprogram.c</code></p>
-</li>
-<li><p>运行GDB并附加到正在运行的程序：<br><code>gdb myprogram</code></p>
-</li>
-<li><p>在GDB中设置断点。可以在函数名、行号或地址处设置断点。例如，在第10行设置断点：<br><code>break 10</code></p>
-</li>
-<li><p>运行程序，可以输入run或简写为r命令：<br><code>run</code></p>
-</li>
-<li><p>当程序到达断点时，程序会停止。可以使用一些命令来检查程序的状态，例如：</p>
-</li>
-</ol>
-<ul>
-<li><code>list</code>：显示当前行及周围的几行代码。</li>
-<li><code>print</code>：显示变量的值。</li>
-<li><code>backtrace</code>：显示函数调用堆栈。</li>
-<li><code>step</code>：单步执行一行代码。</li>
-<li><code>next</code>：单步执行一行代码，但不进入函数。<br>例如，可以使用print命令查看一个变量的值：<br><code>print variable_name</code></li>
+        <ul>
+<li>编译 <code>gcc -std=c11 -g test.cpp -o test</code> <code>-g</code> 选项是为了生成调试信息。</li>
+<li><code>./test</code> 运行程序</li>
+<li><code>gdb test</code> 进入调试模式 &lt;–!more–&gt;</li>
 </ul>
-<ol start="6">
-<li><p>在检查完程序状态后，可以继续运行程序，直到下一个断点或程序结束。可以使用continue或简写为c命令：<br><code>continue</code></p>
-</li>
-<li><p>当程序结束时，GDB会提示你退出。你可以使用quit或简写为q命令退出GDB。</p>
-</li>
-</ol>
-<p>这些是GDB调试C语言程序的基本命令。使用GDB需要一些时间和练习，但它可以帮助你解决程序中的错误并提高你的调试技能。</p>
-<hr>
-<ul>
-<li><code>gdb &lt;executable&gt;</code>：启动gdb调试器并加载可执行文件。</li>
-<li><code>break &lt;line_number&gt;</code>：在指定行号处设置断点。</li>
-<li><code>run</code>：运行程序。</li>
-<li><code>next</code>：执行下一行代码。</li>
-<li><code>print</code> <variable_name>：打印变量的值。</variable_name></li>
-<li><code>continue</code>：继续执行程序直到下一个断点或程序结束。</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>(r)un</code></td>
+<td align="left">运行程序</td>
+</tr>
+<tr>
+<td align="center"><code>(b)reak</code></td>
+<td align="left">设置断点</td>
+</tr>
+<tr>
+<td align="center"><code>disable b</code></td>
+<td align="left">禁用断点</td>
+</tr>
+<tr>
+<td align="center"><code>enable</code></td>
+<td align="left">启用断点</td>
+</tr>
+<tr>
+<td align="center"><code>(n)ext</code></td>
+<td align="left">执行下一行代码</td>
+</tr>
+<tr>
+<td align="center"><code>step</code></td>
+<td align="left">执行下一条指令，进入函数</td>
+</tr>
+<tr>
+<td align="center"><code>(l)ist</code></td>
+<td align="left">显示代码</td>
+</tr>
+<tr>
+<td align="center"><code>(p)rint x</code></td>
+<td align="left">显示变量的值</td>
+</tr>
+<tr>
+<td align="center"><code>(q)uit</code></td>
+<td align="left">退出GDB</td>
+</tr>
+<tr>
+<td align="center"><code>clear</code></td>
+<td align="left">清除所有断点</td>
+</tr>
+<tr>
+<td align="center"><code>continue</code></td>
+<td align="left">继续正常执行</td>
+</tr>
+<tr>
+<td align="center"><code>info b</code></td>
+<td align="left">查看断点信息</td>
+</tr>
+</tbody></table>
 
       
 	

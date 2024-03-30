@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:119k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:118.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -344,7 +344,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：433字 | 预计阅读时长：1分钟
+    		字数：128字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -365,10 +365,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>GDB是一种功能强大的命令行调试器，可以帮助程序员调试C语言程序。以下是一些基本的GDB调试命令：</p>
-        
-          <a class="article-more-a" href="/2023/04/22/gdb%E8%B0%83%E8%AF%95C%E8%AF%AD%E8%A8%80/#more">more >></a>
-        
+        <ul>
+<li>编译 <code>gcc -std=c11 -g test.cpp -o test</code> <code>-g</code> 选项是为了生成调试信息。</li>
+<li><code>./test</code> 运行程序</li>
+<li><code>gdb test</code> 进入调试模式 &lt;–!more–&gt;</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="center">命令</th>
+<th align="left">描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center"><code>(r)un</code></td>
+<td align="left">运行程序</td>
+</tr>
+<tr>
+<td align="center"><code>(b)reak</code></td>
+<td align="left">设置断点</td>
+</tr>
+<tr>
+<td align="center"><code>disable b</code></td>
+<td align="left">禁用断点</td>
+</tr>
+<tr>
+<td align="center"><code>enable</code></td>
+<td align="left">启用断点</td>
+</tr>
+<tr>
+<td align="center"><code>(n)ext</code></td>
+<td align="left">执行下一行代码</td>
+</tr>
+<tr>
+<td align="center"><code>step</code></td>
+<td align="left">执行下一条指令，进入函数</td>
+</tr>
+<tr>
+<td align="center"><code>(l)ist</code></td>
+<td align="left">显示代码</td>
+</tr>
+<tr>
+<td align="center"><code>(p)rint x</code></td>
+<td align="left">显示变量的值</td>
+</tr>
+<tr>
+<td align="center"><code>(q)uit</code></td>
+<td align="left">退出GDB</td>
+</tr>
+<tr>
+<td align="center"><code>clear</code></td>
+<td align="left">清除所有断点</td>
+</tr>
+<tr>
+<td align="center"><code>continue</code></td>
+<td align="left">继续正常执行</td>
+</tr>
+<tr>
+<td align="center"><code>info b</code></td>
+<td align="left">查看断点信息</td>
+</tr>
+</tbody></table>
+
       
 	
 
