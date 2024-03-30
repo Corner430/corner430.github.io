@@ -496,3 +496,18 @@ colo seoul256-light
 " set background=dark
 set background=light
 ```
+
+--------------------------------------------------
+## Vim 重编译
+```bash
+git clone https://github.com/vim/vim.git
+
+cd vim/src
+make distclean
+
+sudo apt install python-dev python3-dev libncurses5-dev
+./configure --with-features=huge --enable-python3interp --enable-pythoninterp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope
+
+make
+sudo make install
+```
