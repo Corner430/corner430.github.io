@@ -587,6 +587,9 @@ nmap <Leader>C :ClangFormatAutoToggle<CR>
 
 --------------------------------------------------
 ## Vim 重编译
+
+> 如果 anaconda 的 python 在系统的 PATH 中，那么在编译 vim 时，无法支持 python3
+
 ```bash
 git clone https://github.com/vim/vim.git
 
@@ -594,7 +597,7 @@ cd vim/src
 make distclean
 
 sudo apt install python-dev python3-dev libncurses5-dev
-./configure --with-features=huge --enable-python3interp --enable-pythoninterp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope
+./configure --with-features=huge --enable-python3interp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope
 
 make
 sudo make install
