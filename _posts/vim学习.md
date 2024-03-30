@@ -155,6 +155,34 @@ declare: true
   - `R`: Refresh the tree, useful if files change outside of Vim
   - `?`: Toggle NERD Tree's quick help
 - `ale`
+- `NERDCommenter`
+    - `<count><leader>cc`：在普通模式或可视模式下，将当前行或选中的文本注释掉。使用`NERDCommenterComment`命令。
+
+    - `<count><leader>cn`：与`cc`相同，但强制嵌套注释。使用`NERDCommenterNested`命令。
+
+    - `<count><leader>c<space>`：切换所选行的注释状态。如果顶部选定行已注释，则取消注释所有选定行，反之亦然。使用`NERDCommenterToggle`命令。
+
+    - `<count><leader>cm`：使用一组多部分分隔符对给定行进行注释。使用`NERDCommenterMinimal`命令。
+
+    - `<count><leader>ci`：独立切换所选行的注释状态。使用`NERDCommenterInvert`命令。
+
+    - `<count><leader>cs`：使用漂亮的块格式布局对选定的行进行注释。使用`NERDCommenterSexy`命令。
+
+    - `<count><leader>cy`：与`cc`相同，但首先将注释行复制到剪贴板。使用`NERDCommenterYank`命令。
+
+    - `<leader>c$`：从光标到行尾对当前行进行注释。使用`NERDCommenterToEOL`命令。
+
+    - `<leader>cA`：在行尾添加注释分隔符，并进入插入模式。使用`NERDCommenterAppend`命令。
+
+    - `<leader>ca`：切换到备用的分隔符集。使用`NERDCommenterAltDelims`命令。
+
+    - `<count><leader>cl`：与`NERDCommenterComment`相同，但分隔符沿左侧对齐。使用`NERDCommenterAlignLeft`命令。
+
+    - `<count><leader>cb`：与`NERDCommenterComment`相同，但分隔符同时沿左右两侧对齐。使用`NERDCommenterAlignBoth`命令。
+
+    - `<count><leader>cu`：取消选定行的注释。使用`NERDCommenterUncomment`命令。
+
+除了这些默认映射外，还有一个命令`NERDCommenterInsert`，默认情况下被禁用，它在插入模式下在当前光标位置添加注释分隔符并进入插入模式。
 
 
 ------------------------------------
@@ -196,7 +224,7 @@ set clipboard=unnamed,unnamedplus   " 复制到系统寄存器(*, +)
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
-" Enable type file detection. Vim will be able to try to detect the type of file is use.
+" Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
 
 " Enable plugins and load plugin for the detected file type.
@@ -208,20 +236,24 @@ filetype indent on
 " Turn syntax highlighting on.
 syntax on
 
-" Add numbers to the file.
+" Add numbers to each line on the left-hand side.
 set number
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 
 " Highlight cursor line underneath the cursor vertically.
-set cursorcolumn
+ set cursorcolumn
+
+
+" --------------------------------------------------
+
 
 " Set shift width to 4 spaces.
-set shiftwidth=4
+set shiftwidth=2
 
 " Set tab width to 4 columns.
-set tabstop=4
+set tabstop=2
 
 " Use space characters instead of tabs.
 set expandtab
@@ -260,9 +292,12 @@ set hlsearch
 " Set the commands to save in history default number is 20.
 set history=1000
 
+
+" -------------------------------------
+
+
+
 " Enable auto completion menu after pressing TAB.
-" Use <C+n> or <C+p> take effect
-" Supports `:e` command
 set wildmenu
 
 " Make wildmenu behave like similar to Bash completion.
@@ -272,27 +307,57 @@ set wildmode=list:longest
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
 
+
+
+
+
+
 " PLUGINS ---------------------------------------------------------------- {{{
 
 call plug#begin('~/.vim/plugged')
 
+  " 语法检查
   Plug 'dense-analysis/ale'
-
+  
+  " Navigation
   Plug 'preservim/nerdtree'
 
+  " 状态栏
   Plug 'itchyny/lightline.vim'
 
+  " 代码注释
   Plug 'preservim/nerdcommenter'
 
+  " 自动补全括号
   Plug 'jiangmiao/auto-pairs'
+
+  " 颜色主题
+  Plug 'junegunn/seoul256.vim'
+
+  " 代码对齐线 
+  Plug 'Yggdroot/indentLine'
+
+  " sorround
+  Plug 'tpope/vim-surround'
+
+  " copilot
+  Plug 'github/copilot.vim'
+
+  " cpp syntax highlight
+  Plug 'octol/vim-cpp-enhanced-highlight'
+
+  " 模糊搜索
+  "Plug 'Yggdroot/LeaderF'
+
 
 call plug#end()
 
 " }}}
 
+
 " MAPPINGS --------------------------------------------------------------- {{{
 
-" Set the ","  as the leader key.
+" Set the "," as the leader key.
 let mapleader = ","
 
 " Press ,, to jump back to the last cursor position.
@@ -302,7 +367,7 @@ nnoremap <leader>, ``
 " View available printers:   lpstat -v
 " Set default printer:       lpoptions -d <printer_name>
 " <silent> means do not display output.
-nnoremap <silent> <leader>p :%w !lp<CR>
+"nnoremap <silent> <leader>p :%w !lp<CR>
 
 " Type jj to exit insert mode quickly.
 inoremap jj <Esc>
@@ -312,8 +377,8 @@ nnoremap <space> :
 
 " Pressing the letter o will open a new line below the current one.
 " Exit insert mode after creating a new line above or below the current line.
-nnoremap o o<esc>
-nnoremap O O<esc>
+"nnoremap o o<esc>
+"nnoremap O O<esc>
 
 " Center the cursor vertically when moving to the next word during a search.
 nnoremap n nzz
@@ -323,7 +388,7 @@ nnoremap N Nzz
 nnoremap Y y$
 
 " Map the F5 key to run a Python script inside Vim.
-" We map F5 to a chain of commands here.
+" I map F5 to a chain of commands here.
 " :w saves the file.
 " <CR> (carriage return) is like pressing the enter key.
 " !clear runs the external clear screen command.
@@ -353,74 +418,20 @@ let NERDTreeIgnore=['\.git$', '\.jpg$', '\.mp4$', '\.ogg$', '\.iso$', '\.pdf$', 
 
 " }}}
 
+
 " VIMSCRIPT -------------------------------------------------------------- {{{
 
-" Enable the marker method of folding.
+" This will enable code folding.
+" Use the marker method of folding.
 augroup filetype_vim
     autocmd!
     autocmd FileType vim setlocal foldmethod=marker
 augroup END
 
-" If the current file type is HTML, set indentation to 2 spaces.
-autocmd Filetype html setlocal tabstop=2 shiftwidth=2 expandtab
-
-" If Vim version is equal to or greater than 7.3 enable undofile.
-" This allows you to undo changes to a file even after saving it.
-if version >= 703
-    set undodir=~/.vim/backup
-    set undofile
-    set undoreload=10000
-endif
-
-" You can split a window into sections by typing `:split` or `:vsplit`.
-" Display cursorline and cursorcolumn ONLY in active window.
-augroup cursor_off
-    autocmd!
-    autocmd WinLeave * set nocursorline nocursorcolumn
-    autocmd WinEnter * set cursorline cursorcolumn
-augroup END
-
-" If GUI version of Vim is running set these options.
-if has('gui_running')
-
-    " Set the background tone.
-    set background=dark
-
-    " Set the color scheme.
-    colorscheme molokai
-
-    " Set a custom font you have installed on your computer.
-    " Syntax: <font_name>\ <weight>\ <size>
-    set guifont=Monospace\ Regular\ 12
-
-    " Display more of the file by default.
-    " Hide the toolbar.
-    set guioptions-=T
-
-    " Hide the the left-side scroll bar.
-    set guioptions-=L
-
-    " Hide the the left-side scroll bar.
-    set guioptions-=r
-
-    " Hide the the menu bar.
-    set guioptions-=m
-
-    " Hide the the bottom scroll bar.
-    set guioptions-=b
-
-    " Map the F4 key to toggle the menu, toolbar, and scroll bar.
-    " <Bar> is the pipe character.
-    " <CR> is the enter key.
-    nnoremap <F4> :if &guioptions=~#'mTr'<Bar>
-        \set guioptions-=mTr<Bar>
-        \else<Bar>
-        \set guioptions+=mTr<Bar>
-        \endif<CR>
-
-endif
+" More Vimscripts code goes here.
 
 " }}}
+
 
 " STATUS LINE ------------------------------------------------------------ {{{
 
@@ -434,10 +445,54 @@ set statusline+=\ %F\ %M\ %Y\ %R
 set statusline+=%=
 
 " Status line right side.
-"set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
+set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
 
 " Show the status on the second to last line.
 set laststatus=2
 
 " }}}
+
+
+
+
+" -----------nerdcommenter--------------
+
+" Create default mappings
+let g:NERDCreateDefaultMappings = 1
+
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" Align line-wise comment delimiters flush left instead of following code indentation
+let g:NERDDefaultAlign = 'left'
+
+" Set a language to use its alternate delimiters by default
+let g:NERDAltDelims_java = 1
+
+" Add your own custom formats or override the defaults
+let g:NERDCustomDelimiters = { 'c': { 'left': '/**','right': '*/' } }
+
+" Allow commenting and inverting empty lines (useful when commenting a region)
+let g:NERDCommentEmptyLines = 1
+
+" Enable trimming of trailing whitespace when uncommenting
+let g:NERDTrimTrailingWhitespace = 1
+
+" Enable NERDCommenterToggle to check all selected lines is commented or not
+let g:NERDToggleCheckAllLines = 1
+
+
+" -----------seoul256.vim--------------------------
+" Unified color scheme (default: dark)
+" colo seoul256
+
+" Light color scheme
+colo seoul256-light
+
+" Switch
+" set background=dark
+set background=light
 ```
