@@ -16,7 +16,7 @@
 <meta property="og:description" content="教程Vimtutor_1.5vimtutor：有一些书籍进行推荐，还有电子版VIM无废话极简入门《Vim实用技巧》《精通vim》lazyvimVimiumVimium-c  下载最新中文版本的vimtutorvim --clean -c &#39;e $VIMRUNTIME&#x2F;tutor&#x2F;tutor.zh_cn.utf-8&#39; -c &#39;w! TUTORCOPY&#39; -c &amp;#39">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-08T02:07:14.000Z">
-<meta property="article:modified_time" content="2024-03-29T15:36:42.652Z">
+<meta property="article:modified_time" content="2024-03-30T02:35:16.862Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Linux">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:117.6k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:117.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -164,7 +164,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.7k字 | 预计阅读时长：10分钟
+    		字数：2.8k字 | 预计阅读时长：10分钟
 	</div>
         
   
@@ -209,7 +209,7 @@
 <li><code>da</code> 删除范围内的字符(包括范围字符)</li>
 <li><code>daw</code> 删除一个单词</li>
 <li><code>dap</code> 删除一个段落</li>
-<li><code>zz</code> 回到文本中部</li>
+<li><code>zz</code> 将当前行显示在窗口正中</li>
 <li><code>:num</code> 等同于 <code>num G</code></li>
 <li><code>:+num</code> 向下移动 num 行</li>
 <li><code>:-num</code> 向上移动 num 行</li>
@@ -246,6 +246,20 @@
 <li><code>H</code> 将光标移动到屏幕的顶部。</li>
 <li><code>L</code> 将光标移动到屏幕的底部。</li>
 <li><code>:term[inal]</code> 打开终端</li>
+</ul>
+<p>插入模式下：</p>
+<ul>
+<li><code>&lt;C-h&gt;</code> 删除前一个字符（同退格键）</li>
+<li><code>&lt;C-w&gt;</code> 删除前一个单词</li>
+<li><code>&lt;C-u&gt;</code> 删至行首</li>
+</ul>
+<blockquote>
+<p>这些命令并非插入模式独有，在Vim的命令行模式中，以及在 bash shell 中，也可以使用它们。</p>
+</blockquote>
+<ul>
+<li><code>&lt;Esc&gt;</code> 切换到普通模式</li>
+<li><code>&lt;C-[&gt;</code> 切换到普通模式</li>
+<li><code>&lt;C-o&gt;</code> 切换到 <strong>插入 - 普通</strong> 模式，可以执行一条普通模式命令，之后自动进入到插入模式<br>高频 <code>&lt;C-o&gt;zz</code></li>
 </ul>
 <hr>
 <h3 id="一箭双雕"><a href="#一箭双雕" class="headerlink" title="一箭双雕"></a>一箭双雕</h3><ul>
@@ -344,7 +358,6 @@
 <p>控制好对 <code>&lt;Esc&gt;</code> 键的使用，就可以 <code>u</code> 控制撤销的粒度。<strong>如果再插入模式中使用了 <code>&lt;Up&gt;</code>、<code>&lt;Down&gt;</code>、<code>&lt;Left&gt;</code>、<code>&lt;Right&gt;</code> 这些光标键，将会产生一个新的撤销块。等同于先切换到了普通模式，然后用 <code>h</code>、<code>j</code>、<code>k</code>、<code>l</code> 移动光标。</strong></p>
 <p>如果必要，请使用次数，例如：<code>c3w</code>、<code>b3w</code>。</p>
 <p>当一个操作符命令被连续调用两次时，它会作用于当前行，例如：<code>dd</code>，<code>&gt;&gt;</code></p>
-<p>the end is night 007<br>3. hello<br>4. world<br>5. hello<br>I have a couple of questions</p>
 <hr>
 <h3 id="Vim-宏"><a href="#Vim-宏" class="headerlink" title="Vim 宏"></a>Vim 宏</h3><p><code>qx&#123;changes&#125;q</code> 是一个 Vim 中用于记录和执行宏的命令序列。这个命令由以下三部分组成：</p>
 <ol>
