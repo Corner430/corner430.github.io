@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:119k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:119.1k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -344,7 +344,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：128字 | 预计阅读时长：1分钟
+    		字数：223字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -398,6 +398,10 @@
 <td align="left">执行下一行代码</td>
 </tr>
 <tr>
+<td align="center"><code>nexti</code></td>
+<td align="left">执行下一行汇编代码</td>
+</tr>
+<tr>
 <td align="center"><code>step</code></td>
 <td align="left">执行下一条指令，进入函数</td>
 </tr>
@@ -425,7 +429,22 @@
 <td align="center"><code>info b</code></td>
 <td align="left">查看断点信息</td>
 </tr>
+<tr>
+<td align="center"><code>watch(expr)</code></td>
+<td align="left">监视变量expr的变化</td>
+</tr>
+<tr>
+<td align="center"><code>ref</code></td>
+<td align="left">刷新屏幕</td>
+</tr>
+<tr>
+<td align="center"><code>info registers</code></td>
+<td align="left">查看寄存器信息</td>
+</tr>
 </tbody></table>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">(gdb) p &amp;a</span><br><span class="line">$2 = (int *) 0x7fffffffe17c</span><br><span class="line"></span><br><span class="line">(gdb) x/4xw 0x7fffffffe17c</span><br><span class="line">0x7fffffffe17c:	0x00000001	0x55555310	0x00005555	0xf7af809b</span><br><span class="line"></span><br><span class="line">(gdb) x/10xw &amp;a</span><br><span class="line"></span><br><span class="line">(gdb) x/4i 0x7fffffffe17c</span><br><span class="line">   0x7fffffffe17c:	add    %eax,(%rax)</span><br><span class="line">   0x7fffffffe17e:	add    %al,(%rax)</span><br><span class="line">   0x7fffffffe180:	adc    %dl,0x55(%rbx)</span><br><span class="line">   0x7fffffffe183:	push   %rbp</span><br><span class="line">(gdb) disas</span><br></pre></td></tr></table></figure>
+
+<p><code>lay next</code> 会显示一些代码以一种比较好的视图</p>
 
       
 	
