@@ -154,6 +154,7 @@ declare: true
 - [indentLine 代码对齐线](https://github.com/Yggdroot/indentLine)
 - [surround](https://github.com/tpope/vim-surround)
 - [copilot](https://github.com/github/copilot.vim)
+- [codeium](https://github.com/Exafunction/codeium.vim)
 - [cpp syntax highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
 - [clang-format](https://github.com/rhysd/vim-clang-format)
 - [LeaderF 模糊搜索](https://github.com/Yggdroot/LeaderF)
@@ -223,8 +224,8 @@ set cursorline
  set cursorcolumn
 
 " Switch background color to dark or light.
-" set background=dark
-set background=light
+set background=dark
+" set background=light
 
 " --------------------------------------------------
 
@@ -303,7 +304,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'preservim/nerdtree'
 
   " 状态栏
-  Plug 'itchyny/lightline.vim'
+  " Plug 'itchyny/lightline.vim'
 
   " 代码注释
   Plug 'preservim/nerdcommenter'
@@ -321,8 +322,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-surround'
 
   " copilot
-  Plug 'github/copilot.vim'
+  "Plug 'github/copilot.vim'
 
+  " codeium
+  Plug 'Exafunction/codeium.vim', { 'branch': 'main' }
+  
   " cpp syntax highlight
   Plug 'octol/vim-cpp-enhanced-highlight'
 
@@ -363,9 +367,6 @@ nnoremap <leader>st :rightbelow vertical terminal<CR>
 
 " write to clipboard
 vnoremap <leader>w :w !clip.exe<CR>
-
-" open terminal on the right side
-nnoremap <leader>stb :rightbelow vertical terminal<CR>
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
@@ -455,7 +456,7 @@ augroup END
 set statusline=
 
 " Status line left side.
-set statusline+=\ %F\ %M\ %Y\ %R
+set statusline+=\ %F\ %M\ %Y\ %R\ %{&ff}\ \ %{&fileencoding}
 
 " Use a divider to separate the left side from the right side.
 set statusline+=%=
@@ -465,6 +466,23 @@ set statusline+=\ ascii:\ %b\ hex:\ 0x%B\ row:\ %l\ col:\ %c\ percent:\ %p%%
 
 " Show the status on the second to last line.
 set laststatus=2
+
+function! InsertStatuslineColor(mode)
+  if a:mode == 'i'
+    hi statusline guibg=Cyan ctermfg=6 guifg=Black ctermbg=0
+  elseif a:mode == 'r'
+    hi statusline guibg=Purple ctermfg=5 guifg=Black ctermbg=0
+  else
+    hi statusline guibg=DarkRed ctermfg=1 guifg=Black ctermbg=0
+  endif
+endfunction
+
+
+au InsertEnter * call InsertStatuslineColor(v:insertmode)
+au InsertLeave * hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
+
+" default the statusline to green when entering Vim
+hi statusline guibg=DarkGrey ctermfg=8 guifg=White ctermbg=15
 
 " }}}
 
@@ -503,10 +521,10 @@ let g:NERDToggleCheckAllLines = 1
 
 " -----------seoul256.vim--------------------------
 " Unified color scheme (default: dark)
-" colo seoul256
+colo seoul256
 
 " Light color scheme
-colo seoul256-light
+" colo seoul256-light
 
 
 " ----------------LeaderF----------------------------
@@ -601,7 +619,11 @@ let g:ale_sign_error = '✗'
 let g:ale_sign_warning = '⚡'
 
 " Define the sign column width
-let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+" let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+let g:ale_statusline_format = '✗ %d ⚡ %d ✔ OK'
+
+" Show ALE status in the status line
+set statusline+=\ %{g:ale_statusline_format}
 
 " Display Linter name, error or warning, etc.
 let g:ale_echo_msg_error_str = 'E'
@@ -638,11 +660,46 @@ let g:ale_fixers = {
 
 " -----------------------lightline-----------------------------
 " delete the status line
-set noshowmode
+"set noshowmode
 
-let g:lightline = {
-  \ 'colorscheme': 'one',
-  \ }
+" let g:lightline = {
+"       \ 'colorscheme': 'one',
+"       \ }
+
+" -----------------------codeium-----------------------------
+" Enable Codeium
+let g:codeium_enabled = v:true
+
+" Disable default key bindings
+let g:codeium_disable_bindings = 1
+
+" Show it in status line
+set statusline+=\ \ %3{codeium#GetStatusString()}
+
+" Manually trigger suggestion
+imap <C-]>   <Cmd>call codeium#Complete()<CR>
+
+" Insert suggestion
+imap <script><silent><nowait><expr> <C-g> codeium#Accept()
+
+" Next suggestion
+imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
+
+" Previous suggestion
+imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+
+" Clear current suggestion
+imap <C-x>   <Cmd>call codeium#Clear()<CR>
+
+" let g:codeium_filetypes = {
+"     \ "C++": v:false,
+"     \ }
+
+" Enable search and indexing in the current project
+let g:codeium_workspace_root_hints = ['.bzr','.git','.hg','.svn','_FOSSIL_','package.json']
+
+" Launch Codeium Chat in a new browser window
+" imap <C-c>   <Cmd>call codeium#Chat()<CR>
 ```
 
 --------------------------------------------------
@@ -656,7 +713,7 @@ git clone https://github.com/vim/vim.git
 cd vim/src
 make distclean
 
-sudo apt install python-dev python3-dev libncurses5-dev
+sudo apt install python3-dev libncurses5-dev
 ./configure --with-features=huge --enable-python3interp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope
 
 make
