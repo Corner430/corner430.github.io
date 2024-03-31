@@ -359,6 +359,12 @@ nnoremap <leader>\ ``
 inoremap jj <Esc>
 
 " open terminal on the right side
+nnoremap <leader>st :rightbelow vertical terminal<CR>
+
+" write to clipboard
+vnoremap <leader>w :w !clip.exe<CR>
+
+" open terminal on the right side
 nnoremap <leader>stb :rightbelow vertical terminal<CR>
 
 " Press the space bar to type the : character in command mode.
