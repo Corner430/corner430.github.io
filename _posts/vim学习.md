@@ -198,6 +198,9 @@ set clipboard=unnamed,unnamedplus   " 复制到系统寄存器(*, +)
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
+" Enable the use of backspace key.
+set backspace=2
+
 " Enable type file detection. Vim will be able to try to detect the type of file in use.
 filetype on
 
@@ -578,6 +581,50 @@ autocmd FileType c,cpp,objc vnoremap <buffer><Leader>cf :ClangFormat<CR>
 autocmd FileType c,cpp,objc map <buffer><Leader>x <Plug>(operator-clang-format)
 " Toggle auto formatting:
 nmap <Leader>C :ClangFormatAutoToggle<CR>
+
+" ------------------------ale--------------------------------------------
+" Disable ALE highlights
+let g:ale_set_highlights = 0
+
+" Define error and warning signs
+let g:ale_sign_error = '✗'
+let g:ale_sign_warning = '⚡'
+
+" Define the sign column width
+let g:ale_statusline_format = ['✗ %d', '⚡ %d', '✔ OK']
+
+" Display Linter name, error or warning, etc.
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+
+" Disable linting on file open
+let g:ale_lint_on_enter = 0
+
+" Normal mode mappings, \sp to go to the previous error or warning, \sn to go to the next error or warning
+nmap <Leader>sp <Plug>(ale_previous_wrap)
+nmap <Leader>sn <Plug>(ale_next_wrap)
+
+" \s to toggle ALE
+nmap <Leader>s :ALEToggle<CR>
+
+" \d to view the detailed information of the error or warning
+nmap <Leader>d :ALEDetail<CR>
+
+" Set the linters for each file type.
+let g:ale_linters = {
+\   'c++': ['clang'],
+\   'c': ['clang'],
+\   'python': ['pylint'],
+\}
+
+" Set the fixers for each file type, including more comprehensive options:
+let g:ale_fixers = {
+  \ 'c++': ['clang-format', 'clangtidy', 'uncrustify'],
+  \ 'c': ['clang-format', 'uncrustify'],              
+  \ 'python': ['autopep8', 'yapf'],                  
+  \ '*': ['remove_trailing_lines', 'trim_whitespace'],       
+  \}
 ```
 
 --------------------------------------------------
