@@ -145,46 +145,20 @@ declare: true
 ### 插件
 `mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged`
 
-- `vim-plug`
-- `NERDTree`
-  - `t`: Open the selected file in a new tab
-  - `i`: Open the selected file in a horizontal split window
-  - `s`: Open the selected file in a vertical split window
-  - `I`: Toggle hidden files
-  - `m`: Show the NERD Tree menu
-  - `R`: Refresh the tree, useful if files change outside of Vim
-  - `?`: Toggle NERD Tree's quick help
-- `ale`
-- `NERDCommenter`
-    - `<count><leader>cc`：在普通模式或可视模式下，将当前行或选中的文本注释掉。使用`NERDCommenterComment`命令。
-
-    - `<count><leader>cn`：与`cc`相同，但强制嵌套注释。使用`NERDCommenterNested`命令。
-
-    - `<count><leader>c<space>`：切换所选行的注释状态。如果顶部选定行已注释，则取消注释所有选定行，反之亦然。使用`NERDCommenterToggle`命令。
-
-    - `<count><leader>cm`：使用一组多部分分隔符对给定行进行注释。使用`NERDCommenterMinimal`命令。
-
-    - `<count><leader>ci`：独立切换所选行的注释状态。使用`NERDCommenterInvert`命令。
-
-    - `<count><leader>cs`：使用漂亮的块格式布局对选定的行进行注释。使用`NERDCommenterSexy`命令。
-
-    - `<count><leader>cy`：与`cc`相同，但首先将注释行复制到剪贴板。使用`NERDCommenterYank`命令。
-
-    - `<leader>c$`：从光标到行尾对当前行进行注释。使用`NERDCommenterToEOL`命令。
-
-    - `<leader>cA`：在行尾添加注释分隔符，并进入插入模式。使用`NERDCommenterAppend`命令。
-
-    - `<leader>ca`：切换到备用的分隔符集。使用`NERDCommenterAltDelims`命令。
-
-    - `<count><leader>cl`：与`NERDCommenterComment`相同，但分隔符沿左侧对齐。使用`NERDCommenterAlignLeft`命令。
-
-    - `<count><leader>cb`：与`NERDCommenterComment`相同，但分隔符同时沿左右两侧对齐。使用`NERDCommenterAlignBoth`命令。
-
-    - `<count><leader>cu`：取消选定行的注释。使用`NERDCommenterUncomment`命令。
-
-除了这些默认映射外，还有一个命令`NERDCommenterInsert`，默认情况下被禁用，它在插入模式下在当前光标位置添加注释分隔符并进入插入模式。
-
-
+- [als 语法检查](https://github.com/dense-analysis/ale)
+- [nerdtree 文件树](https://gihtub.com/preservim/nerdtree)
+- [lightline 状态栏](https://github.com/itchyny/lightline.vim)
+- [nerdcommenter 代码注释](https://github.com/preservim/nerdcommenter)
+- [auto-pairs 自动补全括号](https://github.com/jiangmiao/auto-pairs)
+- [seoul256 颜色主题](https://github.com/junegunn/seoul256.vim)
+- [indentLine 代码对齐线](https://github.com/Yggdroot/indentLine)
+- [surround](https://github.com/tpope/vim-surround)
+- [copilot](https://github.com/github/copilot.vim)
+- [cpp syntax highlight](https://github.com/octol/vim-cpp-enhanced-highlight)
+- [clang-format](https://github.com/rhysd/vim-clang-format)
+- [LeaderF 模糊搜索](https://github.com/Yggdroot/LeaderF)
+- [leetcode](https://github.com/ianding1/leetcode.vim)
+  
 ------------------------------------
 ### 搜索
 - `:grep` 和 `:vimgrep`
@@ -363,10 +337,10 @@ call plug#end()
 " MAPPINGS --------------------------------------------------------------- {{{
 
 " Set the "," as the leader key.
-let mapleader = ","
+let mapleader = "\\"
 
-" Press ,, to jump back to the last cursor position.
-nnoremap <leader>, ``
+" Press \\ to jump back to the last cursor position.
+nnoremap <leader>\ ``
 
 " Press \p to print the current file to the default printer from a Linux operating system.
 " View available printers:   lpstat -v
@@ -380,6 +354,9 @@ inoremap jj <Esc>
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
 
+" Press the space bar to type the : character in visual mode.
+vnoremap <space> :
+
 " Pressing the letter o will open a new line below the current one.
 " Exit insert mode after creating a new line above or below the current line.
 "nnoremap o o<esc>
@@ -392,13 +369,31 @@ nnoremap N Nzz
 " Yank from cursor to the end of line.
 nnoremap Y y$
 
-" Map the F5 key to run a Python script inside Vim.
+" Map the F5 key to run a Python or C++ script inside Vim.
 " I map F5 to a chain of commands here.
 " :w saves the file.
 " <CR> (carriage return) is like pressing the enter key.
 " !clear runs the external clear screen command.
 " !python3 % executes the current file with Python.
-nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+" nnoremap <f5> :w <CR>:!clear <CR>:!python3 % <CR>
+function! ExecuteFile()
+    w
+    silent !clear
+
+    if &filetype ==# 'cpp'
+        execute '!g++ -std=c++11 -g % -o %<'
+        execute '!./%<'
+    elseif &filetype ==# 'python'
+        execute '!python3 %'
+    elseif &filetype ==# 'c'
+        execute '!gcc -std=c11 -g % -o %<'
+        execute '!./%<'
+    else
+        echo "Unknown file type"
+    endif
+endfunction
+nnoremap <f5> :call ExecuteFile()<CR>
+
 
 " You can split the window in Vim by typing :split or :vsplit.
 " Navigate the split view easier by pressing CTRL+j, CTRL+k, CTRL+h, or CTRL+l.
