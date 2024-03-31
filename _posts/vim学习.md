@@ -222,6 +222,9 @@ set cursorline
 " Highlight cursor line underneath the cursor vertically.
  set cursorcolumn
 
+" Switch background color to dark or light.
+" set background=dark
+set background=light
 
 " --------------------------------------------------
 
@@ -332,6 +335,7 @@ call plug#begin('~/.vim/plugged')
   " leetcode
   "Plug 'ianding1/leetcode.vim'
 
+
 call plug#end()
 
 " }}}
@@ -353,6 +357,9 @@ nnoremap <leader>\ ``
 
 " Type jj to exit insert mode quickly.
 inoremap jj <Esc>
+
+" open terminal on the right side
+nnoremap <leader>stb :rightbelow vertical terminal<CR>
 
 " Press the space bar to type the : character in command mode.
 nnoremap <space> :
@@ -456,6 +463,8 @@ set laststatus=2
 " }}}
 
 
+
+
 " -----------nerdcommenter--------------
 
 " Create default mappings
@@ -492,10 +501,6 @@ let g:NERDToggleCheckAllLines = 1
 
 " Light color scheme
 colo seoul256-light
-
-" Switch
-" set background=dark
-set background=light
 
 
 " ----------------LeaderF----------------------------
@@ -565,7 +570,6 @@ noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 " Show previous gtags search result
 noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
 
-
 " ----------------------clang-format-------------------------------------
 
 let g:clang_format#style_options = {
@@ -625,6 +629,14 @@ let g:ale_fixers = {
   \ 'python': ['autopep8', 'yapf'],                  
   \ '*': ['remove_trailing_lines', 'trim_whitespace'],       
   \}
+
+" -----------------------lightline-----------------------------
+" delete the status line
+set noshowmode
+
+let g:lightline = {
+  \ 'colorscheme': 'one',
+  \ }
 ```
 
 --------------------------------------------------
