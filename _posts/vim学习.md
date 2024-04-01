@@ -214,12 +214,30 @@ set clipboard=unnamed,unnamedplus   " 复制到系统寄存器(*, +)
 
 针对 tabstop 的值，Vim 还有另外一种替换模式，称为虚拟替换模式：`gR`, `gr`
 
+--------------------------------------------------
+### Vim 重编译
+
+> 如果 anaconda 的 python 在系统的 PATH 中，那么在编译 vim 时，无法支持 python3
+
+```bash
+git clone https://github.com/vim/vim.git
+
+cd vim/src
+make distclean
+
+sudo apt install python3-dev libncurses5-dev
+./configure --with-features=huge --enable-python3interp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope
+
+make
+sudo make install
+```
 
 ----------------------------------------
 ### vimrc
 [rfc](https://www.freecodecamp.org/news/vimrc-configuration-guide-customize-your-vim-editor/)
 
 ```vim
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""               
 "               
 "               ██╗   ██╗██╗███╗   ███╗██████╗  ██████╗
@@ -255,11 +273,19 @@ set number
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
 
+" Set the horizontal cursor color to light red
+highlight CursorLine cterm=NONE ctermbg=lightred ctermfg=black guibg=lightred guifg=black
+
+
 " Highlight cursor line underneath the cursor vertically.
- set cursorcolumn
+" set cursorcolumn
+
+" Set the vertical cursor column to light yellow
+" highlight CursorColumn cterm=NONE ctermbg=lightyellow ctermfg=black guibg=lightyellow guifg=black
+
 
 " Switch background color to dark or light.
-set background=dark
+" set background=dark
 " set background=light
 
 " --------------------------------------------------
@@ -348,7 +374,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'jiangmiao/auto-pairs'
 
   " 颜色主题
-  Plug 'junegunn/seoul256.vim'
+  " Plug 'junegunn/seoul256.vim'
 
   " 代码对齐线 
   Plug 'Yggdroot/indentLine'
@@ -556,7 +582,7 @@ let g:NERDToggleCheckAllLines = 1
 
 " -----------seoul256.vim--------------------------
 " Unified color scheme (default: dark)
-colo seoul256
+" colo seoul256
 
 " Light color scheme
 " colo seoul256-light
@@ -736,22 +762,4 @@ let g:codeium_workspace_root_hints = ['.bzr','.git','.hg','.svn','_FOSSIL_','pac
 
 " Launch Codeium Chat in a new browser window
 " imap <C-c>   <Cmd>call codeium#Chat()<CR>
-```
-
---------------------------------------------------
-## Vim 重编译
-
-> 如果 anaconda 的 python 在系统的 PATH 中，那么在编译 vim 时，无法支持 python3
-
-```bash
-git clone https://github.com/vim/vim.git
-
-cd vim/src
-make distclean
-
-sudo apt install python3-dev libncurses5-dev
-./configure --with-features=huge --enable-python3interp --enable-rubyinterp --enable-luainterp --enable-perlinterp --enable-multibyte --enable-cscope
-
-make
-sudo make install
 ```
