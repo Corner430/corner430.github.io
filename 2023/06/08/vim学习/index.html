@@ -16,7 +16,7 @@
 <meta property="og:description" content="教程Vimtutor_1.5vimtutor：有一些书籍进行推荐，还有电子版VIM无废话极简入门《Vim实用技巧》《精通vim》lazyvimVimiumVimium-c  下载最新中文版本的vimtutorvim --clean -c &#39;e $VIMRUNTIME&#x2F;tutor&#x2F;tutor.zh_cn.utf-8&#39; -c &#39;w! TUTORCOPY&#39; -c &amp;#39">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-06-08T02:07:14.000Z">
-<meta property="article:modified_time" content="2024-04-01T12:54:11.865Z">
+<meta property="article:modified_time" content="2024-04-01T15:22:09.455Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="笔记">
 <meta property="article:tag" content="Linux">
@@ -67,7 +67,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:119.5k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:120k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -164,7 +164,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：4.9k字 | 预计阅读时长：25分钟
+    		字数：5.4k字 | 预计阅读时长：27分钟
 	</div>
         
   
@@ -265,6 +265,70 @@
 <li><code>&lt;C-[&gt;</code> 切换到普通模式</li>
 <li><code>&lt;C-o&gt;</code> 切换到 <strong>插入 - 普通</strong> 模式，可以执行一条普通模式命令，之后自动进入到插入模式<br>高频 <code>&lt;C-o&gt;zz</code></li>
 </ul>
+<p>可视模式下：</p>
+<ul>
+<li>可以在不同风格的可视模式间切换</li>
+<li><code>I</code> 和 <code>A</code> 仍然有效，但 <code>i</code> 和 <code>a</code> 却有新的约定</li>
+<li><code>.</code> 在面向行可视时可以正常工作，但面向字符时却可能不尽如意</li>
+<li><code>gv</code> 重选上次的高亮选区</li>
+<li><code>o</code> 切换高亮选取的活动端</li>
+<li><code>vit</code> 选择标签里的内容。<code>it</code> 命令是一种被称为文本对象（text object）的特殊动作命令。</li>
+<li><code>U</code> 将所选中的字符转换为大写</li>
+<li><code>r</code> 对选中的区域进行统一修改</li>
+<li><code>&lt;C-q&gt;</code> windows下的 <code>&lt;C-v&gt;</code> 被占用，列选</li>
+</ul>
+<p>命令行模式下：</p>
+<ul>
+<li><code>&lt;C-d&gt;</code> 自动弹出命令提示</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th align="left">命令</th>
+<th align="left">用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>:[range]delete [x]</code></td>
+<td align="left">删除指定范围的行[到寄存器 x 中]</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]yank [x]</code></td>
+<td align="left">复制指定范围的行[到寄存器 x 中]</td>
+</tr>
+<tr>
+<td align="left"><code>:[line]put [x]</code></td>
+<td align="left">在指定行后粘贴寄存器 x 中的内容</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]copy &#123;address&#125;</code></td>
+<td align="left">把指定范围内的行拷贝到 {address} 指定的行之下</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]move &#123;address&#125;</code></td>
+<td align="left">把指定范围内的行移动到 {address} 指定的行之下</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]join</code></td>
+<td align="left">连接指定范围内的行</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]normal &#123;commands&#125;</code></td>
+<td align="left">对指定范围内的每一行执行普通模式命令 {commands}</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]substitute/&#123;pattern&#125;/&#123;string&#125;/[flags]</code></td>
+<td align="left">对指定范围内出现 {pattern} 的地方替换为 {string}</td>
+</tr>
+<tr>
+<td align="left"><code>:[range]global/&#123;pattern&#125;/[cmd]</code></td>
+<td align="left">对指定范围内匹配 {pattern} 的所有行执行 Ex 命令 {cmd}</td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>:&#123;start&#125;,&#123;end&#125;</code> 可以用行号、位置标记或是查找模式来指定范围的开始位置及结束位置</li>
+</ul>
+<p>| 符号 | 地址 |<br>| <code>1</code> | 文件的第一行 |<br>| <code>$</code> | 文件的最后一行 |<br>| <code>0</code> | 虚拟行，位于文件第一行上方 |<br>| <code>.</code> | 光标所在行 |<br>| <code>&#39;m</code> | 包含位置标记 m 的行 |<br>| <code>&#39;&lt;</code> | 高亮选取的起始行 |<br>| <code>&#39;&gt;</code> | 高亮选取的结束行 |<br>| <code>%</code> | 整个文件（<code>:1,$</code> 的简写形式） |</p>
 <hr>
 <h3 id="一箭双雕"><a href="#一箭双雕" class="headerlink" title="一箭双雕"></a>一箭双雕</h3><ul>
 <li><code>&gt;G</code> 增加从当前行到文档末尾处的缩进层级</li>
@@ -486,6 +550,9 @@
 </tr>
 </tbody></table>
 <p>针对 tabstop 的值，Vim 还有另外一种替换模式，称为虚拟替换模式：<code>gR</code>, <code>gr</code></p>
+<ul>
+<li><code>&lt;C-g&gt;</code> 在可视模式和选择模式之间切换</li>
+</ul>
 <hr>
 <h3 id="Vim-重编译"><a href="#Vim-重编译" class="headerlink" title="Vim 重编译"></a>Vim 重编译</h3><blockquote>
 <p>如果 anaconda 的 python 在系统的 PATH 中，那么在编译 vim 时，无法支持 python3</p>
