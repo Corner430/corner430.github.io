@@ -89,6 +89,47 @@ declare: true
 - `<C-o>` 切换到 **插入 - 普通** 模式，可以执行一条普通模式命令，之后自动进入到插入模式
 高频 `<C-o>zz`
 
+
+可视模式下：
+
+- 可以在不同风格的可视模式间切换
+- `I` 和 `A` 仍然有效，但 `i` 和 `a` 却有新的约定
+- `.` 在面向行可视时可以正常工作，但面向字符时却可能不尽如意
+- `gv` 重选上次的高亮选区
+- `o` 切换高亮选取的活动端
+- `vit` 选择标签里的内容。`it` 命令是一种被称为文本对象（text object）的特殊动作命令。
+- `U` 将所选中的字符转换为大写
+- `r` 对选中的区域进行统一修改
+- `<C-q>` windows下的 `<C-v>` 被占用，列选
+
+命令行模式下：
+
+- `<C-d>` 自动弹出命令提示
+
+| 命令 | 用途 |
+| :--- | :--- |
+| `:[range]delete [x]` | 删除指定范围的行[到寄存器 x 中] |
+| `:[range]yank [x]` | 复制指定范围的行[到寄存器 x 中] |
+| `:[line]put [x]` | 在指定行后粘贴寄存器 x 中的内容 |
+| `:[range]copy {address}` | 把指定范围内的行拷贝到 {address} 指定的行之下|
+| `:[range]move {address}` | 把指定范围内的行移动到 {address} 指定的行之下|
+| `:[range]join` | 连接指定范围内的行 |
+| `:[range]normal {commands}` | 对指定范围内的每一行执行普通模式命令 {commands} |
+| `:[range]substitute/{pattern}/{string}/[flags]` | 对指定范围内出现 {pattern} 的地方替换为 {string} |
+| `:[range]global/{pattern}/[cmd]` | 对指定范围内匹配 {pattern} 的所有行执行 Ex 命令 {cmd} |
+
+- `:{start},{end}` 可以用行号、位置标记或是查找模式来指定范围的开始位置及结束位置
+
+| 符号 | 地址 |
+| `1` | 文件的第一行 |
+| `$` | 文件的最后一行 |
+| `0` | 虚拟行，位于文件第一行上方 |
+| `.` | 光标所在行 |
+| `'m` | 包含位置标记 m 的行 |
+| `'<` | 高亮选取的起始行 |
+| `'>` | 高亮选取的结束行 |
+| `%` | 整个文件（`:1,$` 的简写形式） |
+
 --------------------------------------------------
 ### 一箭双雕
 
@@ -220,6 +261,8 @@ set clipboard=unnamed,unnamedplus   " 复制到系统寄存器(*, +)
 
 针对 tabstop 的值，Vim 还有另外一种替换模式，称为虚拟替换模式：`gR`, `gr`
 
+- `<C-g>` 在可视模式和选择模式之间切换
+
 --------------------------------------------------
 ### Vim 重编译
 
@@ -275,6 +318,9 @@ syntax on
 
 " Add numbers to each line on the left-hand side.
 set number
+
+" Relative line numbers
+set relativenumber
 
 " Highlight cursor line underneath the cursor horizontally.
 set cursorline
