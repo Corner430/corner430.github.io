@@ -71,11 +71,16 @@ declare: true
 - `H` 将光标移动到屏幕的顶部。
 - `L` 将光标移动到屏幕的底部。
 - `:term[inal]` 打开终端
+- `ga` 查看光标下字符的十进制和十六进制编码
 
 插入模式下：
 - `<C-h>` 删除前一个字符（同退格键）
 - `<C-w>` 删除前一个单词
 - `<C-u>` 删至行首
+- `<C-r>0` 将刚才复制到的文本粘贴到当前光标位置
+- `<C-r>{register}` 其中{register}是想要插入的寄存器
+- `<C-r>=` 调用表达式寄存器，例如：`<C-r>=6*8`
+
 
 > 这些命令并非插入模式独有，在Vim的命令行模式中，以及在 bash shell 中，也可以使用它们。
 
@@ -124,13 +129,13 @@ declare: true
 -------------------------------------
 ### Vim 使用技巧
 
-`.` 命令是一个微型的宏，Vim可以录制任意数目的按键操作，然后在以后重复执行它们。这让我们可以把最常重复的工作流程录制下来，并用一个按键重放它们。
+- `.` 命令是一个微型的宏，Vim可以录制任意数目的按键操作，然后在以后重复执行它们。这让我们可以把最常重复的工作流程录制下来，并用一个按键重放它们。
 
-控制好对 `<Esc>` 键的使用，就可以 `u` 控制撤销的粒度。**如果再插入模式中使用了 `<Up>`、`<Down>`、`<Left>`、`<Right>` 这些光标键，将会产生一个新的撤销块。等同于先切换到了普通模式，然后用 `h`、`j`、`k`、`l` 移动光标。**
+- 控制好对 `<Esc>` 键的使用，就可以 `u` 控制撤销的粒度。**如果再插入模式中使用了 `<Up>`、`<Down>`、`<Left>`、`<Right>` 这些光标键，将会产生一个新的撤销块。等同于先切换到了普通模式，然后用 `h`、`j`、`k`、`l` 移动光标。**
 
-如果必要，请使用次数，例如：`c3w`、`b3w`。
+- 如果必要，应使用次数，例如：`c3w`、`b3w`。
 
-当一个操作符命令被连续调用两次时，它会作用于当前行，例如：`dd`，`>>`
+- 当一个操作符命令被连续调用两次时，它会作用于当前行，例如：`dd`，`>>`
 
 
 ------------------------------------------
@@ -140,6 +145,21 @@ declare: true
 - `za` 打开或关闭当前折叠块
 - `zR` 打开所有折叠块
 - `zM` 关闭所有折叠块
+
+-------------------------------------------
+### 自动补全
+
+| 命令 | 补全类型 |
+| :--- | :--- |
+| `<C-n` | 正向选择补全普通关键字 |
+| `<C-p` | 反向选择补全普通关键字 |
+| `<C-x><C-n>` | 当前缓冲区关键字 |
+| `<C-x><C-i>` | 包含文件关键字 |
+| `<C-x><C-]>` | 标签文件关键字 |
+| `<C-x><C-k>` | 字典查找 |
+| `<C-x><C-l>` | 整行补全 |
+| `<C-x><C-f>` | 文件名补全 |
+| `<C-x><C-o>` | 全能（Omini）补全 |
 
 -----------------------------------
 ### 插件
@@ -179,6 +199,21 @@ set clipboard=unamed                " 复制到系统寄存器(*)
 set clipboard=unnamedplus           " 复制到系统寄存器(+)
 set clipboard=unnamed,unnamedplus   " 复制到系统寄存器(*, +)
 ```
+
+------------------------------------------
+### 非常用技巧
+- `<C-v>{code}` 在*****插入**模式下根据字符编码插入字符，例如：`<C-v>065`
+- `<C-v>u{code}` 插入 Unicode，例如：`<C-v>u20bf`
+
+| 按键操作 | 用途 |
+| :-- | :-- |
+| `<C-v>{123}` | 以十进制字符编码插入字符 |
+| `<C-v>u{1234}` | 以十六进制字符编码插入字符 |
+| `<C-v>{nodigit}` | 按原义插入非数字字符 |
+| `<C-k>{char1}{char2}` | 插入以二合字母 {char1}{char2}表示的字符 |
+
+针对 tabstop 的值，Vim 还有另外一种替换模式，称为虚拟替换模式：`gR`, `gr`
+
 
 ----------------------------------------
 ### vimrc
@@ -230,10 +265,10 @@ set background=dark
 " --------------------------------------------------
 
 
-" Set shift width to 4 spaces.
+" Set shift width to 2 spaces.
 set shiftwidth=2
 
-" Set tab width to 4 columns.
+" Set tab width to 2 columns.
 set tabstop=2
 
 " Use space characters instead of tabs.
@@ -633,9 +668,10 @@ let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
 " Disable linting on file open
 let g:ale_lint_on_enter = 0
 
-" Normal mode mappings, \sp to go to the previous error or warning, \sn to go to the next error or warning
-nmap <Leader>sp <Plug>(ale_previous_wrap)
-nmap <Leader>sn <Plug>(ale_next_wrap)
+" Normal mode mappings, \[s to go to the previous error or warning, \]s to go to the next error or warning
+" Consistent with vim's default spell checker
+nmap <Leader>[s <Plug>(ale_previous_wrap)
+nmap <Leader>]s <Plug>(ale_next_wrap)
 
 " \s to toggle ALE
 nmap <Leader>s :ALEToggle<CR>
@@ -682,11 +718,11 @@ imap <C-]>   <Cmd>call codeium#Complete()<CR>
 " Insert suggestion
 imap <script><silent><nowait><expr> <C-g> codeium#Accept()
 
-" Next suggestion
-imap <C-;>   <Cmd>call codeium#CycleCompletions(1)<CR>
+" Next suggestion (Consistent with vim default autocomplete)
+imap <leader><C-n>   <Cmd>call codeium#CycleCompletions(1)<CR>
 
-" Previous suggestion
-imap <C-,>   <Cmd>call codeium#CycleCompletions(-1)<CR>
+" Previous suggestion (Consistent with vim default autocomplete)
+imap <leader><C-p>   <Cmd>call codeium#CycleCompletions(-1)<CR>
 
 " Clear current suggestion
 imap <C-x>   <Cmd>call codeium#Clear()<CR>
