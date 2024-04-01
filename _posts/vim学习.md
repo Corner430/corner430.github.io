@@ -163,8 +163,14 @@ declare: true
 
 -----------------------------------
 ### 插件
-`mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged`
+```bash
+mkdir -p ~/.vim ~/.vim/autoload ~/.vim/backup ~/.vim/colors ~/.vim/plugged
 
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+- [vim-plug](https://github.com/junegunn/vim-plug)
 - [als 语法检查](https://github.com/dense-analysis/ale)
 - [nerdtree 文件树](https://gihtub.com/preservim/nerdtree)
 - [lightline 状态栏](https://github.com/itchyny/lightline.vim)
