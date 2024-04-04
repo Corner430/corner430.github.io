@@ -288,6 +288,12 @@ sudo apt install python3-dev libncurses5-dev
 
 make
 sudo make install
+
+// conda
+alias conda="~/miniconda3/bin/conda"
+alias condapip="~/miniconda3/envs/pytorch/bin/pip"
+alias condapip3="~/miniconda3/envs/pytorch/bin/pip3"
+alias condapython="~/miniconda3/envs/pytorch/bin/python"
 ```
 
 ----------------------------------------
