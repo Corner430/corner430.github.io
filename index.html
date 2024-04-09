@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:120k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:120.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -335,6 +335,103 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/05/14/paper/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-cpp-基础" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：244字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/">cpp 基础</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/" class="archive-article-date">
+  	<time datetime="2024-04-09T08:18:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-04-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <ol>
+<li>预处理：<code>gcc -E hello.c -o hello.i</code></li>
+<li>编译：<code>gcc -S hello.i -o hello.s</code></li>
+<li>汇编：<code>gcc -c hello.s hello.o</code> 得到二进制文件</li>
+<li>链接：<code>gcc hello -o hello</code>  得到可执行程序</li>
+</ol>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// &lt;stdio.h&gt; 在 /usr/include</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//C++中三目运算符返回的是变量,可以继续赋值</span></span><br><span class="line"> (a &gt; b ? a : b) = <span class="number">100</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// const修饰的是指针，指针指向可以改，指针指向的值不可以更改</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> *p1 = &amp;a;</span><br><span class="line">p1 = &amp;b; <span class="comment">// 正确</span></span><br><span class="line"><span class="comment">//*p1 = 100;  报错</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// const修饰的是常量，指针指向不可以改，指针指向的值可以更改</span></span><br><span class="line"><span class="type">int</span> *<span class="type">const</span> p2 = &amp;a;</span><br><span class="line"><span class="comment">// p2 = &amp;b; //错误</span></span><br><span class="line">*p2 = <span class="number">100</span>; <span class="comment">// 正确</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// const既修饰指针又修饰常量</span></span><br><span class="line"><span class="type">const</span> <span class="type">int</span> *<span class="type">const</span> p3 = &amp;a;</span><br><span class="line"><span class="comment">// p3 = &amp;b; //错误</span></span><br><span class="line"><span class="comment">//*p3 = 100; //错误</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//技巧：看const右侧紧跟着的是指针还是常量, 是指针就是常量指针，是常量就是指针常量</span></span><br></pre></td></tr></table></figure>
+
+<p>当数组名传入到函数作为参数时，被退化为指向首元素的指针</p>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/">展开全文 >></a>
         </p>
       
 
@@ -990,101 +1087,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/11/27/hexo-g-%E6%8A%A5%E9%94%99-expected-variable-end/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vscode-无法-debug-python-中-import-的函数" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：49字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/26/vscode-%E6%97%A0%E6%B3%95-debug-python-%E4%B8%AD-import-%E7%9A%84%E5%87%BD%E6%95%B0/">vscode 无法 debug python 中 import 的函数</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/11/26/vscode-%E6%97%A0%E6%B3%95-debug-python-%E4%B8%AD-import-%E7%9A%84%E5%87%BD%E6%95%B0/" class="archive-article-date">
-  	<time datetime="2023-11-26T13:02:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>找到当前项目的 .vscode&#x2F;launch.json 文件，修改配置项 “justMyCode”: false，即可。</p>
-        
-          <a class="article-more-a" href="/2023/11/26/vscode-%E6%97%A0%E6%B3%95-debug-python-%E4%B8%AD-import-%E7%9A%84%E5%87%BD%E6%95%B0/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">vscode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/11/26/vscode-%E6%97%A0%E6%B3%95-debug-python-%E4%B8%AD-import-%E7%9A%84%E5%87%BD%E6%95%B0/">展开全文 >></a>
         </p>
       
 
