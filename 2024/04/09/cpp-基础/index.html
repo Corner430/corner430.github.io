@@ -15,8 +15,6 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="1 C++ 基础 预处理：gcc -E hello.c -o hello.i 编译：gcc -S hello.i -o hello.s 汇编：gcc -c hello.s hello.o 得到二进制文件 链接：gcc hello -o hello 得到可执行程序  &lt;stdio.h&gt; 在 &#x2F;usr&#x2F;include">
 <meta property="og:locale" content="en_US">
-<meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545533548532.png">
-<meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545533829184.png">
 <meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1544861202252.png">
 <meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/clip_image002.png">
 <meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545881904150.png">
@@ -24,11 +22,11 @@
 <meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/clip_image002.jpg">
 <meta property="og:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545985945198.png">
 <meta property="article:published_time" content="2024-04-09T08:18:10.000Z">
-<meta property="article:modified_time" content="2024-04-11T08:45:57.958Z">
+<meta property="article:modified_time" content="2024-04-11T15:01:47.534Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545533548532.png">
+<meta name="twitter:image" content="http://corner430.github.io/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1544861202252.png">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
   
@@ -74,7 +72,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:137.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:137.7k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -171,7 +169,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：17.8k字 | 预计阅读时长：80分钟
+    		字数：17.7k字 | 预计阅读时长：79分钟
 	</div>
         
   
@@ -313,9 +311,11 @@
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="type">int</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b = <span class="number">10</span>, <span class="type">int</span> c = <span class="number">10</span>)</span> </span>&#123; <span class="keyword">return</span> a + b + c; &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 1. 如果某个位置参数有默认值，那么从这个位置往后，从左向右，必须都要有默认值</span></span><br><span class="line"><span class="comment">// 2. 如果函数声明有默认值，函数实现的时候就不能有默认参数</span></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">(<span class="type">int</span> a = <span class="number">10</span>, <span class="type">int</span> b = <span class="number">10</span>)</span></span>;</span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">func2</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span> b)</span> </span>&#123; <span class="keyword">return</span> a + b; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;ret = &quot;</span> &lt;&lt; <span class="built_in">func</span>(<span class="number">20</span>, <span class="number">20</span>) &lt;&lt; endl;</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;ret = &quot;</span> &lt;&lt; <span class="built_in">func</span>(<span class="number">100</span>) &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>函数声明和函数实现只能有一个可以有默认参数</p>
+</blockquote>
 <h3 id="2-4-2-函数占位参数"><a href="#2-4-2-函数占位参数" class="headerlink" title="2.4.2 函数占位参数"></a>2.4.2 函数占位参数</h3><p>C++中函数的形参列表里可以有占位参数，用来做占位，调用函数时必须填补该位置</p>
 <p><strong>语法：</strong> <code>返回值类型 函数名 (数据类型)&#123;&#125;</code></p>
-<p>在现阶段函数的占位参数存在意义不大，但是后面的课程中会用到该技术</p>
 <p><strong>示例：</strong></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 函数占位参数 ，占位参数也可以有默认参数</span></span><br><span class="line"><span class="function"><span class="type">void</span> <span class="title">func</span><span class="params">(<span class="type">int</span> a, <span class="type">int</span>)</span> </span>&#123; cout &lt;&lt; <span class="string">&quot;this is func&quot;</span> &lt;&lt; endl; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  <span class="built_in">func</span>(<span class="number">10</span>, <span class="number">10</span>); <span class="comment">// 占位参数必须填补</span></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -364,8 +364,8 @@
 <p>类在设计时，可以把属性和行为放在不同的权限下，加以控制</p>
 <p>访问权限有三种：</p>
 <ol>
-<li>public        公共权限  </li>
-<li>protected 保护权限</li>
+<li>public       公共权限</li>
+<li>protected    保护权限</li>
 <li>private      私有权限</li>
 </ol>
 <p><strong>示例：</strong></p>
@@ -374,8 +374,8 @@
 <h4 id="2-5-1-2-struct和class区别"><a href="#2-5-1-2-struct和class区别" class="headerlink" title="2.5.1.2 struct和class区别"></a>2.5.1.2 struct和class区别</h4><p>在C++中 <code>struct</code> 和 <code>class</code> 唯一的<strong>区别</strong>就在于 <strong>默认的访问权限不同</strong></p>
 <p>区别：</p>
 <ul>
-<li>struct 默认权限为公共</li>
-<li>class   默认权限为私有</li>
+<li><code>struct</code> 默认权限为公共</li>
+<li><code>class</code>  <strong>默认权限为 <code>private</code></strong></li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">C1</span> &#123;</span><br><span class="line">  <span class="type">int</span> m_A; <span class="comment">// 默认是私有权限</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">C2</span> &#123;</span><br><span class="line">  <span class="type">int</span> m_A; <span class="comment">// 默认是公共权限</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  C1 c1;</span><br><span class="line">  c1.m_A = <span class="number">10</span>; <span class="comment">// 错误，访问权限是私有</span></span><br><span class="line"></span><br><span class="line">  C2 c2;</span><br><span class="line">  c2.m_A = <span class="number">10</span>; <span class="comment">// 正确，访问权限是公共</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -384,14 +384,6 @@
 <p><strong>示例</strong>：</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Person</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">  <span class="comment">// 姓名设置可读可写</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">setName</span><span class="params">(string name)</span> </span>&#123; m_Name = name; &#125;</span><br><span class="line">  <span class="function">string <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> m_Name; &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 获取年龄</span></span><br><span class="line">  <span class="function"><span class="type">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123; <span class="keyword">return</span> m_Age; &#125;</span><br><span class="line">  <span class="comment">// 设置年龄</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">setAge</span><span class="params">(<span class="type">int</span> age)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (age &lt; <span class="number">0</span> || age &gt; <span class="number">150</span>) &#123;</span><br><span class="line">      cout &lt;&lt; <span class="string">&quot;你个老妖精!&quot;</span> &lt;&lt; endl;</span><br><span class="line">      <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    m_Age = age;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 情人设置为只写</span></span><br><span class="line">  <span class="function"><span class="type">void</span> <span class="title">setLover</span><span class="params">(string lover)</span> </span>&#123; m_Lover = lover; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">  string m_Name; <span class="comment">// 可读可写  姓名</span></span><br><span class="line"></span><br><span class="line">  <span class="type">int</span> m_Age; <span class="comment">// 只读  年龄</span></span><br><span class="line"></span><br><span class="line">  string m_Lover; <span class="comment">// 只写  情人</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="type">int</span> <span class="title">main</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  Person p;</span><br><span class="line">  <span class="comment">// 姓名设置</span></span><br><span class="line">  p.<span class="built_in">setName</span>(<span class="string">&quot;张三&quot;</span>);</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;姓名： &quot;</span> &lt;&lt; p.<span class="built_in">getName</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 年龄设置</span></span><br><span class="line">  p.<span class="built_in">setAge</span>(<span class="number">50</span>);</span><br><span class="line">  cout &lt;&lt; <span class="string">&quot;年龄： &quot;</span> &lt;&lt; p.<span class="built_in">getAge</span>() &lt;&lt; endl;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 情人设置</span></span><br><span class="line">  p.<span class="built_in">setLover</span>(<span class="string">&quot;苍井&quot;</span>);</span><br><span class="line">  <span class="comment">// cout &lt;&lt; &quot;情人： &quot; &lt;&lt; p.m_Lover &lt;&lt; endl;  //只写属性，不可以读取</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p><strong>练习案例1：设计立方体类</strong></p>
-<p>设计立方体类(Cube)</p>
-<p>求出立方体的面积和体积</p>
-<p>分别用全局函数和成员函数判断两个立方体是否相等。</p>
-<p><img src="/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545533548532.png" alt="1545533548532"></p>
-<p><strong>练习案例2：点和圆的关系</strong></p>
-<p>设计一个圆形类（Circle），和一个点类（Point），计算点和圆的关系。</p>
-<p><img src="/2024/04/09/cpp-%E5%9F%BA%E7%A1%80/1545533829184.png" alt="1545533829184"></p>
 <h3 id="2-5-2-对象的初始化和清理"><a href="#2-5-2-对象的初始化和清理" class="headerlink" title="2.5.2 对象的初始化和清理"></a>2.5.2 对象的初始化和清理</h3><ul>
 <li>生活中我们买的电子产品都基本会有出厂设置，在某一天我们不用时候也会删除一些自己信息数据保证安全</li>
 <li>C++中的面向对象来源于生活，每个对象也都会有初始设置以及 对象销毁前的清理数据的设置。</li>
