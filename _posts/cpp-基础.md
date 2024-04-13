@@ -2668,23 +2668,11 @@ int main() {
 
 重写：函数返回值类型  函数名 参数列表 完全一致称为重写
 
-
-
-
-
-
-
-
-
-#### 4.7.2 多态案例一-计算器类
-
-
+#### 2.5.7.2 多态案例一-计算器类
 
 案例描述：
 
 分别利用普通写法和多态技术，设计实现两个操作数进行运算的计算器类
-
-
 
 多态的优点：
 
@@ -2692,365 +2680,235 @@ int main() {
 * 可读性强
 * 利于前期和后期的扩展以及维护
 
-
-
 **示例：**
 
 ```C++
-//普通实现
+// 普通实现
 class Calculator {
 public:
-	int getResult(string oper)
-	{
-		if (oper == "+") {
-			return m_Num1 + m_Num2;
-		}
-		else if (oper == "-") {
-			return m_Num1 - m_Num2;
-		}
-		else if (oper == "*") {
-			return m_Num1 * m_Num2;
-		}
-		//如果要提供新的运算，需要修改源码
-	}
+  int getResult(string oper) {
+    if (oper == "+") {
+      return m_Num1 + m_Num2;
+    } else if (oper == "-") {
+      return m_Num1 - m_Num2;
+    } else if (oper == "*") {
+      return m_Num1 * m_Num2;
+    }
+    // 如果要提供新的运算，需要修改源码
+  }
+
 public:
-	int m_Num1;
-	int m_Num2;
+  int m_Num1;
+  int m_Num2;
 };
 
-void test01()
-{
-	//普通实现测试
-	Calculator c;
-	c.m_Num1 = 10;
-	c.m_Num2 = 10;
-	cout << c.m_Num1 << " + " << c.m_Num2 << " = " << c.getResult("+") << endl;
+void test01() {
+  // 普通实现测试
+  Calculator c;
+  c.m_Num1 = 10;
+  c.m_Num2 = 10;
+  cout << c.m_Num1 << " + " << c.m_Num2 << " = " << c.getResult("+") << endl;
 
-	cout << c.m_Num1 << " - " << c.m_Num2 << " = " << c.getResult("-") << endl;
+  cout << c.m_Num1 << " - " << c.m_Num2 << " = " << c.getResult("-") << endl;
 
-	cout << c.m_Num1 << " * " << c.m_Num2 << " = " << c.getResult("*") << endl;
+  cout << c.m_Num1 << " * " << c.m_Num2 << " = " << c.getResult("*") << endl;
 }
 
-
-
-//多态实现
-//抽象计算器类
-//多态优点：代码组织结构清晰，可读性强，利于前期和后期的扩展以及维护
-class AbstractCalculator
-{
-public :
-
-	virtual int getResult()
-	{
-		return 0;
-	}
-
-	int m_Num1;
-	int m_Num2;
-};
-
-//加法计算器
-class AddCalculator :public AbstractCalculator
-{
+// 多态实现
+// 抽象计算器类
+// 多态优点：代码组织结构清晰，可读性强，利于前期和后期的扩展以及维护
+class AbstractCalculator {
 public:
-	int getResult()
-	{
-		return m_Num1 + m_Num2;
-	}
+  virtual int getResult() { return 0; }
+
+  int m_Num1;
+  int m_Num2;
 };
 
-//减法计算器
-class SubCalculator :public AbstractCalculator
-{
+// 加法计算器
+class AddCalculator : public AbstractCalculator {
 public:
-	int getResult()
-	{
-		return m_Num1 - m_Num2;
-	}
+  int getResult() { return m_Num1 + m_Num2; }
 };
 
-//乘法计算器
-class MulCalculator :public AbstractCalculator
-{
+// 减法计算器
+class SubCalculator : public AbstractCalculator {
 public:
-	int getResult()
-	{
-		return m_Num1 * m_Num2;
-	}
+  int getResult() { return m_Num1 - m_Num2; }
 };
 
+// 乘法计算器
+class MulCalculator : public AbstractCalculator {
+public:
+  int getResult() { return m_Num1 * m_Num2; }
+};
 
-void test02()
-{
-	//创建加法计算器
-	AbstractCalculator *abc = new AddCalculator;
-	abc->m_Num1 = 10;
-	abc->m_Num2 = 10;
-	cout << abc->m_Num1 << " + " << abc->m_Num2 << " = " << abc->getResult() << endl;
-	delete abc;  //用完了记得销毁
+void test02() {
+  // 创建加法计算器
+  AbstractCalculator *abc = new AddCalculator;
+  abc->m_Num1 = 10;
+  abc->m_Num2 = 10;
+  cout << abc->m_Num1 << " + " << abc->m_Num2 << " = " << abc->getResult()
+       << endl;
+  delete abc; // 用完了记得销毁
 
-	//创建减法计算器
-	abc = new SubCalculator;
-	abc->m_Num1 = 10;
-	abc->m_Num2 = 10;
-	cout << abc->m_Num1 << " - " << abc->m_Num2 << " = " << abc->getResult() << endl;
-	delete abc;  
+  // 创建减法计算器
+  abc = new SubCalculator;
+  abc->m_Num1 = 10;
+  abc->m_Num2 = 10;
+  cout << abc->m_Num1 << " - " << abc->m_Num2 << " = " << abc->getResult()
+       << endl;
+  delete abc;
 
-	//创建乘法计算器
-	abc = new MulCalculator;
-	abc->m_Num1 = 10;
-	abc->m_Num2 = 10;
-	cout << abc->m_Num1 << " * " << abc->m_Num2 << " = " << abc->getResult() << endl;
-	delete abc;
+  // 创建乘法计算器
+  abc = new MulCalculator;
+  abc->m_Num1 = 10;
+  abc->m_Num2 = 10;
+  cout << abc->m_Num1 << " * " << abc->m_Num2 << " = " << abc->getResult()
+       << endl;
+  delete abc;
 }
 
 int main() {
+  // test01();
+  test02();
 
-	//test01();
-
-	test02();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
 > 总结：C++开发提倡利用多态设计程序架构，因为多态优点很多
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 4.7.3 纯虚函数和抽象类
-
-
+#### 2.5.7.3 纯虚函数和抽象类
 
 在多态中，通常父类中虚函数的实现是毫无意义的，主要都是调用子类重写的内容
 
-
-
 因此可以将虚函数改为**纯虚函数**
-
-
 
 纯虚函数语法：`virtual 返回值类型 函数名 （参数列表）= 0 ;`
 
-
-
-当类中有了纯虚函数，这个类也称为==抽象类==
-
-
+当类中有了纯虚函数，这个类也称为**抽象类**
 
 **抽象类特点**：
 
  * 无法实例化对象
  * 子类必须重写抽象类中的纯虚函数，否则也属于抽象类
 
-
-
-
-
 **示例：**
 
 ```C++
-class Base
-{
+class Base {
 public:
-	//纯虚函数
-	//类中只要有一个纯虚函数就称为抽象类
-	//抽象类无法实例化对象
-	//子类必须重写父类中的纯虚函数，否则也属于抽象类
-	virtual void func() = 0;
+  // 纯虚函数
+  // 类中只要有一个纯虚函数就称为抽象类
+  // 抽象类无法实例化对象
+  // 子类必须重写父类中的纯虚函数，否则也属于抽象类
+  virtual void func() = 0;
 };
 
-class Son :public Base
-{
+class Son : public Base {
 public:
-	virtual void func() 
-	{
-		cout << "func调用" << endl;
-	};
+  virtual void func() { cout << "func调用" << endl; };
 };
 
-void test01()
-{
-	Base * base = NULL;
-	//base = new Base; // 错误，抽象类无法实例化对象
-	base = new Son;
-	base->func();
-	delete base;//记得销毁
+void test01() {
+  Base *base = NULL;
+  // base = new Base; // 错误，抽象类无法实例化对象
+  base = new Son;
+  base->func();
+  delete base; // 记得销毁
 }
 
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 4.7.4 多态案例二-制作饮品
+#### 2.5.7.4 多态案例二-制作饮品
 
 **案例描述：**
 
 制作饮品的大致流程为：煮水 -  冲泡 - 倒入杯中 - 加入辅料
 
-
-
 利用多态技术实现本案例，提供抽象制作饮品基类，提供子类制作咖啡和茶叶
 
-
-
 ![1545985945198](assets/1545985945198.png)
-
-
 
 **示例：**
 
 ```C++
-//抽象制作饮品
+// 抽象制作饮品
 class AbstractDrinking {
 public:
-	//烧水
-	virtual void Boil() = 0;
-	//冲泡
-	virtual void Brew() = 0;
-	//倒入杯中
-	virtual void PourInCup() = 0;
-	//加入辅料
-	virtual void PutSomething() = 0;
-	//规定流程
-	void MakeDrink() {
-		Boil();
-		Brew();
-		PourInCup();
-		PutSomething();
-	}
+  // 烧水
+  virtual void Boil() = 0;
+  // 冲泡
+  virtual void Brew() = 0;
+  // 倒入杯中
+  virtual void PourInCup() = 0;
+  // 加入辅料
+  virtual void PutSomething() = 0;
+  // 规定流程
+  void MakeDrink() {
+    Boil();
+    Brew();
+    PourInCup();
+    PutSomething();
+  }
 };
 
-//制作咖啡
+// 制作咖啡
 class Coffee : public AbstractDrinking {
 public:
-	//烧水
-	virtual void Boil() {
-		cout << "煮农夫山泉!" << endl;
-	}
-	//冲泡
-	virtual void Brew() {
-		cout << "冲泡咖啡!" << endl;
-	}
-	//倒入杯中
-	virtual void PourInCup() {
-		cout << "将咖啡倒入杯中!" << endl;
-	}
-	//加入辅料
-	virtual void PutSomething() {
-		cout << "加入牛奶!" << endl;
-	}
+  // 烧水
+  virtual void Boil() { cout << "煮农夫山泉!" << endl; }
+  // 冲泡
+  virtual void Brew() { cout << "冲泡咖啡!" << endl; }
+  // 倒入杯中
+  virtual void PourInCup() { cout << "将咖啡倒入杯中!" << endl; }
+  // 加入辅料
+  virtual void PutSomething() { cout << "加入牛奶!" << endl; }
 };
 
-//制作茶水
+// 制作茶水
 class Tea : public AbstractDrinking {
 public:
-	//烧水
-	virtual void Boil() {
-		cout << "煮自来水!" << endl;
-	}
-	//冲泡
-	virtual void Brew() {
-		cout << "冲泡茶叶!" << endl;
-	}
-	//倒入杯中
-	virtual void PourInCup() {
-		cout << "将茶水倒入杯中!" << endl;
-	}
-	//加入辅料
-	virtual void PutSomething() {
-		cout << "加入枸杞!" << endl;
-	}
+  // 烧水
+  virtual void Boil() { cout << "煮自来水!" << endl; }
+  // 冲泡
+  virtual void Brew() { cout << "冲泡茶叶!" << endl; }
+  // 倒入杯中
+  virtual void PourInCup() { cout << "将茶水倒入杯中!" << endl; }
+  // 加入辅料
+  virtual void PutSomething() { cout << "加入枸杞!" << endl; }
 };
 
-//业务函数
-void DoWork(AbstractDrinking* drink) {
-	drink->MakeDrink();
-	delete drink;
+// 业务函数
+void DoWork(AbstractDrinking *drink) {
+  drink->MakeDrink();
+  delete drink;
 }
 
 void test01() {
-	DoWork(new Coffee);
-	cout << "--------------" << endl;
-	DoWork(new Tea);
+  DoWork(new Coffee);
+  cout << "--------------" << endl;
+  DoWork(new Tea);
 }
 
-
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 4.7.5 虚析构和纯虚析构
-
-
+#### 2.5.7.5 虚析构和纯虚析构
 
 多态使用时，如果子类中有属性开辟到堆区，那么父类指针在释放时无法调用到子类的析构代码
 
-
-
 解决方式：将父类中的析构函数改为**虚析构**或者**纯虚析构**
-
-
 
 虚析构和纯虚析构共性：
 
@@ -3061,125 +2919,84 @@ int main() {
 
 * 如果是纯虚析构，该类属于抽象类，无法实例化对象
 
-
-
-虚析构语法：
-
-`virtual ~类名(){}`
+虚析构语法：`virtual ~类名(){}`
 
 纯虚析构语法：
 
-` virtual ~类名() = 0;`
+```cpp
+virtual ~类名() = 0;
 
-`类名::~类名(){}`
-
-
+类名::~类名(){}
+```
 
 **示例：**
 
 ```C++
 class Animal {
 public:
+  Animal() { cout << "Animal 构造函数调用！" << endl; }
+  virtual void Speak() = 0;
 
-	Animal()
-	{
-		cout << "Animal 构造函数调用！" << endl;
-	}
-	virtual void Speak() = 0;
+  // 析构函数加上virtual关键字，变成虚析构函数
+  // virtual ~Animal()
+  //{
+  //	cout << "Animal虚析构函数调用！" << endl;
+  // }
 
-	//析构函数加上virtual关键字，变成虚析构函数
-	//virtual ~Animal()
-	//{
-	//	cout << "Animal虚析构函数调用！" << endl;
-	//}
-
-
-	virtual ~Animal() = 0;
+  virtual ~Animal() = 0;
 };
 
-Animal::~Animal()
-{
-	cout << "Animal 纯虚析构函数调用！" << endl;
-}
+Animal::~Animal() { cout << "Animal 纯虚析构函数调用！" << endl; }
 
-//和包含普通纯虚函数的类一样，包含了纯虚析构函数的类也是一个抽象类。不能够被实例化。
+// 和包含普通纯虚函数的类一样，包含了纯虚析构函数的类也是一个抽象类。不能够被实例化。
 
 class Cat : public Animal {
 public:
-	Cat(string name)
-	{
-		cout << "Cat构造函数调用！" << endl;
-		m_Name = new string(name);
-	}
-	virtual void Speak()
-	{
-		cout << *m_Name <<  "小猫在说话!" << endl;
-	}
-	~Cat()
-	{
-		cout << "Cat析构函数调用!" << endl;
-		if (this->m_Name != NULL) {
-			delete m_Name;
-			m_Name = NULL;
-		}
-	}
+  Cat(string name) {
+    cout << "Cat构造函数调用！" << endl;
+    m_Name = new string(name);
+  }
+  virtual void Speak() { cout << *m_Name << "小猫在说话!" << endl; }
+  ~Cat() {
+    cout << "Cat析构函数调用!" << endl;
+    if (this->m_Name != NULL) {
+      delete m_Name;
+      m_Name = NULL;
+    }
+  }
 
 public:
-	string *m_Name;
+  string *m_Name;
 };
 
-void test01()
-{
-	Animal *animal = new Cat("Tom");
-	animal->Speak();
+void test01() {
+  Animal *animal = new Cat("Tom");
+  animal->Speak();
 
-	//通过父类指针去释放，会导致子类对象可能清理不干净，造成内存泄漏
-	//怎么解决？给基类增加一个虚析构函数
-	//虚析构函数就是用来解决通过父类指针释放子类对象
-	delete animal;
+  // 通过父类指针去释放，会导致子类对象可能清理不干净，造成内存泄漏
+  // 怎么解决？给基类增加一个虚析构函数
+  // 虚析构函数就是用来解决通过父类指针释放子类对象
+  delete animal;
 }
 
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
-
-
 总结：
 
-​	1. 虚析构或纯虚析构就是用来解决通过父类指针释放子类对象
+1. 虚析构或纯虚析构就是用来解决通过父类指针释放子类对象
 
-​	2. 如果子类中没有堆区数据，可以不写为虚析构或纯虚析构
+2. 如果子类中没有堆区数据，可以不写为虚析构或纯虚析构
 
-​	3. 拥有纯虚析构函数的类也属于抽象类
+3. 拥有纯虚析构函数的类也属于抽象类
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 4.7.6 多态案例三-电脑组装
-
-
+#### 2.5.7.6 多态案例三-电脑组装
 
 **案例描述：**
-
-
 
 电脑主要组成部件为 CPU（用于计算），显卡（用于显示），内存条（用于存储）
 
@@ -3189,447 +3006,311 @@ int main() {
 
 测试时组装三台不同的电脑进行工作
 
-
-
-
-
 **示例：**
 
 ```C++
-#include<iostream>
+#include <iostream>
 using namespace std;
 
-//抽象CPU类
-class CPU
-{
+// 抽象CPU类
+class CPU {
 public:
-	//抽象的计算函数
-	virtual void calculate() = 0;
+  // 抽象的计算函数
+  virtual void calculate() = 0;
 };
 
-//抽象显卡类
-class VideoCard
-{
+// 抽象显卡类
+class VideoCard {
 public:
-	//抽象的显示函数
-	virtual void display() = 0;
+  // 抽象的显示函数
+  virtual void display() = 0;
 };
 
-//抽象内存条类
-class Memory
-{
+// 抽象内存条类
+class Memory {
 public:
-	//抽象的存储函数
-	virtual void storage() = 0;
+  // 抽象的存储函数
+  virtual void storage() = 0;
 };
 
-//电脑类
-class Computer
-{
+// 电脑类
+class Computer {
 public:
-	Computer(CPU * cpu, VideoCard * vc, Memory * mem)
-	{
-		m_cpu = cpu;
-		m_vc = vc;
-		m_mem = mem;
-	}
+  Computer(CPU *cpu, VideoCard *vc, Memory *mem) {
+    m_cpu = cpu;
+    m_vc = vc;
+    m_mem = mem;
+  }
 
-	//提供工作的函数
-	void work()
-	{
-		//让零件工作起来，调用接口
-		m_cpu->calculate();
+  // 提供工作的函数
+  void work() {
+    // 让零件工作起来，调用接口
+    m_cpu->calculate();
 
-		m_vc->display();
+    m_vc->display();
 
-		m_mem->storage();
-	}
+    m_mem->storage();
+  }
 
-	//提供析构函数 释放3个电脑零件
-	~Computer()
-	{
+  // 提供析构函数 释放3个电脑零件
+  ~Computer() {
 
-		//释放CPU零件
-		if (m_cpu != NULL)
-		{
-			delete m_cpu;
-			m_cpu = NULL;
-		}
+    // 释放CPU零件
+    if (m_cpu != NULL) {
+      delete m_cpu;
+      m_cpu = NULL;
+    }
 
-		//释放显卡零件
-		if (m_vc != NULL)
-		{
-			delete m_vc;
-			m_vc = NULL;
-		}
+    // 释放显卡零件
+    if (m_vc != NULL) {
+      delete m_vc;
+      m_vc = NULL;
+    }
 
-		//释放内存条零件
-		if (m_mem != NULL)
-		{
-			delete m_mem;
-			m_mem = NULL;
-		}
-	}
+    // 释放内存条零件
+    if (m_mem != NULL) {
+      delete m_mem;
+      m_mem = NULL;
+    }
+  }
 
 private:
-
-	CPU * m_cpu; //CPU的零件指针
-	VideoCard * m_vc; //显卡零件指针
-	Memory * m_mem; //内存条零件指针
+  CPU *m_cpu;      // CPU的零件指针
+  VideoCard *m_vc; // 显卡零件指针
+  Memory *m_mem;   // 内存条零件指针
 };
 
-//具体厂商
-//Intel厂商
-class IntelCPU :public CPU
-{
+// 具体厂商
+// Intel厂商
+class IntelCPU : public CPU {
 public:
-	virtual void calculate()
-	{
-		cout << "Intel的CPU开始计算了！" << endl;
-	}
+  virtual void calculate() { cout << "Intel的CPU开始计算了！" << endl; }
 };
 
-class IntelVideoCard :public VideoCard
-{
+class IntelVideoCard : public VideoCard {
 public:
-	virtual void display()
-	{
-		cout << "Intel的显卡开始显示了！" << endl;
-	}
+  virtual void display() { cout << "Intel的显卡开始显示了！" << endl; }
 };
 
-class IntelMemory :public Memory
-{
+class IntelMemory : public Memory {
 public:
-	virtual void storage()
-	{
-		cout << "Intel的内存条开始存储了！" << endl;
-	}
+  virtual void storage() { cout << "Intel的内存条开始存储了！" << endl; }
 };
 
-//Lenovo厂商
-class LenovoCPU :public CPU
-{
+// Lenovo厂商
+class LenovoCPU : public CPU {
 public:
-	virtual void calculate()
-	{
-		cout << "Lenovo的CPU开始计算了！" << endl;
-	}
+  virtual void calculate() { cout << "Lenovo的CPU开始计算了！" << endl; }
 };
 
-class LenovoVideoCard :public VideoCard
-{
+class LenovoVideoCard : public VideoCard {
 public:
-	virtual void display()
-	{
-		cout << "Lenovo的显卡开始显示了！" << endl;
-	}
+  virtual void display() { cout << "Lenovo的显卡开始显示了！" << endl; }
 };
 
-class LenovoMemory :public Memory
-{
+class LenovoMemory : public Memory {
 public:
-	virtual void storage()
-	{
-		cout << "Lenovo的内存条开始存储了！" << endl;
-	}
+  virtual void storage() { cout << "Lenovo的内存条开始存储了！" << endl; }
 };
 
+void test01() {
+  // 第一台电脑零件
+  CPU *intelCpu = new IntelCPU;
+  VideoCard *intelCard = new IntelVideoCard;
+  Memory *intelMem = new IntelMemory;
 
-void test01()
-{
-	//第一台电脑零件
-	CPU * intelCpu = new IntelCPU;
-	VideoCard * intelCard = new IntelVideoCard;
-	Memory * intelMem = new IntelMemory;
+  cout << "第一台电脑开始工作：" << endl;
+  // 创建第一台电脑
+  Computer *computer1 = new Computer(intelCpu, intelCard, intelMem);
+  computer1->work();
+  delete computer1;
 
-	cout << "第一台电脑开始工作：" << endl;
-	//创建第一台电脑
-	Computer * computer1 = new Computer(intelCpu, intelCard, intelMem);
-	computer1->work();
-	delete computer1;
+  cout << "-----------------------" << endl;
+  cout << "第二台电脑开始工作：" << endl;
+  // 第二台电脑组装
+  Computer *computer2 =
+      new Computer(new LenovoCPU, new LenovoVideoCard, new LenovoMemory);
+  ;
+  computer2->work();
+  delete computer2;
 
-	cout << "-----------------------" << endl;
-	cout << "第二台电脑开始工作：" << endl;
-	//第二台电脑组装
-	Computer * computer2 = new Computer(new LenovoCPU, new LenovoVideoCard, new LenovoMemory);;
-	computer2->work();
-	delete computer2;
-
-	cout << "-----------------------" << endl;
-	cout << "第三台电脑开始工作：" << endl;
-	//第三台电脑组装
-	Computer * computer3 = new Computer(new LenovoCPU, new IntelVideoCard, new LenovoMemory);;
-	computer3->work();
-	delete computer3;
-
+  cout << "-----------------------" << endl;
+  cout << "第三台电脑开始工作：" << endl;
+  // 第三台电脑组装
+  Computer *computer3 =
+      new Computer(new LenovoCPU, new IntelVideoCard, new LenovoMemory);
+  ;
+  computer3->work();
+  delete computer3;
 }
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-## 5 文件操作
-
-
+## 2.6 文件操作
 
 程序运行时产生的数据都属于临时数据，程序一旦运行结束都会被释放
 
 通过**文件可以将数据持久化**
 
-C++中对文件操作需要包含头文件 ==&lt; fstream &gt;==
-
-
+C++ 中对文件操作需要包含头文件 `<fstream>`
 
 文件类型分为两种：
 
 1. **文本文件**     -  文件以文本的**ASCII码**形式存储在计算机中
 2. **二进制文件** -  文件以文本的**二进制**形式存储在计算机中，用户一般不能直接读懂它们
 
-
-
 操作文件的三大类:
 
-1. ofstream：写操作
-2. ifstream： 读操作
-3. fstream ： 读写操作
+1. `ofstream`：写操作
+2. `ifstream`： 读操作
+3. `fstream `： 读写操作
 
+### 2.6.1文本文件
 
+#### 2.6.1.1写文件
 
-### 5.1文本文件
+写文件步骤如下：
 
-#### 5.1.1写文件
+1. 包含头文件 `#include <fstream>`
 
-   写文件步骤如下：
+2. 创建流对象 `ofstream ofs;`
 
-1. 包含头文件   
+3. 打开文件 `ofs.open("文件路径",打开方式);`
 
-     \#include <fstream\>
+4. 写数据 `ofs << "写入的数据";`
 
-2. 创建流对象  
-
-   ofstream ofs;
-
-3. 打开文件
-
-   ofs.open("文件路径",打开方式);
-
-4. 写数据
-
-   ofs << "写入的数据";
-
-5. 关闭文件
-
-   ofs.close();
-
-   ​
+5. 关闭文件 `ofs.close();`
 
 文件打开方式：
 
 | 打开方式    | 解释                       |
 | ----------- | -------------------------- |
-| ios::in     | 为读文件而打开文件         |
-| ios::out    | 为写文件而打开文件         |
-| ios::ate    | 初始位置：文件尾           |
-| ios::app    | 追加方式写文件             |
-| ios::trunc  | 如果文件存在先删除，再创建 |
-| ios::binary | 二进制方式                 |
+| `ios::in`     | 为读文件而打开文件         |
+| `ios::out`    | 为写文件而打开文件         |
+| `ios::ate`    | 初始位置：文件尾           |
+| `ios::app`    | 追加方式写文件             |
+| `ios::trunc`  | 如果文件存在先删除，再创建 |
+| `ios::binary` | 二进制方式                 |
 
-**注意：** 文件打开方式可以配合使用，利用|操作符
+**注意：** 文件打开方式可以配合使用，利用 `|` 操作符
 
 **例如：**用二进制方式写文件 `ios::binary |  ios:: out`
 
-
-
-
-
 **示例：**
 
 ```C++
 #include <fstream>
 
-void test01()
-{
-	ofstream ofs;
-	ofs.open("test.txt", ios::out);
+void test01() {
+  ofstream ofs;
+  ofs.open("test.txt", ios::out);
 
-	ofs << "姓名：张三" << endl;
-	ofs << "性别：男" << endl;
-	ofs << "年龄：18" << endl;
+  ofs << "姓名：张三" << endl;
+  ofs << "性别：男" << endl;
+  ofs << "年龄：18" << endl;
 
-	ofs.close();
+  ofs.close();
 }
 
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
 总结：
 
-* 文件操作必须包含头文件 fstream
-* 读文件可以利用 ofstream  ，或者fstream类
+* 文件操作必须包含头文件 `fstream`
+* 读文件可以利用 `ofstream`，或者 `fstream` 类
 * 打开文件时候需要指定操作文件的路径，以及打开方式
-* 利用<<可以向文件中写数据
+* 利用 `<<` 可以向文件中写数据
 * 操作完毕，要关闭文件
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 5.1.2读文件
-
-
+#### 2.6.1.2读文件
 
 读文件与写文件步骤相似，但是读取方式相对于比较多
 
-
-
 读文件步骤如下：
 
-1. 包含头文件   
+1. 包含头文件 `#include <fstream>`
 
-     \#include <fstream\>
+2. 创建流对象 `ifstream ifs;`
 
-2. 创建流对象  
+3. 打开文件并判断文件是否打开成功 `ifs.open("文件路径",打开方式);`
 
-   ifstream ifs;
+4. 读数据 `四种方式读取`
 
-3. 打开文件并判断文件是否打开成功
-
-   ifs.open("文件路径",打开方式);
-
-4. 读数据
-
-   四种方式读取
-
-5. 关闭文件
-
-   ifs.close();
-
-
+5. 关闭文件 `ifs.close();`
 
 **示例：**
 
 ```C++
 #include <fstream>
 #include <string>
-void test01()
-{
-	ifstream ifs;
-	ifs.open("test.txt", ios::in);
+void test01() {
+  ifstream ifs;
+  ifs.open("test.txt", ios::in);
 
-	if (!ifs.is_open())
-	{
-		cout << "文件打开失败" << endl;
-		return;
-	}
+  if (!ifs.is_open()) {
+    cout << "文件打开失败" << endl;
+    return;
+  }
 
-	//第一种方式
-	//char buf[1024] = { 0 };
-	//while (ifs >> buf)
-	//{
-	//	cout << buf << endl;
-	//}
+  // 第一种方式
+  // char buf[1024] = { 0 };
+  // while (ifs >> buf)
+  //{
+  //	cout << buf << endl;
+  // }
 
-	//第二种
-	//char buf[1024] = { 0 };
-	//while (ifs.getline(buf,sizeof(buf)))
-	//{
-	//	cout << buf << endl;
-	//}
+  // 第二种
+  // char buf[1024] = { 0 };
+  // while (ifs.getline(buf,sizeof(buf)))
+  //{
+  //	cout << buf << endl;
+  // }
 
-	//第三种
-	//string buf;
-	//while (getline(ifs, buf))
-	//{
-	//	cout << buf << endl;
-	//}
+  // 第三种
+  // string buf;
+  // while (getline(ifs, buf))
+  //{
+  //	cout << buf << endl;
+  // }
 
-	char c;
-	while ((c = ifs.get()) != EOF)
-	{
-		cout << c;
-	}
+  char c;
+  while ((c = ifs.get()) != EOF) {
+    cout << c;
+  }
 
-	ifs.close();
-
-
+  ifs.close();
 }
 
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
 总结：
 
-- 读文件可以利用 ifstream  ，或者fstream类
-- 利用is_open函数可以判断文件是否打开成功
-- close 关闭文件 
+- 读文件可以利用 `ifstream`，或者 `fstream` 类
+- 利用 `is_open` 函数可以判断文件是否打开成功
+- `close` 关闭文件 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 5.2 二进制文件
+### 2.6.2 二进制文件
 
 以二进制的方式对文件进行读写操作
 
-打开方式要指定为 ==ios::binary==
+打开方式要指定为 `ios::binary`
 
+#### 2.6.2.1 写文件
 
-
-#### 5.2.1 写文件
-
-二进制方式写文件主要利用流对象调用成员函数write
+二进制方式写文件主要利用流对象调用成员函数 `write`
 
 函数原型 ：`ostream& write(const char * buffer,int len);`
 
-参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数
-
-
+参数解释：字符指针 `buffer` 指向内存中一段存储空间。`len` 是读写的字节数
 
 **示例：**
 
@@ -3637,64 +3318,49 @@ int main() {
 #include <fstream>
 #include <string>
 
-class Person
-{
+class Person {
 public:
-	char m_Name[64];
-	int m_Age;
+  char m_Name[64];
+  int m_Age;
 };
 
-//二进制文件  写文件
-void test01()
-{
-	//1、包含头文件
+// 二进制文件  写文件
+void test01() {
+  // 1、包含头文件
 
-	//2、创建输出流对象
-	ofstream ofs("person.txt", ios::out | ios::binary);
-	
-	//3、打开文件
-	//ofs.open("person.txt", ios::out | ios::binary);
+  // 2、创建输出流对象
+  ofstream ofs("person.txt", ios::out | ios::binary);
 
-	Person p = {"张三"  , 18};
+  // 3、打开文件
+  // ofs.open("person.txt", ios::out | ios::binary);
 
-	//4、写文件
-	ofs.write((const char *)&p, sizeof(p));
+  Person p = {"张三", 18};
 
-	//5、关闭文件
-	ofs.close();
+  // 4、写文件
+  ofs.write((const char *)&p, sizeof(p));
+
+  // 5、关闭文件
+  ofs.close();
 }
 
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
 总结：
 
-* 文件输出流对象 可以通过write函数，以二进制方式写数据
+* 文件输出流对象 可以通过 `write` 函数，以二进制方式写数据
 
+#### 2.6.2.2 读文件
 
-
-
-
-
-
-
-
-
-
-#### 5.2.2 读文件
-
-二进制方式读文件主要利用流对象调用成员函数read
+二进制方式读文件主要利用流对象调用成员函数 `read`
 
 函数原型：`istream& read(char *buffer,int len);`
 
-参数解释：字符指针buffer指向内存中一段存储空间。len是读写的字节数
+参数解释：字符指针 `buffer` 指向内存中一段存储空间。`len` 是读写的字节数
 
 示例：
 
@@ -3702,38 +3368,29 @@ int main() {
 #include <fstream>
 #include <string>
 
-class Person
-{
+class Person {
 public:
-	char m_Name[64];
-	int m_Age;
+  char m_Name[64];
+  int m_Age;
 };
 
-void test01()
-{
-	ifstream ifs("person.txt", ios::in | ios::binary);
-	if (!ifs.is_open())
-	{
-		cout << "文件打开失败" << endl;
-	}
+void test01() {
+  ifstream ifs("person.txt", ios::in | ios::binary);
+  if (!ifs.is_open()) {
+    cout << "文件打开失败" << endl;
+  }
 
-	Person p;
-	ifs.read((char *)&p, sizeof(p));
+  Person p;
+  ifs.read((char *)&p, sizeof(p));
 
-	cout << "姓名： " << p.m_Name << " 年龄： " << p.m_Age << endl;
+  cout << "姓名： " << p.m_Name << " 年龄： " << p.m_Age << endl;
 }
 
 int main() {
+  test01();
 
-	test01();
-
-	system("pause");
-
-	return 0;
+  return 0;
 }
 ```
 
-
-
-- 文件输入流对象 可以通过read函数，以二进制方式读数据
-
+- 文件输入流对象 可以通过 `read` 函数，以二进制方式读数据
