@@ -5077,7 +5077,7 @@ int main() {
 
 **vector与普通数组区别：**
 
-* 不同之处在于数组是静态空间，而vector可以**动态扩展**
+* 不同之处在于数组是静态空间，而`vector`可以**动态扩展**
 
 **动态扩展：**
 
@@ -5085,20 +5085,20 @@ int main() {
 
 ![clip_image002](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/clip_image002.jpg)
 
-* vector容器的迭代器是支持随机访问的迭代器
+* `vector`容器的迭代器是支持随机访问的迭代器
 
 #### 3.3.2.2 vector构造函数
 
 **功能描述：**
 
-* 创建vector容器
+* 创建`vector`容器
 
 **函数原型：**
 
-* `vector<T> v; `               		     //采用模板实现类实现，默认构造函数
-* `vector(v.begin(), v.end());   `       //将v[begin(), end())区间中的元素拷贝给本身。
-* `vector(n, elem);`                            //构造函数将n个elem拷贝给本身。
-* `vector(const vector &vec);`         //拷贝构造函数。
+* `vector<T> v;`                      // 采用模板实现类实现，默认构造函数
+* `vector(v.begin(), v.end());`       // 将`v[begin(), end())`区间中的元素拷贝给本身。
+* `vector(n, elem);`                  // 构造函数将`n`个`elem`拷贝给本身。
+* `vector(const vector &vec);`        // 拷贝构造函数。
 
 **示例：**
 
@@ -5106,7 +5106,6 @@ int main() {
 #include <vector>
 
 void printVector(vector<int> &v) {
-
   for (vector<int>::iterator it = v.begin(); it != v.end(); it++) {
     cout << *it << " ";
   }
@@ -5136,20 +5135,19 @@ int main() {
 }
 ```
 
-**总结：**vector的多种构造方式没有可比性，灵活使用即可
+**总结：**`vector`的多种构造方式没有可比性，灵活使用即可
 
 #### 3.3.2.3 vector赋值操作
 
 **功能描述：**
 
-* 给vector容器进行赋值
+* 给`vector`容器进行赋值
 
 **函数原型：**
 
-* `vector& operator=(const vector &vec);`//重载等号操作符
-
-* `assign(beg, end);`       //将[beg, end)区间中的数据拷贝赋值给本身。
-* `assign(n, elem);`        //将n个elem拷贝赋值给本身。
+* `vector& operator=(const vector &vec);`  // 重载等号操作符
+* `assign(beg, end);`       // 将`[beg, end)`区间中的数据拷贝赋值给本身
+* `assign(n, elem);`        // 将`n`个`elem`拷贝赋值给本身
 
 **示例：**
 
@@ -5193,7 +5191,7 @@ int main() {
 
 总结： `vector`赋值方式比较简单，使用`operator=`，或者`assign`都可以
 
-#### 3.3.2.4  vector容量和大小
+#### 3.3.2.4 vector容量和大小
 
 **功能描述：**
 
@@ -5201,19 +5199,13 @@ int main() {
 
 **函数原型：**
 
-* `empty(); `                            //判断容器是否为空
-
-* `capacity();`                      //容器的容量
-
-* `size();`                              //返回容器中元素的个数
-
-* `resize(int num);`             //重新指定容器的长度为num，若容器变长，则以默认值填充新位置。
-
-  ​					      //如果容器变短，则末尾超出容器长度的元素被删除。
-
-* `resize(int num, elem);`  //重新指定容器的长度为num，若容器变长，则以elem值填充新位置。
-
-  ​				              //如果容器变短，则末尾超出容器长度的元素被删除
+* `empty();`                // 判断容器是否为空
+* `capacity();`             // 容器的容量
+* `size();`                 // 返回容器中元素的个数
+* `resize(int num);`        // 重新指定容器的长度为 `num`，若容器变长，则以默认值填充新位置。
+                            // 如果容器变短，则末尾超出容器长度的元素被删除。
+* `resize(int num, elem);`  // 重新指定容器的长度为 `num`，若容器变长，则以 `elem` 值填充新位置。
+                            // 如果容器变短，则末尾超出容器长度的元素被删除
 
 **示例：**
 
@@ -5237,7 +5229,7 @@ void test01() {
     cout << "v1为空" << endl;
   } else {
     cout << "v1不为空" << endl;
-    cout << "v1的容量 = " << v1.capacity() << endl;
+    cout << "v1的容量 = " << v1.capacity() << endl;   // 会比实际大小大
     cout << "v1的大小 = " << v1.size() << endl;
   }
 
@@ -5259,10 +5251,10 @@ int main() {
 
 总结：
 
-* 判断是否为空  --- `empty`
-* 返回元素个数  --- `size`
-* 返回容器容量  --- `capacity`
-* 重新指定大小  ---  `resize`
+* 判断是否为空 --- `empty`
+* 返回元素个数 --- `size`
+* 返回容器容量 --- `capacity`
+* 重新指定大小 ---  `resize`
 
 #### 3.3.2.5 vector插入和删除
 
@@ -5272,13 +5264,13 @@ int main() {
 
 **函数原型：**
 
-* `push_back(ele);`                                         //尾部插入元素ele
-* `pop_back();`                                                //删除最后一个元素
-* `insert(const_iterator pos, ele);`        //迭代器指向位置pos插入元素ele
-* `insert(const_iterator pos, int count,ele);`//迭代器指向位置pos插入count个元素ele
-* `erase(const_iterator pos);`                     //删除迭代器指向的元素
-* `erase(const_iterator start, const_iterator end);`//删除迭代器从start到end之间的元素
-* `clear();`                                                        //删除容器中所有元素
+* `push_back(ele);`                                   // 尾部插入元素 `ele`
+* `pop_back();`                                       // 删除最后一个元素
+* `insert(const_iterator pos, ele);`                  // 迭代器指向位置 `pos` 插入元素 `ele`
+* `insert(const_iterator pos, int count,ele);`        // 迭代器指向位置 `pos` 插入 `count` 个元素 `ele`
+* `erase(const_iterator pos);`                        // 删除迭代器指向的元素
+* `erase(const_iterator start, const_iterator end);`  // 删除迭代器从 `start` 到 `end` 之间的元素，`[)`
+* `clear();`                                          // 删除容器中所有元素
 
 **示例：**
 
@@ -5286,10 +5278,8 @@ int main() {
 #include <vector>
 
 void printVector(vector<int> &v) {
-
-  for (vector<int>::iterator it = v.begin(); it != v.end(); it++) {
+  for (vector<int>::iterator it = v.begin(); it != v.end(); it++)
     cout << *it << " ";
-  }
   cout << endl;
 }
 
@@ -5331,17 +5321,17 @@ int main() {
 
 总结：
 
-* 尾插  --- `push_back`
-* 尾删  --- `pop_back`
-* 插入  --- `insert`    (位置迭代器)
-* 删除  --- `erase`  （位置迭代器）
-* 清空  ---  `clear`  
+* 尾插 --- `push_back`
+* 尾删 --- `pop_back`
+* 插入 --- `insert`  (位置迭代器)
+* 删除 --- `erase`  （位置迭代器）
+* 清空 --- `clear`
 
 #### 3.3.2.6 vector数据存取
 
 **功能描述：**
 
-* 对vector中的数据的存取操作
+* 对 `vector` 中的数据的存取操作
 
 **函数原型：**
 
@@ -5444,6 +5434,7 @@ void test02() {
   cout << "v的大小为：" << v.size() << endl;
 
   // 收缩内存
+  // vector<int>(v) 使用拷贝构造来定义一个匿名对象
   vector<int>(v).swap(v); // 匿名对象
 
   cout << "v的容量为：" << v.capacity() << endl;
@@ -5457,17 +5448,17 @@ int main() {
 }
 ```
 
-总结：`swap`可以使两个容器互换，可以达到实用的收缩内存效果
+总结：`swap`可以使两个容器互换，可以达到实用的**收缩内存**效果
 
 #### 3.3.2.8 vector预留空间
 
 **功能描述：**
 
-* 减少vector在动态扩展容量时的扩展次数
+* 减少`vector`在动态扩展容量时的扩展次数
 
 **函数原型：**
 
-* `reserve(int len);`//容器预留len个元素长度，预留位置不初始化，元素不可访问。
+* `reserve(int len);` // 容器预留 `len` 个元素长度，预留位置不初始化，元素不可访问。
 
 **示例：**
 
@@ -5478,12 +5469,12 @@ void test01() {
   vector<int> v;
 
   // 预留空间
-  v.reserve(100000);
+  v.reserve(100000);  // 注释掉这行代码，可以查看开辟了多少次空间
 
   int num = 0;
   int *p = NULL;
   for (int i = 0; i < 100000; i++) {
-    v.push_back(i);
+    v.push_back(i); // 仍然可以用 push_back
     if (p != &v[0]) {
       p = &v[0];
       num++;
@@ -5511,27 +5502,27 @@ int main() {
 
 **deque与vector区别：**
 
-* vector对于头部的插入删除效率低，数据量越大，效率越低
-* deque相对而言，对头部的插入删除速度回比vector快
-* vector访问元素时的速度会比deque快,这和两者内部实现有关
+* `vector`对于头部的插入删除效率低，数据量越大，效率越低
+* `deque`相对而言，对头部的插入删除速度回比`vector`快
+* `vector`访问元素时的速度会比`deque`快,这和两者内部实现有关
 
-![说明: 2015-11-19_204101](assets/clip_image002-1547547642923.jpg)
+![clip_image002-1547547642923](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/clip_image002-1547547642923.jpg)
 
-deque内部工作原理:
+`deque`内部工作原理:
 
-deque内部有个**中控器**，维护每段缓冲区中的内容，缓冲区中存放真实数据
+`deque`内部有个**中控器**，维护每段缓冲区中的内容，缓冲区中存放真实数据
 
-中控器维护的是每个缓冲区的地址，使得使用deque时像一片连续的内存空间
+中控器维护的是每个缓冲区的地址，使得使用`deque`时像一片连续的内存空间
 
-![clip_image002-1547547896341](assets/clip_image002-1547547896341.jpg)
+![clip_image002-1547547896341](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/clip_image002-1547547896341.jpg)
 
-* deque容器的迭代器也是支持随机访问的
+* `deque`容器的迭代器也是支持随机访问的
 
 #### 3.3.3.2 deque构造函数
 
 **功能描述：**
 
-* deque容器构造
+* `deque`容器构造
 
 **函数原型：**
 
