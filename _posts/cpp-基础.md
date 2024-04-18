@@ -3465,7 +3465,7 @@ int main() {
 
 注意事项：
 
-* 自动类型推导，必须推导出一致的数据类型T,才可以使用
+* 自动类型推导，必须推导出一致的数据类型 `T`,才可以使用
 
 * 模板必须要确定出 `T` 的数据类型，才可以使用
 
@@ -3612,7 +3612,7 @@ int main() {
 }
 ```
 
-总结：建议使用显示指定类型的方式，调用函数模板，因为可以自己确定通用类型 `T`
+总结：**建议使用显示指定类型的方式**，调用函数模板，因为可以自己确定通用类型 `T`
 
 #### 3.1.2.5 普通函数与函数模板的调用规则
 
@@ -3673,7 +3673,8 @@ int main() {
 **例如：**
 
 ```C++
-template <class T> void f(T a, T b) { a = b; }
+template <class T>
+void f(T a, T b) { a = b; }
 ```
 
 在上述代码中提供的赋值操作，如果传入的a和b是一个数组，就无法实现了
@@ -3719,7 +3720,7 @@ template <class T> bool myCompare(T &a, T &b) {
   }
 }
 
-// 具体化，显示具体化的原型和定意思以template<>开头，并通过名称来指出类型
+// 具体化，显示具体化的原型以 template<> 开头，并通过名称来指出类型
 // 具体化优先于常规模板
 template <> bool myCompare(Person &p1, Person &p2) {
   if (p1.m_Name == p2.m_Name && p1.m_Age == p2.m_Age) {
@@ -3777,7 +3778,8 @@ int main() {
 **语法：** 
 
 ```c++
-template <typename T> 类
+template <typename T>
+类
 ```
 
 **解释：**
@@ -3820,73 +3822,59 @@ int main() {
 }
 ```
 
-总结：类模板和函数模板语法相似，在声明模板`template`后面加类，此类称为类模板
+总结：类模板和函数模板语法相似，在声明模板 `template` 后面加类，此类称为类模板
 
 #### 3.1.3.2 类模板与函数模板区别
 
-
-
 类模板与函数模板区别主要有两点：
 
-1. 类模板没有自动类型推导的使用方式
+1. 类模板**没有自动类型推导的使用方式**
 2. 类模板在模板参数列表中可以有默认参数
-
-
-
 
 **示例：**
 
 ```C++
 #include <string>
-//类模板
-template<class NameType, class AgeType = int> 
-class Person
-{
+// 类模板
+template <class NameType, class AgeType = int> class Person {
 public:
-	Person(NameType name, AgeType age)
-	{
-		this->mName = name;
-		this->mAge = age;
-	}
-	void showPerson()
-	{
-		cout << "name: " << this->mName << " age: " << this->mAge << endl;
-	}
+  Person(NameType name, AgeType age) {
+    this->mName = name;
+    this->mAge = age;
+  }
+  void showPerson() {
+    cout << "name: " << this->mName << " age: " << this->mAge << endl;
+  }
+
 public:
-	NameType mName;
-	AgeType mAge;
+  NameType mName;
+  AgeType mAge;
 };
 
-//1、类模板没有自动类型推导的使用方式
-void test01()
-{
-	// Person p("孙悟空", 1000); // 错误 类模板使用时候，不可以用自动类型推导
-	Person <string ,int>p("孙悟空", 1000); //必须使用显示指定类型的方式，使用类模板
-	p.showPerson();
+// 1、类模板没有自动类型推导的使用方式
+void test01() {
+  // Person p("孙悟空", 1000); // 错误 类模板使用时候，不可以用自动类型推导
+  Person<string, int> p("孙悟空",
+                        1000); // 必须使用显示指定类型的方式，使用类模板
+  p.showPerson();
 }
 
-//2、类模板在模板参数列表中可以有默认参数
-void test02()
-{
-	Person <string> p("猪八戒", 999); //类模板中的模板参数列表 可以指定默认参数
-	p.showPerson();
+// 2、类模板在模板参数列表中可以有默认参数
+void test02() {
+  Person<string> p("猪八戒", 999); // 类模板中的模板参数列表 可以指定默认参数
+  p.showPerson();
 }
 
 int main() {
-
-	test01();
-
-	test02();
-
-	system("pause");
-
-	return 0;
+  test01();
+  test02();
+  return 0;
 }
 ```
 
 总结：
 
-* 类模板使用只能用显示指定类型方式
+* 类模板使用**只能用显示**指定类型方式
 * 类模板中的模板参数列表可以有默认参数
 
 #### 3.1.3.3 类模板中成员函数创建时机
@@ -3943,9 +3931,9 @@ int main() {
 
 一共有三种传入方式：
 
-1. 指定传入的类型   --- 直接显示对象的数据类型
-2. 参数模板化           --- 将对象中的参数变为模板进行传递
-3. 整个类模板化       --- 将这个对象类型 模板化进行传递
+1. 指定传入的类型 --- 直接显示对象的数据类型
+2. 参数模板化 --- 将对象中的参数变为模板进行传递
+3. 整个类模板化 --- 将这个对象类型 模板化进行传递
 
 **示例：**
 
@@ -4006,15 +3994,15 @@ int main() {
 总结：
 
 * 通过类模板创建的对象，可以有三种方式向函数中进行传参
-* 使用比较广泛是第一种：指定传入的类型
+* 使用比较**广泛是第一种：指定传入的类型**
 
 #### 3.1.3.5 类模板与继承
 
-当类模板碰到继承时，需要注意一下几点：
+当类模板碰到继承时，需要注意以下几点：
 
-* 当子类继承的父类是一个类模板时，子类在声明的时候，要指定出父类中`T`的类型
+* 当子类继承的父类是一个类模板时，子类在声明的时候，要指定出父类中 `T` 的类型
 * 如果不指定，编译器无法给子类分配内存
-* 如果想灵活指定出父类中`T`的类型，子类也需变为类模板
+* 如果想灵活指定出父类中 `T` 的类型，子类也需变为类模板
 
 **示例：**
 
@@ -4047,7 +4035,7 @@ int main() {
 }
 ```
 
-总结：如果父类是类模板，子类需要指定出父类中`T`的数据类型
+总结：如果父类是类模板，子类需要指定出父类中 `T` 的数据类型
 
 #### 3.1.3.6 类模板成员函数类外实现
 
@@ -4230,7 +4218,7 @@ int main() {
 }
 ```
 
-总结：建议全局函数做类内实现，用法简单，而且编译器可以直接识别
+总结：**建议全局函数做类内实现**，用法简单，而且编译器可以直接识别
 
 #### 3.1.3.9 类模板案例
 
@@ -4239,7 +4227,7 @@ int main() {
 * 可以对内置数据类型以及自定义数据类型的数据进行存储
 * 将数组中的数据存储到堆区
 * 构造函数中可以传入数组的容量
-* 提供对应的拷贝构造函数以及`operator=`防止浅拷贝问题
+* 提供对应的拷贝构造函数以及 `operator=` 防止浅拷贝问题
 * 提供尾插法和尾删法对数组中的数据进行增加和删除
 * 可以通过下标的方式访问数组中的元素
 * 可以获取数组中当前元素个数和数组的容量
@@ -4375,7 +4363,7 @@ void test01() {
 // 测试自定义数据类型
 class Person {
 public:
-  Person() {}
+  Person() {} // 空构造， new 的时候会调用
   Person(string name, int age) {
     this->m_Name = name;
     this->m_Age = age;
@@ -4485,7 +4473,7 @@ STL**容器**就是将运用**最广泛的一些数据结构**实现出来
 
 每个容器都有自己专属的迭代器
 
-迭代器使用非常类似于指针，初学阶段我们可以先理解迭代器为指针
+**迭代器使用非常类似于指针，初学阶段我们可以先理解迭代器为指针**
 
 迭代器种类：
 
@@ -4497,27 +4485,33 @@ STL**容器**就是将运用**最广泛的一些数据结构**实现出来
 | 双向迭代器     | 读写操作，并能向前和向后操作                             | 读写，支持++、--，                      |
 | 随机访问迭代器 | 读写操作，可以以跳跃的方式访问任意数据，功能最强的迭代器 | 读写，支持++、--、[n]、-n、<、<=、>、>= |
 
-常用的容器中迭代器种类为双向迭代器，和随机访问迭代器
+**常用的容器中迭代器种类为双向迭代器，和随机访问迭代器**
 
 ### 3.2.5 容器算法迭代器初识
 
-了解STL中容器、算法、迭代器概念之后，我们利用代码感受STL的魅力
+了解 STL 中容器、算法、迭代器概念之后，我们利用代码感受 STL 的魅力
 
 STL中最常用的容器为Vector，可以理解为数组，下面我们将学习如何向这个容器中插入数据、并遍历这个容器
 
 #### 3.2.5.1 vector存放内置数据类型
 
-容器：     `vector`
+容器：`vector`
 
-算法：     `for_each`
+算法：`for_each`
 
-迭代器： `vector<int>::iterator`
+迭代器：`vector<int>::iterator`
 
 **示例：**
 
 ```C++
 #include <algorithm>
 #include <vector>
+
+
+// class MyPrint {
+// public:
+//   void operator()(int val) { cout << val << endl; }
+// };
 
 void MyPrint(int val) { cout << val << endl; }
 
@@ -4554,6 +4548,9 @@ void test01() {
   // 第三种遍历方式：
   // 使用STL提供标准遍历算法  头文件 algorithm
   for_each(v.begin(), v.end(), MyPrint);
+  
+  // 仿函数
+  // for_each(v.begin(), v.end(), MyPrint());
 }
 
 int main() {
@@ -4699,24 +4696,24 @@ int main() {
 **string和char * 区别：**
 
 * `char *` 是一个指针
-* string 是一个类，类内部封装了char\*，管理这个字符串，是一个`char*`型的容器。
+* `string` 是一个类，类内部封装了`char*`，管理这个字符串，是一个`char*`型的容器。
 
 **特点：**
 
-string 类内部封装了很多成员方法
+`string` 类内部封装了很多成员方法
 
 例如：查找`find`，拷贝`copy`，删除`delete` 替换`replace`，插入`insert`
 
-string管理char*所分配的内存，不用担心复制越界和取值越界等，由类内部进行负责
+`string` 管理 `char*` 所分配的内存，不用担心复制越界和取值越界等，由类内部进行负责
 
 #### 3.3.1.2 string构造函数
 
 构造函数原型：
 
-* `string();`             //创建一个空的字符串 例如: string str;
-  `string(const char* s);`        //使用字符串s初始化
-* `string(const string& str);`    //使用一个string对象初始化另一个string对象
-* `string(int n, char c);`           //使用n个字符c初始化 
+* `string();`   //创建一个空的字符串 例如: `string str`;
+* `string(const char* s);`    //使用字符串 `s` 初始化
+* `string(const string& str);`   //使用一个 `string` 对象初始化另一个 `string` 对象
+* `string(int n, char c);`  //使用 `n` 个字符 `c` 初始化 
 
 **示例：**
 
@@ -4745,13 +4742,13 @@ int main() {
 }
 ```
 
-总结：string的多种构造方式没有可比性，灵活使用即可
+总结：`string` 的多种构造方式没有可比性，灵活使用即可
 
 #### 3.3.1.3 string赋值操作
 
 功能描述：
 
-* 给string字符串进行赋值
+* 给 `string` 字符串进行赋值
 
 赋值的函数原型：
 
@@ -4805,7 +4802,7 @@ int main() {
 
 总结：
 
-  ​string的赋值方式很多，`operator=`  这种方式是比较实用的
+  `​string`的赋值方式很多，`operator=` 这种方式是比较实用的
 
 #### 3.3.1.4 string字符串拼接
 
@@ -4815,13 +4812,13 @@ int main() {
 
 **函数原型：**
 
-* `string& operator+=(const char* str);`                   //重载+=操作符
-* `string& operator+=(const char c);`                         //重载+=操作符
-* `string& operator+=(const string& str);`                //重载+=操作符
-* `string& append(const char *s); `                               //把字符串s连接到当前字符串结尾
-* `string& append(const char *s, int n);`                 //把字符串s的前n个字符连接到当前字符串结尾
-* `string& append(const string &s);`                           //同operator+=(const string& str)
-* `string& append(const string &s, int pos, int n);`//字符串s中从pos开始的n个字符连接到字符串结尾
+* `string& operator+=(const char* str);`                 // 重载 `+=` 操作符
+* `string& operator+=(const char c);`                    // 重载 `+=` 操作符
+* `string& operator+=(const string& str);`               // 重载 `+=` 操作符
+* `string& append(const char *s); `                      // 把字符串 `s` 连接到当前字符串结尾
+* `string& append(const char *s, int n);`                // 把字符串 `s` 的前 `n` 个字符连接到当前字符串结尾
+* `string& append(const string &s);`                     // 同 `operator+=(const string& str)`
+* `string& append(const string &s, int pos, int n);`     // 字符串 `s` 中从 `pos` 开始的 `n` 个字符连接到字符串结尾
 
 **示例：**
 
@@ -4868,16 +4865,16 @@ int main() {
 
 **函数原型：**
 
-* `int find(const string& str, int pos = 0) const;`              //查找str第一次出现位置,从pos开始查找
-* `int find(const char* s, int pos = 0) const; `                     //查找s第一次出现位置,从pos开始查找
-* `int find(const char* s, int pos, int n) const; `               //从pos位置查找s的前n个字符第一次位置
-* `int find(const char c, int pos = 0) const; `                       //查找字符c第一次出现位置
-* `int rfind(const string& str, int pos = npos) const;`      //查找str最后一次位置,从pos开始查找
-* `int rfind(const char* s, int pos = npos) const;`              //查找s最后一次出现位置,从pos开始查找
-* `int rfind(const char* s, int pos, int n) const;`              //从pos查找s的前n个字符最后一次位置
-* `int rfind(const char c, int pos = 0) const;  `                      //查找字符c最后一次出现位置
-* `string& replace(int pos, int n, const string& str); `       //替换从pos开始n个字符为字符串str
-* `string& replace(int pos, int n,const char* s); `                 //替换从pos开始的n个字符为字符串s
+* `int find(const string& str, int pos = 0) const;`             // 查找 `str` 第一次出现位置，从 `pos` 开始查找
+* `int find(const char* s, int pos = 0) const;`                 // 查找 `s` 第一次出现位置，从 `pos` 开始查找
+* `int find(const char* s, int pos, int n) const;`              // 从 `pos` 位置查找 `s` 的前 `n` 个字符第一次位置
+* `int find(const char c, int pos = 0) const;`                  // 查找字符 `c` 第一次出现位置
+* `int rfind(const string& str, int pos = npos) const;`         // 查找 `str` 最后一次位置，从 `pos` 开始查找
+* `int rfind(const char* s, int pos = npos) const;`             // 查找 `s` 最后一次出现位置，从 `pos` 开始查找
+* `int rfind(const char* s, int pos, int n) const;`             // 从 `pos` 查找 `s` 的前 `n` 个字符最后一次位置
+* `int rfind(const char c, int pos = 0) const;`                 // 查找字符 `c` 最后一次出现位置
+* `string& replace(int pos, int n, const string& str);`         // 替换从 `pos` 开始 `n` 个字符为字符串 `str`
+* `string& replace(int pos, int n,const char* s);`              // 替换从 `pos` 开始的 `n` 个字符为字符串 `s`
 
 **示例：**
 
@@ -4930,17 +4927,14 @@ int main() {
 **比较方式：**
 
 * 字符串比较是按字符的ASCII码进行对比
-
-`=` 返回   `0`
-
-`>` 返回   `1`
-
-`<` 返回  `-1`
+  * `=` 返回 `0`
+  * `>` 返回 `1`
+  * `<` 返回 `-1`
 
 **函数原型：**
 
-* `int compare(const string &s) const; `  //与字符串s比较
-* `int compare(const char *s) const;`      //与字符串s比较
+* `int compare(const string &s) const;`    //与字符串 `s` 比较
+* `int compare(const char *s) const;`      //与字符串 `s` 比较
 
 **示例：**
 
@@ -4973,8 +4967,8 @@ int main() {
 
 string中单个字符存取方式有两种
 
-* `char& operator[](int n);`     //通过[]方式取字符
-* `char& at(int n);`                    //通过at方法获取字符
+* `char& operator[](int n);`     // 通过 `[]` 方式取字符
+* `char& at(int n);`             // 通过 `at` 方法获取字符
 
 **示例：**
 
@@ -5004,20 +4998,20 @@ int main() {
 }
 ```
 
-总结：string字符串中单个字符存取有两种方式，利用 `[ ]` 或 `at`
+总结：`string`字符串中单个字符存取有两种方式，利用 `[ ]` 或 `at`
 
 #### 3.1.8 string插入和删除
 
 **功能描述：**
 
-* 对string字符串进行插入和删除字符操作
+* 对`string`字符串进行插入和删除字符操作
 
 **函数原型：**
 
-* `string& insert(int pos, const char* s);  `                //插入字符串
-* `string& insert(int pos, const string& str); `        //插入字符串
-* `string& insert(int pos, int n, char c);`                //在指定位置插入n个字符c
-* `string& erase(int pos, int n = npos);`                    //删除从Pos开始的n个字符 
+* `string& insert(int pos, const char* s);`         // 插入字符串
+* `string& insert(int pos, const string& str);`     // 插入字符串
+* `string& insert(int pos, int n, char c);`         // 在指定位置插入 `n` 个字符 `c`
+* `string& erase(int pos, int n = npos);`           // 删除从 `Pos` 开始的 `n` 个字符 
 
 **示例：**
 
@@ -5048,14 +5042,13 @@ int main() {
 
 **函数原型：**
 
-* `string substr(int pos = 0, int n = npos) const;`   //返回由pos开始的n个字符组成的字符串
+* `string substr(int pos = 0, int n = npos) const;`   //返回由 `pos` 开始的 `n` 个字符组成的字符串
 
 **示例：**
 
 ```C++
 // 子串
 void test01() {
-
   string str = "abcdefg";
   string subStr = str.substr(1, 3);
   cout << "subStr = " << subStr << endl;
@@ -5090,7 +5083,7 @@ int main() {
 
 * 并不是在原空间之后续接新空间，而是找更大的内存空间，然后将原数据拷贝新空间，释放原空间
 
-![说明: 2015-11-10_151152](assets/clip_image002.jpg)
+![clip_image002](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/clip_image002.jpg)
 
 * vector容器的迭代器是支持随机访问的迭代器
 
@@ -7049,7 +7042,7 @@ int main() {
 
 
 
-### 3.8 set/ multiset 容器
+### 3.8 set/multiset 容器
 
 #### 3.8.1 set基本概念
 
@@ -8321,11 +8314,11 @@ int main() {
 
 
 
-## 4 STL- 函数对象
+## 3.4 STL- 函数对象
 
-### 4.1 函数对象
+### 3.4.1 函数对象
 
-#### 4.1.1 函数对象概念
+#### 3.4.1.1 函数对象概念
 
 **概念：**
 
@@ -8340,7 +8333,7 @@ int main() {
 
 
 
-#### 4.1.2  函数对象使用
+#### 3.4.1.2  函数对象使用
 
 **特点：**
 
@@ -8426,35 +8419,17 @@ int main() {
 
 * 仿函数写法非常灵活，可以作为参数进行传递。
 
+### 3.4.2  谓词
 
-
-
-
-
-
-
-
-
-
-
-
-### 4.2  谓词
-
-#### 4.2.1 谓词概念
-
-
+#### 3.4.2.1 谓词概念
 
 **概念：**
 
-* 返回bool类型的仿函数称为**谓词**
-* 如果operator()接受一个参数，那么叫做一元谓词
-* 如果operator()接受两个参数，那么叫做二元谓词
+* 返回 `bool` 类型的仿函数称为**谓词**
+* 如果 `operator()` 接受一个参数，那么叫做一元谓词
+* 如果 `operator()` 接受两个参数，那么叫做二元谓词
 
-
-
-
-
-#### 4.2.2 一元谓词
+#### 3.4.2.2 一元谓词
 
 **示例：**
 
@@ -8509,7 +8484,7 @@ int main() {
 
 
 
-#### 4.2.3 二元谓词
+#### 3.4.2.3 二元谓词
 
 **示例：**
 
@@ -8565,31 +8540,13 @@ int main() {
 
 总结：参数只有两个的谓词，称为二元谓词
 
+### 3.4.3 内建函数对象
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-### 4.3 内建函数对象
-
-#### 4.3.1 内建函数对象意义
+#### 3.4.3.1 内建函数对象意义
 
 **概念：**
 
 * STL内建了一些函数对象
-
-
 
 **分类:**
 
@@ -8604,31 +8561,21 @@ int main() {
 * 这些仿函数所产生的对象，用法和一般函数完全相同
 * 使用内建函数对象，需要引入头文件 `#include<functional>`
 
-
-
-
-
-
-
 #### 4.3.2 算术仿函数
 
 **功能描述：**
 
 * 实现四则运算
-* 其中negate是一元运算，其他都是二元运算
-
-
+* 其中 `negate` 是一元运算，其他都是二元运算
 
 **仿函数原型：**
 
-* `template<class T> T plus<T>`                //加法仿函数
-* `template<class T> T minus<T>`              //减法仿函数
+* `template<class T> T plus<T>`          //加法仿函数
+* `template<class T> T minus<T>`         //减法仿函数
 * `template<class T> T multiplies<T>`    //乘法仿函数
-* `template<class T> T divides<T>`         //除法仿函数
-* `template<class T> T modulus<T>`         //取模仿函数
-* `template<class T> T negate<T>`           //取反仿函数
-
-
+* `template<class T> T divides<T>`       //除法仿函数
+* `template<class T> T modulus<T>`       //取模仿函数
+* `template<class T> T negate<T>`        //取反仿函数
 
 **示例：**
 
@@ -8649,44 +8596,28 @@ void test02()
 }
 
 int main() {
-
 	test01();
 	test02();
-
-	system("pause");
-
 	return 0;
 }
 ```
 
 总结：使用内建函数对象时，需要引入头文件 `#include <functional>`
 
-
-
-
-
-
-
-
-
-#### 4.3.3 关系仿函数
+#### 3.4.3.3 关系仿函数
 
 **功能描述：**
 
 - 实现关系对比
 
-
-
 **仿函数原型：**
 
-* `template<class T> bool equal_to<T>`                    //等于
+* `template<class T> bool equal_to<T>`                //等于
 * `template<class T> bool not_equal_to<T>`            //不等于
-* `template<class T> bool greater<T>`                      //大于
-* `template<class T> bool greater_equal<T>`          //大于等于
-* `template<class T> bool less<T>`                           //小于
-* `template<class T> bool less_equal<T>`               //小于等于
-
-
+* `template<class T> bool greater<T>`                 //大于
+* `template<class T> bool greater_equal<T>`           //大于等于
+* `template<class T> bool less<T>`                    //小于
+* `template<class T> bool less_equal<T>`              //小于等于
 
 **示例：**
 
@@ -8730,26 +8661,12 @@ void test01()
 }
 
 int main() {
-
 	test01();
-
-	system("pause");
-
 	return 0;
 }
 ```
 
-总结：关系仿函数中最常用的就是greater<>大于
-
-
-
-
-
-
-
-
-
-
+总结：关系仿函数中最常用的就是 `greater<>` 大于
 
 #### 4.3.4 逻辑仿函数
 
@@ -8757,15 +8674,11 @@ int main() {
 
 - 实现逻辑运算
 
-
-
 **函数原型：**
 
 * `template<class T> bool logical_and<T>`              //逻辑与
-* `template<class T> bool logical_or<T>`                //逻辑或
+* `template<class T> bool logical_or<T>`               //逻辑或
 * `template<class T> bool logical_not<T>`              //逻辑非
-
-
 
 **示例：**
 
@@ -8810,29 +8723,15 @@ int main() {
 
 总结：逻辑仿函数实际应用较少，了解即可
 
-
-
-
-
-
-
 ## 5 STL- 常用算法
-
-
 
 **概述**:
 
 * 算法主要是由头文件`<algorithm>` `<functional>` `<numeric>`组成。
 
-
-
 * `<algorithm>`是所有STL头文件中最大的一个，范围涉及到比较、 交换、查找、遍历操作、复制、修改等等
 * `<numeric>`体积很小，只包括几个在序列上面进行简单数学运算的模板函数
 * `<functional>`定义了一些模板类,用以声明函数对象。
-
-
-
-
 
 ### 5.1 常用遍历算法
 
@@ -8840,16 +8739,10 @@ int main() {
 
 * 掌握常用的遍历算法
 
-
-
 **算法简介：**
 
 * `for_each`     //遍历容器
 * `transform`   //搬运容器到另一个容器中
-
-
-
-
 
 #### 5.1.1 for_each
 
@@ -8859,17 +8752,15 @@ int main() {
 
 **函数原型：**
 
-* `for_each(iterator beg, iterator end, _func);  `
+* `for_each(iterator beg, iterator end, _func);`
 
   // 遍历算法 遍历容器元素
 
-  // beg 开始迭代器
+  // `beg` 开始迭代器
 
-  // end 结束迭代器
+  // `end` 结束迭代器
 
-  // _func 函数或者函数对象
-
-
+  // `_func` 函数或者函数对象
 
 **示例：**
 
@@ -8919,17 +8810,9 @@ int main() {
 }
 ```
 
-**总结：**for_each在实际开发中是最常用遍历算法，需要熟练掌握
+**总结：**`for_each`在实际开发中是最常用遍历算法，需要熟练掌握
 
-
-
-
-
-
-
-
-
-#### 5.1.2 transform
+#### 3.5.1.2 transform
 
 **功能描述：**
 
@@ -8946,8 +8829,6 @@ int main() {
 //beg2 目标容器开始迭代器
 
 //_func 函数或者函数对象
-
-
 
 **示例：**
 
@@ -8994,22 +8875,12 @@ void test01()
 }
 
 int main() {
-
 	test01();
-
-	system("pause");
-
 	return 0;
 }
 ```
 
 **总结：** 搬运的目标容器必须要提前开辟空间，否则无法正常搬运
-
-
-
-
-
-
 
 ### 5.2 常用查找算法
 
@@ -9017,29 +8888,20 @@ int main() {
 
 - 掌握常用的查找算法
 
-
-
-
-
 **算法简介：**
 
-- `find`                     //查找元素
-- `find_if`               //按条件查找元素
+- `find`             //查找元素
+- `find_if`          //按条件查找元素
 - `adjacent_find`    //查找相邻重复元素
 - `binary_search`    //二分查找法
-- `count`                   //统计元素个数
-- `count_if`             //按条件统计元素个数
-
-
-
+- `count`            //统计元素个数
+- `count_if`         //按条件统计元素个数
 
 #### 5.2.1 find
 
 **功能描述：**
 
-* 查找指定元素，找到返回指定元素的迭代器，找不到返回结束迭代器end()
-
-
+* 查找指定元素，找到返回指定元素的迭代器，找不到返回结束迭代器 `end()`
 
 **函数原型：**
 
@@ -9052,10 +8914,6 @@ int main() {
   // end 结束迭代器
 
   // value 查找的元素
-
-
-
-
 
 **示例：**
 
@@ -9130,19 +8988,7 @@ void test02() {
 }
 ```
 
-总结： 利用find可以在容器中找指定的元素，返回值是**迭代器**
-
-
-
-
-
-
-
-
-
-
-
-
+总结： 利用 `find` 可以在容器中找指定的元素，返回值是**迭代器**
 
 #### 5.2.2 find_if
 
@@ -9152,17 +8998,15 @@ void test02() {
 
 **函数原型：**
 
-- `find_if(iterator beg, iterator end, _Pred);  `
+- `find_if(iterator beg, iterator end, _Pred);`
 
   // 按值查找元素，找到返回指定位置迭代器，找不到返回结束迭代器位置
 
-  // beg 开始迭代器
+  // `beg` 开始迭代器
 
-  // end 结束迭代器
+  // `end` 结束迭代器
 
-  // _Pred 函数或者谓词（返回bool类型的仿函数）
-
-
+  // `_Pred` 函数或者谓词（返回`bool`类型的仿函数）
 
 **示例：**
 
@@ -9247,32 +9091,13 @@ void test02() {
 }
 
 int main() {
-
 	//test01();
-
 	test02();
-
-	system("pause");
-
 	return 0;
 }
 ```
 
-总结：find_if按条件查找使查找更加灵活，提供的仿函数可以改变不同的策略
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+总结：`find_if` 按条件查找使查找更加灵活，提供的仿函数可以改变不同的策略
 
 #### 5.2.3 adjacent_find
 
@@ -9280,21 +9105,15 @@ int main() {
 
 * 查找相邻重复元素
 
-
-
 **函数原型：**
 
 - `adjacent_find(iterator beg, iterator end);  `
 
   // 查找相邻重复元素,返回相邻元素的第一个位置的迭代器
 
-  // beg 开始迭代器
+  // `beg` 开始迭代器
 
-  // end 结束迭代器
-
-  ​
-
-
+  // `end` 结束迭代器
 
 **示例：**
 
@@ -9324,23 +9143,13 @@ void test01()
 }
 ```
 
-总结：面试题中如果出现查找相邻重复元素，记得用STL中的adjacent_find算法
-
-
-
-
-
-
-
-
+总结：面试题中如果出现查找相邻重复元素，记得用STL中的`adjacent_find`算法
 
 #### 5.2.4 binary_search
 
 **功能描述：**
 
 * 查找指定元素是否存在
-
-
 
 **函数原型：**
 
@@ -9355,10 +9164,6 @@ void test01()
   // end 结束迭代器
 
   // value 查找的元素
-
-
-
-
 
 **示例：**
 
@@ -9387,36 +9192,22 @@ void test01()
 }
 
 int main() {
-
 	test01();
-
-	system("pause");
-
 	return 0;
 }
 ```
 
 **总结：**二分查找法查找效率很高，值得注意的是查找的容器中元素必须的有序序列
 
-
-
-
-
-
-
-
-
-#### 5.2.5 count
+#### 3.5.2.5 count
 
 **功能描述：**
 
 * 统计元素个数
 
-
-
 **函数原型：**
 
-- `count(iterator beg, iterator end, value);  `
+- `count(iterator beg, iterator end, value);`
 
   // 统计元素出现次数
 
@@ -9425,10 +9216,6 @@ int main() {
   // end 结束迭代器
 
   // value 统计的元素
-
-
-
-
 
 **示例：**
 
@@ -9499,36 +9286,15 @@ void test02()
 	cout << "num = " << num << endl;
 }
 int main() {
-
 	//test01();
-
 	test02();
-
-	system("pause");
-
 	return 0;
 }
 ```
 
 **总结：** 统计自定义数据类型时候，需要配合重载 `operator==`
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### 5.2.6 count_if
+#### 3.5.2.6 count_if
 
 **功能描述：**
 
@@ -9536,7 +9302,7 @@ int main() {
 
 **函数原型：**
 
-- `count_if(iterator beg, iterator end, _Pred);  `
+- `count_if(iterator beg, iterator end, _Pred);`
 
   // 按条件统计元素出现次数
 
@@ -9545,8 +9311,6 @@ int main() {
   // end 结束迭代器
 
   // _Pred 谓词
-
-  ​
 
 **示例：**
 
@@ -9636,18 +9400,6 @@ int main() {
 ```
 
 **总结：**按值统计用count，按条件统计用count_if
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### 5.3 常用排序算法
 
