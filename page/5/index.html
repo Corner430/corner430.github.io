@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:158.2k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:158.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -1007,7 +1007,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：186字 | 预计阅读时长：1分钟
+    		字数：184字 | 预计阅读时长：1分钟
 	</div>
         
   
@@ -1029,7 +1029,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <ul>
-<li>在Windows中创建一个vbs脚本文件，例如wsl.vbs，该文件包含以下内容：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Set ws = CreateObject(&quot;Wscript.Shell&quot;)</span><br><span class="line">ws.run &quot;wsl -d &lt;distribution_name&gt;&quot;, 0</span><br></pre></td></tr></table></figure>
+<li>在Windows中创建一个vbs脚本文件，例如wsl.vbs，该文件包含以下内容：<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ws = CreateObject(&quot;Wscript.Shell&quot;).run &quot;wsl -d &lt;distribution_name&gt;&quot;, 0</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>其中，<code>&lt;distribution_name&gt;</code>是您的WSL发行版的名称。例如，如果您的发行版名称为Ubuntu，则应将其替换为Ubuntu。<br><code>0</code>是一个常量，它指示在调用Shell函数时，所调用程序的窗口样式是隐藏的。0表示隐藏窗口，1表示正常窗口，2表示最小化窗口。</p>
 </blockquote>
