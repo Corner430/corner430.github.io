@@ -53,6 +53,26 @@ unproxy () {
 }
 ```
 
+### 镜像网络（方案三）
+```.wslconfig
+# Settings apply across all Linux distros running on WSL 2
+[wsl2]
+
+# vmIdleTimeout = -1
+# autoMemoryReclaim = gradual
+
+networkingMode = bridged
+
+vmSwitch = "Hyper Switch"
+
+# networkingMode = mirrored
+# dnsTunneling = true
+# autoProxy = true
+```
+
+参见 [WSL 中的高级设置配置](https://learn.microsoft.com/zh-cn/windows/wsl/wsl-config#wslconfig)
+
+
 ### Reference
 
 [WSL配置Proxy代理引导](https://halc.top/p/6088c65c)
