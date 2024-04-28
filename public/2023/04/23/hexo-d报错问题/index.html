@@ -66,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:149.9k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:78.8k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -193,7 +193,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="hexo-d-和-ssh-T-git-github-com报错原因，代理冲突，22端口冲突。解决方案："><a href="#hexo-d-和-ssh-T-git-github-com报错原因，代理冲突，22端口冲突。解决方案：" class="headerlink" title="hexo d 和 ssh -T git@github.com报错原因，代理冲突，22端口冲突。解决方案："></a><code>hexo d</code> 和 <code>ssh -T git@github.com</code>报错<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">kex_exchange_identification: Connection closed by remote host Connection closed by 20.205.243.166 port 22</span><br></pre></td></tr></table></figure><br><span id="more"></span><br>原因，代理冲突，22端口冲突。<br>解决方案：<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.ssh/config</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">添加如下内容</span></span><br><span class="line">HostName ssh.github.com</span><br><span class="line">Port 443</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">或者添加如下内容</span></span><br><span class="line">Host github.com</span><br><span class="line">HostName ssh.github.com</span><br><span class="line">User git</span><br><span class="line">Port 443</span><br></pre></td></tr></table></figure></h2><blockquote>
-<p>方式一是为了直接连接到 GitHub 的 SSH 服务器（ssh.github.com）而使用的。<strong>它将覆盖默认的 SSH 配置</strong>，并指定了 GitHub 的主机名和端口号。这种方式可以通过简单地运行 ssh <a href="mailto:&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;">&#103;&#105;&#x74;&#64;&#103;&#x69;&#116;&#104;&#117;&#98;&#46;&#x63;&#111;&#x6d;</a> 来连接到 GitHub。</p>
+<p>方式一是为了直接连接到 GitHub 的 SSH 服务器（ssh.github.com）而使用的。<strong>它将覆盖默认的 SSH 配置</strong>，并指定了 GitHub 的主机名和端口号。这种方式可以通过简单地运行 ssh <a href="mailto:&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#99;&#111;&#109;">&#x67;&#105;&#116;&#64;&#x67;&#x69;&#116;&#104;&#117;&#98;&#46;&#99;&#111;&#109;</a> 来连接到 GitHub。</p>
 </blockquote>
 <blockquote>
 <p>方式二使用了 SSH 的别名（Alias）功能，它定义了一个名为 github.com 的主机别名，实际连接的是 ssh.github.com。这样做的好处是可以通过运行 ssh github.com 来连接到 GitHub，而不需要指定完整的主机名和用户。它还指定了连接时使用的用户名为 git（应该改成自己的用户名），并将端口号设置为 443。</p>
