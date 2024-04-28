@@ -106,24 +106,6 @@ sudo systemctl restart docker
 - `docker export <container_id> -o <container_name>.tar`: 将容器保存为压缩文件。
 - `docker import <container_name>.tar <image_name:tag>`: 从压缩文件导入容器。
 
-## 2.5 docker compose 相关命令
-- `docker compose up`: 启动容器组。
-- `docker compose down`: 停止并删除容器组。
-- `docker compose ps`: 列出容器组中的容器状态。
-- `docker compose logs`: 查看容器组中所有容器的日志。
-- `docker compose -f <docker_compose_name>.yml up -d`: 启动容器组。
-- `docker compose -f <docker_compose_name>.yml down`: 停止并删除容器组。
-- `docker compose -f <docker_compose_name>.yml ps`: 列出容器组中的容器状态。
-- `docker compose -f <docker_compose_name>.yml logs`: 查看容器组中所有容器的日志。
-- `docker compose -f <docker_compose_name>.yml exec <container_id> bash`: 进入容器组中的某个容器。
-- `docker compose -f <docker_compose_name>.yml exec -d <container_id> bash -c "echo 'Hello World!' > /root/hello.txt"`: 在容器组中的某个容器中执行命令。
-- `docker compose -f <docker_compose_name>.yml stop`: 停止容器组中的所有容器。
-- `docker compose -f <docker_compose_name>.yml start`: 启动容器组中的所有容器。
-- `docker compose -f <docker_compose_name>.yml restart`: 重启容器组中的所有容器。
-- `docker compose -f <docker_compose_name>.yml rm`: 删除容器组中的所有容器。
-- `docker compose -f <docker_compose_name>.yml stop <container_id>`: 停止容器组中的某个容器。
-- `docker compose -f <docker_compose_name>.yml start <container_id>`: 启动容器组中的某个容器。
-
 # 3 Docker 容器的数据卷
 ## 3.1 数据卷的概念和作用
 
@@ -204,78 +186,6 @@ mysql
 - 进入容器：`docker exec -it c_mysql /bin/bash`
 
 - 连接 MySQL：`mysql -uroot -p123456`
-
-## 4.2 Nginx 部署
-
-在 Docker 容器中部署 Nginx，并通过外部机器访问 Nginx
-
-```bash
-docker pull nginx
-
-mkdir -p ~/nginx/conf
-cd ~/nginx/conf
-
-# 在 ~/nginx/conf 目录下创建 nginx.conf 配置文件，粘贴下面内容
-vim nginx.conf
-```
-
-```nginx.conf
-user nginx;
-worker_processes 1;
-
-error_log /var/log/nginx/error.log warn;
-pid /var/run/nginx.pid;
-
-events {
-   worker_connections 1024;
-}
-
-http {
-   include /etc/nginx/mime.types;
-   default_type application/octet-stream;
-
-   log_format main '$remote_addr - $remote_user [$time_local] "$request" '
-                   '$status $body_bytes_sent "$http_referer" '
-                   '"$http_user_agent" "$http_x_forwarded_for"';
-   
-   access_log /var/log/nginx/access.log main;
-
-   sendfile on;
-   #tcp_nopush on;
-
-   keepalive_timeout 65;
-
-   #gzip on;
-
-   include /etc/nginx/conf.d/*.conf;
-}
-```
-
-```bash
-docker run -id --name=c_nginx \
--p 80:80 \
--v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf \
--v $PWD/logs:/var/log/nginx \
--v $PWD/html:/usr/share/nginx/html \
-nginx
-```
-
-- 参数说明：
-   - `-p 80:80`：将容器的 80 端口映射到主机的 80 端口。
-   - `-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf`：将主机的 `nginx.conf` 文件挂载到容器的 `/etc/nginx/nginx.conf` 文件。**配置目录**
-   - `-v $PWD/logs:/var/log/nginx`：将主机的 `logs` 目录挂载到容器的 `/var/log/nginx` 目录。**日志目录**
-
-- 访问 Nginx：`http://localhost`
-
-## 4.3 Redis 部署
-```bash
-docker pull redis
-
-docker run -id --name=c_redis -p 6379:6379 redis
-
-# 使用外部机器连接 redis
-./redis-cli -h ip -p 6379
-```
 
 # 5 DockerFile
 
@@ -597,4 +507,3 @@ docker push 私有仓库服务器ip:5000/centos:7
 # 从私有仓库拉取镜像
 docker pull 私有仓库服务器ip:5000/centos:7
 ```
-
