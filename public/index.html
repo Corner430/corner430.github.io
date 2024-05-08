@@ -364,6 +364,164 @@
 
 
   
+    <article id="post-ssh设置禁用密码登录，仅密钥验证" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：40字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/05/08/ssh%E8%AE%BE%E7%BD%AE%E7%A6%81%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%EF%BC%8C%E4%BB%85%E5%AF%86%E9%92%A5%E9%AA%8C%E8%AF%81/">ssh设置禁用密码登录，仅密钥验证</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2024/05/08/ssh%E8%AE%BE%E7%BD%AE%E7%A6%81%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%EF%BC%8C%E4%BB%85%E5%AF%86%E9%92%A5%E9%AA%8C%E8%AF%81/" class="archive-article-date">
+  	<time datetime="2024-05-08T14:13:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">修改配置文件</span></span><br><span class="line">vim /etc/ssh/sshd_config</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">内容如下</span></span><br><span class="line">PasswordAuthentication no</span><br><span class="line">ChallengeResponseAuthentication no</span><br><span class="line">UsePAM no</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">重启服务</span></span><br><span class="line">systemctl restart sshd</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2024/05/08/ssh%E8%AE%BE%E7%BD%AE%E7%A6%81%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%EF%BC%8C%E4%BB%85%E5%AF%86%E9%92%A5%E9%AA%8C%E8%AF%81/#more">more >></a>
+        
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/05/08/ssh%E8%AE%BE%E7%BD%AE%E7%A6%81%E7%94%A8%E5%AF%86%E7%A0%81%E7%99%BB%E5%BD%95%EF%BC%8C%E4%BB%85%E5%AF%86%E9%92%A5%E9%AA%8C%E8%AF%81/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-mac-windows共享ssh公私钥" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+	<div align="center" class="post-count">
+    		字数：22字 | 预计阅读时长：1分钟
+	</div>
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2024/05/08/mac-windows%E5%85%B1%E4%BA%ABssh%E5%85%AC%E7%A7%81%E9%92%A5/">mac-windows共享ssh公私钥</a>
+    </h1>
+  
+
+        <!--显示阅读次数-->
+        
+        <!--显示阅读次数完毕-->
+        
+        <a href="/2024/05/08/mac-windows%E5%85%B1%E4%BA%ABssh%E5%85%AC%E7%A7%81%E9%92%A5/" class="archive-article-date">
+  	<time datetime="2024-05-08T14:11:54.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2024-05-08</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>复制公私钥，之后通过 <code>ssh-add --apple-use-keychain ~/.ssh/id_rsa</code> 导入私钥即可</p>
+
+      
+	
+
+        <!-- 增加版权声明 -->
+
+
+
+  <div class="declare" hidden="hidden"></div>
+
+
+<!-- 增加版权声明结束 -->
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2024/05/08/mac-windows%E5%85%B1%E4%BA%ABssh%E5%85%AC%E7%A7%81%E9%92%A5/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-vscode-colab" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -932,257 +1090,6 @@
 
 
   
-    <article id="post-清空输入缓冲区" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：343字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/16/%E6%B8%85%E7%A9%BA%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA/">清空输入缓冲区</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/11/16/%E6%B8%85%E7%A9%BA%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA/" class="archive-article-date">
-  	<time datetime="2023-11-16T14:56:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在C语言中，<code>fflush(stdin)</code> 和 <code>rewind(stdin)</code> 主要用于清空输入缓冲区。然而，它们并不是标准C的一部分，因此在不同的编译器和平台上可能表现不同。</p>
-        
-          <a class="article-more-a" href="/2023/11/16/%E6%B8%85%E7%A9%BA%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA/#more">more >></a>
-        
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">C/C++</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/11/16/%E6%B8%85%E7%A9%BA%E8%BE%93%E5%85%A5%E7%BC%93%E5%86%B2%E5%8C%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-all-in-one-装机" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-	<div align="center" class="post-count">
-    		字数：187字 | 预计阅读时长：1分钟
-	</div>
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/11/09/all-in-one-%E8%A3%85%E6%9C%BA/">all in one 装机</a>
-    </h1>
-  
-
-        <!--显示阅读次数-->
-        
-        <!--显示阅读次数完毕-->
-        
-        <a href="/2023/11/09/all-in-one-%E8%A3%85%E6%9C%BA/" class="archive-article-date">
-  	<time datetime="2023-11-09T15:34:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-11-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <table>
-<thead>
-<tr>
-<th align="center">配件</th>
-<th align="center">价格</th>
-<th align="center">备注</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">E5-2643 v4</td>
-<td align="center">￥ 150</td>
-<td align="center">超出135-140 不买</td>
-</tr>
-<tr>
-<td align="center">精粤 JY-X99M-H D4</td>
-<td align="center">￥ 220</td>
-<td align="center"></td>
-</tr>
-<tr>
-<td align="center">ECC 32G DDR4 2400 * 2</td>
-<td align="center">￥ 406</td>
-<td align="center">拼多多406，淘宝460，2133 淘宝仅 362 元</td>
-</tr>
-<tr>
-<td align="center">ECC 16G DDR4 2133 * 2</td>
-<td align="center">￥ 172</td>
-<td align="center">淘宝镁光，2R比4R好</td>
-</tr>
-<tr>
-<td align="center">RX 5600 XT 6G</td>
-<td align="center">￥ 655</td>
-<td align="center">TUF版本</td>
-</tr>
-<tr>
-<td align="center">RX 580 8G 2048</td>
-<td align="center">￥ 308</td>
-<td align="center">蓝宝石或迪兰，否则和X99平台冲突</td>
-</tr>
-<tr>
-<td align="center">M.2 1T NVMe</td>
-<td align="center">￥ 299</td>
-<td align="center">威刚s20</td>
-</tr>
-<tr>
-<td align="center">4 铜管散热器</td>
-<td align="center">￥ 33.3</td>
-<td align="center">拼多多 冰蝶</td>
-</tr>
-<tr>
-<td align="center">长城额定 500W</td>
-<td align="center">￥ 128</td>
-<td align="center">神威 6000(SW)</td>
-</tr>
-<tr>
-<td align="center">机箱 航嘉暗夜猎手5</td>
-<td align="center">￥ 83.7</td>
-<td align="center">拼多多</td>
-</tr>
-<tr>
-<td align="center">机箱风扇 * 3</td>
-<td align="center">￥ 12.74</td>
-<td align="center">拼多多</td>
-</tr>
-<tr>
-<td align="center">合计</td>
-<td align="center">￥ 1408.74&#x2F;1642.74&#x2F;1989.74</td>
-<td align="center"></td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>主机装 windows11 打游戏和办公，wsl 24小时不停，Hyper-V 运行 NAS 和 Ubuntu Server。再加上 安卓子系统，五系统并行不关机。</p>
-</blockquote>
-
-      
-	
-
-        <!-- 增加版权声明 -->
-
-
-
-  <div class="declare" hidden="hidden"></div>
-
-
-<!-- 增加版权声明结束 -->
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DIY</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/11/09/all-in-one-%E8%A3%85%E6%9C%BA/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
@@ -1352,15 +1259,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wsl</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jupyter notebook</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1420,15 +1327,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hosts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">raw.githubusercontent.com</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1456,15 +1363,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">emoji</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gdb</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">emoji</a>
               </li>
              
               <li class="article-tag-list-item">
