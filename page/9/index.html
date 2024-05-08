@@ -60,7 +60,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:57.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:56k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -736,7 +736,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.3k字 | 预计阅读时长：10分钟
+    		字数：468字 | 预计阅读时长：2分钟
 	</div>
         
   
@@ -757,11 +757,38 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h3><ul>
-<li><p>在<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">官方github</a>下载对应版本</p></li></ul>
-        
-          <a class="article-more-a" href="/2023/04/03/Intranet-penetration/#more">more >></a>
-        
+        <h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><p><strong><code>frps.ini</code> 示例</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">token = meng123456（密码可以自己修改）</span><br><span class="line">dashboard_port = 7500(网页登录端口)</span><br><span class="line">dashboard_user = meng（网页登录帐号）</span><br><span class="line">dashboard_pwd = meng123456（网页登录密码）</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 10443</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行查看结果</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">frps -c frps.ini</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line"></span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:130] frps tcp listen on 0.0.0.0:7000</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:172] http service listen on 0.0.0.0:10080</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:193] https service listen on 0.0.0.0:10443</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:216] Dashboard listen on 0.0.0.0:7500</span><br><span class="line">2019/01/12 15:22:39 [I] [root.go:210] Start frps success</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-frpc"><a href="#1-2-frpc" class="headerlink" title="1.2 frpc"></a>1.2 frpc</h3><p><strong><code>frpc.ini</code> 示例</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 1.1.1.1</span><br><span class="line">server_port = 7000</span><br><span class="line">token= password</span><br><span class="line"></span><br><span class="line">[RDP]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line">remote_port = 7001</span><br><span class="line"></span><br><span class="line">[VNC]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 5900</span><br><span class="line">remote_port = 7002</span><br><span class="line"></span><br><span class="line">[SMB]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 445</span><br><span class="line">remote_port = 7003</span><br></pre></td></tr></table></figure>
+
+<p><strong>执行查看结果</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line">2019/01/12 16:14:56 [I] [service.go:205] login to server success, get run id [2b65b4e58a5917ac], server udp port [0]</span><br><span class="line">2019/01/12 16:14:56 [I] [proxy_manager.go:136] [2b65b4e58a5917ac] proxy added: [rdp smb]</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [smb] start proxy success</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [rdp] start proxy success</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-开机自启动"><a href="#1-3-开机自启动" class="headerlink" title="1.3 开机自启动"></a>1.3 开机自启动</h3><h4 id="1-3-1-windows"><a href="#1-3-1-windows" class="headerlink" title="1.3.1 windows"></a>1.3.1 windows</h4><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> ws=wscript.<span class="built_in">createobject</span>(<span class="string">&quot;wscript.shell&quot;</span>)</span><br><span class="line">ws.run <span class="string">&quot;cmd /c C:\frp_0.51.3_windows_amd64\frpc.exe -c C:\frp_0.51.3_windows_amd64\frpc.ini&quot;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-2-Linux"><a href="#1-3-2-Linux" class="headerlink" title="1.3.2 Linux"></a>1.3.2 Linux</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/frpc.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入内容如下：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Frp client</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/path/to/your/frpc -c /path/to/your/frpc.ini</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-Zerotier"><a href="#2-Zerotier" class="headerlink" title="2. Zerotier"></a>2. Zerotier</h2><p>Official website: <a target="_blank" rel="noopener" href="https://www.zerotier.com/">https://www.zerotier.com/</a><br>Account: <a href="mailto:&#x73;&#x69;&#x6b;&#x65;&#x73;&#x36;&#48;&#52;&#48;&#x37;&#64;&#x6c;&#x6f;&#x6f;&#x6e;&#103;&#119;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x69;&#x6b;&#x65;&#x73;&#x36;&#48;&#52;&#48;&#x37;&#64;&#x6c;&#x6f;&#x6f;&#x6e;&#103;&#119;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#x6d;</a><br>Password: yFKjXv46JT@.43d<br>Network ID: </p>
+<ul>
+<li><p>Linux install ZeroTier<br><code>curl -s https://install.zerotier.com | sudo bash</code></p>
+</li>
+<li><p>Join the network by ID<br><code>sudo zerotier-cli join &lt;NETWORK_ID&gt;</code></p>
+</li>
+<li><p>Go to the official website to authorize</p>
+</li>
+<li><p>Check connection status<br><code>sudo zerotier-cli listnetworks</code></p>
+</li>
+<li><p>Addition</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zerotier-cli leave Network ID   <span class="comment">#leave the network</span></span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> zerotier-one.service</span><br><span class="line"></span><br><span class="line">sudo systemctl start zerotier-one.service</span><br><span class="line"></span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> &lt;NETWORK_ID&gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h3 id="3-花生壳"><a href="#3-花生壳" class="headerlink" title="3. 花生壳"></a>3. 花生壳</h3><h3 id="4-tailscale"><a href="#4-tailscale" class="headerlink" title="4. tailscale"></a>4. tailscale</h3><p>国内目前测试比 zerotier 好用一些</p>
+<h3 id="5-moonlight-sunshine"><a href="#5-moonlight-sunshine" class="headerlink" title="5. moonlight + sunshine"></a>5. <a target="_blank" rel="noopener" href="https://github.com/moonlight-stream/moonlight-qt">moonlight</a> + <a target="_blank" rel="noopener" href="https://github.com/LizardByte/Sunshine">sunshine</a></h3><p>服务端 sunshine，客户端 moonlight</p>
+
       
 	
 
@@ -1268,15 +1295,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wsl</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jupyter notebook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1336,15 +1363,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hosts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">raw.githubusercontent.com</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1372,10 +1399,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">emoji</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gdb</a>
               </li>
              
@@ -1384,15 +1407,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">emoji</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其它</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">其它</a>
               </li>
              
               <li class="article-tag-list-item">
