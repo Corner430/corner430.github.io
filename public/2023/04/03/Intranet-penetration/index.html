@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>Intranet penetration | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 frp 在官方github下载对应版本">
+  <meta name="description" content="1 frp1.1 frpsfrps.ini 示例 12345678[common]bind_port &#x3D; 7000token &#x3D; meng123456（密码可以自己修改）dashboard_port &#x3D; 7500(网页登录端口)dashboard_user &#x3D; meng（网页登录帐号）dashboard_pwd &#x3D; meng123456（网页登录密码）vhost_http_port &#x3D; 10080">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Intranet penetration">
 <meta property="og:url" content="http://corner430.github.io/2023/04/03/Intranet-penetration/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 frp 在官方github下载对应版本">
+<meta property="og:description" content="1 frp1.1 frpsfrps.ini 示例 12345678[common]bind_port &#x3D; 7000token &#x3D; meng123456（密码可以自己修改）dashboard_port &#x3D; 7500(网页登录端口)dashboard_user &#x3D; meng（网页登录帐号）dashboard_pwd &#x3D; meng123456（网页登录密码）vhost_http_port &#x3D; 10080">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T08:59:06.000Z">
-<meta property="article:modified_time" content="2024-04-29T12:25:33.028Z">
+<meta property="article:modified_time" content="2024-05-08T07:19:43.308Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary">
@@ -65,7 +65,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:57.8k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:56k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -162,7 +162,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：2.3k字 | 预计阅读时长：10分钟
+    		字数：468字 | 预计阅读时长：2分钟
 	</div>
         
   
@@ -191,106 +191,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h3><ul>
-<li><p>在<a target="_blank" rel="noopener" href="https://github.com/fatedier/frp">官方github</a>下载对应版本<span id="more"></span></p>
-</li>
-<li><p>我们只需要关注如下几个文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">frps</span><br><span class="line">frps.ini</span><br><span class="line">frpc</span><br><span class="line">frpc.ini</span><br></pre></td></tr></table></figure>
-<p>前两个文件（s结尾代表server）分别是服务端程序和服务端配置文件，后两个文件（c结尾代表client）分别是客户端程序和客户端配置文件。<br>因为我们正在配置服务端，可以删除客户端的两个文件</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">rm frpc</span><br><span class="line">rm frpc.ini</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>然后修改frps.ini文件<br>这个文件应有如下格式</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">dashboard_port = 7500(网页登录端口)</span><br><span class="line">token = meng123456（密码可以自己修改）</span><br><span class="line">dashboard_user = meng（网页登录帐号）</span><br><span class="line">dashboard_pwd = meng123456（网页登录密码）</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 10443</span><br></pre></td></tr></table></figure>
-<p>如果没有必要，端口均可使用默认值，token、user和password项请自行设置。</p>
-<ul>
-<li>“bind_port”表示用于客户端和服务端连接的端口，这个端口号我们之后在配置客户端的时候要用到。</li>
-<li>“dashboard_port”是服务端仪表板的端口，若使用7500端口，在配置完成服务启动后可以通过浏览器访问 x.x.x.x:7500 （其中x.x.x.x为VPS的IP）查看frp服务运行信息。</li>
-<li>“token”是用于客户端和服务端连接的口令，请自行设置并记录，稍后会用到。</li>
-<li>“dashboard_user”和“dashboard_pwd”表示打开仪表板页面登录的用户名和密码，自行设置即可。</li>
-<li>“vhost_http_port”和“vhost_https_port”用于反向代理HTTP主机时使用，本文不涉及HTTP协议，因而照抄或者删除这两条均可。</li>
-</ul>
-</li>
-<li><p>编辑完成后保存</p>
-</li>
-</ul>
-<p>如果看到屏幕输出这样一段内容，即表示运行正常，如果出现错误提示，请检查上面的步骤。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2019/01/12 15:22:39 [I] [service.go:130] frps tcp listen on 0.0.0.0:7000</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:172] http service listen on 0.0.0.0:10080</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:193] https service listen on 0.0.0.0:10443</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:216] Dashboard listen on 0.0.0.0:7500</span><br><span class="line">2019/01/12 15:22:39 [I] [root.go:210] Start frps success</span><br></pre></td></tr></table></figure>
-<p>此时访问 x.x.x.x:7500 并使用自己设置的用户名密码登录，即可看到仪表板界面</p>
-<ul>
-<li>服务端后台运行</li>
-</ul>
-<p>至此，我们的服务端仅运行在前台，如果Ctrl+C停止或者关闭SSH窗口后，frps均会停止运行，因而我们使用 nohup命令将其运行在后台。<br>nohup后台程序管理或关闭相关命令可自行查询资料。<br><code>nohup ./frps -c frps.ini &amp;</code><br>输出如下内容即表示正常运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup: ignoring input and appending output to &#x27;nohup.out&#x27;</span><br></pre></td></tr></table></figure>
-<p>此时可先使用Ctrl+C关闭nohup，frps依然会在后台运行，使用jobs命令查看后台运行的程序<br><code>jobs</code><br>在结果中我们可以看到frps正在后台正常运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[1]+  Running                 nohup ./frps -c frps.ini &amp;</span><br></pre></td></tr></table></figure>
+        <h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><p><strong><code>frps.ini</code> 示例</strong></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">token = meng123456（密码可以自己修改）</span><br><span class="line">dashboard_port = 7500(网页登录端口)</span><br><span class="line">dashboard_user = meng（网页登录帐号）</span><br><span class="line">dashboard_pwd = meng123456（网页登录密码）</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 10443</span><br></pre></td></tr></table></figure>
 
-<ul>
-<li>此处附上开机自启动的方式<br><code>tar -zxvf frp_0.29.0_linux_amd64.tar.gz</code><br>运行命令<br>.&#x2F;frps -c .&#x2F;frps.ini</li>
-</ul>
-<hr>
-<p>设置自动启动<br>vim &#x2F;lib&#x2F;systemd&#x2F;system&#x2F;frps.service<br>写入以下配置</p>
-<hr>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=frps service</span><br><span class="line">After=network.target network-online.target syslog.target</span><br><span class="line">Wants=network.target network-online.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">启动服务的命令（此处写你的frps的实际安装目录）</span></span><br><span class="line">ExecStart=/root/frp/frps -c /root/frp/frps.ini</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-<hr>
-<p>然后启动 frps<br><code>systemctl start frps</code><br>再打开自启动<br><code>systemctl enable frps</code><br>同时</p>
-<p>重启 <code>systemctl restart frps</code><br>停止 <code>systemctl stop frps</code><br>查看应用日志 <code>systemctl status frps</code></p>
-<p>frp的客户端就是我们想要真正进行访问的那台设备，大多数情况下应该会是一台Windows主机，因而本文使用Windows主机做例子；Linux配置方法类似，不再赘述。<br>同样地，根据客户端设备的情况选择相应的frp程序进行下载，Windows下下载和解压等步骤不再描述。<br>假定你下载了“frp_0.22.0_windows_amd64.zip”，将其解压在了C盘根目录下，并且将文件夹重命名为“frp”，可以删除其中的frps和frps.ini文件。<br>用文本编辑器打开frpc.ini，与服务端类似，内容如下。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 182.92.189.71</span><br><span class="line">server_port = 7000</span><br><span class="line">token= password</span><br><span class="line"></span><br><span class="line">[RDP]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line">remote_port = 7001</span><br><span class="line"></span><br><span class="line">[VNC]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 5900</span><br><span class="line">remote_port = 7002</span><br><span class="line"></span><br><span class="line">[SMB]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 445</span><br><span class="line">remote_port = 7003</span><br></pre></td></tr></table></figure>
-<pre><code>- 其中common字段下的三项即为服务端的设置。
-- “server_addr”为服务端IP地址，填入即可。
-- “server_port”为服务器端口，填入你设置的端口号即可，如果未改变就是7000
-- “token”是你在服务器上设置的连接口令，原样填入即可。
-</code></pre>
-<ul>
-<li>自定义规则<br>frp实际使用时，会按照端口号进行对应的转发，<br>上面frpc.ini的rdp、smb字段都是自己定义的规则，自定义端口对应时格式如下。<br>“[xxx]”表示一个规则名称，自己定义，便于查询即可。<br>“type”表示转发的协议类型，有TCP和UDP等选项可以选择，如有需要请自行查询frp手册。<br>“local_port”是本地应用的端口号，按照实际应用工作在本机的端口号填写即可。<br>“remote_port”是该条规则在服务端开放的端口号，自己填写并记录即可。<br>RDP，即Remote Desktop 远程桌面，Windows的RDP默认端口是3389，协议为TCP，建议使用frp远程连接前，在局域网中测试好，能够成功连接后再使用frp穿透连接。<br>SMB，即Windows文件共享所使用的协议，默认端口号445，协议TCP，本条规则可实现远程文件访问。<br>配置完成frpc.ini后，就可以运行frpc了<br>frpc程序不能直接双击运行！<br>使用命令提示符或Powershell进入该目录下<br><code>cd C:\frp</code><br>并执行<br><code>./frpc -c frpc.ini</code><br>运行frpc程序，窗口中输出如下内容表示运行正常。<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2019/01/12 16:14:56 [I] [service.go:205] login to server success, get run id [2b65b4e58a5917ac], server udp port [0]</span><br><span class="line">2019/01/12 16:14:56 [I] [proxy_manager.go:136] [2b65b4e58a5917ac] proxy added: [rdp smb]</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [smb] start proxy success</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [rdp] start proxy success</span><br></pre></td></tr></table></figure>
-不要关闭命令行窗口，此时可以在局域网外使用相应程序访问 x.x.x.x:xxxx （IP为VPS的IP，端口为自定义的remote_port）即可访问到相应服务。</li>
-</ul>
-<p>此后利用winsw将客户端设置为开机自启动<br>编辑<code>winsw.xml</code><br>其格式如下：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&lt;service&gt;</span><br><span class="line">	&lt;!-- 该服务的唯一标识 --&gt;</span><br><span class="line">    &lt;id&gt;frpc&lt;/id&gt;</span><br><span class="line">    &lt;!-- 该服务的名称 --&gt;</span><br><span class="line">    &lt;name&gt;frp&lt;/name&gt;</span><br><span class="line">    &lt;!-- 该服务的描述 --&gt;</span><br><span class="line">    &lt;description&gt;frpc客户端 这个服务用 frpc 实现内网穿透&lt;/description&gt;</span><br><span class="line">    &lt;!-- 要运行的程序路径 --&gt;</span><br><span class="line">    &lt;executable&gt;frpc.exe&lt;/executable&gt;</span><br><span class="line">    &lt;!-- 携带的参数 --&gt;</span><br><span class="line">    &lt;arguments&gt;-c frpc.ini&lt;/arguments&gt;</span><br><span class="line">    &lt;!-- 日志模式 --&gt;</span><br><span class="line">    &lt;logmode&gt;none&lt;/logmode&gt;</span><br><span class="line">&lt;/service&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>执行查看结果</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">frps -c frps.ini</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line"></span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:130] frps tcp listen on 0.0.0.0:7000</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:172] http service listen on 0.0.0.0:10080</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:193] https service listen on 0.0.0.0:10443</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:216] Dashboard listen on 0.0.0.0:7500</span><br><span class="line">2019/01/12 15:22:39 [I] [root.go:210] Start frps success</span><br></pre></td></tr></table></figure>
 
-<p>用cmd进入这一切的目录下<br>在命令框输入<code>winsw.exe install</code><br>显示 <code>INFO -Installing the servics with id &quot;***&quot;</code><br>即为成功<br>之后打开任务管理器，服务，打开服务，找到这个服务<br>将其设置为<strong>失败但不断重复</strong>，之后启动就好，大功告成！</p>
-<blockquote>
-<p>现在可以通过 vbs 脚本来启动服务，这样就可以在开机后自动启动了</p>
-</blockquote>
-<figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> ws=wscript.<span class="built_in">createobject</span>(<span class="string">&quot;wscript.shell&quot;</span>)</span><br><span class="line">ws.run <span class="string">&quot;cmd /c C:\frp_0.51.3_windows_amd64\frpc -c C:\frp_0.51.3_windows_amd64\frpc.ini&quot;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
+<h3 id="1-2-frpc"><a href="#1-2-frpc" class="headerlink" title="1.2 frpc"></a>1.2 frpc</h3><p><strong><code>frpc.ini</code> 示例</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 1.1.1.1</span><br><span class="line">server_port = 7000</span><br><span class="line">token= password</span><br><span class="line"></span><br><span class="line">[RDP]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line">remote_port = 7001</span><br><span class="line"></span><br><span class="line">[VNC]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 5900</span><br><span class="line">remote_port = 7002</span><br><span class="line"></span><br><span class="line">[SMB]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 445</span><br><span class="line">remote_port = 7003</span><br></pre></td></tr></table></figure>
 
-<hr>
-<ul>
-<li>Boot up<br><code>frpc.ini</code></li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 150.158.17.239</span><br><span class="line">server_port = 80</span><br><span class="line">privilege_token = 88888888</span><br><span class="line"></span><br><span class="line">[RDP]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line">remote_port = 8001</span><br><span class="line"></span><br><span class="line">[Storage-Computing-System]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8002</span><br><span class="line"></span><br><span class="line">[ssh_154]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 172.17.0.154</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8003</span><br><span class="line"></span><br><span class="line">[ssh_155]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 172.17.0.155</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8004</span><br><span class="line"></span><br><span class="line">[ssh_156]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 172.17.0.156</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8005</span><br><span class="line"></span><br><span class="line">[ssh_157]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 172.17.0.157</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8006</span><br><span class="line"></span><br><span class="line">[ssh_158]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 172.17.0.158</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8007</span><br><span class="line"></span><br><span class="line">[ssh_159]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 172.17.0.159</span><br><span class="line">local_port = 22</span><br><span class="line">remote_port = 8008</span><br></pre></td></tr></table></figure>
+<p><strong>执行查看结果</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line">2019/01/12 16:14:56 [I] [service.go:205] login to server success, get run id [2b65b4e58a5917ac], server udp port [0]</span><br><span class="line">2019/01/12 16:14:56 [I] [proxy_manager.go:136] [2b65b4e58a5917ac] proxy added: [rdp smb]</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [smb] start proxy success</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [rdp] start proxy success</span><br></pre></td></tr></table></figure>
 
+<h3 id="1-3-开机自启动"><a href="#1-3-开机自启动" class="headerlink" title="1.3 开机自启动"></a>1.3 开机自启动</h3><h4 id="1-3-1-windows"><a href="#1-3-1-windows" class="headerlink" title="1.3.1 windows"></a>1.3.1 windows</h4><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> ws=wscript.<span class="built_in">createobject</span>(<span class="string">&quot;wscript.shell&quot;</span>)</span><br><span class="line">ws.run <span class="string">&quot;cmd /c C:\frp_0.51.3_windows_amd64\frpc.exe -c C:\frp_0.51.3_windows_amd64\frpc.ini&quot;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
 
+<h4 id="1-3-2-Linux"><a href="#1-3-2-Linux" class="headerlink" title="1.3.2 Linux"></a>1.3.2 Linux</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/frpc.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入内容如下：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Frp client</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/path/to/your/frpc -c /path/to/your/frpc.ini</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
 
-<ol>
-<li><p>Create a systemd service unit file called <strong>frpc.service</strong> on Linux systems.<br><code>sudo nano /etc/systemd/system/frpc.service</code></p>
-</li>
-<li><p>Configuration</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description=Frp client</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/usr/local/frp/frpc -c /usr/local/frp/frpc.ini</span><br><span class="line">Restart=always</span><br><span class="line">User=root</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure></li>
-</ol>
-<p>Description: Description information of the service.<br>After: The service needs to start after which services start.</p>
-<p>Type: Service startup type. simple means that the service will directly execute the commands in ExecStart after startup, and will not fork a new process.</p>
-<p>ExecStart: The command executed when the service starts.</p>
-<p>Restart: How systemd will handle the service when the service is abnormal. always means always restart the service.</p>
-<p>User: The user the service runs as.</p>
-<p>WantedBy: The runlevel the service is in.<br>In the above example, the command path and configuration file path in ExecStart need to be modified according to the actual situation.</p>
-<ol start="3">
-<li><p>Reload the systemd configuration file:<br><code>sudo systemctl daemon-reload</code></p>
-</li>
-<li><p>Start the frpc service:<br><code>sudo systemctl start frpc</code></p>
-</li>
-<li><p>Verify that the service has started:<br><code>sudo systemctl status frpc</code></p>
-</li>
-</ol>
-<p>If the service is already started, output similar to the following will be displayed</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">● frpc.service - Frp client</span><br><span class="line">     Loaded: loaded (/etc/systemd/system/frpc.service; disabled; vendor preset: enabled)</span><br><span class="line">     Active: active (running) since Sat 2023-03-13 07:30:22 UTC; 15s ago</span><br><span class="line">   Main PID: 12345 (frpc)</span><br><span class="line">      Tasks: 7 (<span class="built_in">limit</span>: 1136)</span><br><span class="line">     Memory: 2.2M</span><br><span class="line">     CGroup: /system.slice/frpc.service</span><br><span class="line">             └─12345 /usr/local/frp/frpc -c /usr/local/frp/frpc.ini</span><br></pre></td></tr></table></figure>
-
-<ol start="6">
-<li>Set the service to start automatically at boot:<br><code>sudo systemctl enable frpc</code></li>
-</ol>
-<p>Now, the frpc service has been configured to start automatically at boot and run in the background. The service can be stopped with the following command:<br><code>sudo systemctl stop frpc</code></p>
-<p>If you need to disable automatic startup on boot, you can use the following command:<br><code>sudo systemctl disable frpc</code></p>
-<h3 id="2-Zerotier"><a href="#2-Zerotier" class="headerlink" title="2. Zerotier"></a>2. Zerotier</h3><p>Official website: <a target="_blank" rel="noopener" href="https://www.zerotier.com/">https://www.zerotier.com/</a><br>Account: <a href="mailto:&#x73;&#x69;&#x6b;&#x65;&#x73;&#x36;&#x30;&#x34;&#x30;&#55;&#64;&#108;&#111;&#111;&#110;&#x67;&#x77;&#105;&#x6e;&#x2e;&#x63;&#111;&#109;">&#x73;&#x69;&#x6b;&#x65;&#x73;&#x36;&#x30;&#x34;&#x30;&#55;&#64;&#108;&#111;&#111;&#110;&#x67;&#x77;&#105;&#x6e;&#x2e;&#x63;&#111;&#109;</a><br>Password: yFKjXv46JT@.43d<br>Network ID: </p>
+<h2 id="2-Zerotier"><a href="#2-Zerotier" class="headerlink" title="2. Zerotier"></a>2. Zerotier</h2><p>Official website: <a target="_blank" rel="noopener" href="https://www.zerotier.com/">https://www.zerotier.com/</a><br>Account: <a href="mailto:&#x73;&#x69;&#x6b;&#x65;&#x73;&#x36;&#48;&#52;&#48;&#x37;&#64;&#x6c;&#x6f;&#x6f;&#x6e;&#103;&#119;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#x6d;">&#x73;&#x69;&#x6b;&#x65;&#x73;&#x36;&#48;&#52;&#48;&#x37;&#64;&#x6c;&#x6f;&#x6f;&#x6e;&#103;&#119;&#105;&#x6e;&#x2e;&#x63;&#x6f;&#x6d;</a><br>Password: yFKjXv46JT@.43d<br>Network ID: </p>
 <ul>
 <li><p>Linux install ZeroTier<br><code>curl -s https://install.zerotier.com | sudo bash</code></p>
 </li>
@@ -490,7 +407,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">3.</span> <span class="toc-text">3. 花生壳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-tailscale"><span class="toc-number">4.</span> <span class="toc-text">4. tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-moonlight-sunshine"><span class="toc-number">5.</span> <span class="toc-text">5. moonlight + sunshine</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-frps"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 frps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-frpc"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 frpc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 开机自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-windows"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-Linux"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 Linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">2.1.</span> <span class="toc-text">3. 花生壳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-tailscale"><span class="toc-number">2.2.</span> <span class="toc-text">4. tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-moonlight-sunshine"><span class="toc-number">2.3.</span> <span class="toc-text">5. moonlight + sunshine</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -675,15 +592,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">wsl</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">jupyter notebook</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Hexo</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -743,15 +660,15 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">windows</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">hosts</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">raw.githubusercontent.com</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">windows</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -779,10 +696,6 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">emoji</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gdb</a>
               </li>
              
@@ -791,15 +704,19 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">emoji</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">其它</a>
+                <a href="javascript:void(0)" class="js-tag color2">Python</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Python</a>
+                <a href="javascript:void(0)" class="js-tag color3">其它</a>
               </li>
              
               <li class="article-tag-list-item">
