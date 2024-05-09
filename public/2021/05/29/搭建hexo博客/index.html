@@ -6,19 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://corner430.github.io">
-  <title>Intranet penetration | Hexo</title>
+  <title>搭建hexo博客 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 frp1.1 frpsfrps.ini 示例 12345678[common]bind_port &#x3D; 7000token &#x3D; meng123456（密码可以自己修改）dashboard_port &#x3D; 7500(网页登录端口)dashboard_user &#x3D; meng（网页登录帐号）dashboard_pwd &#x3D; meng123456（网页登录密码）vhost_http_port &#x3D; 10080">
+  <meta name="description" content="1 初始化部署1.1 本地化部署12345678910# 1. 加入PPA仓库curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_16.x | sudo -E bash -# 2. 安装Node.jssudo apt-get install -y nodejs# 3. 检查Node.js版本node --versionnpm --version# 4. 更新npms">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Intranet penetration">
-<meta property="og:url" content="http://corner430.github.io/2023/04/03/Intranet-penetration/index.html">
+<meta property="og:title" content="搭建hexo博客">
+<meta property="og:url" content="http://corner430.github.io/2021/05/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 frp1.1 frpsfrps.ini 示例 12345678[common]bind_port &#x3D; 7000token &#x3D; meng123456（密码可以自己修改）dashboard_port &#x3D; 7500(网页登录端口)dashboard_user &#x3D; meng（网页登录帐号）dashboard_pwd &#x3D; meng123456（网页登录密码）vhost_http_port &#x3D; 10080">
+<meta property="og:description" content="1 初始化部署1.1 本地化部署12345678910# 1. 加入PPA仓库curl -sL https:&#x2F;&#x2F;deb.nodesource.com&#x2F;setup_16.x | sudo -E bash -# 2. 安装Node.jssudo apt-get install -y nodejs# 3. 检查Node.js版本node --versionnpm --version# 4. 更新npms">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2023-04-03T08:59:06.000Z">
-<meta property="article:modified_time" content="2024-05-08T07:19:43.308Z">
+<meta property="article:published_time" content="2021-05-29T22:44:03.000Z">
+<meta property="article:modified_time" content="2024-05-09T06:12:01.491Z">
 <meta property="article:author" content="Corner">
-<meta property="article:tag" content="内网穿透">
+<meta property="article:tag" content="Ubuntu">
+<meta property="article:tag" content="hexo">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -65,7 +66,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:56k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:53.1k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -157,17 +158,17 @@
           </div>
           <div id="js-content" class="content-ll">
             
-<article id="post-Intranet-penetration" class="article article-type-post " itemscope itemprop="blogPost">
+<article id="post-搭建hexo博客" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：468字 | 预计阅读时长：2分钟
+    		字数：165字 | 预计阅读时长：1分钟
 	</div>
         
   
     <h1 class="article-title" itemprop="name">
-      Intranet penetration
+      搭建hexo博客
     </h1>
   
 
@@ -183,45 +184,27 @@
         
         <!--显示阅读次数完毕-->
         
-        <a href="/2023/04/03/Intranet-penetration/" class="archive-article-date">
-  	<time datetime="2023-04-03T08:59:06.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-04-03</time>
+        <a href="/2021/05/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" class="archive-article-date">
+  	<time datetime="2021-05-29T22:44:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-05-29</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><p><strong><code>frps.ini</code> 示例</strong></p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">token = meng123456（密码可以自己修改）</span><br><span class="line">dashboard_port = 7500(网页登录端口)</span><br><span class="line">dashboard_user = meng（网页登录帐号）</span><br><span class="line">dashboard_pwd = meng123456（网页登录密码）</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 10443</span><br></pre></td></tr></table></figure>
+        <h2 id="1-初始化部署"><a href="#1-初始化部署" class="headerlink" title="1 初始化部署"></a>1 初始化部署</h2><h3 id="1-1-本地化部署"><a href="#1-1-本地化部署" class="headerlink" title="1.1 本地化部署"></a>1.1 本地化部署</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_"># </span><span class="language-bash">1. 加入PPA仓库</span></span><br><span class="line">curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">2. 安装Node.js</span></span><br><span class="line">sudo apt-get install -y nodejs</span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">3. 检查Node.js版本</span></span><br><span class="line">node --version</span><br><span class="line">npm --version</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">4. 更新npm</span></span><br><span class="line">sudo npm install -g npm</span><br></pre></td></tr></table></figure>
 
-<p><strong>执行查看结果</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">frps -c frps.ini</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line"></span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:130] frps tcp listen on 0.0.0.0:7000</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:172] http service listen on 0.0.0.0:10080</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:193] https service listen on 0.0.0.0:10443</span><br><span class="line">2019/01/12 15:22:39 [I] [service.go:216] Dashboard listen on 0.0.0.0:7500</span><br><span class="line">2019/01/12 15:22:39 [I] [root.go:210] Start frps success</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-frpc"><a href="#1-2-frpc" class="headerlink" title="1.2 frpc"></a>1.2 frpc</h3><p><strong><code>frpc.ini</code> 示例</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr = 1.1.1.1</span><br><span class="line">server_port = 7000</span><br><span class="line">token= password</span><br><span class="line"></span><br><span class="line">[RDP]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 3389</span><br><span class="line">remote_port = 7001</span><br><span class="line"></span><br><span class="line">[VNC]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 5900</span><br><span class="line">remote_port = 7002</span><br><span class="line"></span><br><span class="line">[SMB]</span><br><span class="line">type = tcp</span><br><span class="line">local_ip = 127.0.0.1</span><br><span class="line">local_port = 445</span><br><span class="line">remote_port = 7003</span><br></pre></td></tr></table></figure>
-
-<p><strong>执行查看结果</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输出如下：</span></span><br><span class="line">2019/01/12 16:14:56 [I] [service.go:205] login to server success, get run id [2b65b4e58a5917ac], server udp port [0]</span><br><span class="line">2019/01/12 16:14:56 [I] [proxy_manager.go:136] [2b65b4e58a5917ac] proxy added: [rdp smb]</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [smb] start proxy success</span><br><span class="line">2019/01/12 16:14:56 [I] [control.go:143] [rdp] start proxy success</span><br></pre></td></tr></table></figure>
-
-<h3 id="1-3-开机自启动"><a href="#1-3-开机自启动" class="headerlink" title="1.3 开机自启动"></a>1.3 开机自启动</h3><h4 id="1-3-1-windows"><a href="#1-3-1-windows" class="headerlink" title="1.3.1 windows"></a>1.3.1 windows</h4><figure class="highlight vbs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">set</span> ws=wscript.<span class="built_in">createobject</span>(<span class="string">&quot;wscript.shell&quot;</span>)</span><br><span class="line">ws.run <span class="string">&quot;cmd /c C:\frp_0.51.3_windows_amd64\frpc.exe -c C:\frp_0.51.3_windows_amd64\frpc.ini&quot;</span>,<span class="number">0</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="1-3-2-Linux"><a href="#1-3-2-Linux" class="headerlink" title="1.3.2 Linux"></a>1.3.2 Linux</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/systemd/system/frpc.service</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">输入内容如下：</span></span><br><span class="line">[Unit]</span><br><span class="line">Description=Frp client</span><br><span class="line">After=network.target</span><br><span class="line"></span><br><span class="line">[Service]</span><br><span class="line">Type=simple</span><br><span class="line">ExecStart=/path/to/your/frpc -c /path/to/your/frpc.ini</span><br><span class="line">Restart=always</span><br><span class="line">RestartSec=3</span><br><span class="line"></span><br><span class="line">[Install]</span><br><span class="line">WantedBy=multi-user.target</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-Zerotier"><a href="#2-Zerotier" class="headerlink" title="2. Zerotier"></a>2. Zerotier</h2><p>Official website: <a target="_blank" rel="noopener" href="https://www.zerotier.com/">https://www.zerotier.com/</a><br>Account: <a href="mailto:&#x73;&#x69;&#x6b;&#x65;&#115;&#54;&#x30;&#x34;&#48;&#x37;&#x40;&#108;&#x6f;&#111;&#x6e;&#x67;&#119;&#105;&#110;&#46;&#99;&#x6f;&#109;">&#x73;&#x69;&#x6b;&#x65;&#115;&#54;&#x30;&#x34;&#48;&#x37;&#x40;&#108;&#x6f;&#111;&#x6e;&#x67;&#119;&#105;&#110;&#46;&#99;&#x6f;&#109;</a><br>Password: yFKjXv46JT@.43d<br>Network ID: </p>
 <ul>
-<li><p>Linux install ZeroTier<br><code>curl -s https://install.zerotier.com | sudo bash</code></p>
-</li>
-<li><p>Join the network by ID<br><code>sudo zerotier-cli join &lt;NETWORK_ID&gt;</code></p>
-</li>
-<li><p>Go to the official website to authorize</p>
-</li>
-<li><p>Check connection status<br><code>sudo zerotier-cli listnetworks</code></p>
-</li>
-<li><p>Addition</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">zerotier-cli leave Network ID   <span class="comment">#leave the network</span></span><br><span class="line"></span><br><span class="line">sudo systemctl <span class="built_in">enable</span> zerotier-one.service</span><br><span class="line"></span><br><span class="line">sudo systemctl start zerotier-one.service</span><br><span class="line"></span><br><span class="line">sudo zerotier-cli <span class="built_in">join</span> &lt;NETWORK_ID&gt;</span><br></pre></td></tr></table></figure></li>
+<li>安装 <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo">hexo</a></li>
 </ul>
-<h3 id="3-花生壳"><a href="#3-花生壳" class="headerlink" title="3. 花生壳"></a>3. 花生壳</h3><h3 id="4-tailscale"><a href="#4-tailscale" class="headerlink" title="4. tailscale"></a>4. tailscale</h3><p>国内目前测试比 zerotier 好用一些</p>
-<h3 id="5-moonlight-sunshine"><a href="#5-moonlight-sunshine" class="headerlink" title="5. moonlight + sunshine"></a>5. <a target="_blank" rel="noopener" href="https://github.com/moonlight-stream/moonlight-qt">moonlight</a> + <a target="_blank" rel="noopener" href="https://github.com/LizardByte/Sunshine">sunshine</a></h3><p>服务端 sunshine，客户端 moonlight</p>
+<h3 id="1-2-docker"><a href="#1-2-docker" class="headerlink" title="1.2 docker"></a>1.2 docker</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker pull taskbjorn/hexo</span><br><span class="line">docker run -it -d --name hexo -p 4000:4000 -v ~/blog:/home/hexo/.hexo taskbjorn/hexo</span><br><span class="line"><span class="meta prompt_"></span></span><br><span class="line"><span class="meta prompt_"># </span><span class="language-bash">在 .zshrc 中添加</span></span><br><span class="line">alias hexo=&quot;docker exec -it hexo hexo&quot;</span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-配置"><a href="#1-3-配置" class="headerlink" title="1.3 配置"></a>1.3 配置</h3><ol>
+<li>创建名为 <code>username.github.io</code> 的仓库</li>
+<li>安装 git 插件：<code>npm install --save hexo-deployer-git</code></li>
+<li><code>_config.yml</code> 配置<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">    <span class="attr">repo:</span> <span class="string">Fill</span> <span class="string">in</span> <span class="string">the</span> <span class="string">full</span> <span class="string">path</span> <span class="string">of</span> <span class="string">the</span> <span class="string">warehouse</span> <span class="string">you</span> <span class="string">created</span> <span class="string">on</span> <span class="string">Gitee</span> <span class="string">before,</span> <span class="string">remember</span> <span class="string">to</span> <span class="string">add</span> <span class="string">.git</span> <span class="string">(in</span> <span class="string">fact,</span> <span class="string">paste</span> <span class="string">the</span> <span class="string">clone</span> <span class="string">ssh</span> <span class="string">address</span> <span class="string">of</span> <span class="string">the</span> <span class="string">newly</span> <span class="string">created</span> <span class="string">warehouse)</span></span><br><span class="line">    <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure></li>
+</ol>
+<h2 id="2-主题配置"><a href="#2-主题配置" class="headerlink" title="2 主题配置"></a>2 主题配置</h2><p><a target="_blank" rel="noopener" href="https://github.com/Corner430/hexo-theme-yilia">yilia</a></p>
 
       
 	
@@ -254,7 +237,7 @@
     
     <br>
     <strong>本文链接：</strong>
-    <a rel="license" href="http://corner430.github.io/2023/04/03/Intranet-penetration/">http://corner430.github.io/2023/04/03/Intranet-penetration/</a>
+    <a rel="license" href="http://corner430.github.io/2021/05/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/">http://corner430.github.io/2021/05/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/</a>
     <br>
     <strong>版权声明：</strong>
     本作品采用
@@ -299,7 +282,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">内网穿透</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Ubuntu</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -355,7 +342,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2023/04/03/Intranet-penetration/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://corner430.github.io/2021/05/29/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -369,18 +356,18 @@
   
 <nav id="article-nav">
   
-    <a href="/2023/04/03/wsl-supports-systemd/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/05/30/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90%E4%BB%A5%E5%8F%8A%E6%80%8E%E4%B9%88%E7%BB%99hexo%E7%BB%91%E5%AE%9A%E5%9F%9F%E5%90%8D/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
-          wsl supports systemd
+          域名解析以及怎么给hexo绑定域名
         
       </div>
     </a>
   
   
-    <a href="/2022/04/24/bilibili-custom-double-speed/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">bilibili custom double speed</div>
+    <a href="/2021/04/01/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hello World</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -407,7 +394,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-frps"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 frps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-frpc"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 frpc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 开机自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-windows"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-Linux"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 Linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">2.1.</span> <span class="toc-text">3. 花生壳</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-tailscale"><span class="toc-number">2.2.</span> <span class="toc-text">4. tailscale</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-moonlight-sunshine"><span class="toc-number">2.3.</span> <span class="toc-text">5. moonlight + sunshine</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%88%9D%E5%A7%8B%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">1.</span> <span class="toc-text">1 初始化部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-%E6%9C%AC%E5%9C%B0%E5%8C%96%E9%83%A8%E7%BD%B2"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 本地化部署</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-docker"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 docker</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E9%85%8D%E7%BD%AE"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 配置</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="toc-number">2.</span> <span class="toc-text">2 主题配置</span></a></li></ol>
                     </div>
                 </span>
             </div>
