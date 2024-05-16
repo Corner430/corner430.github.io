@@ -10,7 +10,7 @@ tags:
 - [4 搭建 vmess+ws 服务端（最通用）](#4-搭建-vmessws-服务端最通用)
 - [5 搭建 vless+vision+tls 服务端](#5-搭建-vlessvisiontls-服务端)
 - [6 搭建 vless+vision+reality 服务端](#6-搭建-vlessvisionreality-服务端)
-- [7 无 CDN](#7-无-cdn)
+- [7 vmess 无 CDN](#7-vmess-无-cdn)
 <!--more-->
 
 ### 1 安装 [FranzKafkaYu/x-ui](https://github.com/FranzKafkaYu/x-ui)
@@ -110,6 +110,6 @@ services:
 
 > 如果想要增强伪装，可以点击 **目标网站** 后面的刷新按钮，**不要使用 speedtest** !!!，之后点击修改就好了
 
-### 7 无 CDN
+### 7 vmess 无 CDN
 
-直接点击添加入站，之后选择 `shadowsocks` 创建节点，直接添加即可
+直接点击添加入站，之后选择 `vmess` 创建节点并添加用户即可
