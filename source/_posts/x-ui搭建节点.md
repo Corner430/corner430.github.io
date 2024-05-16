@@ -10,6 +10,7 @@ tags:
 - [4 搭建 vmess+ws 服务端（最通用）](#4-搭建-vmessws-服务端最通用)
 - [5 搭建 vless+vision+tls 服务端](#5-搭建-vlessvisiontls-服务端)
 - [6 搭建 vless+vision+reality 服务端](#6-搭建-vlessvisionreality-服务端)
+- [7 无 CDN](#7-无-cdn)
 <!--more-->
 
 ### 1 安装 [FranzKafkaYu/x-ui](https://github.com/FranzKafkaYu/x-ui)
@@ -21,7 +22,6 @@ docker pull enwaiax/x-ui:alpha-zh
 ### 2 使用 docker-compose 运行
 
 ```yml
-version: "3.9"
 services:
   xui:
     image: enwaiax/x-ui:alpha-zh
@@ -108,4 +108,8 @@ services:
 
 ![20240516122437](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240516122437.png)
 
-> 如果想要增强伪装，可以点击 **目标网站** 后面的刷新按钮，**不要使用 speedtest !!!**，之后点击修改就好了
+> 如果想要增强伪装，可以点击 **目标网站** 后面的刷新按钮，**不要使用 speedtest** !!!，之后点击修改就好了
+
+### 7 无 CDN
+
+直接点击添加入站，之后选择 `shadowsocks` 创建节点，直接添加即可
