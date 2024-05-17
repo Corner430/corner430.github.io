@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>内网穿透 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 frp1.1 frpsfrps.ini 示例 12345678[common]bind_port &#x3D; 7000token &#x3D; passworddashboard_port &#x3D; 7500(网页登录端口)dashboard_user &#x3D; admin（网页登录帐号）dashboard_pwd &#x3D; password（网页登录密码）vhost_http_port &#x3D; 10080vhost_https_p">
+  <meta name="description" content="1 frp1.1 frps">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内网穿透">
 <meta property="og:url" content="http://corner430.github.io/2023/04/03/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 frp1.1 frpsfrps.ini 示例 12345678[common]bind_port &#x3D; 7000token &#x3D; passworddashboard_port &#x3D; 7500(网页登录端口)dashboard_user &#x3D; admin（网页登录帐号）dashboard_pwd &#x3D; password（网页登录密码）vhost_http_port &#x3D; 10080vhost_https_p">
+<meta property="og:description" content="1 frp1.1 frps">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-04-03T08:59:06.000Z">
-<meta property="article:modified_time" content="2024-05-17T05:59:50.373Z">
+<meta property="article:modified_time" content="2024-05-17T06:01:25.613Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary">
@@ -162,7 +162,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：875字 | 预计阅读时长：4分钟
+    		字数：876字 | 预计阅读时长：4分钟
 	</div>
         
   
@@ -191,7 +191,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><p><strong><code>frps.ini</code> 示例</strong></p>
+        <h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><span id="more"></span>
+<p><strong><code>frps.ini</code> 示例</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">token = password</span><br><span class="line">dashboard_port = 7500(网页登录端口)</span><br><span class="line">dashboard_user = admin（网页登录帐号）</span><br><span class="line">dashboard_pwd = password（网页登录密码）</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 10443</span><br></pre></td></tr></table></figure>
 
 <p><strong>执行查看结果</strong></p>
