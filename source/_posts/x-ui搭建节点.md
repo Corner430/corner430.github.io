@@ -11,6 +11,7 @@ tags:
 - [5 搭建 vless+vision+tls 服务端](#5-搭建-vlessvisiontls-服务端)
 - [6 搭建 vless+vision+reality 服务端](#6-搭建-vlessvisionreality-服务端)
 - [7 vmess 无 CDN](#7-vmess-无-cdn)
+- [8 hysteria2](#8-hysteria2)
 <!--more-->
 
 ### 1 安装 [FranzKafkaYu/x-ui](https://github.com/FranzKafkaYu/x-ui)
@@ -113,3 +114,184 @@ services:
 ### 7 vmess 无 CDN
 
 直接点击添加入站，之后选择 `vmess` 创建节点并添加用户即可
+
+### 8 hysteria2
+
+[ref: 【遥遥领先】黑科技！垃圾VPS线路网速大幅提升！第二代hysteria节点搭建教程，歇斯底里为什么可以提升网速？windows/ios/android手机移动端使用方式，sing-box配置hy2方式](https://www.youtube.com/watch?v=CXj-ID33MhU&t=10s&ab_channel=%E4%B8%8D%E8%89%AF%E6%9E%97)
+
+[hysteria github](https://github.com/apernet/hysteria?tab=readme-ov-file)
+
+[Hysteria 中文文档](https://v2.hysteria.network/zh/)
+
+> **申请证书需要放行 80，443 端口**
+
+
+**服务器相关指令**
+
+```shell
+#一键安装Hysteria2
+bash <(curl -fsSL https://get.hy2.sh/)
+
+#生成自签证书
+openssl req -x509 -nodes -newkey ec:<(openssl ecparam -name prime256v1) -keyout /etc/hysteria/server.key -out /etc/hysteria/server.crt -subj "/CN=bing.com" -days 36500 && sudo chown hysteria /etc/hysteria/server.key && sudo chown hysteria /etc/hysteria/server.crt
+
+#启动Hysteria2
+systemctl start hysteria-server.service
+#重启Hysteria2
+systemctl restart hysteria-server.service
+#查看Hysteria2状态
+systemctl status hysteria-server.service
+#停止Hysteria2
+systemctl stop hysteria-server.service
+#设置开机自启
+systemctl enable hysteria-server.service
+#查看日志
+journalctl -u hysteria-server.service
+```
+
+**服务器配置文件**
+
+```shell
+cat << EOF > /etc/hysteria/config.yaml
+listen: :443 #监听端口，可修改
+
+#使用CA证书
+#acme:
+#  domains:
+#    - a.com #你的域名，需要先解析到服务器ip
+#  email: test@sharklasers.com
+
+#使用自签证书
+#tls:
+#  cert: /etc/hysteria/server.crt
+#  key: /etc/hysteria/server.key
+
+auth:
+  type: password
+  password: 123456 #设置认证密码
+  
+masquerade:
+  type: proxy
+  proxy:
+    url: https://bing.com #伪装网址，可修改
+    rewriteHost: true
+EOF
+```
+
+**客户端配置文件**
+
+```js
+server: ip:443
+auth: 123456
+
+bandwidth:
+  up: 20 mbps
+  down: 100 mbps
+  
+tls:
+  sni: a.com
+  insecure: false #使用自签时需要改成true
+
+socks5:
+  listen: 127.0.0.1:1080
+http:
+  listen: 127.0.0.1:8080
+```
+
+**sing-box配置文件(Android/IOS)**
+
+```json
+{
+  "dns": {
+    "servers": [
+      {
+        "tag": "cf",
+        "address": "https://1.1.1.1/dns-query"
+      },
+      {
+        "tag": "local",
+        "address": "223.5.5.5",
+        "detour": "direct"
+      },
+      {
+        "tag": "block",
+        "address": "rcode://success"
+      }
+    ],
+    "rules": [
+      {
+        "geosite": "category-ads-all",
+        "server": "block",
+        "disable_cache": true
+      },
+      {
+        "outbound": "any",
+        "server": "local"
+      },
+      {
+        "geosite": "cn",
+        "server": "local"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "inet4_address": "172.19.0.1/30",
+      "auto_route": true,
+      "strict_route": false,
+      "sniff": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "hysteria2",
+      "tag": "proxy",
+      "server": "ip",
+      "server_port": 443,
+      "up_mbps": 20,
+      "down_mbps": 100,
+      "password": "123456",
+      "tls": {
+        "enabled": true,
+        "server_name": "a.com",
+        "insecure": false
+      }
+    },
+    {
+      "type": "direct",
+      "tag": "direct"
+    },
+    {
+      "type": "block",
+      "tag": "block"
+    },
+    {
+      "type": "dns",
+      "tag": "dns-out"
+    }
+  ],
+  "route": {
+    "rules": [
+      {
+        "protocol": "dns",
+        "outbound": "dns-out"
+      },
+      {
+        "geosite": "cn",
+        "geoip": [
+          "private",
+          "cn"
+        ],
+        "outbound": "direct"
+      },
+      {
+        "geosite": "category-ads-all",
+        "outbound": "block"
+      }
+    ],
+    "auto_detect_interface": true
+  }
+}
+```
