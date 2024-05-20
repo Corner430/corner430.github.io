@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240518152210.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240518153919.png">
 <meta property="article:published_time" content="2023-04-03T08:59:06.000Z">
-<meta property="article:modified_time" content="2024-05-18T10:19:17.697Z">
+<meta property="article:modified_time" content="2024-05-20T15:33:12.172Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary">
@@ -71,7 +71,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:54.2k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:54.5k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -255,6 +255,7 @@
 <li>mac：&#x2F;Library&#x2F;Application Support&#x2F;ZeroTier&#x2F;One&#x2F;planet</li>
 <li>openwrt: &#x2F;etc&#x2F;config&#x2F;zero&#x2F;planet</li>
 <li>android: <a target="_blank" rel="noopener" href="https://github.com/kaaass/ZerotierFix">ZerotierFix</a></li>
+<li>ios: 通过 android 开路由，不要下载官方的客户端，没有用！！！</li>
 </ul>
 </li>
 <li>加入网络，授权即可</li>
@@ -268,14 +269,18 @@
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo zerotier-cli leave &lt;NETWORK_ID&gt;</span><br></pre></td></tr></table></figure>
 <p>之后彻底卸载，重新安装并加入网络</p>
 </li>
+<li><p>切换网络后无法连接</p>
+</li>
 </ol>
-<h3 id="2-6-切换网络后无法连接"><a href="#2-6-切换网络后无法连接" class="headerlink" title="2.6 切换网络后无法连接"></a>2.6 切换网络后无法连接</h3><blockquote>
+<blockquote>
 <p>搭建 planet 服务器</p>
 </blockquote>
-<h3 id="2-7-ipv6-转发"><a href="#2-7-ipv6-转发" class="headerlink" title="2.7 ipv6 转发"></a>2.7 ipv6 转发</h3><p><strong>路由表啊路由表</strong>，需要有一台能同时访问 ipv4 和 ipv6 的服务器，然后在路由表中添加一条规则，将 ipv6 的流量转发到 ipv4 上</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ip -6 route add 2001:db8::/32 via</span><br></pre></td></tr></table></figure>
-
-
+<ol start="4">
+<li>有设备更换后无法连接</li>
+</ol>
+<blockquote>
+<p>无解，创建新的 zerotier 网络，重新加入</p>
+</blockquote>
 <h2 id="3-花生壳"><a href="#3-花生壳" class="headerlink" title="3. 花生壳"></a>3. 花生壳</h2><h2 id="4-tailscale"><a href="#4-tailscale" class="headerlink" title="4. tailscale"></a>4. tailscale</h2><ol>
 <li><p>路由器运行 tailscale </p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale up --netfilter-mode=off  --advertise-routes=局域网网段 --accept-routes</span><br></pre></td></tr></table></figure>
@@ -474,7 +479,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-frps"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 frps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-frpc"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 frpc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 开机自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-windows"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-Linux"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 Linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85-ZeroTier"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装 ZeroTier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%83%A8%E7%BD%B2-Moon"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 部署 Moon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 路由器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E9%83%A8%E7%BD%B2-Planet"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 部署 Planet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 常见问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6-%E5%88%87%E6%8D%A2%E7%BD%91%E7%BB%9C%E5%90%8E%E6%97%A0%E6%B3%95%E8%BF%9E%E6%8E%A5"><span class="toc-number">2.6.</span> <span class="toc-text">2.6 切换网络后无法连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7-ipv6-%E8%BD%AC%E5%8F%91"><span class="toc-number">2.7.</span> <span class="toc-text">2.7 ipv6 转发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">3.</span> <span class="toc-text">3. 花生壳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-tailscale"><span class="toc-number">4.</span> <span class="toc-text">4. tailscale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-moonlight-sunshine"><span class="toc-number">5.</span> <span class="toc-text">5. moonlight + sunshine</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-frp"><span class="toc-number">1.</span> <span class="toc-text">1 frp</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-frps"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 frps</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-frpc"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 frpc</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-%E5%BC%80%E6%9C%BA%E8%87%AA%E5%90%AF%E5%8A%A8"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 开机自启动</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-1-windows"><span class="toc-number">1.3.1.</span> <span class="toc-text">1.3.1 windows</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#1-3-2-Linux"><span class="toc-number">1.3.2.</span> <span class="toc-text">1.3.2 Linux</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-Zerotier"><span class="toc-number">2.</span> <span class="toc-text">2. Zerotier</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85-ZeroTier"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 安装 ZeroTier</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-%E9%83%A8%E7%BD%B2-Moon"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 部署 Moon</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 路由器配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-%E9%83%A8%E7%BD%B2-Planet"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 部署 Planet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 常见问题</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%8A%B1%E7%94%9F%E5%A3%B3"><span class="toc-number">3.</span> <span class="toc-text">3. 花生壳</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-tailscale"><span class="toc-number">4.</span> <span class="toc-text">4. tailscale</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-moonlight-sunshine"><span class="toc-number">5.</span> <span class="toc-text">5. moonlight + sunshine</span></a></li></ol>
                     </div>
                 </span>
             </div>
