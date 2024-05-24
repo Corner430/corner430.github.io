@@ -14,3 +14,5 @@ declare: true
 4. 设置主板允许WOL（wake on lan）
 5. openwrt网络唤醒
 ![20230518084609](https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20230518084609.png)
+
+`etherwake -i eth1 <mac_addr>`

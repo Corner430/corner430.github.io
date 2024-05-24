@@ -27,7 +27,7 @@ tags:
     - Open .zshrc
     `vim ~/.zshrc`
     - Find the line which says `plugins=(git)`.
-    - Replace that line with `plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)`
+    - Replace that line with `plugins=(git vi-mode z zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting zsh-autocomplete)`
 
 - References
 [Oh my ZSH](https://github.com/ohmyzsh/ohmyzsh)
