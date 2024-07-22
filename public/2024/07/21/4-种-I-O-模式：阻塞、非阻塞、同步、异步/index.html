@@ -17,7 +17,7 @@
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240616171557.png">
 <meta property="article:published_time" content="2024-07-21T02:38:51.000Z">
-<meta property="article:modified_time" content="2024-07-21T02:41:40.548Z">
+<meta property="article:modified_time" content="2024-07-22T04:06:01.150Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="C&#x2F;C++">
 <meta property="article:tag" content="网络编程">
@@ -206,7 +206,7 @@
 <p>同步 <code>IO</code> 表示数据的读写操作是由调用者（请求方）自己来完成的，无论是阻塞还是非阻塞。在同步 <code>IO</code> 中，调用者必须等待数据读写操作的完成。</p>
 <h4 id="2-2-异步"><a href="#2-2-异步" class="headerlink" title="2.2 异步"></a>2.2 异步</h4><p>通俗而言，A 操作告诉 B 操作它感兴趣的事件以及通知方式，然后继续处理自己的事情，B 操作在完成后通知 A 操作。</p>
 <blockquote>
-<p><strong>通过 <code>man aio_read</code> 和 <code>man air_write</code> 查看相关函数的文档</strong></p>
+<p><strong>通过 <code>man aio_read</code> 和 <code>man aio_write</code> 查看相关函数的文档</strong></p>
 </blockquote>
 <p>异步 <code>IO</code> 则是调用者发出请求后，可以立即继续执行其他任务，不需要等待数据读写操作完成。当数据准备好或读写操作完成后，会通过回调函数、信号等方式通知调用者。异步 <code>IO</code> 通常需要特殊的 API 支持，例如 <code>aio_read</code> 和 <code>aio_write</code>。</p>
 <p><strong>在处理 <code>IO</code> 的时候，阻塞和非阻塞都是同步 <code>IO</code>。只有使用了特殊的 API 才是异步 <code>IO</code></strong></p>
@@ -218,6 +218,7 @@
 <li>异步非阻塞 <code>IO</code></li>
 </ul>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/****************** 同步阻塞 *****************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在同步阻塞模型中，线程会等待数据准备好，然后进行数据读写操作。</span></span><br><span class="line"><span class="comment">// 这是最简单的模型，也是最常见的 IO 操作方式。</span></span><br><span class="line"><span class="type">int</span> size = <span class="built_in">recv</span>(fd, buf, <span class="number">1024</span>, <span class="number">0</span>); <span class="comment">// 阻塞等待数据</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/****************** 同步非阻塞 *****************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在同步非阻塞模型中，线程不会等待数据准备好，而是立即返回。</span></span><br><span class="line"><span class="comment">// 并通过轮询或其他机制检查数据是否准备好。</span></span><br><span class="line"><span class="type">int</span> flags = <span class="built_in">fcntl</span>(fd, F_GETFL, <span class="number">0</span>);</span><br><span class="line"><span class="built_in">fcntl</span>(fd, F_SETFL, flags | O_NONBLOCK);</span><br><span class="line"></span><br><span class="line"><span class="type">int</span> size = <span class="built_in">recv</span>(fd, buf, <span class="number">1024</span>, <span class="number">0</span>);</span><br><span class="line"><span class="keyword">if</span> (size == <span class="number">-1</span> &amp;&amp; errno == EAGAIN) &#123;</span><br><span class="line">    <span class="comment">// 数据未准备好，稍后再试</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/****************** 异步阻塞 *****************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 虽然概念上存在，但实际上异步阻塞组合是矛盾的，因为异步操作本质上应该是非阻塞的。</span></span><br><span class="line"><span class="comment">// 异步 IO 意味着调用者不会等待数据准备或读写操作的完成。</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/****************** 异步非阻塞 *****************/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 在异步非阻塞模型中，调用者发出 IO 请求后立即返回，不等待数据读写操作的完成。</span></span><br><span class="line"><span class="comment">// 当操作完成后，通过回调或信号通知调用者。</span></span><br><span class="line"><span class="keyword">struct</span> <span class="title class_">aiocb</span> cb;</span><br><span class="line">cb.aio_fildes = fd;</span><br><span class="line">cb.aio_buf = buf;</span><br><span class="line">cb.aio_nbytes = <span class="number">1024</span>;</span><br><span class="line">cb.aio_offset = <span class="number">0</span>;</span><br><span class="line">cb.aio_sigevent.sigev_notify = SIGEV_SIGNAL;</span><br><span class="line">cb.aio_sigevent.sigev_signo = SIGUSR1;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 发出异步读请求</span></span><br><span class="line"><span class="built_in">aio_read</span>(&amp;cb);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理其他逻辑，等待读写操作完成的通知</span></span><br></pre></td></tr></table></figure>
+
       
 	
        
@@ -559,6 +560,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">路由器</a>
               </li>
              
@@ -647,6 +656,10 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">C++</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">WebDav</a>
               </li>
              
@@ -700,10 +713,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">gdb</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">C/C++</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -796,14 +805,6 @@ MathJax.Hub.Queue(function() {
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">阿里云盘</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">C++</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">网络编程</a>
               </li>
             
             <div class="clearfix"></div>
