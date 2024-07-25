@@ -16,7 +16,7 @@
 <meta property="og:description" content="libev 作者的观点：one loop per thread is usually a good model">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-07-24T16:57:47.000Z">
-<meta property="article:modified_time" content="2024-07-24T16:59:20.761Z">
+<meta property="article:modified_time" content="2024-07-25T03:15:09.053Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="C++">
 <meta name="twitter:card" content="summary">
@@ -192,7 +192,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>libev</em> 作者的观点：<em>one loop per thread is usually a good model</em><span id="more"></span>，这样多线程服务端编程的问题就转换为如何设计一个高效且易于使用的 <code>event loop</code>，然后每个线程 <strong><em>run</em></strong> 一个 <code>event loop</code> 就行了(当然线程间的同步、互斥少不了，还有其它的耗时事件需要起另外的线程来做)。</p>
-<p><code>event loop</code> 是 <code>non-blocking</code> 网络编程的核心，**<code>non-blocking</code> 几乎总是和 <code>IO-multiplexing</code> 一起使用**，原因有两点:</p>
+<p><code>event loop</code> 是 <code>non-blocking</code> 网络编程的核心，<code>non-blocking</code> 几乎总是和 <code>IO-multiplexing</code> 一起使用，原因有两点:</p>
 <ul>
 <li>没有人真的会用轮询 (<code>busy-pooling</code>) 来检查某个 <code>non-blocking IO</code> 操作是否完成，这样太浪费 CPU 资源了。</li>
 <li><code>IO-multiplex</code> 一般不能和 <code>blocking IO</code> 用在一起，因为 <code>blocking IO</code> 中 <code>read()/write()/accept()/connect()</code> 都有可能阻塞当前线程，这样线程就没办法处理其他 <code>socket</code> 上的 <code>IO</code> 事件了。</li>
