@@ -14,10 +14,10 @@ toc: 1
 
 ```shell
 # 1. 加入PPA仓库
-curl -sL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 # 2. 安装Node.js
-sudo apt-get install -y nodejs
 # 3. 检查Node.js版本
+curl -sL https://deb.nodesource.com/setup_21.x | sudo -E bash -
+sudo apt-get install -y nodejs
 node --version
 npm --version
 
