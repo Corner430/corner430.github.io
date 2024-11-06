@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://corner430.github.io">
   <title>内网穿透 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1 frp1.1 frps">
+  <meta name="description" content="frp 官网已提供基于 xtcp 的点对点(P2P)内网穿透  1 frp1.1 frps">
 <meta property="og:type" content="article">
 <meta property="og:title" content="内网穿透">
 <meta property="og:url" content="http://corner430.github.io/2023/04/03/%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="1 frp1.1 frps">
+<meta property="og:description" content="frp 官网已提供基于 xtcp 的点对点(P2P)内网穿透  1 frp1.1 frps">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240518151642.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240518151800.png">
@@ -21,7 +21,7 @@
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240518152210.png">
 <meta property="og:image" content="https://cdn.jsdelivr.net/gh/Corner430/Picture/images/20240518153919.png">
 <meta property="article:published_time" content="2023-04-03T08:59:06.000Z">
-<meta property="article:modified_time" content="2024-07-21T02:12:57.178Z">
+<meta property="article:modified_time" content="2024-11-06T14:21:17.500Z">
 <meta property="article:author" content="Corner">
 <meta property="article:tag" content="内网穿透">
 <meta name="twitter:card" content="summary">
@@ -71,7 +71,7 @@
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
-		<div class="post-count" style='font-size:14px'>总字数:58.1k字</div>
+		<div class="post-count" style='font-size:14px'>总字数:58.3k字</div>
     		
     			
     			<a q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
@@ -168,7 +168,7 @@
     
       <header class="article-header">
 	<div align="center" class="post-count">
-    		字数：1.3k字 | 预计阅读时长：6分钟
+    		字数：1.4k字 | 预计阅读时长：7分钟
 	</div>
         
   
@@ -197,7 +197,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><span id="more"></span>
+        <blockquote>
+<p><a target="_blank" rel="noopener" href="https://gofrp.org/zh-cn/docs/examples/xtcp/">frp 官网</a>已提供基于 xtcp 的点对点(P2P)内网穿透</p>
+</blockquote>
+<h2 id="1-frp"><a href="#1-frp" class="headerlink" title="1 frp"></a>1 frp</h2><h3 id="1-1-frps"><a href="#1-1-frps" class="headerlink" title="1.1 frps"></a>1.1 frps</h3><span id="more"></span>
 <p><strong><code>frps.ini</code> 示例</strong></p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port = 7000</span><br><span class="line">token = password</span><br><span class="line">dashboard_port = 7500(网页登录端口)</span><br><span class="line">dashboard_user = admin（网页登录帐号）</span><br><span class="line">dashboard_pwd = password（网页登录密码）</span><br><span class="line">vhost_http_port = 10080</span><br><span class="line">vhost_https_port = 10443</span><br></pre></td></tr></table></figure>
 
