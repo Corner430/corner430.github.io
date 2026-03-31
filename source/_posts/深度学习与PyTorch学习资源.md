@@ -1,6 +1,6 @@
 ---
 title: 深度学习与PyTorch学习资源
-date: 2023-08-31 00:00:00
+date: 2023-06-08 00:00:00
 tags:
     - 科研
     - PyTorch

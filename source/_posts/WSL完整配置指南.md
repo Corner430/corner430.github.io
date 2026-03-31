@@ -1,6 +1,6 @@
 ---
 title: WSL完整配置指南
-date: 2023-05-25 00:00:00
+date: 2023-04-03 00:00:00
 tags:
     - Windows
     - WSL

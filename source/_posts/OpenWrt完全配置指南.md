@@ -1,6 +1,6 @@
 ---
 title: OpenWrt完全配置指南
-date: 2023-06-02 00:00:00
+date: 2023-05-09 00:00:00
 tags:
     - 路由器
     - OpenWrt

@@ -1,6 +1,6 @@
 ---
 title: DIY装机记录与指南
-date: 2023-11-09 00:00:00
+date: 2023-05-21 00:00:00
 tags:
     - DIY
 declare: true
